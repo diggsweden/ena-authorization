@@ -26,4 +26,4 @@ Så här hanteras vi inkomna frågor:
 
 Steg 5-7 kan upprepas i en iterativ arbetsprocess för ombearbetning och utveckling.
 
-Slutlig resultat dokumenteras i bibliotektet här på GitHub.
+Slutlig resultat dokumenteras i bibliotektet, här i GitHub.
