@@ -1,7 +1,7 @@
 This repository is used for collaboration about national digital infrastructure for authorization in Sweden <br />`no-code` `lang SE`
 
 # Arbetsgrupp för Ena, byggblock Auktorisation
-Denna yta används för lagring och produktion av arbetsdokuement för arbetsgruppen i byggblock auktorisation inom Ena. 
+Denna samarbetsyta används för lagring och produktion av arbetsdokuement för arbetsgruppen i byggblock auktorisation inom Ena. 
 
 **Ena är Sveriges digitala infrastruktur** som siktar på att etablera en förvaltningsgemensam digital infrastruktur för att information ska kunna utbytas på ett säkert och effektivt sätt. Ett *byggblock* är ett samlingsnamn för ett antal ”delar” som kan vara tekniska förmågor, tjänster, standardiserade modeller, ramverk och mönster. De ska lösa gemensamma infrastrukturella utmaningar inom ett fokusområde, som i detta sammanhang handlar om gränsöverskridande identitets- och behörighetshantering. För mer information om Ena, se https://www.digg.se/ledning-och-samordning/ena---sveriges-digitala-infrastruktur 
 
@@ -26,4 +26,4 @@ Så här hanteras vi inkomna frågor:
 
 Steg 5-7 kan upprepas i en iterativ arbetsprocess för ombearbetning och utveckling.
 
-Slutlig resultat dokumenteras i bibliotektet, här i GitHub.
+Sammanställning av resultat dokumenteras i bibliotektet, här i GitHub.
