@@ -20,7 +20,7 @@ Så här hanteras vi inkomna frågor:
 2. Öppna frågor läggs upp i GitHub Issues.
 3. Möte med arbetsgrupp för genomgång av upplägg, bakgrund, behovsbild och avgränsningar.
 4. Återkoppling till avsändare.
-5. Arbete med prioriterade frågor där kontakt med avsändaren beaktas efter behov.
+5. Arbete med prioriterade frågor i en egen gren (branch). Kontakt med avsändaren beaktas efter behov.
 6. Möte med arbetsgrupp för genomgång av resultat/slutsater.
 7. Återkoppling till avsändare.
 
