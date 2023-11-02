@@ -2,19 +2,16 @@
 
 ```mermaid
 flowchart LR
-classDef Amber color:#000000,fill:#FFDEAD;
-classDef Green color:#000000,fill:#BDFFA4;
-classDef orange color:#000000,fill:#f96;
 subgraph Finansiell status
 A{{Användare<br><i>Handläggare<i><br>Kommun A}}:::Amber
 B([E-tjänst<br>Finansiell status<br>Myndighet B])
 C(Anvisningstjänst)
-D[(Info-källa<br>Kronofogden)]:::orange;
-E[(Info-källa<br>Bolags-verket)]:::Green;
-F(Intygsutfärdare Kommun A):::Amber;
-G(Autentiseringstjänst):::Amber;
-H(Ev. uppdragsväljare):::Amber;
-I(Attributskälla Kommun A):::Amber;
+D[(Info-källa<br>Kronofogden)]
+E[(Info-källa<br>Bolags-verket)]
+F(Intygsutfärdare Kommun A)
+G(Autentiseringstjänst)
+H(Ev. uppdragsväljare)
+I(Attributskälla Kommun A)
 A -->|Loggar in i extern e-tjänst<br> med e-legitimation | B
 B <==> C
 B -->|Rollattribut:<br>”handläggare av<br> ekonomiskt bistånd” | D
