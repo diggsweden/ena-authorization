@@ -1,7 +1,7 @@
 ### Flowchart Finansiell status
 
 ```mermaid
-flowchart LR
+graph LR
 classDef Amber color:#000000,fill:#FFDEAD
 classDef Green color:#000000,fill:#BDFFA4
 classDef orange color:#000000,fill:#f96
