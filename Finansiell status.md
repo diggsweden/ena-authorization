@@ -1,31 +1,4 @@
-### Flowchart Finansiell status
-
-```mermaid
-flowchart LR
-subgraph Finansiell status
-A{{Användare<br><i>Handläggare<i><br>Kommun A}}
-B([E-tjänst<br>Finansiell status<br>Myndighet B])
-C(Anvisningstjänst)
-D[(Info-källa<br>Kronofogden)]
-E[(Info-källa<br>Bolags-verket)]
-F(Intygsutfärdare Kommun A)
-G(Autentiseringstjänst)
-H(Ev. uppdragsväljare)
-I(Attributskälla Kommun A)
-A -->|Loggar in i extern e-tjänst<br> med e-legitimation | B
-B <==> C
-B -->|Rollattribut:<br>”handläggare av<br> ekonomiskt bistånd” | D
-B --> |Ej Rollattribut:<br>Offentliga uppgifter| E
-B --> |Anropar<br>intygsutfärdartjänst| F
-F <==> G
-F --> H
-F --> |Hämtar attribut som krävs<br>för åtkomst till Kronofogden| I
-F -.-> |Intyg med identitet<br>och attribut| B
-B-.->|E-tjänsten har tillit till de attribut<br> som fås och auktoriserar användaren<br> för användning av e-tjänsten |A
-end
-```
-
-### Sekvensdiagram inansiell status
+### Sekvensdiagram Finansiell status
 
 ```mermaid
 sequenceDiagram 
