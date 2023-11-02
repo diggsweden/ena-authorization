@@ -1,8 +1,8 @@
-# Header
-
-[mermaid]
-```
-flowchart LR
-
-A-->B
-```
+[source,mermaid]
+....
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->>Bob: Hello Bob, how are you?
+    Bob-->>Alice: Great!
+....
