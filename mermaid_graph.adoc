@@ -1,4 +1,4 @@
-[source,mermaid]
+[mermaid]
 ....
 sequenceDiagram
     participant Alice
