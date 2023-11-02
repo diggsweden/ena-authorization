@@ -1,7 +1,8 @@
 # Test to include mermaid graph in Asciidoc
 
 ifdef::safe-mode-secure[]
-Link to chapters instead of including them.
+In this environment we seem to be running Asciidoc in secure mode.
+This means inludes will be linked to chapters instead of actually included
 endif::safe-mode-secure[]
 
 include::mermaid_graph.adoc[]
