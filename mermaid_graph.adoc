@@ -1,3 +1,9 @@
+# Iaktagelser kring Asciidoc:
+
+- I Github körs Asciidoc i SECURE mode, vilket gör att includes blir länkar istället för inkluderingar
+- I Github fungerar preview av Mermaid i Asciidoc-filer (som denna fil)
+- I VSCode lyckas jag inte få preview att fungera (addon: https://marketplace.visualstudio.com/items?itemName=asciidoctor.asciidoctor-vscode)
+
 [source, mermaid]
 ....
 sequenceDiagram
