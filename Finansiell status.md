@@ -26,6 +26,7 @@ F --> |Hämtar attribut som krävs<br>för åtkomst till Kronofogden| I
 F -.-> |Intyg med identitet<br>och attribut| B
 B-.->|E-tjänsten har tillit till de attribut<br> som fås och auktoriserar användaren<br> för användning av e-tjänsten |A
 end
+```
 
 ### Sekvensdiagram inansiell status
 
@@ -52,6 +53,6 @@ B->>H: Autentiserar och auktoriserar E-tjänsten hos Kronofogdens info-källa
 H->>B: Får relevant rollattribut för "Handläggare av ekonomiskt bistånd"
 B->>I: Hämtar offentliga uppgifter från Bolagsverket
 B->>A: Användaren får<br>tillgång till tjänsten
-
+```
 
 
