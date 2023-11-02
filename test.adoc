@@ -1,3 +1,7 @@
 # Test to include mermaid graph in Asciidoc
 
+ifdef::safe-mode-secure[]
+Link to chapters instead of including them.
+endif::safe-mode-secure[]
+
 include::mermaid_graph.adoc[]
