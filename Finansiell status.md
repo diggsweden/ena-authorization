@@ -3,7 +3,7 @@
 ```mermaid
 flowchart LR
 subgraph Finansiell status
-A{{Användare<br><i>Handläggare<i><br>Kommun A}}:::Amber
+A{{Användare<br><i>Handläggare<i><br>Kommun A}}
 B([E-tjänst<br>Finansiell status<br>Myndighet B])
 C(Anvisningstjänst)
 D[(Info-källa<br>Kronofogden)]
