@@ -45,9 +45,13 @@ Svenskt ramverk för digital samverkan innehåller även ett antal rekommendatio
 
 I detta dokument kommer vi referera till principerna i våra analyser och när vi ger rekommendationer. 
 
-<mark>Det finns ett förslag på en ny EU-förordning, [Interoperabilitetsförordningen](https://commission.europa.eu/system/files/2022-11/com2022720_0.pdf), vilken tar avstamp i European Interoperability Framwork (EIF) och reglerar hur man säkerställer att digitala tjänster som tas fram inom EU linjerar mot EIF.</mark>
+<table bgcolor="lightblue" border=1><tr><td>
+Det finns ett förslag på en ny EU-förordning, <a href="https://commission.europa.eu/system/files/2022-11/com2022720_0.pdf">Interoperabilitetsförordningen</a>, vilken tar avstamp i European Interoperability Framwork (EIF) och reglerar hur man säkerställer att digitala tjänster som tas fram inom EU linjerar mot EIF.
+<br/><br/>
+Svenskt ramverk för digital samverkan är den svenska översättningen av EIF.
+</td></tr></table>
 
-<mark>Svenskt ramverk för digital samverkan är den svenska översättningen av EIF.</mark>
+
 
 ## Tillitsskapande förmågor
 
@@ -57,13 +61,56 @@ Vid all samverkan behöver man ha tillit till den part man samverkar med. Det fi
 - Som privatperson litar du på att leverantören av den webbläsare du använder realiserat säkerhetsmekanismer korrekt. Dessa säkerhetsmekanismer kan till exempel varna för ogiltiga servercertifikat när du surfar.
 - Som privatperson litar du på att information du delar med dig av via e-tjänster hos olika aktörer inom samhället hanteras på ett korrekt sätt.
 
-Som organisation som verkar inom offentlig förvaltning krävs som regel att du etablerar ett antal förmågor inom informationssäkerhetsområdet samt att du kan styrka detta på olika sätt.
-- Självdeklaration
-- Intern it-revision
-- Extern it-revision
-- Certifiering
+Hus skapas och säkerställs att denna tillit kan bestå över tid?
 
-Formerna för hur sådana tillitsskapande förmågor behöver styrkas regleras ofta i avtal bilateralt mellan parter eller med en federationsoperatör.
+### Nuläge
+Formerna för hur tillitsskapande förmågor behöver styrkas regleras ofta i avtal bilateralt mellan parter eller med en federationsoperatör. Tillitsskapande förmågor omfattar till exempel existensen av riktlinjer och processer inom informationssäkerhetsområdet, och att befattningar och ansvar tillsatta inom organisationen.
+
+Säkerställandet av tillitsskapande förmågor kan behöva ske med olika grad av försäkran beroende på olika samverkanskontext med olika skyddskrav för den funktionalitet och information som delas. 
+
+1. Självdeklaration
+1. Intern it-revision
+1. Extern it-revision
+1. Certifiering
+
+<table border=1 bgcolor="lightblue"><tr><td>
+Ovanstående nivåer rekommenderar vi benämns <i>"Level of trust"</i> och förkortas LOT
+</td></tr></table> 
+
+### Vision
+För att möjliggöra kostnadseffektiv digitalisering av Svensk offentlig förvaltning bör bygga upp ett system där bilaterala avtal inte behöver reglera tilliten utan att detta styrs nationellt via en tillitsfederation.
+
+```mermaid
+flowchart TD
+
+subgraph AO[Tjänstekonsument]
+    A(API-konsumerande system)
+end
+
+subgraph BO[Tjänsteproducent]
+    B-AS(Auktorisationstjänst)
+    BW(E-tjänst)
+    B(API)
+end
+
+subgraph TO[Sweden Trust - tillitsfederation]
+    T(Metadataregister)
+end
+
+subgraph TM[Tillitsgranskare X]
+    Q(Tillitsmärkesgranskning)
+end
+
+TM--granskar-->AO & BO
+TM--registrerar kvalitetsmärke-->TO
+AO & BO --säkerställer att \nkvalitetsmärkning finns-->TO
+AO==samverkar med etablerad tillit==>BO
+```
+*Schematisk bild över hur tillit mellan samverkande parter kan regleras via en tillitsfederation*
+
+Det behöver finnas utrymme för många olika typer av kvalitetsmärken för de olika roller en aktör kan inneha samt kanske även olika kvalitetsmärken för olika tillitsnivåer som krävs beroende på samverkanskontextet.
+
+För att minimera administration och användning av tillitsmärken bör dessa vara så få som möjligt.
 
 ## Digitala identiteter
 
@@ -76,7 +123,9 @@ De digitala identiteterna för fysiska personer autentiseras i regel av en legit
 
 För systemaktörer finns idag ingen nationell samordning av utgivning av digitala identiteter. Det finns ett antal aktörer som ger ut certifikat som kan nyttjas i mer eller mindre avgränsade syften. SITHS och EFOS ger ut så kallade funktionscertifikat (X.509-certifikat att nyttjas av systemaktörer). Digg ger ut funktionscertifikat till avtalsparter inom Säker Digital Kommunikation (SDK). 
 
-<mark>Tilliten mellan systemaktörer regleras ofta till det verksamhetskontext där utgivningen skett eller explicit till specifika certifikat baserat på bilaterala avtal</mark>
+<table border=1 bgcolor="lightblue"><tr><td>
+Tilliten mellan systemaktörer regleras ofta till det verksamhetskontext där utgivningen skett eller explicit till specifika certifikat baserat på bilaterala avtal
+</td></tr></table>
 
 ### Vision
 Dagens utgivna digitala identiteter behöver fungera även för framtida samverkan inom svensk offentlig förvaltning. Detta då man under lång tid investerat stora summor inom IAM-området och ansvarsfullt användande av statens finanser och skattemedel är av stor betydelse. 
@@ -116,8 +165,8 @@ end
 
 A--begär åtkomst-->B-AS
 A--anropar-->B
-AO & BO-.har tillit till.->TO
 B-AS--begär åtkomst-->T-AS
+BO & AO -.har tillit till.->TO
 B-AS--hämtar behörighetsgrundande attribut-->T
 ```
 ### Nationella OAuth2-profiler - behovsinventering
