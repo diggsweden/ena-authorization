@@ -65,7 +65,7 @@ Vid all samverkan behöver man ha tillit till den part man samverkar med. Det fi
 - Som privatperson litar du på att leverantören av den webbläsare du använder realiserat säkerhetsmekanismer korrekt. Dessa säkerhetsmekanismer kan till exempel varna för ogiltiga servercertifikat när du surfar.
 - Som privatperson litar du på att information du delar med dig av via e-tjänster hos olika aktörer inom samhället hanteras på ett korrekt sätt.
 
-Hus skapas och säkerställs att denna tillit kan bestå över tid?
+Hus skapas tillit och hur säkerställs den över tid?
 
 ### Nuläge
 Formerna för hur tillitsskapande förmågor behöver styrkas regleras ofta i avtal bilateralt mellan parter eller med en federationsoperatör. Tillitsskapande förmågor omfattar till exempel existensen av riktlinjer och processer inom informationssäkerhetsområdet, och att befattningar och ansvar tillsatta inom organisationen.
@@ -145,21 +145,78 @@ Vidare behöver en person kunna agera utifrån olika uppdrag inom en och samma o
 
 En behörighetsmodell behöver även ge stöd för att uttrycka ställföreträdande- och andra ombudsroller och det behöver tas fram kodverk och strukturer för att överföra denna information digitalt.
 
+<table border=1 bgcolor="yellow"><tr><td>
+OBS! Bilden nedan har utgått ifrån Behörighetsmodell för svensk vård och omsorg, men skulle behöva förfinas, förklaras, samt exemplifieras utifrån konkreta behov.
+</td></tr></table>
+
 ```mermaid
 erDiagram
 
 Assignment }o--o{ Assignee: is-granted-to
 Assignment }o--|| OrganizationalScope: valid-for
 OrganizationalScope }|--|{ OrganizationalUnit: includes
-Attribute }o--o{ OrganizationalScope: is-limited-to 
-Assignment }o--|{ Attribute: is-connected-to
-AuthorizationPolicy }o--o{ Attribute: includes
+Attribute }o--o{ OrganizationalScope: is-limited-by 
+Assignment }o--|{ Attribute: includes
+AuthorizationContext }o--o{ Attribute: requires
 ```
+*Konceptuell bild över nuvarande behörighetsmodell inom Svensk vård och omsorg*
 
 ## Behörighetsgrundande information
+För att kunna garantera kvaliteten i den åtkomsthantering som sker bör informationsförsörjningen av behörighetsgrundande information ske med en tillförlitlighet på en nivå som motsvarar skyddsbehovet för den digitala tjänst som beslutet avser.
+
+Högst kvalitet på behörighetsgrundande information fås genom att den part som äger och administrera informationen också används som källa för informationsförsörjningen. Exempelvis bör information om läkarlegitimationer informationsförsörjas från Socialstyrelsens HOSP-register. På samma sätt bör medarbetares uppdragsgivare informationsförsörja information som härrör till de uppdrag medarbetaren har.
+
+I många fall är det tidsödande eller ogörligt att informationsförsörja behörighetsstyrande information direkt från källan utan man kopierar informationen till enn annan plats varifrån den enklare kan inhämtas. Detta kan till exempel handla om att en organisation hämtar en fräsch kopia av HOSP varje dag, eller att en legitimeringstjänst cachar dataposter från en informationskälla under en timme innan den inhämtas igen. Detta i syfte att skapa ökad robusthet och bättre svarstider. 
+
+Vad som är en adekvat nivå av säkerhet för cahning behöver man komma överens om, samt om detta ska kunna skilja sig för olika tillämpningsområden eller informationsmängder.
+
+**Rekommendationer:**
+<ol>
+<li>Behörighetsgrundande information ska ha en utpekad källa</li>
+<li>Behörighetsgrundande information kan cachas för mer robust och effektiv åtkomstbeslutshantering</li>
+<li>De parter som bifogar behörighetsgrundande information till en digital identitet bör ha granskats för att detta sker kontrollerat och tillitsfullt, exempelvis genom granskning mot ett kvalitetsmärke</li>
+</ol>
 
 ## Åtkomsthantering i digitala tjänster
+I åtkomsthanteringen knyts alla aspekter av digitalaidentiteter, tillitskedjor, samt informationsförsörjning av behörighetsgrundande information samman.
 
+
+```mermaid
+graph 
+subgraph TO[Tillitsfederation]
+    TM(Metadataregister)
+end
+
+subgraph IDO[Identitetsutgivare]
+    ID(Digital identitet)
+    IDA(Autentisering)
+end
+
+subgraph AO[Tjänstekonsumerande organisation]
+    AK[(uppdragskälla)]
+    AL(Legitimeringstjänst) 
+end
+
+subgraph NO[Registerhållande organisation]
+    NK[(Nationell källa)]
+end
+
+subgraph BO[Tjänsteproducerande organisation]
+    B-AS(Auktorisering)
+    B-P(Åtkomstpolicy)
+    BK[(Explicita\nBehörigheter)]
+    B(Digital tjänst)
+end
+
+IDO & AO & BO & NO -.är medlem i.->TO
+AL--bifogar info från-->AK
+AL--autentiserar digital identitet via-->IDA
+B-AS--inhämtar info från-->NK & BK
+B-AS--verifierar tillit med hjälp av-->TM
+B-AS--utvärderar-->B-P
+B-P-.kräver information från.-AK & TM
+B--litar på-->B-AS
+```
 
 
 #######################################
