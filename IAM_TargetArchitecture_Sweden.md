@@ -7,17 +7,21 @@ För en tillitsfull och kostnadseffektiv samverkan inom offentlig förvaltning b
 ```mermaid
 graph LR
 subgraph TS[Tillitssfär]
-ID(Digitala\n identiteter) 
-B(Behörighetsgrundande\ninformation)
-Å(Åtkomsthantering \ni digitala tjänster)
+    ID(Digitala\n identiteter) 
+    B(Behörighetsgrundande\ninformation)
+    BM(Behörighetsmodell)
+    Å(Åtkomsthantering \ni digitala tjänster)
 end
+
 T(Tillitsskapande\n förmågor)
 Å --kräver--> ID
 T --skapar\n förutsättningar för --> TS
-B -.attributerar.->ID
-Å --kräver--> B
+B -.kopplas till.->ID
+Å --kräver--> BM
+BM --beskriver--> B
+B --tillgängliggörs för--> Å
 ```
-*Bild över hur områdena tillitsskapande förmågor, digitala identiteter, behörighetsgrundande information och åtkomsthantering i digitala tjänster beror av varandra*
+*Bild över hur områdena tillitsskapande förmågor, digitala identiteter, behörighetsmodell, behörighetsgrundande information och åtkomsthantering i digitala tjänster beror av varandra*
 
 Inom alla dessa områden finns det redan idag olika grad av standardisering i syfte att möjliggöra digitaliseringen av olika verksamhetsområden. Få lösningar idag är dock förankrade och nyttjade på nationell skala och det försöker vi adressera med denna målarkitektur.
 
@@ -130,7 +134,27 @@ Tilliten mellan systemaktörer regleras ofta till det verksamhetskontext där ut
 ### Vision
 Dagens utgivna digitala identiteter behöver fungera även för framtida samverkan inom svensk offentlig förvaltning. Detta då man under lång tid investerat stora summor inom IAM-området och ansvarsfullt användande av statens finanser och skattemedel är av stor betydelse. 
 
-Vi ser även ett behov av ett nationellt kvalitetsmärke för utgivare av funktionscertifikat. Ett sådant kvalitetsmärke kan, i kombination med ett nationellt ramverk för organisationstillit, möjliggöra tillitsfull samverkan mellan system.
+Vi ser även ett behov av ett nationellt kvalitetsmärke för utgivare av funktionscertifikat. Ett sådant kvalitetsmärke kan, i kombination med ett nationellt tillitsfederation, möjliggöra tillitsfull samverkan mellan system.
+
+## Behörighetsmodell
+Behörighetsmodellen behöver stödja åtkomsthanteringen behov av att uttrycka en tjänsts åtkomstpolicy. Åtkomstpolicyer grundas ofta i lagars utformning och tolkningar av dessa i form av myndigheters vägledningar och policybeslut.
+
+Behörighetsmodellen behöver även ta hänsyn till att kostnadseffektiv tillämpning blir möjlig. Till exempel ställer hälso- och sjukvårdens organisation krav på att en person kan agera i olika uppdrag för olika juridiska organisationer utan att för den sakens skull behöva flera e-tjänstlegitimationer. 
+
+Vidare behöver en person kunna agera utifrån olika uppdrag inom en och samma organisation och utifrån valt uppdrag få olika tillgång till information och funktioner.
+
+En behörighetsmodell behöver även ge stöd för att uttrycka ställföreträdande- och andra ombudsroller och det behöver tas fram kodverk och strukturer för att överföra denna information digitalt.
+
+```mermaid
+erDiagram
+
+Assignment }o--o{ Assignee: is-granted-to
+Assignment }o--|| OrganizationalScope: valid-for
+OrganizationalScope }|--|{ OrganizationalUnit: includes
+Attribute }o--o{ OrganizationalScope: is-limited-to 
+Assignment }o--|{ Attribute: is-connected-to
+AuthorizationPolicy }o--o{ Attribute: includes
+```
 
 ## Behörighetsgrundande information
 
@@ -138,8 +162,10 @@ Vi ser även ett behov av ett nationellt kvalitetsmärke för utgivare av funkti
 
 
 
+#######################################
 
-## Strategisk plan
+
+## Övrigt ej sorterat
 
 ### OICD Federation och tillit
 1. Vad är skillnaden mellan trust anchors, intermediates och trust mark issuers? Är det två olika tillitsstrukturer?
