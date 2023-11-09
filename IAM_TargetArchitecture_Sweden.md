@@ -180,9 +180,10 @@ Vad som är en adekvat nivå av säkerhet för cahning behöver man komma övere
 ## Åtkomsthantering i digitala tjänster
 I åtkomsthanteringen knyts alla aspekter av digitalaidentiteter, tillitskedjor, samt informationsförsörjning av behörighetsgrundande information samman.
 
+Korrekta åtkomsbeslut kan vara beroende av informationsförsörjning av behörighetsgrundande från både externa och lokala källor utöver information som tillförts under legitimeringen. 
 
 ```mermaid
-graph 
+graph TD
 subgraph TO[Tillitsfederation]
     TM(Metadataregister)
 end
@@ -198,7 +199,7 @@ subgraph AO[Tjänstekonsumerande organisation]
 end
 
 subgraph NO[Registerhållande organisation]
-    NK[(Nationell källa)]
+    NK[(Extern källa)]
 end
 
 subgraph BO[Tjänsteproducerande organisation]
@@ -208,16 +209,16 @@ subgraph BO[Tjänsteproducerande organisation]
     B(Digital tjänst)
 end
 
+BO ~~~~~ AO
 IDO & AO & BO & NO -.är medlem i.->TO
 AL--bifogar info från-->AK
 AL--autentiserar digital identitet via-->IDA
 B-AS--inhämtar info från-->NK & BK
 B-AS--verifierar tillit med hjälp av-->TM
 B-AS--utvärderar-->B-P
-B-P-.kräver information från.-AK & TM
 B--litar på-->B-AS
 ```
-
+*Beroenden mellan olika aktörer och komponenter för att möjliggöra tillitsfulla åtkomstbeslut*
 
 #######################################
 
