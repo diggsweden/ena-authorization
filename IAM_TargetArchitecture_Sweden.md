@@ -23,6 +23,25 @@ B --tillgängliggörs för--> Å
 ```
 *Bild över hur områdena tillitsskapande förmågor, digitala identiteter, behörighetsmodell, behörighetsgrundande information och åtkomsthantering i digitala tjänster beror av varandra*
 
+```mermaid
+graph LR
+subgraph TS[Tillitssfär]
+    ID(Digitala\n identiteter) 
+    B(Behörighetsgrundande\ninformation)
+    BM(Behörighetsattribut)
+    Å(Åtkomsthantering \ni digitala tjänster)
+end
+
+T(Tillitsskapande\n förmågor)
+Å --kräver--> ID
+T --skapar\n förutsättningar för --> TS
+B -.kopplas till.->ID
+Å --kräver--> BM
+BM --beskriver--> B
+B --tillgängliggörs för--> Å
+```
+*Bild över hur områdena tillitsskapande förmågor, digitala identiteter, behörighetsattribut, behörighetsgrundande information och åtkomsthantering i digitala tjänster beror av varandra*
+
 Inom alla dessa områden finns det redan idag olika grad av standardisering i syfte att möjliggöra digitaliseringen av olika verksamhetsområden. Få lösningar idag är dock förankrade och nyttjade på nationell skala och det försöker vi adressera med denna målarkitektur.
 
 För varje område presenteras kort nuläget, visionen och strategiska förflyttningar som tar oss mot visionen.
