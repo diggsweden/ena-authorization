@@ -6,16 +6,15 @@ För en tillitsfull och kostnadseffektiv samverkan inom offentlig förvaltning b
 
 ```mermaid
 graph LR
-subgraph TS[Tillitssfär]
+subgraph TS[Tillit]
     ID(Digitala\n identiteter) 
     B(Behörighetsgrundande\ninformation)
     BM(Behörighetsattribut)
     Å(Åtkomsthantering \ni digitala tjänster)
 end
 
-T(Tillitsskapande\n förmågor)
 Å --kräver--> ID
-T --skapar\n förutsättningar för --> TS
+T(Tillitsfederation) --skapar\n förutsättningar för --> TS
 B -.kopplas till.->ID
 Å --kräver--> BM
 BM --återger--> B
@@ -40,29 +39,19 @@ Svenskt ramverk för digital samverkan är den svenska översättningen av EIF.
 
 
 
-## Tillitsskapande förmågor
+## Tillit
 
-Vid all samverkan behöver man ha tillit till den part man samverkar med. Det finns idag ett antal strukturer för detta.
+Vid all samverkan behöver man ha tillit till den part man samverkar med. Det finns idag ett antal strukturer för detta som ayftar till att både privatpersoner och organisationer ska känna tillit till att information som delas via e-tjänster och APIer inom samhället hanteras på ett korrekt sätt.
 
-- Som privatperson litar du på att Google Play och Apple Store kvalitetssäkrat de appar som publicerats och att apparna inte missbrukar den information du som privatperson delar med dem.
-- Som privatperson litar du på att leverantören av den webbläsare du använder realiserat säkerhetsmekanismer korrekt. Dessa säkerhetsmekanismer kan till exempel varna för ogiltiga servercertifikat när du surfar.
-- Som privatperson litar du på att information du delar med dig av via e-tjänster hos olika aktörer inom samhället hanteras på ett korrekt sätt.
-
-Hus skapas tillit och hur säkerställs den över tid?
+Hus skapas denna tillit och hur säkerställs den över tid?
 
 ### Nuläge
 Formerna för hur tillitsskapande förmågor behöver styrkas regleras ofta i avtal bilateralt mellan parter eller med en federationsoperatör. Tillitsskapande förmågor omfattar till exempel existensen av riktlinjer och processer inom informationssäkerhetsområdet, och att befattningar och ansvar tillsatta inom organisationen.
 
-Säkerställandet av tillitsskapande förmågor kan behöva ske med olika grad av försäkran beroende på olika samverkanskontext med olika skyddskrav för den funktionalitet och information som delas. 
-
-**SKRIV OM**
-1. Självdeklaration
-1. Intern it-revision
-1. Extern it-revision
-1. Certifiering
+Säkerställandet av tillitsskapande förmågor kan behöva ske med olika grad av försäkran beroende på samverkanskontext och skyddskrav för den funktionalitet och information som delas. Kraven som ställs kan också skilja sig mellan olika typer av aktörer.
 
 <table border=1 bgcolor="lightblue"><tr><td>
-Ovanstående nivåer rekommenderar vi benämns <i>"Level of trust"</i> och förkortas LOT
+Ovanstående nivåer rekommenderar vi benämns <i>"Level of trust"</i> och förkortas LOT1, LOT2, LOT3 och LOT4. Högre LOT-nivå ställer högre krav på tillitsskapande förmågorna. 
 </td></tr></table> 
 
 ### Vision
@@ -91,7 +80,7 @@ end
 
 TM--granskar-->AO & BO
 TM--registrerar kvalitetsmärke-->TO
-AO & BO --säkerställer att \nkvalitetsmärkning finns-->TO
+AO & BO --säkerställer att \ntillitsmärkning finns-->TO
 AO==samverkar med etablerad tillit==>BO
 ```
 *Schematisk bild över hur tillit mellan samverkande parter kan regleras via en tillitsfederation*
@@ -126,7 +115,7 @@ För att kunna garantera kvaliteten i den åtkomsthantering som sker bör inform
 
 Högst kvalitet på behörighetsgrundande information fås genom att den part som äger och administrera informationen också används som källa för informationsförsörjningen. Exempelvis bör information om läkarlegitimationer informationsförsörjas från Socialstyrelsens HOSP-register. På samma sätt bör medarbetares uppdragsgivare informationsförsörja information som härrör till de uppdrag medarbetaren har.
 
-**SKRIV OM-->**
+**SKRIV OM-->ATTRIBUT...**
 *Vidare behöver en person kunna agera utifrån olika uppdrag inom en och samma organisation och utifrån valt uppdrag få olika tillgång till information och funktioner.*
 
 *En behörighetsmodell behöver även ge stöd för att uttrycka ställföreträdande- och andra ombudsroller och det behöver tas fram kodverk och strukturer för att överföra denna information digitalt.*
