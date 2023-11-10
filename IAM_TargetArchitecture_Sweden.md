@@ -1,27 +1,8 @@
 # Målarkitektur för nationell hantering av tillit, identitet och behörighet
 
-## Inledning
+## Målarkitekturens syfte
 
 För en tillitsfull och kostnadseffektiv samverkan inom offentlig förvaltning behöver vi utveckla och förankra nationella anvisningar för IAM inom områdena visade i nedanstående bild
-
-```mermaid
-graph LR
-subgraph TS[Tillitssfär]
-    ID(Digitala\n identiteter) 
-    B(Behörighetsgrundande\ninformation)
-    BM(Behörighetsmodell)
-    Å(Åtkomsthantering \ni digitala tjänster)
-end
-
-T(Tillitsskapande\n förmågor)
-Å --kräver--> ID
-T --skapar\n förutsättningar för --> TS
-B -.kopplas till.->ID
-Å --kräver--> BM
-BM --beskriver--> B
-B --tillgängliggörs för--> Å
-```
-*Bild över hur områdena tillitsskapande förmågor, digitala identiteter, behörighetsmodell, behörighetsgrundande information och åtkomsthantering i digitala tjänster beror av varandra*
 
 ```mermaid
 graph LR
@@ -37,8 +18,7 @@ T(Tillitsskapande\n förmågor)
 T --skapar\n förutsättningar för --> TS
 B -.kopplas till.->ID
 Å --kräver--> BM
-BM --beskriver--> B
-B --tillgängliggörs för--> Å
+BM --återger--> B
 ```
 *Bild över hur områdena tillitsskapande förmågor, digitala identiteter, behörighetsattribut, behörighetsgrundande information och åtkomsthantering i digitala tjänster beror av varandra*
 
@@ -50,26 +30,10 @@ För varje område presenteras kort nuläget, visionen och strategiska förflytt
 
 I vårt arbete med målarkitekturen utgår vi ifrån principerna i  [Svenskt ramverk för digital samverkan, Digg](https://www.digg.se/kunskap-och-stod/svenskt-ramverk-for-digital-samverkan). 
 
-1. Samverka som förstahandsval 
-1. Arbeta aktivt med juridiken
-1. Öppna upp
-1. Skapa transparens till den interna hanteringen
-1. Återanvänd från andra
-1. Se till att information och data kan överföras
-1. Sätt användaren i centrum
-1. Gör digitala tjänster tillgängliga och inkluderande
-1. Gör det säkert
-1. Hitta rätt balans för den personliga integriteten
-1. Använd ett språk som användarna förstår
-1. Gör administrationen enkel
-1. Ha helhetssyn på informationshanteringen 
-
-Svenskt ramverk för digital samverkan innehåller även ett antal rekommendationer för hur man tillämpar principerna.
-
-I detta dokument kommer vi referera till principerna i våra analyser och när vi ger rekommendationer. 
+Svenskt ramverk för digital samverkan innehåller även ett antal rekommendationer för hur man tillämpar principerna. För IAM-området kan vi komma att behöva ta fram ett antal specificerade principer och rekommendationer. 
 
 <table bgcolor="lightblue" border=1><tr><td>
-Det finns ett förslag på en ny EU-förordning, <a href="https://commission.europa.eu/system/files/2022-11/com2022720_0.pdf">Interoperabilitetsförordningen</a>, vilken tar avstamp i European Interoperability Framwork (EIF) och reglerar hur man säkerställer att digitala tjänster som tas fram inom EU linjerar mot EIF.
+Det fi,nns ett förslag på en ny EU-förordning, <a href="https://commission.europa.eu/system/files/2022-11/com2022720_0.pdf">Interoperabilitetsförordningen</a>, vilken tar avstamp i European Interoperability Framwork (EIF) och reglerar hur man säkerställer att digitala tjänster som tas fram inom EU linjerar mot EIF.
 <br/><br/>
 Svenskt ramverk för digital samverkan är den svenska översättningen av EIF.
 </td></tr></table>
@@ -91,6 +55,7 @@ Formerna för hur tillitsskapande förmågor behöver styrkas regleras ofta i av
 
 Säkerställandet av tillitsskapande förmågor kan behöva ske med olika grad av försäkran beroende på olika samverkanskontext med olika skyddskrav för den funktionalitet och information som delas. 
 
+**SKRIV OM**
 1. Självdeklaration
 1. Intern it-revision
 1. Extern it-revision
@@ -155,35 +120,17 @@ Dagens utgivna digitala identiteter behöver fungera även för framtida samverk
 
 Vi ser även ett behov av ett nationellt kvalitetsmärke för utgivare av funktionscertifikat. Ett sådant kvalitetsmärke kan, i kombination med ett nationellt tillitsfederation, möjliggöra tillitsfull samverkan mellan system.
 
-## Behörighetsmodell
-Behörighetsmodellen behöver stödja åtkomsthanteringen behov av att uttrycka en tjänsts åtkomstpolicy. Åtkomstpolicyer grundas ofta i lagars utformning och tolkningar av dessa i form av myndigheters vägledningar och policybeslut.
-
-Behörighetsmodellen behöver även ta hänsyn till att kostnadseffektiv tillämpning blir möjlig. Till exempel ställer hälso- och sjukvårdens organisation krav på att en person kan agera i olika uppdrag för olika juridiska organisationer utan att för den sakens skull behöva flera e-tjänstlegitimationer. 
-
-Vidare behöver en person kunna agera utifrån olika uppdrag inom en och samma organisation och utifrån valt uppdrag få olika tillgång till information och funktioner.
-
-En behörighetsmodell behöver även ge stöd för att uttrycka ställföreträdande- och andra ombudsroller och det behöver tas fram kodverk och strukturer för att överföra denna information digitalt.
-
-<table border=1 bgcolor="yellow"><tr><td>
-OBS! Bilden nedan har utgått ifrån Behörighetsmodell för svensk vård och omsorg, men skulle behöva förfinas, förklaras, samt exemplifieras utifrån konkreta behov.
-</td></tr></table>
-
-```mermaid
-erDiagram
-
-Assignment }o--o{ Assignee: is-granted-to
-Assignment }o--|| OrganizationalScope: valid-for
-OrganizationalScope }|--|{ OrganizationalUnit: includes
-Attribute }o--o{ OrganizationalScope: is-limited-by 
-Assignment }o--|{ Attribute: includes
-AuthorizationContext }o--o{ Attribute: requires
-```
-*Konceptuell bild över nuvarande behörighetsmodell inom Svensk vård och omsorg*
 
 ## Behörighetsgrundande information
 För att kunna garantera kvaliteten i den åtkomsthantering som sker bör informationsförsörjningen av behörighetsgrundande information ske med en tillförlitlighet på en nivå som motsvarar skyddsbehovet för den digitala tjänst som beslutet avser.
 
 Högst kvalitet på behörighetsgrundande information fås genom att den part som äger och administrera informationen också används som källa för informationsförsörjningen. Exempelvis bör information om läkarlegitimationer informationsförsörjas från Socialstyrelsens HOSP-register. På samma sätt bör medarbetares uppdragsgivare informationsförsörja information som härrör till de uppdrag medarbetaren har.
+
+**SKRIV OM-->**
+*Vidare behöver en person kunna agera utifrån olika uppdrag inom en och samma organisation och utifrån valt uppdrag få olika tillgång till information och funktioner.*
+
+*En behörighetsmodell behöver även ge stöd för att uttrycka ställföreträdande- och andra ombudsroller och det behöver tas fram kodverk och strukturer för att överföra denna information digitalt.*
+
 
 I många fall är det tidsödande eller ogörligt att informationsförsörja behörighetsstyrande information direkt från källan utan man kopierar informationen till enn annan plats varifrån den enklare kan inhämtas. Detta kan till exempel handla om att en organisation hämtar en fräsch kopia av HOSP varje dag, eller att en legitimeringstjänst cachar dataposter från en informationskälla under en timme innan den inhämtas igen. Detta i syfte att skapa ökad robusthet och bättre svarstider. 
 
