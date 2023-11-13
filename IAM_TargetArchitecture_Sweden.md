@@ -39,23 +39,25 @@ Svenskt ramverk för digital samverkan är den svenska översättningen av EIF.
 
 
 
-## Tillit
+## Tillitsfederation
 
-Vid all samverkan behöver man ha tillit till den part man samverkar med. Det finns idag ett antal strukturer för detta som ayftar till att både privatpersoner och organisationer ska känna tillit till att information som delas via e-tjänster och APIer inom samhället hanteras på ett korrekt sätt.
+Vid all samverkan behöver man ha tillit till den part man samverkar med. Det finns idag ett antal tillvägagångssätt för detta som syftar till att både privatpersoner och organisationer ska känna tillit till att information som delas via e-tjänster och APIer inom samhället hanteras på ett korrekt sätt.
 
 Hus skapas denna tillit och hur säkerställs den över tid?
 
 ### Nuläge
-Formerna för hur tillitsskapande förmågor behöver styrkas regleras ofta i avtal bilateralt mellan parter eller med en federationsoperatör. Tillitsskapande förmågor omfattar till exempel existensen av riktlinjer och processer inom informationssäkerhetsområdet, och att befattningar och ansvar tillsatta inom organisationen.
+Formerna för hur tillitsskapande förmågor behöver styrkas regleras ofta i avtal bilateralt mellan parter eller med en federationsoperatör. Tillitsskapande förmågor omfattar till exempel existensen av riktlinjer och processer inom informationssäkerhetsområdet, och att befattningar och ansvar finns tillsatta inom organisationen.
 
-Säkerställandet av tillitsskapande förmågor kan behöva ske med olika grad av försäkran beroende på samverkanskontext och skyddskrav för den funktionalitet och information som delas. Kraven som ställs kan också skilja sig mellan olika typer av aktörer.
-
-<table border=1 bgcolor="lightblue"><tr><td>
-Ovanstående nivåer rekommenderar vi benämns <i>"Level of trust"</i> och förkortas LOT1, LOT2, LOT3 och LOT4. Högre LOT-nivå ställer högre krav på tillitsskapande förmågorna. 
-</td></tr></table> 
+Säkerställandet av tillitsskapande förmågor kan behöva ske med olika grad av försäkran beroende på samverkanskontext och skyddskrav för den funktionalitet och information som delas. Kraven som ställs behöver också kunna skilja sig mellan olika typer av aktörer.
 
 ### Vision
 För att möjliggöra kostnadseffektiv digitalisering av Svensk offentlig förvaltning bör bygga upp ett system där bilaterala avtal inte behöver reglera tilliten utan att detta styrs nationellt via en tillitsfederation.
+
+En tillitsfederation bör definiera vilka krav som ska gälle för respektive typ av aktörs, graderat i olika tillitsnivåer.
+
+<table border=1 bgcolor="lightblue"><tr><td>
+Olika nivåer av tillit rekommenderar vi benämns <i>"Level of trust"</i> och förkortas LoT1, LoT2, LoT3 och LoT4. En högre LoT-nivå ställer högre krav på tillitsskapande förmågor hos en aktör. 
+</td></tr></table> 
 
 ```mermaid
 flowchart TD
