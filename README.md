@@ -27,3 +27,7 @@ Så här hanteras vi inkomna frågor:
 Steg 5-7 kan upprepas i en iterativ arbetsprocess för ombearbetning och utveckling.
 
 Sammanställning av resultat dokumenteras i bibliotektet, här i GitHub.
+
+- [Arkitektur](/architecture)
+
+
