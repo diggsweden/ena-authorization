@@ -28,6 +28,7 @@ Steg 5-7 kan upprepas i en iterativ arbetsprocess för ombearbetning och utveckl
 
 Sammanställning av resultat dokumenteras i bibliotektet, här i GitHub.
 
+- [Målbild](/objectives)
 - [Arkitektur](/architecture)
-
+- [Tillit](/tillitsmodell/)
 
