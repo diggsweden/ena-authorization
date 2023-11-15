@@ -1,6 +1,6 @@
 ##### Innehållsförteckning  
 - [Bakgrund](#bakgrund)
-- [Dagens federationer](#federationer)
+- [Dagens federationer](/federationer.md)
   - [Sweden Connect](#swedenconnect)
   - [SWAMID](#swamid)
   - [Sambi](#sambi)
