@@ -1,0 +1,1 @@
+# Referensarkitektur auktorisation
