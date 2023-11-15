@@ -1,11 +1,11 @@
 ##### Innehållsförteckning  
 - [Bakgrund](#bakgrund)
-- [Dagens federationer](/federationer.md)
-  - [Sweden Connect](#swedenconnect)
-  - [SWAMID](#swamid)
-  - [Sambi](#sambi)
-  - [Skolfederation](#skolfederation)
-  - [Fidus](#fidus)
+- [Dagens federationer](federationer.md)
+  - [Sweden Connect](federationer.md#swedenconnect)
+  - [SWAMID](federationer.md#swamid)
+  - [Sambi](federationer.md#sambi)
+  - [Skolfederation](federationer.md#skolfederation)
+  - [Fidus](federationer.md#fidus)
 ----
 
 <a name="bakgrund"/>
