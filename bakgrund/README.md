@@ -8,7 +8,7 @@ För att en federation av detta slag ska komma till stånd krävs att parterna k
 
 Tillit mellan parter och deras digitala tjänster etableras vanligtvis genom något någon form av *tillitsmodell*.
 
-# Federationer idag
+# Dagens federationer
 Detta avsnitt ger kortfattade beskrivningar av de federationer som berör samhällsnära verksamheter i Sverige.
 
 ## Sweden Connect
