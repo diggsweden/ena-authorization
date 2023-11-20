@@ -1,6 +1,6 @@
 # Arkitektur - tänkta leverabler
 
-## [Samverksans-/interoperabilitetsarkitektur](architectural-overview.md)
+## [Samverksans-/interoperabilitetsarkitektur](federation-architecture.md)
 - Övergripande mål och principer: 
 Detta inkluderar de övergripande målen för systemet eller organisationen och de arkitektoniska principer som ska styra utvecklingen och användningen av arkitekturen.
 
@@ -15,7 +15,7 @@ Det kan innefatta olika aspekter som systemets komponenter, aktörer och deras r
 
 - Krav: En sammanställning av krav från olika intressenter eller intressentgrupper som bör beaktas vid utvecklingen av arkitekturen.
 
-## [Tekniska federationsarkitekturer](federation-architecture.md)
+## [Tekniska federationsarkitekturer](technical-federation-architecture.md)
 ### SAML & OIDC-OAuth
 - Översikt och sammanfattning: En introduktion till federationsramvkeret, dess syfte, och en övergripande beskrivning av dess arkitektur.
 
