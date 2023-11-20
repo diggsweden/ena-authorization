@@ -1,1 +1,0 @@
-# Arkitekturell översikt
