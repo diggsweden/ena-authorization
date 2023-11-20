@@ -1,20 +1,22 @@
-# Tänkta leverabler
-## [Övergripande arkitektur](architectural-overview.md)
+# Arkitektur - tänkta leverabler
+
+## [Samverksans-/interoperabilitetsarkitektur](architectural-overview.md)
 - Övergripande mål och principer: 
 Detta inkluderar de övergripande målen för systemet eller organisationen och de arkitektoniska principer som ska styra utvecklingen och användningen av arkitekturen.
 
 - Arkitektoniska beskrivningar: 
-Det kan innefatta olika aspekter som systemets komponenter, deras relationer, dataflöden, infrastruktur, teknologier som används, säkerhet, prestanda, skalbarhet, och liknande.
+Det kan innefatta olika aspekter som systemets komponenter, aktörer och deras roller, deras relationer, dataflöden, infrastruktur, säkerhet, prestanda, skalbarhet, tillitskrav och tillitsramverk.
 
 - Önskat tillstånd: En klar beskrivning av hur systemet målen är uppnådda. Det kan inkludera specifikationer av systemets funktionalitet, användarupplevelse, skalbarhet, och andra viktiga egenskaper.
 
- - Tidsram: En uppskattning av när olika delar av arkitekturen ska vara på plats eller när specifika mål ska uppnås. Det kan inkludera kort- och långsiktiga mål.
+- Tidsram: En uppskattning av när olika delar av arkitekturen ska vara på plats eller när specifika mål ska uppnås. Det kan inkludera kort- och långsiktiga mål.
 
- - Risker och möjligheter: Identifiering av potentiella risker som kan påverka arkitekturen och möjligheter till förbättring eller innovation.
+- Risker och möjligheter: Identifiering av potentiella risker som kan påverka arkitekturen och möjligheter till förbättring eller innovation.
 
- - Krav: En sammanställning av krav från olika intressenter eller intressentgrupper som bör beaktas vid utvecklingen av arkitekturen.
+- Krav: En sammanställning av krav från olika intressenter eller intressentgrupper som bör beaktas vid utvecklingen av arkitekturen.
 
-## [Federationsarkitektur](federation-architecture.md)
+## [Tekniska federationsarkitekturer](federation-architecture.md)
+### SAML & OIDC-OAuth
 - Översikt och sammanfattning: En introduktion till federationsramvkeret, dess syfte, och en övergripande beskrivning av dess arkitektur.
 
 - Arkitektoniskt ramverk och komponenter: En detaljerad lista eller diagram som identifierar och beskriver de olika komponenterna, deras roller och hur de interagerar med varandra. 
@@ -32,6 +34,7 @@ Det kan innefatta olika aspekter som systemets komponenter, deras relationer, da
 - Diagram och visualiseringar: Grafisk representation såsom flödesscheman, diagram och modeller för att tydliggöra arkitekturen och dess komponenter.
 
 ## [Referensarkitektur arkitektur](reference-architecture.md)
+
 - Standardiserat ramverk: Det är en väldefinierad struktur som beskriver de grundläggande komponenterna, deras relationer, samt de bästa praxis och riktlinjer för hur de ska integreras och fungera tillsammans.
 
 - Generell och anpassningsbar: 
