@@ -35,7 +35,7 @@ Denna mapp används för lagring och produktion av arbetsdokuement för målbild
   - tillit e-legitimationsutfärdare 
 - Alla olika tillitsregelverk delas upp i tillitsnivåer; ev. behövs flexibilitet på enskild kravnivå för att slippa "domän"-specifika underfederationer.
 - Oberoende granskning av kravuppfyllnad krävs för höga tillitsnivåer.
-- Endast attributsgrupper bör vara domänspecifika. 
+- Endast attributsgrupper bör vara domänspecifika. :shipit:
 
 ### Arkitektur
 
