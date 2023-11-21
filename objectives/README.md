@@ -86,3 +86,8 @@ Denna mapp används för lagring och produktion av arbetsdokuement för målbild
   - e-tjänsteägare
   - IdP-förvaltare
   - attributsförvaltning med underliggande domänattributförvaltning
+> [!IMPORTANT]
+> Pelle tycker detta är viktigt
+- För att uppnå robusthet, måste beroendet till "centrala" tjänster minimeras. Dvs autentisering och auktorisation måste kunna ske lokalt vid avbrott, i kris- och krigssituationer. En nationell federation måste deignas meddetta i åtanke. Därför måste t.ex. Sweden Connects krav på certrala IdP:er bort!
+
+
