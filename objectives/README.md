@@ -32,7 +32,7 @@ Denna mapp används för lagring och produktion av arbetsdokuement för målbild
   - Organisations-/medlemstillit
   - tillit e-tjänst
   - tillit attributshantering (katalogtillit)
-  - tillit autentiseringstjänst/identifierings-och attributstjänst/intygstjänst/IdP
+  - tillit autentiseringstjänst/identifierings-och attributstjänst/regelverkstjänst/intygstjänst/IdP
   - tillit agent/ombud
   - tillit e-legitimationsutfärdare 
 - Alla olika tillitsregelverk delas upp i tillitsnivåer; ev. behövs flexibilitet på enskild kravnivå för att slippa "domän"-specifika underfederationer.
