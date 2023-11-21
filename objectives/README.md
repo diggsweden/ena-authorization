@@ -49,7 +49,36 @@ Denna mapp används för lagring och produktion av arbetsdokuement för målbild
 
 #### Omtvistade principer, arkitektur
 - OIDC är inte etablerat idag, federationen bör INTE bygga på detta, utan vara en rekommenderad teknisk lösning på "intygshantering". Det är inte prioriterat att ta fram dessa specifikationer i arbetsgruppen.
-- En resolverfunktion är en bra sak att ha, men metadata måste hanteras separat i ett metadataregister tillatt börja med.
-- Möjliga tjänstekomponenter i federationen (diskuteras): e-legitimation, e-tjänst, anvisnings-	/hänvisningstjänst, identifierings-och attributstjänst (med repository, med uppdragsväljare), regelverkstjänst (med repository), provisioneringstjänst, åtkomstintygsutfördartjänst, identifieringstjänst (beroende till) autentiseringstjänst(er), attributtjänst, stödtjänst metadata, stödtjänst spårbarhet, stödtjänst federations-federationsåtkomst, stödtjänst personuppgifter, stödtjänst API-säkerhet
-  - test
-- Möjliga aktörer i federationen: Federationshuvudman (styrgrupp), federationsoperatör, medlem, granskare, e-legutfärdare, identitetsadministratör, attributsadministratör, regelverksadministratör, e-tjänsteägare, IdP-förvaltare, attributsförvaltning med underliggande domänattributförvaltning
+- En resolverfunktion är en bra sak att ha, men metadata måste hanteras separat i ett metadataregister till att börja med.
+- Möjliga tjänstekomponenter i federationen (diskuteras):
+  - e-legitimation
+  - e-tjänst
+  - anvisnings-/hänvisningstjänst
+  - identifierings-och attributstjänst
+    - (med repository)
+    - (med uppdragsväljare)
+  - regelverkstjänst
+    - (med repository)
+  - provisioneringstjänst
+  - åtkomstintygsutfördartjänst
+  - identifieringstjänst (beroende till)
+  - autentiseringstjänst(er)
+  - attributtjänst
+  - Stödtjänster
+    - stödtjänst metadata
+    - stödtjänst spårbarhet
+    - stödtjänst federations-federationsåtkomst
+    - stödtjänst personuppgifter
+    - stödtjänst API-säkerhet
+- Möjliga aktörer i federationen:
+  - Federationshuvudman (styrgrupp)
+  - federationsoperatör
+  - medlem
+  - granskare
+  - e-legutfärdare
+  - identitetsadministratör
+  - attributsadministratör
+  - regelverksadministratör
+  - e-tjänsteägare
+  - IdP-förvaltare
+  - attributsförvaltning med underliggande domänattributförvaltning
