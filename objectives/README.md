@@ -26,6 +26,10 @@ Denna mapp används för lagring och produktion av arbetsdokuement för målbild
 - Begreppen organisationstillit – kvalificerad tillit
 - Gemensamma nationella tillitsnivåer v:s domänpaket av tillitskrav utifrån nationell katalog
 - Organisationstillit inom Ena…?
+- Olika tillitsregelverk behövs för olika delar av federationen: Organisations-/medlemstillit, tillit e-tjänst, tillit attributshantering (katalogtillit), tillit autentiseringstjänst (intygstjänst, IdP), tillit agent/ombud, tillit e-legitimationsutfärdare 
+- Alla olika tillitsregelverk delas upp i tillitsnivåer; ev. behövs flexibilitet på enskild kravnivå för att slippa "domän"-specifika underfederationer.
+- Oberoende granskning av kravuppfyllnad krävs för höga tillitsnivåer.
+- Endast attributsgrupper bör vara domänspecifika. 
 
 ### Arkitektur
 
@@ -38,3 +42,5 @@ Denna mapp används för lagring och produktion av arbetsdokuement för målbild
 - Inom den tekniska infrastrukturen etablerar vi en resolverfunktion som förenklar hanteringen av metadata för aktörerna genom att den hämtar relevant metadata utifrån aktuell åtkomstpolicy för behörighet.
 
 #### Omtvistade principer, arkitektur
+- OIDC är inte etablerat idag, federationen bör INTE bygga på detta, utan vara en rekommenderad teknisk lösning på "intygshantering". Det är inte prioriterat att ta fram dessa specifikationer i arbetsgruppen.
+- 
