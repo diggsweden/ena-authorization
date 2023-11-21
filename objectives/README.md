@@ -26,7 +26,7 @@ Denna mapp används för lagring och produktion av arbetsdokuement för målbild
 - Begreppen organisationstillit – kvalificerad tillit
 - Gemensamma nationella tillitsnivåer v:s domänpaket av tillitskrav utifrån nationell katalog
 - Organisationstillit inom Ena…?
-- Olika tillitsregelverk behövs för olika delar av federationen: Organisations-/medlemstillit, tillit e-tjänst, tillit attributshantering (katalogtillit), tillit autentiseringstjänst (intygstjänst, IdP), tillit agent/ombud, tillit e-legitimationsutfärdare 
+- Olika tillitsregelverk behövs för olika delar av federationen: Organisations-/medlemstillit, tillit e-tjänst, tillit attributshantering (katalogtillit), tillit autentiseringstjänst/identifierings-och attributstjänst/intygstjänst/IdP, tillit agent/ombud, tillit e-legitimationsutfärdare 
 - Alla olika tillitsregelverk delas upp i tillitsnivåer; ev. behövs flexibilitet på enskild kravnivå för att slippa "domän"-specifika underfederationer.
 - Oberoende granskning av kravuppfyllnad krävs för höga tillitsnivåer.
 - Endast attributsgrupper bör vara domänspecifika. 
@@ -43,4 +43,6 @@ Denna mapp används för lagring och produktion av arbetsdokuement för målbild
 
 #### Omtvistade principer, arkitektur
 - OIDC är inte etablerat idag, federationen bör INTE bygga på detta, utan vara en rekommenderad teknisk lösning på "intygshantering". Det är inte prioriterat att ta fram dessa specifikationer i arbetsgruppen.
-- 
+- En resolverfunktion är en bra sak att ha, men metadata måste hanteras separat i ett metadataregister tillatt börja med.
+- Möjliga tjänstekomponenter i federationen (diskuteras): e-legitimation, e-tjänst, anvisnings-	/hänvisningstjänst, identifierings-och attributstjänst (med repository, med uppdragsväljare), regelverkstjänst (med repository), provisioneringstjänst, åtkomstintygsutfördartjänst, identifieringstjänst (beroende till) autentiseringstjänst(er), attributtjänst, stödtjänst metadata, stödtjänst spårbarhet, stödtjänst federations-federationsåtkomst, stödtjänst personuppgifter, stödtjänst API-säkerhet, 
+- Möjliga aktörer i federationen: Federationshuvudman (styrgrupp), federationsoperatör, medlem, granskare, e-legutfärdare, identitetsadministratör, attributsadministratör, regelverksadministratör, e-tjänsteägare, IdP-förvaltare, attributsförvaltning med underliggande domänattributförvaltning
