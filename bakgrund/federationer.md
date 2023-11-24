@@ -38,3 +38,8 @@ Internetstiftelsen är federationsoperatör.
 
 ## Fidus
 [Fidus](https://www.skolverket.se/om-oss/var-verksamhet/skolverkets-prioriterade-omraden/digitalisering/digitala-nationella-prov/tekniska-forutsattningar-for-digitala-nationella-prov/interfederationen-fidus) är en interfederation från Skolverket. Sammanslutningen omfattar bland annat federationerna SWAMID och Skolfederation. Skolverket har ett regeringsuppdrag för digitala nationella prov och har som ett led i myndighetens sektorsansvar för digitalisering av skolan bildat en så kallad interfederation med Skolverket som huvudman och Sunet som interfederationsoperatör. Skolverket har upprättat en policy som tillåter att andra federationer kan ingå i FIDUS så länge dessa följer Skolverkets regler. Relevanta villkor överförs och regelverket påverkar i sin tur de avtal och överenskommelser som upprättas mellan federationsoperatörer och medlemmarna i de olika federationerna. Fidus regleras genom en styrgrupp och ett federationsråd där de ingående federationerna har representation. 
+
+
+---------
+
+ :arrow_backward: [Tillbaka](README.md)
