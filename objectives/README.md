@@ -7,9 +7,9 @@
 - Målbilden är inte realisering av en enda nationell federation för alla typer av gränsöverskridande identitets- och behörighetshantering i Sverige. Däremot ska strukturen vara optimerad för interfederering när behov uppstår.
 - Vi ska verka för en samordning av befintliga federationers tillitskrav där dessa redan är i olika grad överensstämmande (i motsats till att etablera nya gemensamma krav).
 - Vi ska verka för att tillhandhålla en teknisk infrastruktur för att skapa teknisk tillit och interoperabilitet mellan federationens aktörer
---	Metadataregistratorer 
---	Delegerade metadataregistratorer 
---	Legitimeringstjänster, auktorisationstjänster, klienter, resurstjänster
+   -	Metadataregistratorer 
+   -	Delegerade metadataregistratorer 
+   -	Legitimeringstjänster, auktorisationstjänster, klienter, resurstjänster
 - Vi ska ta fram förslag hur auktorisationstjänsternas hantering/förmedling av digital identitet
 
 #### Obesvarade/omtvistade principer, målbild och process
