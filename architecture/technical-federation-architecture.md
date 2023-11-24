@@ -1,4 +1,4 @@
-### Teknisk federationsarkitetkur
+### Teknisk federationsarkitektur
 
 ```mermaid
 flowchart LR
