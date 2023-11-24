@@ -1,5 +1,5 @@
 ##### Innehållsförteckning  
-- [Bakgrund](inledning.md)
+- [Inledning](inledning.md)
 - [Dagens federationer](federationer.md)
   - [Sweden Connect](federationer.md#swedenconnect)
   - [SWAMID](federationer.md#swamid)
