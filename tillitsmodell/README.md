@@ -1,6 +1,6 @@
 Tillitsmodell
 
-Olika tillitsregelverk behövs för olika delar av federationen:
+- Olika tillitsregelverk behövs för olika delar av federationen:
   - Organisations-/medlemstillit
   - tillit e-tjänst
   - tillit attributshantering (katalogtillit)
