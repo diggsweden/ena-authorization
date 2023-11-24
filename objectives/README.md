@@ -1,25 +1,32 @@
-# Byggblock Auktorisation
+# Gränsöverskridande identitets- och behörighetshantering på nationell nivå
 
-## Principer för arbetet med nationell identitets- och behörighetshantering
+## Målbild
 
-### Målbild
+- Vi avser att etablera strukturer och gemensamma ramverk för federativa system som hanterar identitets- och behörighetshantering över organisationsgränser.
+- Arbetets fokus är nationell samordning, gemensam bas och överenskommelser om operatörernas ansvar samt tydliga riktlinjer för domänanpassning utifrån olika verksamhetsbehov.
+- Målbilden är inte realisering av en enda nationell federation för alla typer av gränsöverskridande identitets- och behörighetshantering i Sverige. Däremot ska strukturen vara optimerad för interfederering när behov uppstår.
+- Vi ska verka för en samordning av befintliga federationers tillitskrav där dessa redan är i olika grad överensstämmande (i motsats till att etablera nya gemensamma krav).
+- Vi ska verka för att tillhandhålla en teknisk infrastruktur för att skapa teknisk tillit och interoperabilitet mellan federationens aktörer
+--	Metadataregistratorer 
+--	Delegerade metadataregistratorer 
+--	Legitimeringstjänster, auktorisationstjänster, klienter, resurstjänster
+- Vi ska ta fram förslag hur auktorisationstjänsternas hantering/förmedling av digital identitet
 
-- Vi eftersträvar att etablera ett enhetlig nationellt ramverk för identitets- och behörighetshantering med tyngdpunkt på nationell samordning, frivillighet, tydliga riktlinjer för domänanpassning och domoperatörers ansvar samt anpassning och skalbarhet över tid. 
-- Vi ska verka för en samordning ab befintliga federationers tillitskrav där dessa redan är i olika grad överensstämmande istället för att etablera nya gemensamma krav.
-- Vi ska verka för att tillhandhålla en teknisk infrastruktur för att skapa teknisk tillit mellan federationens aktörer
-o	Metadataregistratorer 
-o	Delegerade metadataregistratorer 
-o	Legitimeringstjänster, auktorisationstjänster, klienter, resurstjänster
-- Vi ska ta fram förslag hur auktorisationstjänsternas hantering/förmedling av identitets-attribut ska granskas
-- Vi ska inte ta fram ett nationellt tillitsramverk som behandlar något annat än legitimering eller förmedling av identitetsattribut utifrån tillitsramverk för svensk e-legitimation.
-- Vi kommer inte arbeta fram ett förslag på en enda nationell federation för nationell identitets- och behörighetshantering.
-Obesvarade/omtvistade principer, målbild och process
+#### Obesvarade/omtvistade principer, målbild och process
 Arbetsformer och processer
-- Arbetsprocessen är av iterativ form för att över lång tid fortsatt utveckla och förbättra ramverket utifrån vad som i stunden anses vara möjliga och rimliga målsättningar.
+- Arbetsprocessen är av iterativ form för att över tid fortsatt utveckla och förbättra ramverket utifrån vad som i stunden anses vara möjliga och rimliga målsättningar.
 - Arbetet utgår från byggblockets arbetsgrupp och där deltar aktörer inom Ena. Löpande arbete kan också ske i mindre grupper där ytterligare intressenter relevanta för arbetet kan inbjudas att delta och komma med inspel. 
 - För strategiska eller taktiska frågor av vikt kan dessa lyftas till byggblockets chefnivå för behandling och beslut.
 
-#### Obesvarade/omtvistade principer, arbetsformer och process
+## Principer
+Vårt arbetet utgår från principerna:
+
+- frivillighet,
+- moduläritet,
+- anpassningsbarhet,
+- skalbarhet över tid, och
+- samhällsinfrastruktur för både offentliga och enskilda aktörer.
+
 
 ### Tillitsmodell
 
