@@ -8,5 +8,5 @@ Tillitsmodell
   - tillit agent/ombud
   - tillit e-legitimationsutfärdare 
 - Alla olika tillitsregelverk delas upp i tillitsnivåer; ev. behövs flexibilitet på enskild kravnivå för att slippa "domän"-specifika underfederationer.
-- Oberoende granskning av kravuppfyllnad krävs för höga tillitsnivåer.
+- Stark verifiering av kravuppfyllnad krävs för höga tillitsnivåer.
 - Endast attributsgrupper bör vara domänspecifika. :+1:
