@@ -8,8 +8,8 @@ classDef orange color:#000000,fill:#f96
 A{{Användare<br>Org A}}:::Amber
 B([E-tjänst<br>Org B])
 C(Anvisningstjänst)
-D[(Info-källa<br>Auth)]:::orange
-E[(Info-källa<br>Öppen)]:::Green
+D[(Info-källa<br>Org C<br>Auth)]:::orange
+E[(Info-källa<br>Org D<br>Öppen)]:::Green
 F(Intygsutfärdartjänst Org A):::Amber
 G(Autentiseringstjänst):::Amber
 H(Uppdragsväljare):::Amber
@@ -61,11 +61,48 @@ Elektroniska tjänster eller E-tjänster är tjänster som produceras och konsum
 
 ### Anvisnings-/hänvisningstjänst
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+I en identitetsfederation är det möjligt att erbjuda och konsumera en gemensam anvisningstjänst (Discovery Service), som listar vilka legitimeringstjänster som är möjliga för användaren att välja mellan. Syftet med en sådan anvisningstjänst är att avlasta de enskilda e-tjänsterna som ingår i identitetsfederationen från att själva implementera stöd för hur användare väljer legitimeringstjänst (eller inloggningsmetod).
+
+Genom att anvisningstjänsten finns tillgänglig inom identitetsfederationen kan e-tjänster styra sina användare dit för val av legitimeringstjänst. Anvisningstjänsten interagerar med användaren som gör sitt val och användaren, tillsammans med dennes val, styrs tillbaka till e-tjänsten som nu vet till vilken legitimeringstjänst användaren ska skickas för legitimering.
 
 ### Intygsutfärdartjänst
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+"Intygsutfärdartjänst sammanställer uppgifter om användaren i en så kallad biljett. Uppgifterna hämtas från attributtjänster. Biljetten används av e-tjänsten för att styra vad användaren ska få se och göra."
 
+### Identifieringstjänst 
 
+Identifieringstjänst är en säkerhetslösning som används för att utfärda elektroniska identitetshandlingar till både personer och system. E-legitimation används för att identifiera personer och  funktionscertifikat används för att identifiera system. 
 
+### Autentiseringstjänst(er)
+
+Autentiseringstjänsten, som är en stödkomponent som en IdP använder för att tekniskt hantera och läsa användarens e-legitimation.
+
+### Attributtjänst
+
+När en e-legitimering görs i tjänsten behöver ibland fler uppgifter hämtas in från ett register för att kunna avgöra vilken behörighet tjänstepersonen har i just denna digitala tjänst. Denna behörighetshantering kallas också för auktorisation. I den digitala världen kan auktorisation ske med hjälp av behörighetsstyrande information från en så kallad attributtjänst. 
+
+### Regelverkstjänst
+
+Inom OpenId Connect/OAUTH...
+
+### Stödtjänster
+
+#### Metadatatjänst
+
+En SAML-federation tillhandahåller information om federationens deltagare genom SAML metadata. Som deltagare i en federation räknas såväl aktörer som levererar legitimerings- och attributtjänster i federationen som förlitande parter, d.v.s. aktörer som konsumerar dessa tjänster, t ex. e-tjänster.
+
+Genom federationens metadata kan deltagare inhämta information om andra deltagares tjänster, inklusive de uppgifter som krävs för ett säkert informationsutbyte mellan deltagarna. Metadata måste hållas uppdaterat av respektive part och överensstämma med avtalade förhållanden.
+
+Det viktigaste syftet med metadata är att tillhandahålla de nycklar/certifikat som krävs för säker kommunikation och informationsutväxling mellan tjänster. Utöver nycklar innehåller metadata även annan information som är viktig för samverkan mellan tjänster t ex. adresser till funktioner som krävs, information om tillitsnivåer, tjänstekategorier, användargränssnittsinformation mm.
+
+En identitetsfederation definieras av ett register i XML-format som är signerat med federationsoperatörens certifikat. Filen innehåller information om identitetsfederationens medlemmar inklusive deras certifikat. Eftersom filen med metadata är signerad räcker det med att jämföra ett certifikat med dess motsvarighet i metadata. En infrastruktur baserad på ett centralt federationsregister förutsätter att registret uppdateras kontinuerligt samt att federationsmedlemmarna alltid använder den senaste versionen av filen.
+
+#### Tjänster för Spårbarhet
+
+#### Tjänster för Federations-federationsåtkomst
+
+#### Tjänst för Personuppgifter
+
+#### Tjänst för API-säkerhet
+
+#### Provisioneringstjänst
