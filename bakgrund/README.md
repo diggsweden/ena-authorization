@@ -1,4 +1,4 @@
-##### Innehållsförteckning  
+#### Innehållsförteckning  
 - [Inledning](inledning.md)
 - [Dagens federationer](federationer.md)
   - [Sweden Connect](federationer.md#swedenconnect)
