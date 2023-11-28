@@ -46,7 +46,6 @@ B-.->|7. E-tjänsten har tillit till de attribut<br> som behövs och auktorisera
     - Revokering
     - Spårbarhet
     - Federations-federationsåtkomst
-    - Personuppgifter
     - API-säkerhet
     - Provisioneringstjänst
 
@@ -102,10 +101,22 @@ En revokeringstjänst tillhandahåller en revokeringslista som är ett sätt att
 
 #### Tjänster för Spårbarhet
 
+Det är viktigt att alla transaktioner i en federation, där många transaktioner sker i olika tjänster och organisationer, är spårbara. Därför behöver en spårbarhetsarkitektur byggas där berörda parter kan spåra vad som hänt överallt, vid t.e.x felsökning eller misstanke om brott eller felhantering.
+
 #### Tjänster för Federations-federationsåtkomst
 
-#### Tjänst för Personuppgifter
+En metadatatjänst som innehåller nycklar, instruktioner och regelverk för vad som krävs vid kommunikation mellan två olika federationer
 
-#### Tjänst för API-säkerhet
+#### Tjänst för API-säkerhet (API Gateway)
+
+En tjänst för API-säkerhet kan vara en reglerad del av en federation som används för att säkerställa att tjänstkomponenerna är tillräckligt skyddade.
+- Fasad för tjänster genom att acceptera API-anrop och dirigera dem till lämpliga bakomliggande delar.
+- Verifiera funktionscertifikat, API-nycklar och andra autentiseringsuppgifter som JWT-token och certifikat som visas med begäranden
+- Säkerställa användningskvoter och hastighetsgränser
+- Transformera begäranden och svar enligt vad som anges i principinstruktioner
+- Konfigurera cachelager för svar för att förbättra svarsfördröjningen och minimera belastningen på serverdelstjänster
+- Genererar loggar, mått och spårningar för övervakning, rapportering och felsökning
 
 #### Provisioneringstjänst
+
+Enkelt beskrivet är provisionering en process som möjliggör en automatiserad överföring av data mellan system. Processen är användbar exempelvis inom hantering av användaruppgifter där användarattribut överförs från en masterkälla till andra E-tjänster. Detta kan vara en lösning som tillhandahålls om det av olika orsaker är svårt att använda ett system med intygsutfördartjänster.
