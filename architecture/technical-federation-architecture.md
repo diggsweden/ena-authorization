@@ -32,8 +32,8 @@ B-.->|7. E-tjänsten har tillit till de attribut<br> som behövs och auktorisera
 - Möjliga tjänstekomponenter i federationen (diskuteras):
   - E-legitimation
   - E-tjänst
-  - Anvisnings-/hänvisningstjänst
-  - Intygsutfärdartjänst
+  - Anvisningstjänst
+  - Intygsutfärdartjänst/IdP
     - (med uppdragsväljare)
     - åtkomstintygsutfördartjänst
   - Identifieringstjänst (beroende till)
@@ -43,6 +43,7 @@ B-.->|7. E-tjänsten har tillit till de attribut<br> som behövs och auktorisera
     - (med repository)
 - Stödtjänster
     - Metadata
+    - Revokering
     - Spårbarhet
     - Federations-federationsåtkomst
     - Personuppgifter
@@ -59,27 +60,25 @@ E-legitimation är en elektronisk id-handling som du kan använda för att legit
 
 Elektroniska tjänster eller E-tjänster är tjänster som produceras och konsumeras i ett elektroniskt medium. E-tjänster i Ena-federationen är granskade och godkända på en viss Tillitsnivå. E-tjänsten ställer krav på konsumenter av tjänsten att uppfyla en viss Tilltisnivå för användning.
 
-### Anvisnings-/hänvisningstjänst
+### Anvisningstjänst
 
-I en identitetsfederation är det möjligt att erbjuda och konsumera en gemensam anvisningstjänst (Discovery Service), som listar vilka legitimeringstjänster som är möjliga för användaren att välja mellan. Syftet med en sådan anvisningstjänst är att avlasta de enskilda e-tjänsterna som ingår i identitetsfederationen från att själva implementera stöd för hur användare väljer legitimeringstjänst (eller inloggningsmetod).
+I en behörighets- och identitetsfederation är det möjligt att erbjuda och konsumera en gemensam anvisningstjänst, som listar vilka Intygsutfärdartjänster som är möjliga för användaren att välja mellan. Syftet med en sådan anvisningstjänst är att låta användaren välja vilken organisation den tillhör och därmed anropa "rätt" Intygsutfärdartjänst.
 
-Genom att anvisningstjänsten finns tillgänglig inom identitetsfederationen kan e-tjänster styra sina användare dit för val av legitimeringstjänst. Anvisningstjänsten interagerar med användaren som gör sitt val och användaren, tillsammans med dennes val, styrs tillbaka till e-tjänsten som nu vet till vilken legitimeringstjänst användaren ska skickas för legitimering.
+### Intygsutfärdartjänst/IdP
 
-### Intygsutfärdartjänst
-
-"Intygsutfärdartjänst sammanställer uppgifter om användaren i en så kallad biljett. Uppgifterna hämtas från attributtjänster. Biljetten används av e-tjänsten för att styra vad användaren ska få se och göra."
+Intygsutfärdartjänsten ansvarar för att autentisera användaren, sammanställer de uppgifter uppgifter om användaren som E-tjänsten behöver och leverera dessa uppgifter på ett säkert sätt i ett intyg. Intygsutfärdartjänsten använder flera andra tjäsnter för att genomföra detta; en autentiseringstjänst (eller alternativt en spärrtjänst/revokeringslista) och attributkällor. Uppgifterna hämtas från attributtjänster. Intyget används sedan av e-tjänsten för att styra vad användaren ska få se och göra.
 
 ### Identifieringstjänst 
 
-Identifieringstjänst är en säkerhetslösning som används för att utfärda elektroniska identitetshandlingar till både personer och system. E-legitimation används för att identifiera personer och  funktionscertifikat används för att identifiera system. 
+Identifieringstjänst är en säkerhetslösning som används för att utfärda elektroniska identitetshandlingar till både personer och system. E-legitimationer används för att identifiera personer och  funktionscertifikat används för att identifiera system. 
 
 ### Autentiseringstjänst(er)
 
-Autentiseringstjänsten, som är en stödkomponent som en IdP använder för att tekniskt hantera och läsa användarens e-legitimation.
+Autentiseringstjänsten, som är en stödkomponent som en IdP använder för att tekniskt hantera, läsa och verifiera användarens e-legitimation.
 
 ### Attributtjänst
 
-När en e-legitimering görs i tjänsten behöver ibland fler uppgifter hämtas in från ett register för att kunna avgöra vilken behörighet tjänstepersonen har i just denna digitala tjänst. Denna behörighetshantering kallas också för auktorisation. I den digitala världen kan auktorisation ske med hjälp av behörighetsstyrande information från en så kallad attributtjänst. 
+När en användare försöker logga in i en E-tjänst behövs ibland uppgifter hämtas in från ett register för att kunna avgöra vilken behörighet personen har i just denna digitala tjänst. Denna behörighetshantering kallas också för auktorisation. I den digitala världen kan auktorisation ske med hjälp av behörighetsstyrande information som hämtas från en så kallad attributtjänst. 
 
 ### Regelverkstjänst
 
@@ -93,9 +92,13 @@ En SAML-federation tillhandahåller information om federationens deltagare genom
 
 Genom federationens metadata kan deltagare inhämta information om andra deltagares tjänster, inklusive de uppgifter som krävs för ett säkert informationsutbyte mellan deltagarna. Metadata måste hållas uppdaterat av respektive part och överensstämma med avtalade förhållanden.
 
-Det viktigaste syftet med metadata är att tillhandahålla de nycklar/certifikat som krävs för säker kommunikation och informationsutväxling mellan tjänster. Utöver nycklar innehåller metadata även annan information som är viktig för samverkan mellan tjänster t ex. adresser till funktioner som krävs, information om tillitsnivåer, tjänstekategorier, användargränssnittsinformation mm.
+Det viktigaste syftet med metadata är att tillhandahålla de nycklar/certifikat som krävs för säker kommunikation och informationsutväxling mellan tjänster. Utöver nycklar innehåller metadata även annan information som är viktig för samverkan mellan tjänster t ex. attribut som en E-tjänst behöver, adresser till funktioner som krävs, information om tillitsnivåer, tjänstekategorier, användargränssnittsinformation mm.
 
 En identitetsfederation definieras av ett register i XML-format som är signerat med federationsoperatörens certifikat. Filen innehåller information om identitetsfederationens medlemmar inklusive deras certifikat. Eftersom filen med metadata är signerad räcker det med att jämföra ett certifikat med dess motsvarighet i metadata. En infrastruktur baserad på ett centralt federationsregister förutsätter att registret uppdateras kontinuerligt samt att federationsmedlemmarna alltid använder den senaste versionen av filen.
+
+#### Revokeringstjänst
+
+En revokeringstjänst tillhandahåller en revokeringslista som är ett sätt att avgöra om en e-legitimations certifikat är giltigt. Detta är en del av en mer robust metod att autentisera användare än att använda en autentiseringstjänst. 
 
 #### Tjänster för Spårbarhet
 
