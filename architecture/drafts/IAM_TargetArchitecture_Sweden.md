@@ -45,10 +45,23 @@ Vid all samverkan behöver man ha tillit till den part man samverkar med. Det fi
 
 Hus skapas denna tillit och hur säkerställs den över tid?
 
-### Nuläge
-Formerna för hur tillitsskapande förmågor behöver styrkas regleras ofta i avtal bilateralt mellan parter eller med en federationsoperatör. Tillitsskapande förmågor omfattar till exempel existensen av riktlinjer och processer inom informationssäkerhetsområdet, och att befattningar och ansvar finns tillsatta inom organisationen.
+För att kunna samverka över organisationsgränser behövs tillit på två nivåer:
+
+1. Teknisk nivå 
+1. Organisatorisk nivå
+ 
+ På teknisk nivå behöver det säkerställas att olika parter utför sin roll i samverkan på ett tekniskt korrekt sätt, enligt överenskomna ramverk, standarder, specifikationer och profileringar.
+
+ På organisatorisk nivå behöver man kravställa att de olika parterna som på något sätt deltar i samverkan har den organisation, de processer, samt den kompetens som krävs för att hålla en god kvalitet i hur de utför sina ansvar. Detta kan till exempel vara att ha ett ledningssystem för informationssäkerhet, samt processer för att säkerställa efterlevnad och kontinuerligt förbättringsarbete. 
 
 Säkerställandet av tillitsskapande förmågor kan behöva ske med olika grad av försäkran beroende på samverkanskontext och skyddskrav för den funktionalitet och information som delas. Kraven som ställs behöver också kunna skilja sig mellan olika typer av aktörer.
+
+Teknisk efterlevnad kan ofta säkerställas genom tekniska test. Organistorisk efterlevnad säkerställs ofta genom granskning av regelverk, policyer och rapportering efter genomförada processer. 
+
+### Nuläge
+Vilka tillitsskapande förmågor som krävs och hur dessa behöver styrkas regleras ofta i avtal bilateralt mellan samverkande parter eller via en federationsoperatör.
+
+Mycket av tilliten är grundmurad, exempelvis den organisatoriska tilliten till statliga myndigheter ifrågasätts sällan av andra parter.
 
 ### Vision
 För att möjliggöra kostnadseffektiv digitalisering av Svensk offentlig förvaltning bör bygga upp ett system där bilaterala avtal inte behöver reglera tilliten utan att detta styrs nationellt via en tillitsfederation.
