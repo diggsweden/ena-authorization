@@ -42,4 +42,12 @@ Internetstiftelsen är federationsoperatör.
 
 ---------
 
+
+<p>
+<img align="left" src="../images/Ena-logo.png" width="25%" Height="25%"></img>
+<img align="right" src="../images/NextGenEU-logo.png" width="25%" Height="25%"></img>
+</p>
+
+
+
  :arrow_backward: [Tillbaka](README.md)
