@@ -6,6 +6,8 @@
   - [Sambi](federationer.md#sambi)
   - [Skolfederation](federationer.md#skolfederation)
   - [Fidus](federationer.md#fidus)
+- [Tillit](tillit.md)
+- [Utmaningar](utmaningar.md)
 
 ----
 
