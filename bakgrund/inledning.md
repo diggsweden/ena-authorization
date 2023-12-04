@@ -5,7 +5,7 @@ E-legitimation är en elektronisk id-handling som kan användas för användaren
 
 För att federationer ska verka genom en sammanhållen nationell samsyn med avseende på hur identitets- och behörighetshantering ska fungera över organisationsgränser krävs att parter kan komma överens över verksamhetsgränser och kunskapsdomäner om formerna för vilka aktörer som får ingå i en sammanslutning, vilka standarder som ska följas, vilka säkerhetslösningar som ska nyttjas, vilka administrativa processer som ska följas och hur kostnader ska fördelas. Genom avtal dokumenterar parterna att man är överens om att följa det federativa systemets regler och utifrån dessa lita på information som andra organisationer förmedlar om sina användare. Ibland förekommer också någon form av granskning och det kan finnas möjlighet att begära skadestånd om en skada uppstår på grund av att dessa regler ej följts.
 
-Tillit mellan parter och deras digitala tjänster etableras vanligtvis genom något någon form av *tillitsmodell*. Den tekniska reliseringen utgår från en uppsättning av tekniska protokoll och specifikationer för att möjliggöra federerad åtkomst.
+Tillit mellan parter och deras digitala tjänster etableras vanligtvis genom något någon form av *[tillitsmodell](tillit.md)*. Den tekniska reliseringen utgår från en uppsättning av tekniska protokoll och specifikationer för att möjliggöra federerad åtkomst.
 
 ---------
 
