@@ -9,4 +9,13 @@ Tillit mellan parter och deras digitala tjänster etableras vanligtvis genom nå
 
 ---------
 
- :arrow_backward: [Tillbaka](README.md)
+:arrow_backward: [Tillbaka](README.md)
+
+Senaste uppdatering: 4 december 2023
+
+<p>&nbsp;</p>
+<p>
+<img align="left" src="../images/Ena-logo.png" width="25%" Height="25%"></img>
+<img align="right" src="../images/NextGenEU-logo.png" width="25%" Height="25%"></img>
+</p>
+
