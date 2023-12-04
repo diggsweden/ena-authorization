@@ -42,8 +42,9 @@ Internetstiftelsen är federationsoperatör.
 
 ---------
 
- :arrow_backward: [Tillbaka](README.md)
+:arrow_backward: [Tillbaka](README.md)
 
+Senaste uppdatering: 4 december 2023
 
 <p>&nbsp;</p>
 <p>
