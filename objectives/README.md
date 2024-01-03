@@ -41,7 +41,6 @@ Vårt arbetet utgår från principerna:
 - Gemensamma nationella tillitsnivåer v:s domänpaket av tillitskrav utifrån nationell katalog
 - Organisationstillit inom Ena…?
 
-
 ## Arkitektur
 - Den tekniska lösningen behöver vara relativt enkel för aktörerna att leva upp till eftersom kraven kommer vara beroende på vilken information som ska överföras. Det är tillitskraven som står för säkerheten i behörighetshanteringen.
 - Vårt huvudsakliga scenario vi söker att lösa är delegerad åtkomst med förmedling av behörighetsinformation över organisationsgränser för en användare där behörighetsgrundade attribut finns på anropande sida.
