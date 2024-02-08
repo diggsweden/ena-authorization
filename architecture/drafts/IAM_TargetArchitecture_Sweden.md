@@ -1,29 +1,23 @@
-# Målarkitektur för nationell hantering av tillit, identitet och behörighet
+# Målarkitektur för nationellt IAM-system<br>- med hantering av tillit, identiteter, behörighetgrundande information och åtkomstbeslut
 
-## Målarkitekturens syfte
+## Inledning
 
-För en tillitsfull och kostnadseffektiv samverkan inom offentlig förvaltning behöver vi utveckla och förankra nationella anvisningar för IAM inom områdena visade i nedanstående bild
+För en tillitsfull och kostnadseffektiv samverkan inom offentlig förvaltning behöver vi utveckla och förankra nationell arkitektur, infrastruktur och tillämpningsanvisningar för IAM. Denna målarkitektur syftar till att ge en bild över hur IAM-områdena tillitshantering, identitetshantering, behörighetshantering och åtkomsthantering kan och bör vidareutvecklas för att möjliggöra en tids- och kostnadseffektiv digitalisering av svensk offentlig sektor.
 
 ```mermaid
-graph LR
-subgraph TS[Tillit]
-    ID(Digitala\n identiteter) 
-    B(Behörighetsgrundande\ninformation)
-    BM(Behörighetsattribut)
-    Å(Åtkomsthantering \ni digitala tjänster)
-end
+graph TD
+Å(Åtkomsthantering)
+I(Identitetshantering)
+B(Behörighetshantering)
+T(Tillitshantering)
 
-Å --kräver--> ID
-T(Tillitsfederation) --skapar\n förutsättningar för --> TS
-B -.kopplas till.->ID
-Å --kräver--> BM
-BM --återger--> B
+Å--beror ov-->I & B--kräver-->T
 ```
-*Bild över hur områdena tillitsskapande förmågor, digitala identiteter, behörighetsattribut, behörighetsgrundande information och åtkomsthantering i digitala tjänster beror av varandra*
+*Bild över hur områdena tillitshantering, identitetshantering, behörighetshantering och åtkomsthantering i digitala tjänster beror av varandra*
 
 Inom alla dessa områden finns det redan idag olika grad av standardisering i syfte att möjliggöra digitaliseringen av olika verksamhetsområden. Få lösningar idag är dock förankrade och nyttjade på nationell skala och det försöker vi adressera med denna målarkitektur.
 
-För varje område presenteras kort nuläget, visionen och strategiska förflyttningar som tar oss mot visionen.
+Målarkitekturen kommer även omfatta en enklare strategisk plan för vilka förflyttningar som behöver genomföras över tid och beroenden dem emellan. Denna strategiska plan behöver förhålla sig till existerande arkitektur och infrastrur, samt redan gjorda investeringar i digitaliseringstillämpningar. Planen bör även innehålla vägledning för om. när och hur existerande digitala tjänster ska migrera över till den nya IAM-arkitekturens mönster och nyttja ny infrastruktur.
 
 ### Principer för målarkitekturens utformning
 
@@ -32,18 +26,47 @@ I vårt arbete med målarkitekturen utgår vi ifrån principerna i  [Svenskt ram
 Svenskt ramverk för digital samverkan innehåller även ett antal rekommendationer för hur man tillämpar principerna. För IAM-området kan vi komma att behöva ta fram ett antal specificerade principer och rekommendationer. 
 
 <table bgcolor="lightblue" border=1><tr><td>
-Det fi,nns ett förslag på en ny EU-förordning, <a href="https://commission.europa.eu/system/files/2022-11/com2022720_0.pdf">Interoperabilitetsförordningen</a>, vilken tar avstamp i European Interoperability Framwork (EIF) och reglerar hur man säkerställer att digitala tjänster som tas fram inom EU linjerar mot EIF.
+Det finns ett förslag på en ny EU-förordning, <a href="https://commission.europa.eu/system/files/2022-11/com2022720_0.pdf">Interoperabilitetsförordningen</a>, vilken tar avstamp i European Interoperability Framwork (EIF) och reglerar hur man säkerställer att digitala tjänster som tas fram inom EU linjerar mot EIF.
 <br/><br/>
 Svenskt ramverk för digital samverkan är den svenska översättningen av EIF.
 </td></tr></table>
 
+Vi kompletterar det svenska ramverket med ett antal konkreta rekommendationer för etableringen av IAM-systemet - nedan insorterade under ramverkets grundprinciper
 
+1. Samverka som förstahandsval
+2. Arbeta aktivt med juridiken
+    - Ett nationellt IAM-system måste ha utrymme för privata aktörer att bidra till svensk offentlig förvaltnings digitala ekosystem, såväl som utförare av offentligt finansierad verksamhet, leverantörer av IAM-funktionalitet, eller agenter för andra sådana offentliga eller privata aktörer.
+    - Då dagens IAM-system tvingar fram bedrägliga betteenden i och med att systemet ej är utformat för att vara tillgängligt för alla invånare, bör man i design av ett nytt IAM-system lyfta behov av utökat legalt stöd för att söka hjälp utan att begå avtals- och lagbrott. Tillse redan nu att en framtida förenklad hantering av ombud via fullmakt eller annan ställföretraädarroll inte försvåras.
+3. Öppna upp
+4. Skapa transparens till den interna hanteringen
+5. Återanvänd från andra
+    - Bygg IAM-systemet på brett förankrade standarder och <i>best practices</i>. Delta i standardiseringsprocesser hellre än att profilera befintliga standarder. Profilera hellre befintliga standarder än att hitta på egna.
+6. Se till att information och data kan överföras
+    - Bygg vidare på existerande kodverk för behörighetsstyrande attribut och försök förankra attributmappningar mellan existerande och nya kodverk. Över tid kan man främja en linjering gentemot en standard, men genom att respektera gjorda investeringar främjas en ökad digitaliseringstakt och dessutom ett ansvarsfullt nyttjande av skattemedel.
+7. Sätt användaren i centrum
+8. Gör digitala tjänster tillgängliga och inkluderande
+    - Sök att i designbeslut på alla nivåer beakta problematiken med digitalt utanförskap genom att skapa förutsättningar för tillämpningar med hög tillgänglighet enligt [Lag (2018:1937) om tillgänglighet till digital offentlig service](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20181937-om-tillganglighet-till-digital_sfs-2018-1937/) och [Kognitiv tillgänglighet – Del 1: Allmänna riktlinjer (ISO 21801-1:2020, IDT)](https://www.sis.se/produkter/halso-och-sjukvard/hjalpmedel-for-personer-med-funktionsnedsattning/hjalpmedel-for-personer-med-funktionsnedsattningar/ss-en-iso-21801-120212/)
+9. Gör det säkert
+    - Beakta säkerheten avseende alla nivåer. Teknisk säkerhet i IAM-systemet i sig. Hög tillgänglighet avseende robusthet i systemets ingående komponenter. Hög tillgänglighet avseende användarinteraktioner med systemet. Säkerhetsmekanismer på adekvat nivå för att skydda respektive komponent och den information som behandlas av denne.
+10. Hitta rätt balans för den personliga integriteten
+11. Använd ett språk som användarna förstår
+12. Gör administrationen enkel
+    - Skapa ett IAM-system, med huvudsakligen en anslutningsprocess per anslutande part. Låt anslutningar till specifika verksamhetstillämpningar bygga på genomförd anslutning till IAM-systemet för att därmed minimera den administrativa bördan.
+13. Ha helhetssyn på informationshantering
 
-## Tillitsfederation
+### Syfte
+
+Målarkitekturen är tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och nå samsyn kring hur ett framtida nationellt IAM-system kan och bör utformas
+
+### Avgränsningar
+
+Målarkitekturen kommer ej rekommendera exakt utformning av IAM-systemets komponenter, eller hur ansvar ska fördelas mellan olika aktörer gällande realiseringen.
+
+## Tillitshantering
 
 Vid all samverkan behöver man ha tillit till den part man samverkar med. Det finns idag ett antal tillvägagångssätt för detta som syftar till att både privatpersoner och organisationer ska känna tillit till att information som delas via e-tjänster och APIer inom samhället hanteras på ett korrekt sätt.
 
-Hus skapas denna tillit och hur säkerställs den över tid?
+Hur skapas denna tillit och hur säkerställs den över tid?
 
 För att kunna samverka över organisationsgränser behövs tillit på två nivåer:
 
@@ -56,12 +79,18 @@ För att kunna samverka över organisationsgränser behövs tillit på två niv�
 
 Säkerställandet av tillitsskapande förmågor kan behöva ske med olika grad av försäkran beroende på samverkanskontext och skyddskrav för den funktionalitet och information som delas. Kraven som ställs behöver också kunna skilja sig mellan olika typer av aktörer.
 
-Teknisk efterlevnad kan ofta säkerställas genom tekniska test. Organistorisk efterlevnad säkerställs ofta genom granskning av regelverk, policyer och rapportering efter genomförada processer. 
+Teknisk efterlevnad säkerställas genom testning eller. Organistorisk efterlevnad säkerställs genom lagstiftning, avtal och/eller certifiering. 
+
+Inom cyber- och informationssäkerhetsområdena ser man ökande risker, vilket ställer kontinuerligt högre krav på tillit. Speciellt offentliga aktörer förväntas stärka sina tillitsskapande förmågor då fokus är stort på att realisera samhällsnyttor genom digitalisering och nyttjande av de möjligheter som digitalisering ger förutsätter tillit. 
 
 ### Nuläge
-Vilka tillitsskapande förmågor som krävs och hur dessa behöver styrkas regleras ofta i avtal bilateralt mellan samverkande parter eller via en federationsoperatör.
+Vilka tillitsskapande förmågor som krävs och hur dessa styrks regleras ofta i avtal bilateralt mellan samverkande parter eller via en federationsoperatör.
 
-Mycket av tilliten är grundmurad, exempelvis den organisatoriska tilliten till statliga myndigheter ifrågasätts sällan av andra parter.
+Tillit är typiskt antingen grundmurad eller avtalsbaserad. Tillitsskapande förmågor styrks ofta genom självdeklaration, ibland byggd på internrevision. Ibland krävs dock revision av extern part, eller till och med certifiering utförd av ackrediterad part.
+
+ - Svenska myndigheter har lagstadgad organisationstillit mellan varandra.
+ - Sveriges regioner och kommuner tillämpar avtalsbaserad organisationstillit, styrkt via självdeklaration för samverkan som sker via Inera.
+ - ...
 
 ### Vision
 För att möjliggöra kostnadseffektiv digitalisering av Svensk offentlig förvaltning bör bygga upp ett system där bilaterala avtal inte behöver reglera tilliten utan att detta styrs nationellt via en tillitsfederation.
@@ -71,6 +100,7 @@ En tillitsfederation bör definiera vilka krav som ska gälle för respektive ty
 <table border=1 bgcolor="lightblue"><tr><td>
 Olika nivåer av tillit rekommenderar vi benämns <i>"Level of trust"</i> och förkortas LoT1, LoT2, LoT3 och LoT4. En högre LoT-nivå ställer högre krav på tillitsskapande förmågor hos en aktör. 
 </td></tr></table> 
+
 
 ```mermaid
 flowchart TD
@@ -104,7 +134,7 @@ Det behöver finnas utrymme för många olika typer av kvalitetsmärken för de 
 
 För att minimera administration och användning av tillitsmärken bör dessa vara så få som möjligt.
 
-## Digitala identiteter
+## Identitetshantering
 
 ### Nuläge
 För privatepersoner har Digg ansvar för kvalitetsmärket Svensk e-legitimation. Detta möjliggör olika aktörer att erbjuda digitala identiteter till privatpersoner förutsatt att de kvalitetssäkrats av Digg. Idag erbjuder BankId, Freja och Svenska Pass denna typ av e-legitimationer.
@@ -125,7 +155,7 @@ Dagens utgivna digitala identiteter behöver fungera även för framtida samverk
 Vi ser även ett behov av ett nationellt kvalitetsmärke för utgivare av funktionscertifikat. Ett sådant kvalitetsmärke kan, i kombination med ett nationellt tillitsfederation, möjliggöra tillitsfull samverkan mellan system.
 
 
-## Behörighetsgrundande information
+## Behörighetshantering
 För att kunna garantera kvaliteten i den åtkomsthantering som sker bör informationsförsörjningen av behörighetsgrundande information ske med en tillförlitlighet på en nivå som motsvarar skyddsbehovet för den digitala tjänst som beslutet avser.
 
 Högst kvalitet på behörighetsgrundande information fås genom att den part som äger och administrera informationen också används som källa för informationsförsörjningen. Exempelvis bör information om läkarlegitimationer informationsförsörjas från Socialstyrelsens HOSP-register. På samma sätt bör medarbetares uppdragsgivare informationsförsörja information som härrör till de uppdrag medarbetaren har.
@@ -147,7 +177,7 @@ Vad som är en adekvat nivå av säkerhet för cahning behöver man komma övere
 <li>De parter som bifogar behörighetsgrundande information till en digital identitet bör ha granskats för att detta sker kontrollerat och tillitsfullt, exempelvis genom granskning mot ett kvalitetsmärke</li>
 </ol>
 
-## Åtkomsthantering i digitala tjänster
+## Åtkomsthantering
 I åtkomsthanteringen knyts alla aspekter av digitalaidentiteter, tillitskedjor, samt informationsförsörjning av behörighetsgrundande information samman.
 
 Korrekta åtkomsbeslut kan vara beroende av informationsförsörjning av behörighetsgrundande från både externa och lokala källor utöver information som tillförts under legitimeringen. 
