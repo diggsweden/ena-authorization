@@ -4,8 +4,7 @@
 
 - Vi avser att etablera strukturer och gemensamma ramverk för federativa system som hanterar identitets- och behörighetshantering över organisationsgränser.
 - Arbetets fokus är nationell samordning, gemensam bas och överenskommelser om operatörernas ansvar samt tydliga riktlinjer för domänanpassning utifrån olika verksamhetsbehov.
-- Målbilden är att realisera en struktur som kan hantera flera olika federativa kontext för att underlätta samarbete mellan olika aktörer.
-- Målbilden är även att skapa en "tillitsfederation" som kan användas i olika federativa kontext och tekniska implementationer. 
+- Vi ska även att skapa en digital infrastruktur för förmedling av tillit med komponenter som kan användas i olika federativa kontext och tekniska implementationer.
 - Vi ska verka för en samordning av befintliga federationers tillitskrav där dessa redan är i olika grad överensstämmande (i motsats till att etablera nya gemensamma krav).
 - Vi ska verka för att tillhandhålla en teknisk infrastruktur för att skapa teknisk tillit och interoperabilitet mellan federationer och aktörer
    -	Metadataregistratorer 
