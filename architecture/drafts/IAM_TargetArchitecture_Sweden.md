@@ -1,35 +1,57 @@
-# Målarkitektur för nationellt IAM-system<br>- med hantering av tillit, identiteter, behörighetgrundande information och åtkomstbeslut
+# Målarkitektur för en Svensk identitets- och åtkomsthantering
 
-## Inledning
-
-För en tillitsfull och kostnadseffektiv samverkan inom offentlig förvaltning behöver vi utveckla och förankra nationell arkitektur, infrastruktur och tillämpningsanvisningar för IAM. Denna målarkitektur syftar till att ge en bild över hur IAM-områdena tillitshantering, identitetshantering, behörighetshantering och åtkomsthantering kan och bör vidareutvecklas för att möjliggöra en tids- och kostnadseffektiv digitalisering av svensk offentlig sektor.
+## Introduktion
+För en tillitsfull och kostnadseffektiv samverkan inom offentlig förvaltning behöver vi utveckla och förankra nationell arkitektur, infrastruktur och tillämpningsanvisningar för identitets- och åtkomsthantering. Denna målarkitektur syftar till att ge en bild över hur ett sådant åtkomstsystem kan och bör utformas för att möjliggöra en tids- och kostnadseffektiv digitalisering av svensk offentlig sektor.
 
 ```mermaid
 graph TD
-Å(Åtkomsthantering)
-I(Identitetshantering)
-B(Behörighetshantering)
-T(Tillitshantering)
 
-Å--beror ov-->I & B--kräver-->T
+subgraph actors[Aktörer]
+direction LR     
+ k(Kommuner)~~~
+ r(Regioner)~~~
+ m(Myndigheter)~~~
+ p(Privata aktörer)
+end
+
+subgraph abilities[Förmågor]
+ Å(Åtkomsthantering)
+ I(Identitetshantering)
+ B(Behörighetshantering)
+ T(Tillitshantering)
+end
+
+actors--har behov av-->abilities
+Å--kräver-->I & B--kräver-->T
 ```
-*Bild över hur områdena tillitshantering, identitetshantering, behörighetshantering och åtkomsthantering i digitala tjänster beror av varandra*
+*Bild över hur områdena tillitshantering, identitetshantering oxh behörighetshantering ger förutsättningar för åtkomsthantering i digitala tjänster*
 
-Inom alla dessa områden finns det redan idag olika grad av standardisering i syfte att möjliggöra digitaliseringen av olika verksamhetsområden. Få lösningar idag är dock förankrade och nyttjade på nationell skala och det försöker vi adressera med denna målarkitektur.
+### Bakgrund och syfte med målarkitekturen
+Inom alla dessa områden finns det redan idag olika grad av standardisering. Det används dock olika standarder inom olika verksamhetsområden och detta leder till att parter som behöver samverka inom flera av dessa verksamhetsområden behöver investera i att stödja många standarder parallellt. Med ett gemensamt system för att hantera digitala identiteter och åtkomstbeslut kan samverkan mellan aktörer verksamma inom svensk offentlig förvaltning underlättas avsevärt. Systemet behöver stödja såväl offentliga organisationer som privata utförare av offentliga uppdrag.
 
-Målarkitekturen kommer även omfatta en enklare strategisk plan för vilka förflyttningar som behöver genomföras över tid och beroenden dem emellan. Denna strategiska plan behöver förhålla sig till existerande arkitektur och infrastrur, samt redan gjorda investeringar i digitaliseringstillämpningar. Planen bör även innehålla vägledning för om. när och hur existerande digitala tjänster ska migrera över till den nya IAM-arkitekturens mönster och nyttja ny infrastruktur.
+Målarkitekturen kommer även omfatta en enklare strategisk plan för vilka förflyttningar som behöver genomföras över tid och beroenden dem emellan. Denna strategiska plan behöver förhålla sig till existerande arkitektur och infrastrur, samt redan gjorda investeringar i digitaliseringstillämpningar. Planen bör även innehålla vägledning för om. när och hur existerande digitala tjänster ska migrera över till det nya åtkomstsystemets samverkansmönster och nyttja ny infrastruktur.
 
-### Principer för målarkitekturens utformning
+Målarkitekturen är tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och nå samsyn kring hur ett framtida nationellt IAM-system kan och bör utformas. Ett IAM-system behöver innehålla följande:
+- Federation för organisatorisk tillit
+- Identitetsfederation för fysiska användare
+- Identitetsfederation för systemaktörer
+- Överenskommelser om modell och kodverk för behörighetsstyrande information
+- Överenskomna tekniska standarder och samverkansmönster för hantering av identifiering och åtkomstbeslut
 
-I vårt arbete med målarkitekturen utgår vi ifrån principerna i  [Svenskt ramverk för digital samverkan, Digg](https://www.digg.se/kunskap-och-stod/svenskt-ramverk-for-digital-samverkan). 
+### Översikt av federationen(-ernas) betydelse och mål
+De i IAM-systemet ingående federationerna syftar till att möjliggöra effektiv digitalisering av organisationsöverskridande processer genom att erbjuda mönster för hur identiter och åtkomstbeslut kan hanteras. 
 
-Svenskt ramverk för digital samverkan innehåller även ett antal rekommendationer för hur man tillämpar principerna. För IAM-området kan vi komma att behöva ta fram ett antal specificerade principer och rekommendationer. 
-
+## Övergripande Arkitekturkoncept
 <table bgcolor="lightblue" border=1><tr><td>
 Det finns ett förslag på en ny EU-förordning, <a href="https://commission.europa.eu/system/files/2022-11/com2022720_0.pdf">Interoperabilitetsförordningen</a>, vilken tar avstamp i European Interoperability Framwork (EIF) och reglerar hur man säkerställer att digitala tjänster som tas fram inom EU linjerar mot EIF.
-<br/><br/>
-Svenskt ramverk för digital samverkan är den svenska översättningen av EIF.
+<br/>
+<br/>
+I december 2023 överlämnades ett betänkande <a href="https://www.regeringen.se/rattsliga-dokument/statens-offentliga-utredningar/2023/12/sou-202396/">En reform för datadelning (SOU 2023:96)</a> till regeringen. Denna utreder Interoperabilitetsförordningen utifrån ett Svenskt kontext.
 </td></tr></table>
+
+
+### Beskrivning av grundläggande koncept och principer för identitetsfederation
+[Svenskt ramverk för digital samverkan (Digg)](https://www.digg.se/kunskap-och-stod/svenskt-ramverk-for-digital-samverkan) är en svensk anpassning av det europeiska ramverket för interoperabilitet (EIF). Det innehåller principer för digtalisering, samt rekommendationer för hur dessa principer tillämpas. För IAM-området kan vi komma att behöva ta fram specifika rekommendationer. 
 
 Vi kompletterar det svenska ramverket med ett antal konkreta rekommendationer för etableringen av IAM-systemet - nedan insorterade under ramverkets grundprinciper
 
@@ -54,9 +76,83 @@ Vi kompletterar det svenska ramverket med ett antal konkreta rekommendationer f�
     - Skapa ett IAM-system, med huvudsakligen en anslutningsprocess per anslutande part. Låt anslutningar till specifika verksamhetstillämpningar bygga på genomförd anslutning till IAM-systemet för att därmed minimera den administrativa bördan.
 13. Ha helhetssyn på informationshantering
 
+### Identifiera och förklara de viktigaste delarna av federationsarkitekturen
+När parter etablerar samverkan via en digital tjänst genomgås en serie av steg enligt nedan 
+```mermaid
+graph LR
+
+subgraph po[Tjänsteproducent]
+    p(API)
+    as(Åtkomsttjänst)
+end
+
+subgraph ss[Nationella stödtjänster]
+    t(Tillitsregister)
+    m(Metadata IAM)
+end
+
+subgraph so[Samverkansoperatör]
+    tk(Tjänstekatalog)
+    ak(Avtalskatalog)
+end
+
+subgraph co[Tjänstekonsument]
+    c(Klient)
+end
+
+c--1. hitta tjänst utifrån <br>interoperabilitetsspecifikationsidentifierare<br>och tjänsteproducents organisationsidentifierare-->tk
+c--2. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+c--3. begär åtkomst till API-->as
+as--3.1. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+as--3.2 verifiera tillit till Klient-->t
+as--3.3 verifiera metadata för klient-->m
+c--4. Anropa API-->p
+p-.litar på.->as
+
+```
+
+
+## Federationens Aktörer och Roller
+### Identifiera och definiera olika aktörer och deras roller inom identitetsfederationen
+### Beskriv specifika ansvarsområden för varje aktör och hur de interagerar med varandra
+
+## Identitets- och behörighetshantering
+### Beskrivning av identitets- och behörighetshanteringsprocesser inom federationen(-erna)
+### Metoder för autentisering och auktorisation över federativa gränser
+
+## Tekniska Standards och Protokoll
+
+### Specifikation av tekniska standarder och protokoll som används inom federationerna
+- SAML (Security Assertion Markup Language)
+- OAuth
+- OpenID Connect etc.
+
+## Arkitektonisk Design och Komponenter
+
+### Beskrivning av arkitektoniska komponenter och deras funktion inom federationen(-erna)
+
+## Säkerhetsaspekter och Riskhantering
+
+### Identifiera säkerhetsrisker och hantering av dessa inom identitetsfederationen
+
+### Åtgärder för att säkra identitetshantering över federativa gränser
+
+<hr>
+
+# STUFF BELOW IS TO BE SORTED IN ABOVE
+
+<hr>
+
+# Målarkitektur för nationellt åtkomstsystem<br>- med hantering av tillit, identiteter och behörighetgrundande information
+
+## Inledning
+
+### Principer för målarkitekturens utformning
+
+
 ### Syfte
 
-Målarkitekturen är tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och nå samsyn kring hur ett framtida nationellt IAM-system kan och bör utformas
+
 
 ### Avgränsningar
 
@@ -97,10 +193,6 @@ För att möjliggöra kostnadseffektiv digitalisering av Svensk offentlig förva
 
 En tillitsfederation bör definiera vilka krav som ska gälle för respektive typ av aktörs, graderat i olika tillitsnivåer.
 
-<table border=1 bgcolor="lightblue"><tr><td>
-Olika nivåer av tillit rekommenderar vi benämns <i>"Level of trust"</i> och förkortas LoT1, LoT2, LoT3 och LoT4. En högre LoT-nivå ställer högre krav på tillitsskapande förmågor hos en aktör. 
-</td></tr></table> 
-
 
 ```mermaid
 flowchart TD
@@ -124,15 +216,19 @@ subgraph TM[Tillitsgranskare X]
 end
 
 TM--granskar-->AO & BO
-TM--registrerar kvalitetsmärke-->TO
+TM--registrerar tillitsmärke-->TO
 AO & BO --säkerställer att \ntillitsmärkning finns-->TO
 AO==samverkar med etablerad tillit==>BO
 ```
 *Schematisk bild över hur tillit mellan samverkande parter kan regleras via en tillitsfederation*
 
-Det behöver finnas utrymme för många olika typer av kvalitetsmärken för de olika roller en aktör kan inneha samt kanske även olika kvalitetsmärken för olika tillitsnivåer som krävs beroende på samverkanskontextet.
+Det behöver finnas utrymme för många olika typer av kvalitetsmärken för de olika roller en aktör kan inneha samt kanske även olika tillitsmärken för olika tillitsnivåer som krävs beroende på samverkanskontextet.
 
-För att minimera administration och användning av tillitsmärken bör dessa vara så få som möjligt.
+<table border=1 bgcolor="lightblue"><tr><td>
+Tillitsmärken för olika nivåer av organisatorisk tillit skulle kunna användas och namnges LoT1, LoT2, LoT3 och LoT4 (<i>"Level of trust"</i>).  
+Att en organisation tilldelats ett kvalitetsmärke för en högre LoT-nivå skulle då kunna innebära att organisationen granskats mot högre krav avseende dess tillitsskapande förmågor./td></tr></table> 
+
+Att en aktör tilldelats ett visst LoT-tillitsmärke skulle kunna ingå som del i kvalificering för en avtalsskrining, eller som åtkomststyrande attribut för åtkomstbeslut vid ett faktiskt tjänsteanrop.
 
 ## Identitetshantering
 
@@ -160,6 +256,9 @@ För att kunna garantera kvaliteten i den åtkomsthantering som sker bör inform
 
 Högst kvalitet på behörighetsgrundande information fås genom att den part som äger och administrera informationen också används som källa för informationsförsörjningen. Exempelvis bör information om läkarlegitimationer informationsförsörjas från Socialstyrelsens HOSP-register. På samma sätt bör medarbetares uppdragsgivare informationsförsörja information som härrör till de uppdrag medarbetaren har.
 
+### Nuläge
+
+### Vision
 **SKRIV OM-->ATTRIBUT...**
 *Vidare behöver en person kunna agera utifrån olika uppdrag inom en och samma organisation och utifrån valt uppdrag få olika tillgång till information och funktioner.*
 
