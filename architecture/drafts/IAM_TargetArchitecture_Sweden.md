@@ -26,7 +26,7 @@ actors--har behov av-->abilities
 ```
 *Bild över hur områdena tillitshantering, identitetshantering och behörighetshantering ger förutsättningar för åtkomsthantering i digitala tjänster*
 
-### Bakgrund och syfte med målarkitekturen
+### Bakgrund och syfte 
 Inom alla dessa områden finns det redan idag olika grad av standardisering. Det används dock olika standarder inom olika verksamhetsområden och detta leder till att parter som behöver samverka inom flera av dessa verksamhetsområden behöver investera i att stödja många standarder parallellt. Med ett gemensamt system för att hantera digitala identiteter och åtkomstbeslut kan samverkan mellan aktörer verksamma inom svensk offentlig förvaltning underlättas avsevärt. Systemet behöver stödja såväl offentliga organisationer som privata utförare av offentliga uppdrag.
 
 Målarkitekturen kommer även omfatta en enklare strategisk plan för vilka förflyttningar som behöver genomföras över tid och beroenden dem emellan. Denna strategiska plan behöver förhålla sig till existerande arkitektur och infrastrur, samt redan gjorda investeringar i digitaliseringstillämpningar. Planen bör även innehålla vägledning för om. när och hur existerande digitala tjänster ska migrera över till det nya åtkomstsystemets samverkansmönster och nyttja ny infrastruktur.
@@ -38,7 +38,6 @@ Målarkitekturen är tänkt att fungera som underlag för diskussioner inom sven
 - Överenskommelser om modell och kodverk för behörighetsstyrande information
 - Överenskomna tekniska standarder och samverkansmönster för hantering av identifiering och åtkomstbeslut
 
-### Översikt av federationen(-ernas) betydelse och mål
 De i IAM-systemet ingående federationerna syftar till att möjliggöra effektiv digitalisering av organisationsöverskridande processer genom att erbjuda mönster för hur identiter och åtkomstbeslut kan hanteras. 
 
 ## Övergripande Arkitekturkoncept
@@ -76,7 +75,7 @@ Vi kompletterar det svenska ramverket med ett antal konkreta rekommendationer f�
     - Skapa ett IAM-system, med huvudsakligen en anslutningsprocess per anslutande part. Låt anslutningar till specifika verksamhetstillämpningar bygga på genomförd anslutning till IAM-systemet för att därmed minimera den administrativa bördan.
 13. Ha helhetssyn på informationshantering
 
-### Scenarion
+### Behovsanalys
 När parter etablerar samverkan via en digital tjänst finns det ett antal olika scenarion.
 #### Användare anropar extern tjänst, med förprovisionerade användarkonto
 ```mermaid
@@ -86,10 +85,56 @@ TBD
 #### Användare anropar extern tjänst
 ```mermaid
 graph LR
-user --> e-tjänst
-user -- legitimering-->IdP
-user--begär åtkomst--> auktorisationstjänst
-sm(SKRIV MERA!!!!)
+
+subgraph x[Kommun X]
+    xu(Handläggare kommun X<br>&lt&lt Medarbetare &gt&gt)
+    xuv(&lt&lt Uppdragsväljare &gt&gt)
+    xidp(IdP kommun X<br> &lt&lt Legitimeringstjänst IdP&gt&gt)
+    xak[(Personalsystem<br> &lt&lt Attributkälla &gt&gt)]
+end
+
+subgraph k[Kronofogden]
+    kd[(Informationskälla<br> &lt&lt Attributkälla &gt&gt)]
+end
+
+subgraph b[Bolagsverket]
+    bd[(Informationskälla<br> &lt&lt Attributkälla &gt&gt)]
+end
+
+subgraph fk[Försäkringskassan]
+    fkt(Finansiell status<br>&lt&lt E-tjänst &gt&gt)
+    fka(&lt&lt Anvisningstjänst &gt&gt)
+end
+
+subgraph id[Identitetsutfärdare]
+    ida(Autentiseringstjänst)
+end
+
+subgraph fed[Federation]
+    fedt[tillitsmetadata]
+    fedmk(federationsmedlemskatalog)
+    fedprof(tjänstemetadata<br>per teknik)
+end
+
+%%x~~~~~fk
+
+id-.->fed
+fk & x & k -.-> fedmk
+xak & xidp & fkt & kd -.->fedt
+
+id--1 ge ut digital identitet-->xu
+xu--2 anropa tjänst-->fkt
+xu--3 välj IdP-->fka
+fkt-.visa.->fka
+xu--4 legitimera-->xidp
+xu--5 autentisera-->ida
+xidp--6 hämta attribut-->xak
+xidp--7 visa uppdragsväljare-->xuv
+xidp--8 returnera identitetsintyg<br>och omdirigera användare<br>till tjänsten-->xu
+fkt--9 inhämta behörighetsstyrande<br>information---> kd 
+fkt--10 inhämta behörighetsstyrande<br>information---> bd 
+fkt--11 utför något-->fkt
+fkt--12 resultat-->xu
 ```
 #### System anropar system i annan organisation
 
