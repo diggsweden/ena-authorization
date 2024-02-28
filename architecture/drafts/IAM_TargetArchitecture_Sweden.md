@@ -1,6 +1,6 @@
 # Målarkitektur för en Svensk identitets- och åtkomsthantering
 
-## Introduktion
+## Inledning
 För en tillitsfull och kostnadseffektiv samverkan inom offentlig förvaltning behöver vi utveckla och förankra nationell arkitektur, infrastruktur och tillämpningsanvisningar för identitets- och åtkomsthantering. Denna målarkitektur syftar till att ge en bild över hur ett sådant åtkomstsystem kan och bör utformas för att möjliggöra en tids- och kostnadseffektiv digitalisering av svensk offentlig sektor.
 
 ```mermaid
@@ -24,7 +24,7 @@ end
 actors--har behov av-->abilities
 Å--kräver-->I & B--kräver-->T
 ```
-*Bild över hur områdena tillitshantering, identitetshantering oxh behörighetshantering ger förutsättningar för åtkomsthantering i digitala tjänster*
+*Bild över hur områdena tillitshantering, identitetshantering och behörighetshantering ger förutsättningar för åtkomsthantering i digitala tjänster*
 
 ### Bakgrund och syfte med målarkitekturen
 Inom alla dessa områden finns det redan idag olika grad av standardisering. Det används dock olika standarder inom olika verksamhetsområden och detta leder till att parter som behöver samverka inom flera av dessa verksamhetsområden behöver investera i att stödja många standarder parallellt. Med ett gemensamt system för att hantera digitala identiteter och åtkomstbeslut kan samverkan mellan aktörer verksamma inom svensk offentlig förvaltning underlättas avsevärt. Systemet behöver stödja såväl offentliga organisationer som privata utförare av offentliga uppdrag.
@@ -76,8 +76,23 @@ Vi kompletterar det svenska ramverket med ett antal konkreta rekommendationer f�
     - Skapa ett IAM-system, med huvudsakligen en anslutningsprocess per anslutande part. Låt anslutningar till specifika verksamhetstillämpningar bygga på genomförd anslutning till IAM-systemet för att därmed minimera den administrativa bördan.
 13. Ha helhetssyn på informationshantering
 
-### Identifiera och förklara de viktigaste delarna av federationsarkitekturen
-När parter etablerar samverkan via en digital tjänst genomgås en serie av steg enligt nedan 
+### Scenarion
+När parter etablerar samverkan via en digital tjänst finns det ett antal olika scenarion.
+#### Användare anropar extern tjänst, med förprovisionerade användarkonto
+```mermaid
+graph LR
+TBD
+```
+#### Användare anropar extern tjänst
+```mermaid
+graph LR
+user --> e-tjänst
+user -- legitimering-->IdP
+user--begär åtkomst--> auktorisationstjänst
+sm(SKRIV MERA!!!!)
+```
+#### System anropar system i annan organisation
+
 ```mermaid
 graph LR
 
@@ -240,6 +255,8 @@ För medarbetare med behov av att legitimera sig digitalt inom sitt tjänsteutö
 De digitala identiteterna för fysiska personer autentiseras i regel av en legitimeringstjänst som ansvaras för av utgivaren. Den tjänsteproducerande aktören (även benämnd förlitande part) behöver ha explicit tillit till legitimeringstjänsten.
 
 För systemaktörer finns idag ingen nationell samordning av utgivning av digitala identiteter. Det finns ett antal aktörer som ger ut certifikat som kan nyttjas i mer eller mindre avgränsade syften. SITHS och EFOS ger ut så kallade funktionscertifikat (X.509-certifikat att nyttjas av systemaktörer). Digg ger ut funktionscertifikat till avtalsparter inom Säker Digital Kommunikation (SDK). 
+
+För individer utan vare sig svenskt personnummer eller styrkt samordningsnummer finns idag ingen möjlighet att få en digital identitet. Inom vården används reservidn för detta ändamål, men för interaktion med annan offentlig förvaltning saknas lösning idag - TODO: DOKUMENTERA!!!
 
 <table border=1 bgcolor="lightblue"><tr><td>
 Tilliten mellan systemaktörer regleras ofta till det verksamhetskontext där utgivningen skett eller explicit till specifika certifikat baserat på bilaterala avtal
