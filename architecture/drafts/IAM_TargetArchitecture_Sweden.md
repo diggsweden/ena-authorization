@@ -84,7 +84,7 @@ TBD
 ```
 #### Användare anropar extern tjänst
 ```mermaid
-graph LR
+graph TD
 
 subgraph x[Kommun X]
     xu(Handläggare kommun X<br>&lt&lt Medarbetare &gt&gt)
