@@ -83,8 +83,46 @@ graph LR
 TBD
 ```
 #### Användare anropar extern tjänst
+
+Nuläge
+
 ```mermaid
 graph LR
+classDef Amber color:#000000,fill:#FFDEAD
+classDef Green color:#000000,fill:#FF5555
+classDef orange color:#000000,fill:#f96
+A{{Användare<br>Handläggare<br>Kommun}}:::Amber
+B([E-tjänst<br>Finansiell status<br>FK]):::orange
+C{{Administratör<br>Kommun}}:::Amber
+D[(extern e-tjänst)]:::Green
+E[(20 e-tjänster)]:::Green
+subgraph Typfall Finansiell status
+A -->|Loggar in i extern e-tjänst<br> med e-legitimation | B
+C -->|Administrerar kommunens användare | B
+end
+subgraph Fler typfall
+C --> D
+C --> E
+end
+```
+
+##### Förutsättningar
+1. Kommunadministratör kontaktar FK om att få administratörsrättigheter i e-tjänst
+2. Kommun fyller i blankett(er)
+3. Kommun kompletterar med kopior av beslut
+4. Kommun kompletterar med andra uppgifter
+5. FK skickar brev till kommun
+6. Kommun svarar via fax/brev, med administratörens uppgifter
+7. Kommun väntar på lång handläggningstid
+8. FK kontaktar kommun om kompletteringar
+9. Administratör godkänns, läggs upp i e-tjänst
+10. Administratör ansöker om e-tjänstekort (EFOS)
+11. Administratör får e-tjänstekort och kan börja administrera kommunens handläggare i e-tjänst
+
+
+Börläge
+```mermaid
+graph TD
 
 subgraph x[Kommun X]
     xu(Handläggare kommun X<br>&lt&lt Medarbetare &gt&gt)
@@ -136,6 +174,27 @@ fkt--10 inhämta behörighetsstyrande<br>information---> bd
 fkt--11 utför något-->fkt
 fkt--12 resultat-->xu
 ```
+##### Förutsättningar
+Obligatoriska förutsättningar
+- Kommun: Medlem i federationen som organisation
+- Kommun: Intygsutfärdartjänst och attributskälla måste vara granskad och godkänd på tillräcklig tillitsnivå av federationen
+- Kommun: Användare måste ha en av federationen godkänd e-legitimation, på tillräcklig tillitsnivå
+- Kommunens intygsutfärdartjänst: Metadata registreradhos federationsoperatören; nyckelcertifikat, tillitsnivå, et
+- Kommunanvändaren: Upplagd i kommunens lokala attributskälla
+- Kommunanvändaren: Metadata skickas med i anrop till e-tjänst – pekare till adress till kommunens intygsutfärdartjänst (alternativt används en anvisningstjänst kopplat till e-tjänsten)
+- E-tjänst: Dess organisation medlem i federation
+- E-tjänst: Medlem i federation som e-tjänst på viss tillitsnivå
+- E-tjänst: Metadata registrerad; nyckelcertifikat, krav på tillitsnivå, krav på attribut, etc
+- E-tjänst: Uppfyller kraven på server-2-server-kommunikation som federationen anvisar, som konsument av information
+- Kronofogden: Medlem i federation
+- Kronofogden: Metadata för e-tjänst registrerad hos federationsoperatören, som producent av information
+- Kronofogden: Uppfyller kraven på server-2-server-kommunikation som federationen anvisar
+
+Möjliga förutsättningar
+- Bolagsverket: Medlem i federation (ej krav pga offentlig tillgänglig information i tjänst)
+- Agent/ombud: Granskad och godkänd av federationen att stötta andra organisationer med deras federationsansökan, e-tjänster, intygsutfärdartjänst, attributskälla, e-legitimationer
+
+
 #### System anropar system i annan organisation
 
 ```mermaid
