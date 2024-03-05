@@ -83,6 +83,15 @@ graph LR
 TBD
 ```
 #### Användare anropar extern tjänst
+Nuläge
+``mermaid
+graph RL
+
+
+```
+
+
+Börläge
 ```mermaid
 graph TD
 
