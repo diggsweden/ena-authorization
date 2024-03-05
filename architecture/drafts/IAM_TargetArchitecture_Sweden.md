@@ -84,7 +84,7 @@ TBD
 ```
 ### Användare anropar extern tjänst
 
-####Nuläge
+#### Nuläge
 
 ```mermaid
 graph LR
@@ -120,7 +120,7 @@ end
 11. Administratör får e-tjänstekort och kan börja administrera kommunens handläggare i e-tjänst
 
 
-####Börläge
+#### Börläge
 ```mermaid
 graph TD
 
