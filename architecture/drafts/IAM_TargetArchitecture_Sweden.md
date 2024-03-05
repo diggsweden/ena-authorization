@@ -118,6 +118,8 @@ end
 9. Administratör godkänns, läggs upp i e-tjänst
 10. Administratör ansöker om e-tjänstekort (EFOS)
 11. Administratör får e-tjänstekort och kan börja administrera kommunens handläggare i e-tjänst
+12. Upprepas vid varje extern tjänst eller vid byte av administratör
+13. (<i>I flera fall finns ingen kommunadministratör, ersätt då ovanstånde att gälla för alla enskilda användare.</i>)
 
 
 #### Börläge
