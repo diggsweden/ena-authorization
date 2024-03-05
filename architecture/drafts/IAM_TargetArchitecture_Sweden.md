@@ -83,12 +83,41 @@ graph LR
 TBD
 ```
 #### Användare anropar extern tjänst
+
 Nuläge
-``mermaid
-graph RL
 
-
+```mermaid
+graph LR
+classDef Amber color:#000000,fill:#FFDEAD
+classDef Green color:#000000,fill:#FF5555
+classDef orange color:#000000,fill:#f96
+A{{Användare<br>Handläggare<br>Kommun}}:::Amber
+B([E-tjänst<br>Finansiell status<br>FK]):::orange
+C{{Administratör<br>Kommun}}:::Amber
+D[(extern e-tjänst)]:::Green
+E[(20 e-tjänster)]:::Green
+subgraph Typfall Finansiell status
+A -->|Loggar in i extern e-tjänst<br> med e-legitimation | B
+C -->|Administrerar kommunens användare | B
+end
+subgraph Fler typfall
+C --> D
+C --> E
+end
 ```
+
+##### Förutsättningar
+1. Kommunadministratör kontaktar FK om att få administratörsrättigheter i e-tjänst
+2. Kommun fyller i blankett(er)
+3. Kommun kompletterar med kopior av beslut
+4. Kommun kompletterar med andra uppgifter
+5. FK skickar brev till kommun
+6. Kommun svarar via fax/brev, med administratörens uppgifter
+7. Kommun väntar på lång handläggningstid
+8. FK kontaktar kommun om kompletteringar
+9. Administratör godkänns, läggs upp i e-tjänst
+10. Administratör ansöker om e-tjänstekort (EFOS)
+11. Administratör får e-tjänstekort och kan börja administrera kommunens handläggare i e-tjänst
 
 
 Börläge
