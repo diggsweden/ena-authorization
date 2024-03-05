@@ -136,6 +136,27 @@ fkt--10 inhämta behörighetsstyrande<br>information---> bd
 fkt--11 utför något-->fkt
 fkt--12 resultat-->xu
 ```
+##### Förutsättningar
+Obligatoriska förutsättningar
+- Kommun: Medlem i federationen som organisation
+- Kommun: Intygsutfärdartjänst och attributskälla måste vara granskad och godkänd på tillräcklig tillitsnivå av federationen
+- Kommun: Användare måste ha en av federationen godkänd e-legitimation, på tillräcklig tillitsnivå
+- Kommunens intygsutfärdartjänst: Metadata registreradhos federationsoperatören; nyckelcertifikat, tillitsnivå, et
+- Kommunanvändaren: Upplagd i kommunens lokala attributskälla
+- Kommunanvändaren: Metadata skickas med i anrop till e-tjänst – pekare till adress till kommunens intygsutfärdartjänst (alternativt används en anvisningstjänst kopplat till e-tjänsten)
+- E-tjänst: Dess organisation medlem i federation
+- E-tjänst: Medlem i federation som e-tjänst på viss tillitsnivå
+- E-tjänst: Metadata registrerad; nyckelcertifikat, krav på tillitsnivå, krav på attribut, etc
+- E-tjänst: Uppfyller kraven på server-2-server-kommunikation som federationen anvisar, som konsument av information
+- Kronofogden: Medlem i federation
+- Kronofogden: Metadata för e-tjänst registrerad hos federationsoperatören, som producent av information
+- Kronofogden: Uppfyller kraven på server-2-server-kommunikation som federationen anvisar
+
+Möjliga förutsättningar
+- Bolagsverket: Medlem i federation (ej krav pga offentlig tillgänglig information i tjänst)
+- Agent/ombud: Granskad och godkänd av federationen att stötta andra organisationer med deras federationsansökan, e-tjänster, intygsutfärdartjänst, attributskälla, e-legitimationer
+
+
 #### System anropar system i annan organisation
 
 ```mermaid
