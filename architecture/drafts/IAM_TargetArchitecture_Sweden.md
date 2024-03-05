@@ -75,16 +75,16 @@ Vi kompletterar det svenska ramverket med ett antal konkreta rekommendationer f�
     - Skapa ett IAM-system, med huvudsakligen en anslutningsprocess per anslutande part. Låt anslutningar till specifika verksamhetstillämpningar bygga på genomförd anslutning till IAM-systemet för att därmed minimera den administrativa bördan.
 13. Ha helhetssyn på informationshantering
 
-### Behovsanalys
+## Behovsanalys/Typfall
 När parter etablerar samverkan via en digital tjänst finns det ett antal olika scenarion.
-#### Användare anropar extern tjänst, med förprovisionerade användarkonto
+### Användare anropar extern tjänst, med förprovisionerade användarkonto
 ```mermaid
 graph LR
 TBD
 ```
-#### Användare anropar extern tjänst
+### Användare anropar extern tjänst
 
-Nuläge
+#### Nuläge
 
 ```mermaid
 graph LR
@@ -120,7 +120,7 @@ end
 11. Administratör får e-tjänstekort och kan börja administrera kommunens handläggare i e-tjänst
 
 
-Börläge
+#### Börläge
 ```mermaid
 graph TD
 
@@ -195,7 +195,7 @@ Möjliga förutsättningar
 - Agent/ombud: Granskad och godkänd av federationen att stötta andra organisationer med deras federationsansökan, e-tjänster, intygsutfärdartjänst, attributskälla, e-legitimationer
 
 
-#### System anropar system i annan organisation
+### System anropar system i annan organisation
 
 ```mermaid
 graph LR
