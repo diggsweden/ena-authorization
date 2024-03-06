@@ -102,7 +102,7 @@ end
 subgraph f[<p>]
     fto(Federationsoperatör):::org
     fibo(Federationsoperatör):::org
-    fto-->ft(Federation för<br>organisationstillit)
+    fto-->ft(Federation för<br>tillit)
     fibo-->fib(Federation för <br>identitet och behörighet)
 
 end
@@ -110,13 +110,13 @@ end
 f--skapar förutsättningar för-->s
 
 ```
-*Logisk bild över hur centrala förmågor för hantering av organisationstillit, samt identiteter och behörigheter skapar förutsättningar för samverkan*
+*Logisk bild över hur centrala förmågor för hantering av tillit, identiteter och behörigheter, skapar förutsättningar för samverkan*
 
 | Begrepp | Beskrivning 
 |:-|:-
 | Federation för identitet och behörighet | Ett antal aktörer som i avtalad samverkan delat information kring identieter och behörighetsgrundande information med hjälp av gemensamt definierade regler avseende teknik, semantik, legala tolkningar, samt organisatoriska regler och policyer.
 | Federation för informationsutbyte | Ett antal aktörer som i avtalad samverkan delar information i ett gemensamt syfte med hjälp av gemensamt definierade regler för informationsutbytet både avseende teknik, semantik, legala tolkningar, samt organisatoriska regler och policyer. Namnges även *Informationsfederation*
-| Federation för organisationstillit |  Ett antal aktörer som avtalad samverkan som realiserar tillitsskapande förmågor inom informationssäkerhetsområdet i hela eller delar av sin organisation. De tillitsskapande förmågorna behöver uppfylla de inom federationen fastställda kraven. 
+| Federation för tillit |  Ett antal aktörer som avtalad samverkan som realiserar tillitsskapande förmågor, främst inom informationssäkerhetsområdet, i hela eller delar av sin organisation. De tillitsskapande förmågorna definieras som krav, där varje krav också kan inkludera **hur** och **hur väl** väl en viss förmåga realiseras
 | Federationsoperatör | Den aktör som styr och koordinerar en federation, dess medlemmar, avtal, samt regler och villkor. 
 | Tjänstekonsument | Organisation som har behov  av att nyttja en digital tjänst (Public Service Consumer från EIRA) 
 | Tjänsteproducent | Organisation som erbjuder en digital tjänst till andra tjänstekonsumenter (Public Service Producer från EIRA) 
@@ -125,10 +125,16 @@ f--skapar förutsättningar för-->s
 ### IAM-system - Teknisk vy
 
 Den tekniska vyn syftar till att beskriva tekniska begrepp som behövs inom ovan beskrivna federationer för att realisera samverkan
+<table bgcolor=red><tr><td>
+Frågor :<ol>
+<li>Är LoA-nivåerna inte egentligen en <b>kravprofil</b> i federationen för tillit?
+<li>Kan vi inte generellt koppla ihop "uppfyllande av kravprofil" med konceptet <b>kvalitetsmärke</b>!?
+<li>Hur relaterar kvalitetsmärke till tillitsmärke?
+</td></tr><table>
 
 ```mermaid
 graph TB
-subgraph fo[Federation för organisationstillit]
+subgraph fo[Federation för tillit]
     direction LR
     oi(Organisationsidentifierare)
     ot(Organisationstyp)
