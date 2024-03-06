@@ -42,7 +42,14 @@ Målarkitekturen är tänkt att fungera som underlag för diskussioner inom sven
 
 De i IAM-systemet ingående federationerna syftar till att möjliggöra effektiv digitalisering av organisationsöverskridande processer genom att erbjuda mönster för hur identiter och åtkomstbeslut kan hanteras. 
 
-### Terminologi (input till Aras!)
+## Övergripande arkitektur
+<table bgcolor="lightblue" border=1><tr><td>
+Det finns ett förslag på en ny EU-förordning, <a href="https://commission.europa.eu/system/files/2022-11/com2022720_0.pdf">Interoperabilitetsförordningen</a>, vilken tar avstamp i European Interoperability Framwork (EIF) och reglerar hur man säkerställer att digitala tjänster som tas fram inom EU linjerar mot EIF.
+<br/>
+<br/>
+I december 2023 överlämnades ett betänkande <a href="https://www.regeringen.se/rattsliga-dokument/statens-offentliga-utredningar/2023/12/sou-202396/">En reform för datadelning (SOU 2023:96)</a> till regeringen. Denna utreder Interoperabilitetsförordningen utifrån ett Svenskt kontext.
+</td></tr></table>
+
 <table bgcolor="lightblue" border=1><tr><td>
 Jag har i mina arkitekturskisser nedan använt termer från T2, men beskrivningarna har förenklats något för detta kontext. Terminologin genomgår en första revidering under 2024. Rekommendationen är att vi använder nuvarande termer tills revideringen är klar.
 <br>
@@ -51,13 +58,6 @@ Jag har i mina arkitekturskisser nedan använt termer från T2, men beskrivninga
 </td></tr></table>
 
 
-## Övergripande Arkitektur
-<table bgcolor="lightblue" border=1><tr><td>
-Det finns ett förslag på en ny EU-förordning, <a href="https://commission.europa.eu/system/files/2022-11/com2022720_0.pdf">Interoperabilitetsförordningen</a>, vilken tar avstamp i European Interoperability Framwork (EIF) och reglerar hur man säkerställer att digitala tjänster som tas fram inom EU linjerar mot EIF.
-<br/>
-<br/>
-I december 2023 överlämnades ett betänkande <a href="https://www.regeringen.se/rattsliga-dokument/statens-offentliga-utredningar/2023/12/sou-202396/">En reform för datadelning (SOU 2023:96)</a> till regeringen. Denna utreder Interoperabilitetsförordningen utifrån ett Svenskt kontext.
-</td></tr></table>
 
 
 ### Grundläggande arkitektoniska principer
@@ -114,13 +114,12 @@ f--skapar förutsättningar för-->s
 
 | Begrepp | Beskrivning 
 |:-|:-
+| Federation för identitet och behörighet | Ett antal aktörer som i avtalad samverkan delat information kring identieter och behörighetsgrundande information med hjälp av gemensamt definierade regler avseende teknik, semantik, legala tolkningar, samt organisatoriska regler och policyer.
+| Federation för informationsutbyte | Ett antal aktörer som i avtalad samverkan delar information i ett gemensamt syfte med hjälp av gemensamt definierade regler för informationsutbytet både avseende teknik, semantik, legala tolkningar, samt organisatoriska regler och policyer. Namnges även *Informationsfederation*
+| Federation för organisationstillit |  Ett antal aktörer som avtalad samverkan som realiserar tillitsskapande förmågor inom informationssäkerhetsområdet i hela eller delar av sin organisation. De tillitsskapande förmågorna behöver uppfylla de inom federationen fastställda kraven. 
+| Federationsoperatör | Den aktör som styr och koordinerar en federation, dess medlemmar, avtal, samt regler och villkor. 
 | Tjänstekonsument | Organisation som har behov  av att nyttja en digital tjänst (Public Service Consumer från EIRA) 
 | Tjänsteproducent | Organisation som erbjuder en digital tjänst till andra tjänstekonsumenter (Public Service Producer från EIRA) 
-| Federationsoperatör | Den aktör som styr och koordinerar en federation, dess medlemmar, avtal, samt regler och villkor.
-| Federation för informationsutbyte | Ett antal aktörer som i avtalad samverkan delar information i ett gemensamt syfte med hjälp av gemensamt definierade regler för informationsutbytet både avseende teknik, semantik, legala tolkningar, samt organisatoriska regler och policyer.  
-| Informationsfederation | Synonym till *federation för informationsutbyte* |
-| Federation för identitet och behörighet | Ett antal aktörer som i avtalad samverkan delat information kring identieter och behörighetsgrundande information med hjälp av gemensamt definierade regler avseende teknik, semantik, legala tolkningar, samt organisatoriska regler och policyer.
-| Federation för organisationstillit |  Ett antal aktörer som avtalad samverkan som realiserar tillitsskapande förmågor inom informationssäkerhetsområdet i hela eller delar av sin organisation. De tillitsskapande förmågorna behöver uppfylla de inom federationen fastställda kraven. 
 
 
 ### IAM-system - Teknisk vy
@@ -130,23 +129,35 @@ Den tekniska vyn syftar till att beskriva tekniska begrepp som behövs inom ovan
 ```mermaid
 graph TB
 subgraph fo[Federation för organisationstillit]
+    direction LR
     oi(Organisationsidentifierare)
     ot(Organisationstyp)
     vi(Verksamhetsidentifierare)
     vt(Verksamhetstyp)
     kk(Kravkatalog)
     kp(Kravprofil)
-    lot(LoT-nivå)
 
     oi~~~vi~~~kk
     ot~~~vt~~~kp
 end
+```
+| Begrepp | Beskrivning 
+|:-|:-
+| Kravkatalog | Katalog med alla definierade krav på tillitsskapande förmåga hos en organisation eller verksamhet
+| Kravprofil | Namngivet urval av krav från kravkatalogen 
+| Organisationsidentifierare | Definition vilka identifierare som kan användas för att identifiera en organisation, samt semantik för hur dessa representeras digitalt
+| Organisationstyp | Kodverk för olika typer av organisationer man har behov att differentiera emellan
+| Verksamhetsidentifierare | Definition för vilka identifierare som kan användas för att identifiera en specifik verksamhet inom en organisation, samt semantik för hur dessa representeras digitalt
+| Verksamhetstyp | Kodverk för olika typer av verksamheter man har behov att differentiera emellan
 
+
+```mermaid
+graph TB
 subgraph fib[Federation för identitet och behörighet]
     direction LR
     fa(fysiska aktörers identiteter)
     sa(systemaktörers identiteter)
-    loa(LoA-nivåer)
+    loa(Level of assurance)
     ar(aktörsroller) 
     ba(behörighetsgrundande attribut)
     fr(företrädarrelationer)
@@ -155,7 +166,12 @@ subgraph fib[Federation för identitet och behörighet]
     fa~~~sa~~~loa
     ar~~~ba~~~fr
 end
+```
+| Begrepp | Beskrivning 
+|:-|:-
 
+```mermaid
+graph TB
 subgraph fi[Federation för informationsutbyte]
     direction LR
     is(informationsspecifikation)
@@ -168,11 +184,11 @@ subgraph fi[Federation för informationsutbyte]
     k~~~ap
 
 end
-
-fo ~~~ fib ~~~ fi
-
 ```
 
+
+| Begrepp | Beskrivning 
+|:-|:-
 
 
 
