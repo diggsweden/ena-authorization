@@ -123,6 +123,48 @@ end
 
 
 #### Börläge
+*Lite förenklad bild med komponenter per aktör, utan varje interaktion* - Pelle väljer!
+
+```mermaid
+graph TD
+
+subgraph x[Kommun X]
+    xu(Handläggare kommun X<br>&lt&lt Medarbetare &gt&gt)
+    xidp(IdP kommun X<br> &lt&lt Legitimeringstjänst IdP&gt&gt)
+    xuv(&lt&lt Uppdragsväljare &gt&gt)
+    xak[(Personalsystem<br> &lt&lt Attributkälla &gt&gt)]
+end
+
+subgraph k[Kronofogden]
+    kd[(Informationskälla<br> &lt&lt Attributkälla &gt&gt)]
+end
+
+subgraph b[Bolagsverket]
+    bd[(Informationskälla<br> &lt&lt Attributkälla &gt&gt)]
+end
+
+subgraph fk[Försäkringskassan]
+    fkt(Finansiell status<br>&lt&lt E-tjänst &gt&gt)
+    fka(&lt&lt Anvisningstjänst &gt&gt)
+end
+
+subgraph id[Identitetsutfärdare]
+    ida(Autentiseringstjänst)
+end
+
+subgraph fed[Federation]
+    fedt[tillitsmetadata]
+    fedmk(federationsmedlemskatalog)
+    fedprof(tjänstemetadata<br>per teknik)
+end
+
+id & fk & x & k -.-> fed
+id--ger ut identiteter-->x
+x--anropar tjänst-->fk
+fk--ber om legitimering<br>av användare-->x
+fk--hämtar behörighetsgrundande<br>information-->k & b
+```
+
 ```mermaid
 graph TD
 
