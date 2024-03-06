@@ -5,13 +5,14 @@ För en tillitsfull och kostnadseffektiv samverkan inom offentlig förvaltning b
 
 ```mermaid
 graph TD
+classDef org fill:#D2B9D5
 
 subgraph actors[Aktörer]
 direction LR     
- k(Kommuner)~~~
- r(Regioner)~~~
- m(Myndigheter)~~~
- p(Privata aktörer)
+ k(Kommuner):::org~~~
+ r(Regioner):::org~~~
+ m(Myndigheter):::org~~~
+ p(Privata aktörer):::org
 end
 
 subgraph abilities[Förmågor]
@@ -24,7 +25,8 @@ end
 actors--har behov av-->abilities
 Å--kräver-->I & B--kräver-->T
 ```
-*Bild över hur områdena tillitshantering, identitetshantering och behörighetshantering ger förutsättningar för åtkomsthantering i digitala tjänster*
+*Logisk bild över hur områdena tillitshantering, identitetshantering och behörighetshantering ger förutsättningar för åtkomsthantering i digitala tjänster*
+
 
 ### Bakgrund och syfte 
 Inom alla dessa områden finns det redan idag olika grad av standardisering. Det används dock olika standarder inom olika verksamhetsområden och detta leder till att parter som behöver samverka inom flera av dessa verksamhetsområden behöver investera i att stödja många standarder parallellt. Med ett gemensamt system för att hantera digitala identiteter och åtkomstbeslut kan samverkan mellan aktörer verksamma inom svensk offentlig förvaltning underlättas avsevärt. Systemet behöver stödja såväl offentliga organisationer som privata utförare av offentliga uppdrag.
@@ -40,7 +42,16 @@ Målarkitekturen är tänkt att fungera som underlag för diskussioner inom sven
 
 De i IAM-systemet ingående federationerna syftar till att möjliggöra effektiv digitalisering av organisationsöverskridande processer genom att erbjuda mönster för hur identiter och åtkomstbeslut kan hanteras. 
 
-## Övergripande Arkitekturkoncept
+### Terminologi (input till Aras!)
+<table bgcolor="lightblue" border=1><tr><td>
+Jag har i mina arkitekturskisser nedan använt termer från T2, men beskrivningarna har förenklats något för detta kontext. Terminologin genomgår en första revidering under 2024. Rekommendationen är att vi använder nuvarande termer tills revideringen är klar.
+<br>
+<br><a href="https://inera.atlassian.net/wiki/spaces/OITIFV">T2 - referensarkitektur för interoperabilitet inom svensk välfärd</a>
+<br><a href="https://inera.atlassian.net/wiki/spaces/OITAFIIVOO">T2 - referensarkitektur för interoperabilitet inom svensk vård och omsorg</a>
+</td></tr></table>
+
+
+## Övergripande Arkitektur
 <table bgcolor="lightblue" border=1><tr><td>
 Det finns ett förslag på en ny EU-förordning, <a href="https://commission.europa.eu/system/files/2022-11/com2022720_0.pdf">Interoperabilitetsförordningen</a>, vilken tar avstamp i European Interoperability Framwork (EIF) och reglerar hur man säkerställer att digitala tjänster som tas fram inom EU linjerar mot EIF.
 <br/>
@@ -49,7 +60,7 @@ I december 2023 överlämnades ett betänkande <a href="https://www.regeringen.s
 </td></tr></table>
 
 
-### Beskrivning av grundläggande koncept och principer för identitetsfederation
+### Grundläggande arkitektoniska principer
 [Svenskt ramverk för digital samverkan (Digg)](https://www.digg.se/kunskap-och-stod/svenskt-ramverk-for-digital-samverkan) är en svensk anpassning av det europeiska ramverket för interoperabilitet (EIF). Det innehåller principer för digtalisering, samt rekommendationer för hur dessa principer tillämpas. För IAM-området kan vi komma att behöva ta fram specifika rekommendationer. 
 
 Vi kompletterar det svenska ramverket med ett antal konkreta rekommendationer för etableringen av IAM-systemet - nedan insorterade under ramverkets grundprinciper
@@ -74,6 +85,96 @@ Vi kompletterar det svenska ramverket med ett antal konkreta rekommendationer f�
 12. Gör administrationen enkel
     - Skapa ett IAM-system, med huvudsakligen en anslutningsprocess per anslutande part. Låt anslutningar till specifika verksamhetstillämpningar bygga på genomförd anslutning till IAM-systemet för att därmed minimera den administrativa bördan.
 13. Ha helhetssyn på informationshantering
+
+### IAM-system - Organisatorisk vy
+
+```mermaid
+graph TD
+classDef org fill:#D2B9D5
+
+subgraph s[<p>]
+    k(Tjänstekonsument):::org
+    p(Tjänsteproducent):::org
+    fio(Federationsoperatör):::org-->fi(Federation för <br>informationsutbyte)
+    k==>fi==>p
+end
+
+subgraph f[<p>]
+    fto(Federationsoperatör):::org
+    fibo(Federationsoperatör):::org
+    fto-->ft(Federation för<br>organisationstillit)
+    fibo-->fib(Federation för <br>identitet och behörighet)
+
+end
+
+f--skapar förutsättningar för-->s
+
+```
+*Logisk bild över hur centrala förmågor för hantering av organisationstillit, samt identiteter och behörigheter skapar förutsättningar för samverkan*
+
+| Begrepp | Beskrivning 
+|:-|:-
+| Tjänstekonsument | Organisation som har behov  av att nyttja en digital tjänst (Public Service Consumer från EIRA) 
+| Tjänsteproducent | Organisation som erbjuder en digital tjänst till andra tjänstekonsumenter (Public Service Producer från EIRA) 
+| Federationsoperatör | Den aktör som styr och koordinerar en federation, dess medlemmar, avtal, samt regler och villkor.
+| Federation för informationsutbyte | Ett antal aktörer som i avtalad samverkan delar information i ett gemensamt syfte med hjälp av gemensamt definierade regler för informationsutbytet både avseende teknik, semantik, legala tolkningar, samt organisatoriska regler och policyer.  
+| Informationsfederation | Synonym till *federation för informationsutbyte* |
+| Federation för identitet och behörighet | Ett antal aktörer som i avtalad samverkan delat information kring identieter och behörighetsgrundande information med hjälp av gemensamt definierade regler avseende teknik, semantik, legala tolkningar, samt organisatoriska regler och policyer.
+| Federation för organisationstillit |  Ett antal aktörer som avtalad samverkan som realiserar tillitsskapande förmågor inom informationssäkerhetsområdet i hela eller delar av sin organisation. De tillitsskapande förmågorna behöver uppfylla de inom federationen fastställda kraven. 
+
+
+### IAM-system - Teknisk vy
+
+Den tekniska vyn syftar till att beskriva tekniska begrepp som behövs inom ovan beskrivna federationer för att realisera samverkan
+
+```mermaid
+graph TB
+subgraph fo[Federation för organisationstillit]
+    oi(Organisationsidentifierare)
+    ot(Organisationstyp)
+    vi(Verksamhetsidentifierare)
+    vt(Verksamhetstyp)
+    kk(Kravkatalog)
+    kp(Kravprofil)
+    lot(LoT-nivå)
+
+    oi~~~vi~~~kk
+    ot~~~vt~~~kp
+end
+
+subgraph fib[Federation för identitet och behörighet]
+    direction LR
+    fa(fysiska aktörers identiteter)
+    sa(systemaktörers identiteter)
+    loa(LoA-nivåer)
+    ar(aktörsroller) 
+    ba(behörighetsgrundande attribut)
+    fr(företrädarrelationer)
+    tip(tekniska integrationsprofiler)
+
+    fa~~~sa~~~loa
+    ar~~~ba~~~fr
+end
+
+subgraph fi[Federation för informationsutbyte]
+    direction LR
+    is(informationsspecifikation)
+    ints(interoperabilitetsspecifikation)
+    as(api-specifikationer)
+    ap(åtkomstpolicyer)
+    k(kodverk)
+
+    is~~~ints~~~as
+    k~~~ap
+
+end
+
+fo ~~~ fib ~~~ fi
+
+```
+
+
+
 
 ## Behovsanalys/Typfall
 När parter etablerar samverkan via en digital tjänst finns det ett antal olika scenarion.
