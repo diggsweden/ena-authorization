@@ -1,25 +1,38 @@
 # Målarkitektur för en Svensk identitets- och åtkomsthantering
 
 **Innehållsförteckning**
-- [Inledning](#inledning)
-  - [Bakgrund och syfte](#bakgrund-och-syfte)
-- [Behovsanalys/typfall](#behovsanalystypfall)
-  - [Användare anropar extern tjänst, med förprovisionerade användarkonto](#användare-anropar-extern-tjänst-med-förprovisionerade-användarkonto)
-  - [Användare anropar extern tjänst](#användare-anropar-extern-tjänst)
-  - [System anropar system i annan organisation](#system-anropar-system-i-annan-organisation)
-- [Övergripande arkitektur](#övergripande-arkitektur)
-  - [Arkitektoniska principer](#arkitektoniska-principer)
-  - [IAM-system](#iam-system)
-  - [Begreppsmodellering](#begreppsmodellering)
-- [Målarkitektur](#målarkitektur)
-  - [Tillitshantering](#tillitshantering)
-  - [Identitetshantering](#identitetshantering)
-  - [Behörighetshantering](#behörighetshantering)
-  - [Åtkomsthantering](#åtkomsthantering)
+- [1. Inledning](#inledning)
+  - [1.1 Bakgrund och syfte](#bakgrund-och-syfte)
+- [2. Behovsanalys/typfall](#behovsanalystypfall)
+  - [2.1 Användare anropar extern tjänst, med förprovisionerade användarkonto](#användare-anropar-extern-tjänst-med-förprovisionerade-användarkonto)
+  - [2.2 Användare anropar extern tjänst](#användare-anropar-extern-tjänst)
+  - [2.3 System anropar system i annan organisation](#system-anropar-system-i-annan-organisation)
+- [3. Övergripande arkitektur](#övergripande-arkitektur)
+  - [3.1 Arkitektoniska principer](#arkitektoniska-principer)
+  - [3.2 IAM-system](#iam-system)
+  - [3.3 Begreppsmodellering](#begreppsmodellering)
+- [4. Målarkitektur](#målarkitektur)
+  - [4.1 Tillitshantering](#tillitshantering)
+  - [4.2 Identitetshantering](#identitetshantering)
+  - [4.3 Behörighetshantering](#behörighetshantering)
+  - [4.4 Åtkomsthantering](#åtkomsthantering)
+
+<hr>
+
+## Funderingar att diskutera
+*Alla kan fylla på nedan*
+
+<table bgcolor=yellow><tr><td>
+<li>Representeras LoA-nivåerna inte egentligen av olika <b>kravprofiler</b> i "federationen", vilken realiserar vårt framtida IAM-system?
+<li>Kan vi inte generellt koppla ihop "uppfyllande av kravprofil" med konceptet <b>kvalitetsmärke</b>!? <i>T.ex. Svensk e-legitimation är en kravprofil som en viss utgivare av digitala identiteter uppfyller.</i>
+<li>Hur relaterar kvalitetsmärke till tillitsmärke? Är tillitsmärkeken inte bara en mekanism i OpenID Federation som vibland annat använder för att representera kvalitetsmärken/uppfyllande av kravprofil? 
+<li>Kan Sveriges realisering av OpenID Federation och trust marks bli en generell lösning för att attributera förmågor till digitala aktörer? Eller vill vi begränsa det till Diggs uppdrag?
+<li>Borde inte OpenID Federation-realiseringen heta <b>Sweden Trust</b> :)
+</td></tr><table>
 
 
 
-## Inledning 
+## 1. Inledning 
 För en tillitsfull och kostnadseffektiv samverkan inom offentlig förvaltning behöver vi utveckla och förankra nationell arkitektur, infrastruktur och tillämpningsanvisningar för identitets- och åtkomsthantering. Denna målarkitektur syftar till att ge en bild över hur ett sådant åtkomstsystem kan och bör utformas för att möjliggöra en tids- och kostnadseffektiv digitalisering av svensk offentlig sektor.
 
 ```mermaid
@@ -47,7 +60,7 @@ actors--har behov av-->iam
 *Logisk bild över hur områdena tillitshantering, identitetshantering och behörighetshantering ger förutsättningar för åtkomsthantering i digitala tjänster*
 
 
-### Bakgrund och syfte 
+### 1.1 Bakgrund och syfte 
 Inom alla dessa områden finns det redan idag olika grad av standardisering. Det används dock olika standarder inom olika verksamhetsområden och detta leder till att parter som behöver samverka inom flera av dessa verksamhetsområden behöver investera i att stödja många standarder parallellt. Med ett gemensamt system för att hantera digitala identiteter och åtkomstbeslut kan samverkan mellan aktörer verksamma inom svensk offentlig förvaltning underlättas avsevärt. Systemet behöver stödja såväl offentliga organisationer som privata utförare av offentliga uppdrag.
 
 Målarkitekturen kommer även omfatta en enklare strategisk plan för vilka förflyttningar som behöver genomföras över tid och beroenden dem emellan. Denna strategiska plan behöver förhålla sig till existerande arkitektur och infrastrur, samt redan gjorda investeringar i digitaliseringstillämpningar. Planen bör även innehålla vägledning för om. när och hur existerande digitala tjänster ska migrera över till det nya åtkomstsystemets samverkansmönster och nyttja ny infrastruktur.
@@ -58,15 +71,15 @@ Målarkitekturen är tänkt att fungera som underlag för diskussioner inom sven
 - Hantering av behörighetsstyrande information - för individer, medarbetare och system
 - Hantering av digital legitimering och åtkomstbeslut - för alla typer av användare och med stöd för olika tekniska standarder
 
-## Behovsanalys/Typfall
+## 2. Behovsanalys/Typfall
 När parter etablerar samverkan via en digital tjänst finns det ett antal olika scenarion.
 
-### Användare anropar extern tjänst, med förprovisionerade användarkonto
+### 2.1 Användare anropar extern tjänst, med förprovisionerade användarkonto
 ```mermaid
 graph LR
 TBD
 ```
-### Användare anropar extern tjänst
+2.2 ### Användare anropar extern tjänst
 
 #### Nuläge
 
@@ -223,7 +236,7 @@ Möjliga förutsättningar
 - Agent/ombud: Granskad och godkänd av federationen att stötta andra organisationer med deras federationsansökan, e-tjänster, intygsutfärdartjänst, attributskälla, e-legitimationer
 
 
-### System anropar system i annan organisation
+### 2.3 System anropar system i annan organisation
 
 ```mermaid
 graph LR
@@ -258,7 +271,7 @@ p-.litar på.->as
 
 ```
 
-## Övergripande arkitektur
+## 3. Övergripande arkitektur
 <table bgcolor="lightblue" border=1><tr><td>
 Det finns ett förslag på en ny EU-förordning, <a href="https://commission.europa.eu/system/files/2022-11/com2022720_0.pdf">Interoperabilitetsförordningen</a>, vilken tar avstamp i European Interoperability Framwork (EIF) och reglerar hur man säkerställer att digitala tjänster som tas fram inom EU linjerar mot EIF.
 <br/>
@@ -276,7 +289,7 @@ Jag har i mina arkitekturskisser nedan använt termer från T2, men beskrivninga
 
 
 
-### Arkitektoniska principer
+### 3.1 Arkitektoniska principer
 [Svenskt ramverk för digital samverkan (Digg)](https://www.digg.se/kunskap-och-stod/svenskt-ramverk-for-digital-samverkan) är en svensk anpassning av det europeiska ramverket för interoperabilitet (EIF). Det innehåller principer för digtalisering, samt rekommendationer för hur dessa principer tillämpas. För IAM-området kan vi komma att behöva ta fram specifika rekommendationer. 
 
 Vi kompletterar det svenska ramverket med ett antal konkreta rekommendationer för etableringen av IAM-systemet - nedan insorterade under ramverkets grundprinciper
@@ -302,7 +315,7 @@ Vi kompletterar det svenska ramverket med ett antal konkreta rekommendationer f�
     - Skapa ett IAM-system, med huvudsakligen en anslutningsprocess per anslutande part. Låt anslutningar till specifika verksamhetstillämpningar bygga på genomförd anslutning till IAM-systemet för att därmed minimera den administrativa bördan.
 13. Ha helhetssyn på informationshantering
 
-### IAM-system
+### 3.2 IAM-system
 På den högsta nivån ser vi nedanstående bild av ett framtida Svenskt IAM-system. Vi har nationella federationer för hantering av tillit, identitet och behörighet. Dessa nationella federationer kombinerat med nationellt förvaltade tekniska systemstöd skapar förutsättningar för att skapa syftesspecifika informationsutbyten mellan en grupp av aktörer 
 ```mermaid
 graph TD
@@ -335,19 +348,12 @@ f--skapar förutsättningar för-->s
 | Tjänstekonsument | Organisation som har behov  av att nyttja en digital tjänst (Public Service Consumer från EIRA) 
 | Tjänsteproducent | Organisation som erbjuder en digital tjänst till andra tjänstekonsumenter (Public Service Producer från EIRA)
 
-### Begreppsmodellering
+### 3.3 Begreppsmodell
 
 Den tekniska vyn syftar till att beskriva tekniska begrepp som behövs inom ovan beskrivna federationer för att realisera samverkan
-<table bgcolor=yellow><tr><td>
-Frågor :<ol>
-<li>Är LoA-nivåerna inte egentligen en <b>kravprofil</b> i federationen för tillit?
-<li>Kan vi inte generellt koppla ihop "uppfyllande av kravprofil" med konceptet <b>kvalitetsmärke</b>!?
-<li>Hur relaterar kvalitetsmärke till tillitsmärke? Är tillitsmärkeken bara en mekanism i OpenID Federation som vi använder för att representera kvalitetsmärken/uppfyllande av kravprofil?
-</td></tr><table>
-
 ```mermaid
 graph TB
-subgraph fo[Federation för tillit]
+subgraph t[Tillit]
     direction LR
     o(Organisation)
     v(Verksamhet)
@@ -370,7 +376,7 @@ end
 
 ```mermaid
 graph TB
-subgraph fib[Federation för identitet och behörighet]
+subgraph ib[Identitet och behörighet]
     fa(Fysisk användare)
     sa(Systemanvändare)
     ba(Behörighetsgrundande attribut)
@@ -393,12 +399,12 @@ behörigheter användaren ska ges i en viss digital tjänst
 
 ```mermaid
 graph TB
-subgraph fi[Federation för informationsutbyte]
-    is(informationsspecifikation)
-    ints(interoperabilitetsspecifikation)
-    as(api-specifikation)
-    åp(åtkomstpolicy)
-    k(kodverk)
+subgraph fi[Informationsutbyte]
+    is(Informationsspecifikation)
+    ints(Interoperabilitetsspecifikation)
+    as(API-specifikation)
+    åp(Åtkomstpolicy)
+    k(Kodverk)
 
     is~~~as
     ints~~~åp
@@ -408,12 +414,15 @@ end
 
 | Begrepp | Beskrivning 
 |:-|:-
+|Informationsspecifikation|En specificering av en datamodell för en viss domän
+|Interoperabilitetsspecifikation|Ett samlingsbegrepp för överenskommelser som beskriver förutsättningar och krav för digitala tjänster
+|API-specifikation|Teknisk specifikation för ett visst API
 |Åtkomstpolicy|Ett regelverk som mappar en användares behörighetsgrundande attribut, samt eventuell företrädarroll gentemot annan användare, mot vilka 
+|Kodverk| Mappning mellan en identifierare och en överenskommen tolkning av hur information "kodat" med den identifieraren ska tolkas
 
+## 4. Målarkitektur
 
-## Målarkitektur
-
-### Tillitshantering
+### 4.1 Tillitshantering
 
 Vid all samverkan behöver man ha tillit till den part man samverkar med. Det finns idag ett antal tillvägagångssätt för detta som syftar till att både privatpersoner och organisationer ska känna tillit till att information som delas via e-tjänster och APIer inom samhället hanteras på ett korrekt sätt.
 
@@ -485,7 +494,7 @@ Att en organisation tilldelats ett kvalitetsmärke för en högre LoT-nivå skul
 
 Att en aktör tilldelats ett visst LoT-tillitsmärke skulle kunna ingå som del i kvalificering för en avtalsskrining, eller som åtkomststyrande attribut för åtkomstbeslut vid ett faktiskt tjänsteanrop.
 
-### Identitetshantering
+### 4.2 Identitetshantering
 
 #### Nuläge
 För privatepersoner har Digg ansvar för kvalitetsmärket Svensk e-legitimation. Detta möjliggör olika aktörer att erbjuda digitala identiteter till privatpersoner förutsatt att de kvalitetssäkrats av Digg. Idag erbjuder BankId, Freja och Svenska Pass denna typ av e-legitimationer.
@@ -508,7 +517,7 @@ Dagens utgivna digitala identiteter behöver fungera även för framtida samverk
 Vi ser även ett behov av ett nationellt kvalitetsmärke för utgivare av funktionscertifikat. Ett sådant kvalitetsmärke kan, i kombination med ett nationellt tillitsfederation, möjliggöra tillitsfull samverkan mellan system.
 
 
-### Behörighetshantering
+### 4.3 Behörighetshantering
 För att kunna garantera kvaliteten i den åtkomsthantering som sker bör informationsförsörjningen av behörighetsgrundande information ske med en tillförlitlighet på en nivå som motsvarar skyddsbehovet för den digitala tjänst som beslutet avser.
 
 Högst kvalitet på behörighetsgrundande information fås genom att den part som äger och administrera informationen också används som källa för informationsförsörjningen. Exempelvis bör information om läkarlegitimationer informationsförsörjas från Socialstyrelsens HOSP-register. På samma sätt bör medarbetares uppdragsgivare informationsförsörja information som härrör till de uppdrag medarbetaren har.
@@ -533,7 +542,7 @@ Vad som är en adekvat nivå av säkerhet för cahning behöver man komma övere
 <li>De parter som bifogar behörighetsgrundande information till en digital identitet bör ha granskats för att detta sker kontrollerat och tillitsfullt, exempelvis genom granskning mot ett kvalitetsmärke</li>
 </ol>
 
-### Åtkomsthantering
+### 4.4 Åtkomsthantering
 I åtkomsthanteringen knyts alla aspekter av digitalaidentiteter, tillitskedjor, samt informationsförsörjning av behörighetsgrundande information samman.
 
 Korrekta åtkomsbeslut kan vara beroende av informationsförsörjning av behörighetsgrundande från både externa och lokala källor utöver information som tillförts under legitimeringen. 
