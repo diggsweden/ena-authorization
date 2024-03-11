@@ -79,7 +79,7 @@ När parter etablerar samverkan via en digital tjänst finns det ett antal olika
 graph LR
 TBD
 ```
-2.2 ### Användare anropar extern tjänst
+### 2.2 Användare anropar extern tjänst
 
 #### Nuläge
 
@@ -162,59 +162,6 @@ fk--ber om legitimering<br>av användare-->x
 fk--hämtar behörighetsgrundande<br>information-->k & b
 ```
 
-```mermaid
-graph TD
-
-subgraph x[Kommun X]
-    xu(Handläggare kommun X<br>&lt&lt Medarbetare &gt&gt)
-    xuv(&lt&lt Uppdragsväljare &gt&gt)
-    xidp(IdP kommun X<br> &lt&lt Legitimeringstjänst IdP&gt&gt)
-    xak[(Personalsystem<br> &lt&lt Attributkälla &gt&gt)]
-end
-
-subgraph k[Kronofogden]
-    kd[(Informationskälla<br> &lt&lt Attributkälla &gt&gt)]
-end
-
-subgraph b[Bolagsverket]
-    bd[(Informationskälla<br> &lt&lt Attributkälla &gt&gt)]
-end
-
-subgraph fk[Försäkringskassan]
-    fkt(Finansiell status<br>&lt&lt E-tjänst &gt&gt)
-    fka(&lt&lt Anvisningstjänst &gt&gt)
-end
-
-subgraph id[Identitetsutfärdare]
-    ida(Autentiseringstjänst)
-end
-
-subgraph fed[Federation]
-    fedt[tillitsmetadata]
-    fedmk(federationsmedlemskatalog)
-    fedprof(tjänstemetadata<br>per teknik)
-end
-
-%%x~~~~~fk
-
-id-.->fed
-fk & x & k -.-> fedmk
-xak & xidp & fkt & kd -.->fedt
-
-id--1 ge ut digital identitet-->xu
-xu--2 anropa tjänst-->fkt
-xu--3 välj IdP-->fka
-fkt-.visa.->fka
-xu--4 legitimera-->xidp
-xu--5 autentisera-->ida
-xidp--6 hämta attribut-->xak
-xidp--7 visa uppdragsväljare-->xuv
-xidp--8 returnera identitetsintyg<br>och omdirigera användare<br>till tjänsten-->xu
-fkt--9 inhämta behörighetsstyrande<br>information---> kd 
-fkt--10 inhämta behörighetsstyrande<br>information---> bd 
-fkt--11 utför något-->fkt
-fkt--12 resultat-->xu
-```
 ##### Förutsättningar
 Obligatoriska förutsättningar
 - Kommun: Medlem i federationen som organisation
@@ -279,7 +226,7 @@ Det finns ett förslag på en ny EU-förordning, <a href="https://commission.eur
 I december 2023 överlämnades ett betänkande <a href="https://www.regeringen.se/rattsliga-dokument/statens-offentliga-utredningar/2023/12/sou-202396/">En reform för datadelning (SOU 2023:96)</a> till regeringen. Denna utreder Interoperabilitetsförordningen utifrån ett Svenskt kontext.
 </td></tr></table>
 
-<table bgcolor="lightblue" border=1><tr><td>
+<table bgcolor="lightyellow" border=1><tr><td>
 Jag har i mina arkitekturskisser nedan använt termer från T2, men beskrivningarna har förenklats något för detta kontext. Terminologin genomgår en första revidering under 2024. Rekommendationen är att vi använder nuvarande termer tills revideringen är klar.
 <br>
 <br><a href="https://inera.atlassian.net/wiki/spaces/OITIFV">T2 - referensarkitektur för interoperabilitet inom svensk välfärd</a>
