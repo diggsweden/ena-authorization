@@ -3,7 +3,7 @@ Riktningen i det svenska ramverket för digital samverkan pekar mot etableringen
 
 | Roll  | Beskrivning |
 | ------------- | ------------- |
-| Användare | En person som använder en digital tjänst, exempelvis i en webbläsare eller i en mobil app. Privatpersoner som företräder sig själva eller någon annan och medarbetare i en organisation är exempel på användare. |
+| Användare | En person som använder en digital tjänst, exempelvis i en webbläsare eller i en mobil app. Privatpersoner som företräder sig själva eller någon annan och medarbetare som utför sin tjänst i en organisation är exempel på användare. |
 | Tjänsteleverantör | Tjänsteleverantören ansvarar för att skydda en eller flera e-tjänster mot åtkomst från oidentifierade användare. Även kallad _förlitande part_. I en federativ kontext delegerar tjänsteleverantören uppgiften att identifiera användaren till en betrodd part, som ställer ut ett intyg efter att ha verifierat användarens identitet. |
 | Leverantör av e-legitimation |  |
 | Leverantör av e-legitimeringstjänst |  |
