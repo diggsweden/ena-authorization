@@ -59,12 +59,27 @@ ti---fim
 #### Federationspolicy
 
 #### Tillitsinfrastruktur
+
 Tillitskrav 
  - Nationell kravkatalog
- - Tillitsmärken
- - Tillitsramverk
 
-Metetadatainfrastruktur
+ ##### Informationsmodell tillitsmärken
+
+ Utkast till relationsmodell för tillitsmärken
+ 
+```mermaid
+erDiagram
+Tjansteproducent }|--o{ Kravprofil: "kräver uppfyllnad av"
+Tillitskrav }|--o| Tillitsmarke : "representeras av"
+Tillitsmarke |{--}o  Kravprofil : "representerar"
+Tillitsmarke }|--|| Tillitsmarkesutfardare : "utfärdas av"
+Tjanstekonsument }|--|{ Kravprofil : uppfyller 
+Tillitsmarkesutfardare }|--|{ Tjanstekonsument : "verifierar uppfyllnad"
+Tillitskrav }|--|{ Kravprofil : "Ingår i"
+
+```
+
+Metadatainfrastruktur
 
 #### Federativa integrationsmönster
 ##### Tekniska specifikationer
