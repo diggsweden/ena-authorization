@@ -33,10 +33,10 @@ Detta avsnitt redogör för rollernas behov och krav på funktioner, vilka beskr
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
-| Styrning | **Behov**: <br />:white_check_mark: Styrning som verkar för att den e-legitimation som användaren har anskaffat accepteras av alla tjänsteleverantörer. <br />:white_check_mark: Styrning som leder till igenkänning i användbarhet och interaktionsdesign. <br /><br />**Funktioner**: <br /> |
-| Leverans av infrastruktur | **Behov**: Infrastrukturen ska levereras på ett sådant sätt så att användaren inte ska behöva förstå eller ha kunskap om infrastrukturen. |
-| Leverans av tjänster |  |
-| Användning |  |
+| Styrning | **Behov**: <br />:white_check_mark: Styrning som verkar för att den e-legitimation som användaren har anskaffat accepteras av alla tjänsteleverantörer. <br />:white_check_mark: Styrning som leder till igenkänning i användbarhet och interaktionsdesign. <br /><br />**Funktioner**: <br />:exclamation: Valfrihetssystem och kravställning på tjänsteleverantörer. <br />:exclamation: Vägledning och stöd till utvecklare av e-tjänster. |
+| Leverans av infrastruktur | **Behov**: <br />:white_check_mark: Infrastrukturen ska levereras på ett sådant sätt så att användaren inte ska behöva förstå eller ha kunskap om infrastrukturens olika delar och aktörernas roller i ekosystemet. <br /><br />**Funktioner**: <br />:exclamation: Vägledning och stöd till utvecklare av e-tjänster.  |
+| Leverans av tjänster | **Behov**: <br /> |
+| Användning | **Behov**: <br /> |
 
 
 
