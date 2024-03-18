@@ -16,9 +16,9 @@ Riktningen i det svenska ramverket för digital samverkan pekar mot etableringen
 | [Registrator av tillitsmärken](#tillitsmarken) | Part som administrerar och ansvarar för information om tillitsmärken, certifieringar och/eller motsvarande information för digitala tjänster i en eller flera federativa kontexter. |
 | [Slutanvändarorganisation](#slutanvandarorg) | Part som ansvarar för sin användares identitets- och behörighetsinformation. Uppgifter verifieras vid användarens inloggning och förmedlas genom ett intyg till tjänsteleverantören. |
 | [Tillsynsmyndighet](#tillsynsmyndighet) | En kontrollmyndighet med ansvar att se till att underordnade organisationer lever upp till de krav som ställs inom en viss verksamhet eller ett visst verksamhetsområde. Regeringen fattar beslut om vilka tillsynsmyndigheter som ska finnas. |
-| [Tjänsteleverantör](#itleverantor) | Part som ansvarar för den digitala tjänstens säkerhetslösning, som i en federativ kontext avser att skydda en eller flera digitala tjänster mot obehörig åtkomst. Även kallad _förlitande part_. Tjänsteleverantören baserar sitt beslut om åtkomst på uppgifter i intyg från en betrodd part. Den betrodda parten kan vara en e-legitimeringstjänst eller en slutanvändarorganisation. |
+| [Tjänsteleverantör](#fp) | Part som ansvarar för den digitala tjänstens säkerhetslösning, som i en federativ kontext avser att skydda en eller flera digitala tjänster mot obehörig åtkomst. Även kallad _förlitande part_. Tjänsteleverantören baserar sitt beslut om åtkomst på uppgifter i intyg från en betrodd part. Den betrodda parten kan vara en e-legitimeringstjänst eller en slutanvändarorganisation. |
 | Utfärdare av e-legitimation | Se _leverantör av e-legitimation_. |
-| IT-leverantörer | Leverantörer som erbjuder produkter, tjänster och/eller helhetslösningar för identitets- och behörighetshantering i federativa kontext. |
+| [IT-leverantörer](#itleverantor) | Leverantörer som erbjuder produkter, tjänster och/eller helhetslösningar för identitets- och behörighetshantering i federativa kontext. |
 
 
 <a name="anvandare" />
