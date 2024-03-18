@@ -20,75 +20,85 @@ Riktningen i det svenska ramverket för digital samverkan pekar mot etableringen
 | Utfärdare av e-legitimation | Se _leverantör av e-legitimation_. |
 | [IT-leverantörer](#itleverantor) | Leverantörer som erbjuder produkter, tjänster och/eller helhetslösningar för identitets- och behörighetshantering i federativa kontext. |
 
+## Behov och intressen
+Detta avsnitt redogör för rollernas behov och intressen, vilka beskrivs utifrån följande aspekter:
+- Styrning
+- Leverans av infrastruktur
+- Leverans av tjänster
+- Användning
 
 <a name="anvandare" />
 
-## Användare
+### Användare
 
+Styrning
+Leverans av infrastruktur
+Leverans av tjänster
+	⁃	Användning
 
 <a name="certorg" />
 
-## Certifieringsorgan
+### Certifieringsorgan
 
 
 <a name="attributkalla" />
 
-## Leverantör av attributkälla
+### Leverantör av attributkälla
 
 
 <a name="elegutfardare" />
 
-## Leverantör av e-legitimation
+### Leverantör av e-legitimation
 
 
 <a name="elegitimeringstjanst" />
 
-## Leverantör av e-legitimeringstjänst
+### Leverantör av e-legitimeringstjänst
 
 
 <a name="fedinfra" />
 
-## Leverantör av federativa infrastrukturtjänster
+### Leverantör av federativa infrastrukturtjänster
 
 
 <a name="kvalificeradbt" />
 
-## Leverantör av e-underskriftstjänst 
+### Leverantör av e-underskriftstjänst 
 
 
 <a name="avrop" />
 
-## Registrator avrop
+### Registrator avrop
 
 
 <a name="medlemsreg" />
 
-## Registrator medlemsorganisation
+### Registrator medlemsorganisation
 
 
 <a name="tillitsmarken" />
 
-## Registrator av tillitsmärken
+### Registrator av tillitsmärken
 
 
 <a name="slutanvandarorg" />
 
-## Slutanvändarorganisation
+### Slutanvändarorganisation
 
 
 <a name="tillsynsmyndighet" />
 
-## Tillsynsmyndighet
+### Tillsynsmyndighet
 
 
 <a name="fp" />
 
-## Tjänsteleverantör
+### Tjänsteleverantör
 
 
 <a name="itleverantor" />
 
-## IT-leverantörer
+### IT-leverantörer
 
 
 
