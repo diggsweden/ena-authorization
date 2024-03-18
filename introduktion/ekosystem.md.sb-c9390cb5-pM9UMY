@@ -2,7 +2,7 @@
 Riktningen i det svenska ramverket för digital samverkan pekar mot etableringen av ett ekosystem mellan offentliga organisationer, näringslivet, civilsamhället och enskilda individer. Det finns därför behov av att tydliggöra de olika roller som aktörer kan ha i detta ekosystem.
 
 | Roll  | Beskrivning |
-| :------------- | :------------- |
+| ------------- | ------------- |
 | [Användare](#anvandare) | En person som använder en digital tjänst, exempelvis i en webbläsare eller i en mobil app. Privatpersoner som företräder sig själva eller någon annan och medarbetare som utför sin tjänst i en organisation är olika exempel på användare. |
 | [Certifieringsorgan](#certorg) | Aktör i ekosystemet som granskar och intygar att digitala tjänster och dess leverantörer uppfyller de krav som gäller. |
 | Förlitande part | Se _tjänsteleverantör_. |
@@ -20,8 +20,8 @@ Riktningen i det svenska ramverket för digital samverkan pekar mot etableringen
 | Utfärdare av e-legitimation | Se _leverantör av e-legitimation_. |
 | [IT-leverantörer](#itleverantor) | Leverantörer som erbjuder produkter, tjänster och/eller helhetslösningar för identitets- och behörighetshantering i federativa kontext. |
 
-## Behov och funktioner
-Detta avsnitt redogör för rollernas behov och krav på funktioner, vilka beskrivs utifrån följande perspektiv:
+## Behov och intressen
+Detta avsnitt redogör för rollernas behov och intressen, vilka beskrivs utifrån följande aspekter:
 - Styrning
 - Leverans av infrastruktur
 - Leverans av tjänster
@@ -31,15 +31,10 @@ Detta avsnitt redogör för rollernas behov och krav på funktioner, vilka beskr
 
 ### Användare
 
-| Perspektiv | Roll: Användare |
-| :------------- | :------------- |
-| Styrning | **Behov**: <br />:white_check_mark: Styrning som verkar för att den e-legitimation som användaren har anskaffat accepteras av alla tjänsteleverantörer. <br />:white_check_mark: Styrning som leder till igenkänning i användbarhet och interaktionsdesign. <br /><br />**Funktioner**: <br /> |
-| Leverans av infrastruktur | **Behov**: Infrastrukturen ska levereras på ett sådant sätt så att användaren inte ska behöva förstå eller ha kunskap om infrastrukturen. |
-| Leverans av tjänster |  |
-| Användning |  |
-
-
-
+Styrning
+Leverans av infrastruktur
+Leverans av tjänster
+	⁃	Användning
 
 <a name="certorg" />
 
