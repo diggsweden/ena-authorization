@@ -3,18 +3,87 @@ Riktningen i det svenska ramverket för digital samverkan pekar mot etableringen
 
 | Roll  | Beskrivning |
 | ------------- | ------------- |
-| Användare | En person som använder en digital tjänst, exempelvis i en webbläsare eller i en mobil app. Privatpersoner som företräder sig själva eller någon annan och medarbetare som utför sin tjänst i en organisation är exempel på användare. |
-| Tjänsteleverantör | Tjänsteleverantören ansvarar för att skydda en eller flera e-tjänster mot åtkomst från oidentifierade användare. Även kallad _förlitande part_. I en federativ kontext delegerar tjänsteleverantören uppgiften att identifiera användaren till en betrodd part, som ställer ut ett intyg efter att ha verifierat användarens identitet. |
-| Leverantör av e-legitimation |  |
-| Leverantör av e-legitimeringstjänst |  |
-| Intygsutfärdare | Även kallad Slutanvändarorganisation |
-| Federationsoperatör |  |
-| Registrator av tillitsmärken |  |
-| Registrator av inköpsavtal/avrop |  |
-| Ansvarig av attributkälla |  |
-| Certifieringsorgan |  |
-| Tillsynsmyndighet |  |
-| IT-leverantörer | Leverantörer av produkter, tjänster och/eller helhetslösningar |
+| (Användare)[#anvandare] | En person som använder en digital tjänst, exempelvis i en webbläsare eller i en mobil app. Privatpersoner som företräder sig själva eller någon annan och medarbetare som utför sin tjänst i en organisation är olika exempel på användare. |
+| Certifieringsorgan | Aktör i ekosystemet som granskar och intygar att digitala tjänster och dess leverantörer uppfyller de krav som gäller. |
+| Förlitande part | Se _tjänsteleverantör_. |
+| Leverantör av attributkälla | Part som ansvarar för värmängder i en katalog eller register utifrån någon form av förordning, instruktion, regleringsbrev eller officiellt uppdrag.  |
+| Leverantör av e-legitimation | Leverantör av granskade och godkända e-legitimationer i enlighet med tillitsramverket för _Svensk e-legitimation_. Även kallad _utfärdare av e-legitimation_.|
+| Leverantör av e-legitimeringstjänst | Part som utför identifiering av användare i en federativ kontext. Identifiering sker alltid med en godkänd e-legitimation och genom _direkt e-legitimering_, som innebär att intyget levereras från den aktör som utfärdar e-legitimationen eller motsvarande kvalificerade tillitskedja. |
+| Leverantör av federativa infrastrukturtjänster | Part som utvecklar och ansvarar för gemensamma specifikationer, verktyg och/eller infrastrukturtjänster i en eller flera federativa kontexter. |
+| Registrator avrop | Part som administrerar och ansvarar för information avseende prissättning, kommersiella villkor och andra uppgifter som behövs för etablering av federerad interoperabilitet. |
+| Registrator medlemsorganisation | Part som ansvarar för registrering av medlemmar (organisatinor och deras digitala tjänster) i en eller flera federativa kontexter. I ansvaret ingår även administration och åtgärder för kvalitetssäkring av metadata. |
+| Registrator av tillitsmärken | Part som administrerar och ansvarar för information om tillitsmärken, certifieringar och/eller motsvarande information för digitala tjänster i en eller flera federativa kontexter. |
+| Slutanvändarorganisation | Part som ansvarar för sin användares identitets- och behörighetsinformation. Uppgifter verifieras vid användarens inloggning och förmedlas genom ett intyg till tjänsteleverantören. |
+| Tillsynsmyndighet | En kontrollmyndighet med ansvar att se till att underordnade organisationer lever upp till de krav som ställs inom en viss verksamhet eller ett visst verksamhetsområde. Regeringen fattar beslut om vilka tillsynsmyndigheter som ska finnas. |
+| Tjänsteleverantör | Part som ansvarar för den digitala tjänstens säkerhetslösning, som i en federativ kontext avser att skydda en eller flera digitala tjänster mot obehörig åtkomst. Även kallad _förlitande part_. Tjänsteleverantören baserar sitt beslut om åtkomst på uppgifter i intyg från en betrodd part. Den betrodda parten kan vara en e-legitimeringstjänst eller en slutanvändarorganisation. |
+| Utfärdare av e-legitimation | Se _leverantör av e-legitimation_. |
+| IT-leverantörer | Leverantörer som erbjuder produkter, tjänster och/eller helhetslösningar för identitets- och behörighetshantering i federativa kontext. |
+
+
+<a name="anvandare"/>
+
+## Användare
+
+
+<a name="certorg"/>
+
+## Certifieringsorgan
+
+
+<a name="attributkalla"/>
+
+## Leverantör av attributkälla
+
+
+<a name="elegutfardare"/>
+
+## Leverantör av e-legitimation
+
+
+<a name="elegitimeringstjanst"/>
+
+## Leverantör av e-legitimeringstjänst
+
+
+<a name="fedinfra"/>
+
+## Leverantör av federativa infrastrukturtjänster
+
+
+<a name="avrop"/>
+
+## Registrator avrop
+
+
+<a name="medlemsregistrering"/>
+
+## Registrator medlemsorganisation
+
+
+<a name="tillitsmarken"/>
+
+## Registrator av tillitsmärken
+
+
+<a name="slutanvandarorg"/>
+
+## Slutanvändarorganisation
+
+
+<a name="tillsynsmyndighet"/>
+
+## Tillsynsmyndighet
+
+
+<a name="fp"/>
+
+## Tjänsteleverantör
+
+
+<a name="itleverantor"/>
+
+## IT-leverantörer
+
 
 
 ---------
