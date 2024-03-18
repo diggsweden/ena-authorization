@@ -10,6 +10,7 @@ Riktningen i det svenska ramverket för digital samverkan pekar mot etableringen
 | [Leverantör av e-legitimation](#elegutfardare) | Leverantör av granskade och godkända e-legitimationer i enlighet med tillitsramverket för _Svensk e-legitimation_. Även kallad _utfärdare av e-legitimation_.|
 | [Leverantör av e-legitimeringstjänst](#elegitimeringstjanst) | Part som utför identifiering av användare i en federativ kontext. Identifiering sker alltid med en godkänd e-legitimation och genom _direkt e-legitimering_, som innebär att intyget levereras från den aktör som utfärdar e-legitimationen eller motsvarande kvalificerade tillitskedja. |
 | [Leverantör av federativa infrastrukturtjänster](#fedinfra) | Part som utvecklar och ansvarar för gemensamma specifikationer, verktyg och/eller infrastrukturtjänster i en eller flera federativa kontexter. |
+| [Leverantör av kvalificerad e-underskriftstjänst](#kvalificeradbt) | Leverantör av e-underskriftstjänst som har genomgått granskning och certifiering av kvalificerad betrodd tjänst är enligt eIDAS-förordningen. |
 | [Registrator avrop](#avrop) | Part som administrerar och ansvarar för information avseende prissättning, kommersiella villkor och andra uppgifter som behövs för etablering av federerad interoperabilitet. |
 | [Registrator medlemsorganisation](#medlemsreg) | Part som ansvarar för registrering av medlemmar (organisatinor och deras digitala tjänster) i en eller flera federativa kontexter. I ansvaret ingår även administration och åtgärder för kvalitetssäkring av metadata. |
 | [Registrator av tillitsmärken](#tillitsmarken) | Part som administrerar och ansvarar för information om tillitsmärken, certifieringar och/eller motsvarande information för digitala tjänster i en eller flera federativa kontexter. |
@@ -20,67 +21,72 @@ Riktningen i det svenska ramverket för digital samverkan pekar mot etableringen
 | IT-leverantörer | Leverantörer som erbjuder produkter, tjänster och/eller helhetslösningar för identitets- och behörighetshantering i federativa kontext. |
 
 
-<a name="anvandare"/>
+<a name="anvandare" />
 
 ## Användare
 
 
-<a name="certorg"/>
+<a name="certorg" />
 
 ## Certifieringsorgan
 
 
-<a name="attributkalla"/>
+<a name="attributkalla" />
 
 ## Leverantör av attributkälla
 
 
-<a name="elegutfardare"/>
+<a name="elegutfardare" />
 
 ## Leverantör av e-legitimation
 
 
-<a name="elegitimeringstjanst"/>
+<a name="elegitimeringstjanst" />
 
 ## Leverantör av e-legitimeringstjänst
 
 
-<a name="fedinfra"/>
+<a name="fedinfra" />
 
 ## Leverantör av federativa infrastrukturtjänster
 
 
-<a name="avrop"/>
+<a name="kvalificeradbt" />
+
+## Leverantör av e-underskriftstjänst 
+
+
+<a name="avrop" />
 
 ## Registrator avrop
 
 
-<a name="medlemsreg"/>
+<a name="medlemsreg" />
 
 ## Registrator medlemsorganisation
 
 
-<a name="tillitsmarken"/>
+<a name="tillitsmarken" />
 
 ## Registrator av tillitsmärken
 
 
-<a name="slutanvandarorg"/>
+<a name="slutanvandarorg" />
 
 ## Slutanvändarorganisation
 
 
-<a name="tillsynsmyndighet"/>
+<a name="tillsynsmyndighet" />
 
 ## Tillsynsmyndighet
 
 
-<a name="fp"/>
+<a name="fp" />
 
 ## Tjänsteleverantör
 
 
-<a name="itleverantor"/>
+<a name="itleverantor" />
 
 ## IT-leverantörer
 
