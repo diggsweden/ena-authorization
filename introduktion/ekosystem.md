@@ -39,7 +39,6 @@ Detta avsnitt redogör för rollernas behov och krav på funktioner, vilka beskr
 
 
 
-
 <a name="certorg" />
 
 ### Certifieringsorgan
