@@ -5,8 +5,8 @@ Riktningen i det svenska ramverket för digital samverkan pekar mot etableringen
 | :------------- | :------------- |
 | [Användare](#anvandare) | En person som använder en digital tjänst, exempelvis i en webbläsare eller i en mobil app. Privatpersoner som företräder sig själva eller någon annan och medarbetare som utför sin tjänst i en organisation är olika exempel på användare. |
 | [Certifieringsorgan](#certorg) | Aktör i ekosystemet som granskar och intygar att digitala tjänster och dess leverantörer uppfyller de krav som gäller. |
-| [Förlitande part](#fp) | Part som ansvarar för den digitala tjänstens säkerhetslösning och är den organisation som i en federativ kontext avser att skydda en eller flera digitala tjänster mot obehörig åtkomst.  Beslut om åtkomst baseras på uppgifter som förmedlas av från en betrodd part. Den betrodda parten kan vara en e-legitimeringstjänst eller en slutanvändarorganisation. |
-| [Leverantör av attributkälla](#attributkalla) | Part som ansvarar för värdemängder i en katalog eller register utifrån någon form av förordning, instruktion, regleringsbrev eller officiellt uppdrag.  |
+| Förlitande part | Se _tjänsteleverantör_. |
+| [Leverantör av attributkälla](#attributkalla) | Part som ansvarar för värmängder i en katalog eller register utifrån någon form av förordning, instruktion, regleringsbrev eller officiellt uppdrag.  |
 | [Leverantör av e-legitimation](#elegutfardare) | Leverantör av granskade och godkända e-legitimationer i enlighet med tillitsramverket för _Svensk e-legitimation_. Även kallad _utfärdare av e-legitimation_.|
 | [Leverantör av e-legitimeringstjänst](#elegitimeringstjanst) | Part som utför identifiering av användare i en federativ kontext. Identifiering sker alltid med en godkänd e-legitimation och genom _direkt e-legitimering_, som innebär att intyget levereras från den aktör som utfärdar e-legitimationen eller motsvarande kvalificerade tillitskedja. |
 | [Leverantör av federativa infrastrukturtjänster](#fedinfra) | Part som utvecklar och ansvarar för gemensamma specifikationer, verktyg och/eller infrastrukturtjänster i en eller flera federativa kontexter. |
@@ -16,15 +16,16 @@ Riktningen i det svenska ramverket för digital samverkan pekar mot etableringen
 | [Registrator av tillitsmärken](#tillitsmarken) | Part som administrerar och ansvarar för information om tillitsmärken, certifieringar och/eller motsvarande information för digitala tjänster i en eller flera federativa kontexter. |
 | [Slutanvändarorganisation](#slutanvandarorg) | Part som ansvarar för sin användares identitets- och behörighetsinformation. Uppgifter verifieras vid användarens inloggning och förmedlas genom ett intyg till tjänsteleverantören. |
 | [Tillsynsmyndighet](#tillsynsmyndighet) | En kontrollmyndighet med ansvar att se till att underordnade organisationer lever upp till de krav som ställs inom en viss verksamhet eller ett visst verksamhetsområde. Regeringen fattar beslut om vilka tillsynsmyndigheter som ska finnas. |
+| [Tjänsteleverantör](#fp) | Part som ansvarar för den digitala tjänstens säkerhetslösning, som i en federativ kontext avser att skydda en eller flera digitala tjänster mot obehörig åtkomst. Även kallad _förlitande part_. Tjänsteleverantören baserar sitt beslut om åtkomst på uppgifter i intyg från en betrodd part. Den betrodda parten kan vara en e-legitimeringstjänst eller en slutanvändarorganisation. |
 | Utfärdare av e-legitimation | Se _leverantör av e-legitimation_. |
 | [IT-leverantörer](#itleverantor) | Leverantörer som erbjuder produkter, tjänster och/eller helhetslösningar för identitets- och behörighetshantering i federativa kontext. |
 
 ## Behov och funktioner
 Detta avsnitt redogör för rollernas behov och krav på funktioner, vilka beskrivs utifrån följande perspektiv:
-- **Styrning**, som inkluderar överenskommelser, policy och struktur för den digitala infrstrukturen.
-- **Leverans av infrastruktur**, som omfattar centrala processer, åtgärder och tjänster, vilka realiserar den digitala infrastrukturen och skapar förutsättningar för aktörer att producera och konsumera digitala tjänster i federativa kontext.  
-- **Leverans av tjänster**, som inkluderar de federativa kontext som uppstår genom digital samverkan mellan olika aktörer inom ramen för den digitala infrastrukturen
-- **Användning**, som inkluderar trafik, transaktioner och nyttorealisering som uppstår som en effekt av att tjänster tas i bruk av verksamheter som nyttjar den digitala infrastrukturen.
+- Styrning
+- Leverans av infrastruktur
+- Leverans av tjänster
+- Användning
 
 <a name="anvandare" />
 
