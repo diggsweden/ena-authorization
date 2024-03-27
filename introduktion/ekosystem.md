@@ -26,10 +26,21 @@ På samma sätt kan ett företag agera som både en leverantör av tekniska lös
 
 ## Behov och funktioner
 Detta avsnitt redogör för rollernas behov och krav på funktioner, vilka beskrivs utifrån följande perspektiv:
-- **Användning**, som inkluderar trafik, transaktioner och nyttorealisering som uppstår som en effekt av att tjänster tas i bruk av verksamheter som nyttjar den digitala infrastrukturen.
-- **Leverans av tjänster**, som inkluderar de federativa kontext som uppstår genom samverkan mellan olika aktörer inom ramen för den digitala infrastrukturen.
-- **Leverans av infrastruktur**, som omfattar centrala processer, åtgärder och tjänster, vilka realiserar den digitala infrastrukturen och skapar förutsättningar för aktörer att producera och konsumera digitala tjänster i federativa kontext.  
-- **Styrning**, som inkluderar överenskommelser, policyer och strategisk struktur för den digitala infrstrukturen.
+- Användning
+- Leverans av tjänster
+- Leverans av infrastruktur
+- Styrning
+
+Tabellen nedan redogör för dessa fyra olika perspektiv.
+
+| Perspektiv | Beskrivning |
+| :------------- | :------------- |
+| **Användning** | Detta perspektiv centrerar kring nyttorealiseringen som uppstår genom trafik och transaktioner när digitala tjänster tas i bruk av olika verksamheter som utnyttjar den federativa infrastrukturen. | 
+| **Leverans av tjänster** | Perspektivet koncentrar sig på de federativa kontext som uppstår genom digital samverkan mellan olika aktörer. Detta perspektiv fokuserar på tjänsterealisering och utveckling av de federativa kontexter. Det handlar bland annat om utbildning och support till organisationer som strävar efter att uppnå gemensamma mål genom digital samverkan. | 
+| **Leverans av infrastruktur** | Detta perspektiv är inriktad på att realisera infrastrukturens grundbult i syfte att underlätta och minska komplexitet för aktörer att producera och konsumera digitala tjänster genom federation. Det omfattar implementering och förvaltning av centrala processer, operativa och taktiska tjänster samt åtgärder som understödjer en ökande digital samverkan över organisationsgränser i olika federativa kontexter. En betydande egenskap i detta perspektiv är infrastrukturens distribuerade komplexitet, där ingen enskild aktör har fullständig kontroll över samtliga delar. |
+| **Styrning** | I detta perspektiv ligger fokus på att etablera de strategiska ramarna för den digitala infrastrukturen. Det innefattar utformning av gemensamma strukturer, krav, överenskommelser och policyer för att definiera spelreglerna, styra villkoren samt reglera aktörernas ansvar på olika nivåer. |
+
+## Intressentkarta
 
 <a name="anvandare" />
 
