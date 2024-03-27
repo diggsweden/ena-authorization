@@ -1,5 +1,6 @@
 # Innehållsförteckning  
 - [Inledning](inledning.md)
+- [Ekosystem för digital samverkan](ekosystem.md)
 - [Dagens federationer](federationer.md)
   - [Sweden Connect](federationer.md#swedenconnect)
   - [SWAMID](federationer.md#swamid)

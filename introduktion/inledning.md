@@ -11,7 +11,7 @@ Tillit mellan parter och deras digitala tjänster etableras vanligtvis genom nå
 
 :arrow_backward: [Tillbaka](README.md)
 
-Senaste uppdatering: 4 december 2023
+<sub>Senaste uppdatering: 4 december 2023</sub>
 
 <p>&nbsp;</p>
 <p>

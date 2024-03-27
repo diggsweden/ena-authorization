@@ -1,11 +1,11 @@
-...behöver innehåll om dagens förekommande utmaningar
+...behöver innehåll inom ramen för de tillitsmodeller som finns idag (inte vad vi önskar framöver)
 
 
 ---------
 
 :arrow_backward: [Tillbaka](README.md)
 
-Senaste uppdatering: 4 december 2023
+<sub>Senaste uppdatering: 4 december 2023</sub>
 
 <p>&nbsp;</p>
 <p>
