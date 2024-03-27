@@ -1,7 +1,7 @@
 # Tekniska komponenter 
 Nedan följer en förklarande lista på tekniska komponenter, termer, förkortningar och definitioner.
 
-| Roll  | Beskrivning | Kommentar |
+| Term  | Beskrivning | Kommentar |
 | :------------- | :------------- | :------------- |
 |  |  |  |
 
