@@ -1,21 +1,18 @@
-# Styrlager
+
 ```mermaid
 graph TB
-subgraph l1[Styrlager]
-    direction TB
-    l1t(Terminologi)
+subgraph l1[Styrning & Regelverk]
+    ia(Interoperabilitetsarkitektur)
+    <-->Ramverk
+    <-->Processer
+    ia
+    <-->Avtal
+    <-->Överenskommelser
     
-    l1i(Referensarkitektur interoperabilitet)
-    ~~~l1iam(Referensarkitektur IAM)
-    
-    l1p(Interoperabilitetsramverk)
-    ~~~l1r(Regulatoriskt ramverk)
-    ~~~l1l(Legalt ramverk)
-    ~~~l1s(Ramverk för val av standarder)
     
 end
 
-subgraph l2[Kontrollager]
+subgraph l2[Kontrollager - Ansvariga myndigheter]
     direction TB
     subgraph l2a[Avtal]
         tr(Tillitsramverk)
@@ -35,30 +32,37 @@ subgraph l2[Kontrollager]
     end
 end
 
-subgraph l3[Integrationslager]
+subgraph l3[Integrationslager - Gemensam infrastruktur styrd av myndigheter]
     direction TB
-    subgraph l3a[Federation för informationsutbyte]
-        p(Tjänsteproducent)
-        k(Tjänstekonsument)
-        t(Digital tjänst)
+    subgraph lev[Leverantörer]
+        Integratörer
 
-        Federationsoperatör-->t
-        k-->t
-        p-->t
     end
+
     subgraph infra[Infrastruktur]
-        Tjänsterkatalog
+        Tjänstekatalog
         Aktörskatalog
         Avtalskatalog
-
+        di(Digital identitet)
     end
 end
 
 subgraph l4[Användningslager]
     direction TB
-    u(Användare)
-    o(Ombud)
-    di(Digital identitet)
+    subgraph l3a[Federation för informationsutbyte]
+        u(Användare)
+        o(Ombud)
+        p(Tjänsteproducent)
+        k(Tjänstekonsument)
+        t(Digital tjänst)
+        i(Interoperabilitetsspecifikation)
+        a(API-specifikation)
+
+        u~~~o
+        t~~~p & i
+        p~~~k
+        i~~~a
+    end
 end
 
 l4 ~~~ l3 ~~~ l2 ~~~ l1
