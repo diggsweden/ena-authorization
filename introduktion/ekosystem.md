@@ -5,33 +5,25 @@ Notera att en aktör kan inta flera roller beroende på den specifika federativa
 
 På samma sätt kan ett företag agera som både en leverantör av tekniska lösningar och en mottagare av data och information från offentliga institutioner. Genom att förstå och erkänna denna flexibilitet i rollerna kan aktörerna effektivt samarbeta och dra nytta av varandras resurser och kompetenser för att främja en smidig digital samverkan.
 
+## Roller
 
-| Roll  | Beskrivning |
-| :------------- | :------------- |
-| [Användare](#anvandare) | En person som använder en digital tjänst, exempelvis i en webbläsare eller i en mobil app. Privatpersoner som företräder sig själva eller någon annan och medarbetare som utför sin tjänst i en organisation är olika exempel på användare. |
-| [Förlitande part](#fp) | Den roll som i en federation ansvarar för den digitala tjänstens säkerhetslösning och är den organisation som i en federativ kontext avser att skydda en eller flera digitala tjänster mot obehörig åtkomst.  Beslut om åtkomst baseras på uppgifter som förmedlas av från en betrodd part. Den betrodda parten kan vara en e-legitimeringstjänst eller en slutanvändarorganisation. |
-| [Granskningsorgan](#certorg) | Aktör i ekosystemet som granskar och intygar att digitala tjänster och dess leverantörer uppfyller de krav som gäller. Rollern kan dels intas utifrån specifika krav i en eller flera federativa kontexter, men den kan också inbegripa certifieringsorgan som granskar och verifierar att organisationen uppfyller krav en standard.  |
-| [Leverantör av attributkälla](#attributkalla) | Part som ansvarar för värdemängder i en katalog eller register utifrån någon form av förordning, instruktion, regleringsbrev eller officiellt uppdrag.  |
-| [Leverantör av e-legitimation](#elegutfardare) | Leverantör av granskade och godkända e-legitimationer i enlighet med tillitsramverket för _Svensk e-legitimation_. Även kallad _utfärdare av e-legitimation_.|
-| [Leverantör av e-legitimeringstjänst](#elegitimeringstjanst) | Part som utför identifiering av användare i en federativ kontext. Identifiering sker alltid med en godkänd e-legitimation och genom _direkt e-legitimering_, som innebär att intyget levereras från den aktör som utfärdar e-legitimationen eller motsvarande kvalificerade tillitskedja. |
-| [Leverantör av federativa infrastrukturtjänster](#fedinfra) | Part som utvecklar och ansvarar för gemensamma specifikationer, verktyg och/eller infrastrukturtjänster i en eller flera federativa kontexter. |
-| [Leverantör av kvalificerad e-underskriftstjänst](#kvalificeradbt) | Leverantör av e-underskriftstjänst som har genomgått granskning och certifiering av kvalificerad betrodd tjänst är enligt eIDAS-förordningen. |
-| [Registrator avrop](#avrop) | Part som administrerar och ansvarar för information avseende prissättning, kommersiella villkor, avrop och andra uppgifter som kan underlätta etablering av federerad interoperabilitet för offentliga aktörer. |
-| [Registrator medlemsorganisation](#medlemsreg) | Part som ansvarar för registrering av medlemmar (det vill säga organisatiner och deras digitala tjänster) i en eller flera federativa kontexter. I ansvaret ingår även administration och åtgärder för kvalitetssäkring av metadata. |
-| [Registrator av tillitsmärken](#tillitsmarken) | Part som administrerar och ansvarar för information om tillitsmärken, certifieringar och/eller motsvarande tillitsparametrar för digitala tjänster i en eller flera federativa kontexter. |
-| [Slutanvändarorganisation](#slutanvandarorg) | Part som ansvarar för sin användares identitets- och behörighetsinformation. Uppgifter verifieras vid användarens inloggning och förmedlas genom ett intyg till tjänsteleverantören. |
-| [Tillsynsmyndighet](#tillsynsmyndighet) | En kontrollmyndighet med ansvar att se till att underordnade organisationer lever upp till de krav som ställs inom en viss verksamhet eller ett visst verksamhetsområde. Regeringen fattar beslut om vilka tillsynsmyndigheter som ska finnas. |
-| Utfärdare av e-legitimation | Se _leverantör av e-legitimation_. |
-| [IT-leverantörer](#itleverantor) | Leverantörer som erbjuder produkter, tjänster och/eller helhetslösningar för identitets- och behörighetshantering i federativa kontext. |
+- [Användare](#anvandare) 
+- [Förlitande part](#fp) 
+- [Granskningsorgan](#certorg) 
+- [Leverantör av attributkälla](#attributkalla) 
+- [Leverantör av e-legitimation](#elegutfardare) 
+- [Leverantör av e-legitimeringstjänst](#elegitimeringstjanst) 
+- [Leverantör av federativa infrastrukturtjänster](#fedinfra) 
+- [Leverantör av kvalificerad e-underskriftstjänst](#kvalificeradbt) 
+- [Registrator avrop](#avrop) 
+- [Registrator medlemsorganisation](#medlemsreg) 
+- [Registrator av tillitsmärken](#tillitsmarken) 
+- [Slutanvändarorganisation](#slutanvandarorg) 
+- [Tillsynsmyndighet](#tillsynsmyndighet) 
+- [IT-leverantörer](#itleverantor) 
 
 ## Behov och funktioner
 Detta avsnitt redogör för rollernas behov och krav på funktioner, vilka beskrivs utifrån följande perspektiv:
-- Användning
-- Leverans av tjänster
-- Leverans av infrastruktur
-- Styrning
-
-Tabellen nedan redogör för dessa fyra olika perspektiv.
 
 | Perspektiv | Beskrivning |
 | :------------- | :------------- |
@@ -45,6 +37,7 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 <a name="anvandare" />
 
 ### Användare
+Användare är en person som använder en digital tjänst, exempelvis i en webbläsare eller i en mobil app. Privatpersoner som företräder sig själva eller någon annan och medarbetare som utför sin tjänst i en organisation är olika exempel på användare.
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -56,6 +49,7 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 <a name="fp" />
 
 ### Förlitande part
+Förlitande part är den roll som i en federation ansvarar för den digitala tjänstens säkerhetslösning och är den organisation som i en federativ kontext avser att skydda en eller flera digitala tjänster mot obehörig åtkomst.  Beslut om åtkomst baseras på uppgifter som förmedlas av från en betrodd part. Den betrodda parten kan vara en e-legitimeringstjänst eller en slutanvändarorganisation.
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -67,6 +61,7 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 <a name="certorg" />
 
 ### Granskningsorgan
+Roll i ekosystemet som granskar och intygar att digitala tjänster och dess leverantörer uppfyller de krav som gäller. Rollern kan dels intas utifrån specifika krav i en eller flera federativa kontexter, men den kan också inbegripa certifieringsorgan som granskar och verifierar att organisationen uppfyller krav en standard.
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -78,6 +73,7 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 <a name="attributkalla" />
 
 ### Leverantör av attributkälla
+Roll som ansvarar för värdemängder i en katalog eller register med utgångspunkt i någon form av förordning, instruktion, regleringsbrev eller officiellt uppdrag. Skatteveret är exempel på en aktör som besitter denna roll för folkbokföringsuppgifter. 
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -89,6 +85,7 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 <a name="elegutfardare" />
 
 ### Leverantör av e-legitimation
+Rollen tilldelas leverantörer av granskade och godkända e-legitimationer i enlighet med tillitsramverket för _Svensk e-legitimation_. Rollen kan även kallas för _utfärdare av e-legitimation_.
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -100,6 +97,7 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 <a name="elegitimeringstjanst" />
 
 ### Leverantör av e-legitimeringstjänst
+Rollen tilldelas parter som utför identifiering av användare i en federativ kontext. Identifiering sker alltid med en godkänd e-legitimation och genom _direkt e-legitimering_, som innebär att intyget levereras från den aktör som utfärdar e-legitimationen eller av motsvarande kvalificerade tillitskedja.
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -111,6 +109,7 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 <a name="fedinfra" />
 
 ### Leverantör av federativa infrastrukturtjänster
+Rollen tilldelas parter som utvecklar och ansvarar för gemensamma specifikationer, verktyg och/eller infrastrukturtjänster i en eller flera federativa kontexter.
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -121,7 +120,8 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 
 <a name="kvalificeradbt" />
 
-### Leverantör av e-underskriftstjänst 
+### Leverantör av kvalificerad e-underskriftstjänst 
+Rollen tilldelas leverantör av e-underskriftstjänst som har genomgått granskning och certifiering av kvalificerad betrodd tjänst är enligt eIDAS-förordningen.
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -133,6 +133,7 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 <a name="avrop" />
 
 ### Registrator avrop
+Rollen intas av parter som administrerar och ansvarar för information avseende prissättning, kommersiella villkor, avrop och andra uppgifter som kan underlätta etablering av federerad interoperabilitet för offentliga aktörer.
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -144,6 +145,7 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 <a name="medlemsreg" />
 
 ### Registrator medlemsorganisation
+Rollen tilldelas parter som ansvarar för registrering av medlemmar (det vill säga organisatiner och deras digitala tjänster) i en eller flera federativa kontexter. I ansvaret ingår även administration och åtgärder för kvalitetssäkring av metadata.
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -155,6 +157,7 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 <a name="tillitsmarken" />
 
 ### Registrator av tillitsmärken
+Rollen intas av parter som administrerar och ansvarar för information om tillitsmärken, certifieringar och/eller motsvarande tillitsparametrar för digitala tjänster i en eller flera federativa kontexter.
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -166,6 +169,7 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 <a name="slutanvandarorg" />
 
 ### Slutanvändarorganisation
+Rollen tilldelas parter som ansvarar för sin användares identitets- och behörighetsinformation. Uppgifter verifieras vid användarens inloggning och förmedlas genom ett intyg till tjänsteleverantören.
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -177,6 +181,7 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 <a name="tillsynsmyndighet" />
 
 ### Tillsynsmyndighet
+Rollen intas av kontrollmyndigheter med ansvar att se till att underordnade organisationer lever upp till de krav som ställs inom en viss verksamhet eller ett visst verksamhetsområde. Regeringen fattar beslut om vilka tillsynsmyndigheter som ska finnas.
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -188,6 +193,7 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 <a name="itleverantor" />
 
 ### IT-leverantörer
+Leverantörer som erbjuder produkter, tjänster och/eller helhetslösningar för identitets- och behörighetshantering i federativa kontext.
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
