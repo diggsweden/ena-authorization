@@ -35,10 +35,10 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 
 | Perspektiv | Beskrivning |
 | :------------- | :------------- |
-| **Användning** | Detta perspektiv centrerar kring nyttorealiseringen som uppstår genom trafik och transaktioner när digitala tjänster tas i bruk av olika verksamheter som utnyttjar den federativa infrastrukturen. | 
-| **Leverans av tjänster** | Perspektivet koncentrar sig på de federativa kontext som uppstår genom digital samverkan mellan olika aktörer. Detta perspektiv fokuserar på tjänsterealisering och utveckling av de federativa kontexter. Det handlar bland annat om utbildning och support till organisationer som strävar efter att uppnå gemensamma mål genom digital samverkan. | 
-| **Leverans av infrastruktur** | Detta perspektiv är inriktad på att realisera infrastrukturens grundbult i syfte att underlätta och minska komplexitet för aktörer att producera och konsumera digitala tjänster genom federation. Det omfattar implementering och förvaltning av centrala processer, operativa och taktiska tjänster samt åtgärder som understödjer en ökande digital samverkan över organisationsgränser i olika federativa kontexter. En betydande egenskap i detta perspektiv är infrastrukturens distribuerade komplexitet, där ingen enskild aktör har fullständig kontroll över samtliga delar. |
-| **Styrning** | I detta perspektiv ligger fokus på att etablera de strategiska ramarna för den digitala infrastrukturen. Det innefattar utformning av gemensamma strukturer, krav, överenskommelser och policyer för att definiera spelreglerna, styra villkoren samt reglera aktörernas ansvar på olika nivåer. |
+| **Nyttorealisering** | Detta perspektiv centrerar kring de nyttorealiseringar som uppstår genom trafik och transaktioner i anslutningar som möjliggörs av den federativa infrastrukturen och när digitala tjänster tas i bruk av olika verksamheter. | 
+| **Digitala tjänster** | Perspektivet koncentrar sig på de federativa kontext som uppstår genom digital samverkan mellan olika aktörer. Detta perspektiv fokuserar på tjänstedesign samt realisering av digitala tjänster och utveckling av federativa kontext. | 
+| **Stödfunktioner** | Detta perspektiv är inriktad på att realisera infrastrukturens grundbult och centrala verktyg och tjänster i syfte att underlätta och minska komplexitet för aktörer att producera och konsumera digitala tjänster genom federation. Det omfattar implementering och förvaltning av centrala processer, operativa och taktiska tjänster samt åtgärder som understödjer en ökande digital samverkan över organisationsgränser i olika federativa kontexter. Perspektivet inkluderar även utbildning, kompetensspridning och support till organisationer som strävar efter att uppnå gemensamma mål genom digital samverkan. En betydande egenskap i detta perspektiv är infrastrukturens distribuerade komplexitet, där ingen enskild aktör har fullständig kontroll över samtliga delar. |
+| **Infrastrukturens styrning och regelverk** | I detta perspektiv ligger fokus på att etablera de strategiska ramarna för den digitala infrastrukturen. Det innefattar utformning av gemensamma strukturer, krav, överenskommelser och policyer för att definiera spelreglerna, styra villkoren samt reglera aktörernas ansvar på olika nivåer. |
 
 ## Intressentkarta
 
@@ -48,78 +48,153 @@ Tabellen nedan redogör för dessa fyra olika perspektiv.
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
-| Styrning | **Behov**: <br />:white_check_mark: Styrning som verkar för att den e-legitimation som användaren har anskaffat också accepteras av alla förlitande parter. <br />:white_check_mark: Styrning som leder till igenkänning i användbarhet och interaktionsdesign. <br /><br />**Funktioner**: <br />:exclamation: Valfrihetssystem och kravställning på tjänsteleverantörer. <br />:exclamation: Designriktlinjer för utvecklare av e-tjänster. |
-| Leverans av infrastruktur | **Behov**: <br />:white_check_mark: Infrastrukturen ska fungera på ett sådant sätt så att användaren inte ska behöva förstå eller ha kunskap om infrastrukturens olika delar och aktörernas roller i ekosystemet. <br /><br />**Funktioner**: <br />:exclamation: Förvaltningsgemensamt tekniskt ramverk.<br />:exclamation: Vägledning och stöd till utvecklare av e-tjänster.  |
-| Leverans av tjänster | **Behov**: <br />:white_check_mark: Enkelt att hitta till och säkert att logga in till de digitala tjänster som erbjuds i ekosystemet. <br /><br />**Funktioner**: <br />:exclamation: Vägledning och stöd till utvecklare av e-tjänster. |
-| Användning | **Behov**: <br />:white_check_mark: Digitala tjänster som är användbara och tillgängliga. <br /><br />**Funktioner**: <br />:exclamation: Smarta infrastrukturstjänster som erbjuder sömlösa eller smidiga övergångar vid realisering av integrationer i den digitala infrastrukturen. |
-
+| Nyttorealisering | **Behov**: <br />:white_check_mark: Enkelt att hitta till och förstå olika inloggningsalternativ.<br /> :white_check_mark: Hög tillgänglighet och säkert att logga in. <br /><br />**Funktioner**: <br />:exclamation: Vägledning, stöd och designriktlinjer till utvecklare av e-tjänster. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Digitala tjänster som är användbara och tillgängliga. <br /><br />**Funktioner**: <br />:exclamation: Smarta infrastrukturstjänster som erbjuder sömlösa eller smidiga övergångar vid realisering av integrationer i den digitala infrastrukturen. <br />:exclamation: Vägledning, och stöd till utvecklare av e-tjänster. |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Infrastrukturen ska fungera på ett sådant sätt så att användaren inte ska behöva förstå eller ha kunskap om infrastrukturens olika delar och aktörernas roller i ekosystemet. <br /><br />**Funktioner**: <br />:exclamation: Förvaltningsgemensamt tekniskt ramverk.<br />:exclamation: Vägledning och stöd till utvecklare av e-tjänster.  |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Styrning som verkar för att den e-legitimation som användaren har anskaffat också accepteras av alla förlitande parter. <br />:white_check_mark: Styrning som leder till igenkänning i användbarhet och interaktionsdesign. <br /><br />**Funktioner**: <br />:exclamation: Valfrihetssystem och kravställning på tjänsteleverantörer. <br />:exclamation: Designriktlinjer för utvecklare av e-tjänster. |
 
 <a name="fp" />
 
 ### Förlitande part
 
-
+| Perspektiv | Roll: Användare |
+| :------------- | :------------- |
+| Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 
 <a name="certorg" />
 
 ### Granskningsorgan
 
+| Perspektiv | Roll: Användare |
+| :------------- | :------------- |
+| Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 
 <a name="attributkalla" />
 
 ### Leverantör av attributkälla
 
+| Perspektiv | Roll: Användare |
+| :------------- | :------------- |
+| Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 
 <a name="elegutfardare" />
 
 ### Leverantör av e-legitimation
 
+| Perspektiv | Roll: Användare |
+| :------------- | :------------- |
+| Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 
 <a name="elegitimeringstjanst" />
 
 ### Leverantör av e-legitimeringstjänst
 
+| Perspektiv | Roll: Användare |
+| :------------- | :------------- |
+| Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 
 <a name="fedinfra" />
 
 ### Leverantör av federativa infrastrukturtjänster
 
+| Perspektiv | Roll: Användare |
+| :------------- | :------------- |
+| Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 
 <a name="kvalificeradbt" />
 
 ### Leverantör av e-underskriftstjänst 
 
+| Perspektiv | Roll: Användare |
+| :------------- | :------------- |
+| Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 
 <a name="avrop" />
 
 ### Registrator avrop
 
+| Perspektiv | Roll: Användare |
+| :------------- | :------------- |
+| Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 
 <a name="medlemsreg" />
 
 ### Registrator medlemsorganisation
 
+| Perspektiv | Roll: Användare |
+| :------------- | :------------- |
+| Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 
 <a name="tillitsmarken" />
 
 ### Registrator av tillitsmärken
 
+| Perspektiv | Roll: Användare |
+| :------------- | :------------- |
+| Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 
 <a name="slutanvandarorg" />
 
 ### Slutanvändarorganisation
 
+| Perspektiv | Roll: Användare |
+| :------------- | :------------- |
+| Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 
 <a name="tillsynsmyndighet" />
 
 ### Tillsynsmyndighet
 
-
+| Perspektiv | Roll: Användare |
+| :------------- | :------------- |
+| Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 
 <a name="itleverantor" />
 
 ### IT-leverantörer
 
+| Perspektiv | Roll: Användare |
+| :------------- | :------------- |
+| Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 
 
 ---------
