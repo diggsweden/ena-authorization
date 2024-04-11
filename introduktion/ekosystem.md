@@ -45,7 +45,7 @@ Användare är en person som använder en digital tjänst, exempelvis i en webbl
 | :------------- | :------------- |
 | Nyttorealisering | **Behov**: <br />:white_check_mark: Enkelt att hitta till och förstå olika inloggningsalternativ.<br /> :white_check_mark: Hög tillgänglighet och säkert att logga in. <br /><br />**Funktioner**: <br />:exclamation: Igenkänning i anvisningstjänster, begrepp (UX Copy) och inloggningsflöden. <br /> :exclamation: E-legitimation eller annan typ av digital identitet som kan användas inom ramen för den digitala infrastrukturen. |
 | Digitala tjänster | **Behov**: <br />:white_check_mark: Digitala tjänster som är användbara och tillgängliga. <br /><br />**Funktioner**: <br />:exclamation: Tillgänglig e-legitimeringstjänst, eller vid behov motsvarande lösning för identitetskontroll med andra typer av digitala identiteter.<br />:exclamation: Smarta infrastrukturstjänster som erbjuder sömlösa eller smidiga övergångar vid realisering av integrationer i den digitala infrastrukturen. |
-| Stödfunktioner | **Behov**: <br />:white_check_mark: Infrastrukturen ska fungera på ett sådant sätt så att användaren inte ska behöva förstå eller ha kunskap om infrastrukturens olika delar och aktörernas roller i ekosystemet. <br /><br />**Funktioner**: <br />:exclamation: Interaktionsdesign som strävar efter att vara intuitiv, det vill säga upplevs av de flesta användare att följa vanliga användarbeteenden och navigeringsfunktioner som erbjuds i en webbläsare, mobiltelefon eller den miljö som användaren använder.  |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Infrastrukturen ska fungera på ett sådant sätt så att användaren inte ska behöva förstå eller ha kunskap om infrastrukturens olika delar och aktörernas roller i ekosystemet. <br /><br />**Funktioner**: <br />:exclamation: Interaktionsdesign som strävar efter att vara intuitiv för de flesta användare, det vill säga följa vanliga användarbeteenden och navigeringsfunktioner som återfinns i en webbläsare, mobiltelefon eller den miljö där användarens interaktion med den digitala tjänsten sker.  |
 | Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Styrning som verkar för att den e-legitimation som användaren har anskaffat också accepteras av alla förlitande parter. <br />:white_check_mark: Styrning som leder till igenkänning i användbarhet och interaktionsdesign. <br /><br />**Funktioner**: <br />:exclamation: Policy som verkar för att användaren och/eller användarorganisationen (snarare än förlitande part) ska få välja leverantör av e-legitimation så länge krav på tillitsnivå uppfylls. |
 
 <a name="fp" />
@@ -55,7 +55,7 @@ Förlitande part är den roll som i en federation ansvarar för den digitala tj�
 
 #### Förlitande part &ndash; behov och funktioner 
 
-| Perspektiv | Roll: Användare |
+| Perspektiv | Roll: Förlitande part |
 | :------------- | :------------- |
 | Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 | Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
@@ -69,7 +69,7 @@ Roll i ekosystemet som granskar och intygar att digitala tjänster och dess leve
 
 #### Granskningsorgan &ndash; behov och funktioner 
 
-| Perspektiv | Roll: Användare |
+| Perspektiv | Roll: Granskningsorgan |
 | :------------- | :------------- |
 | Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 | Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
@@ -83,7 +83,7 @@ Roll som ansvarar för värdemängder i en katalog eller register med utgångspu
 
 #### Leverantör av attributkälla &ndash; behov och funktioner 
 
-| Perspektiv | Roll: Användare |
+| Perspektiv | Roll: Leverantör av attributkälla |
 | :------------- | :------------- |
 | Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 | Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
@@ -97,7 +97,7 @@ Rollen tilldelas leverantörer av granskade och godkända e-legitimationer i enl
 
 #### Leverantör av e-legitimation &ndash; behov och funktioner 
 
-| Perspektiv | Roll: Användare |
+| Perspektiv | Roll: Leverantör av e-legitimation |
 | :------------- | :------------- |
 | Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 | Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
@@ -111,7 +111,7 @@ Rollen tilldelas parter som utför identifiering av användare i en federativ ko
 
 #### Leverantör av e-legitimeringstjänst &ndash; behov och funktioner 
 
-| Perspektiv | Roll: Användare |
+| Perspektiv | Roll: Leverantör av e-legitimeringstjänst |
 | :------------- | :------------- |
 | Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 | Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
@@ -125,7 +125,7 @@ Rollen tilldelas parter som utvecklar och ansvarar för gemensamma specifikation
 
 #### Leverantör av federativa infrastrukturtjänster &ndash; behov och funktioner 
 
-| Perspektiv | Roll: Användare |
+| Perspektiv | Roll: Leverantör av federativa infra s |
 | :------------- | :------------- |
 | Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 | Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
@@ -182,9 +182,9 @@ Följande kontroller utförs inom rollens ansvarsområde:
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
 | Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
-| Digitala tjänster | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Upprätthålla en öppen dialog och samarbete med medlemsorganisationerna. Detta kan inkludera att lyssna på deras synpunkter och behov, samt att involvera dem i beslutsprocessen när det är möjligt och relevant. <br />:white_check_mark: Erbjuda utbildning och stöd till medlemsorganisationerna för att hjälpa dem att uppfylla de krav och förväntningar som ställs på dem. Detta kan inkludera vägledning samt att erbjuda riktlinjer, resurser och stöd för att underlätta genomförandet av nödvändiga åtgärder och kontroller. <br /><br />**Funktioner**: <br />:exclamation: Test- och administrationsverktyg. |
 | Stödfunktioner | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
-| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Tillgång till infrastrukturens medlemsregister. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
 
 <a name="tillitsmarken" />
 
