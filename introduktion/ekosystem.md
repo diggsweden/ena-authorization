@@ -166,23 +166,15 @@ Rollen intas av parter som administrerar och ansvarar för information avseende 
 Rollen tilldelas parter som ansvarar för registrering av medlemmar (det vill säga organisationer och deras digitala tjänster) i en eller flera federativa kontexter. I ansvaret ingår även administration och åtgärder för kvalitetssäkring av metadata.
 
 Följande kontroller utförs inom rollens ansvarsområde:
-1. *Juridiska status*
-Kontrollera att organisationen som är ansluten till den federativa infrastrukturen är registrerad och har en korrekt organisationsnummer och juridisk status, t ex kommun, aktiebolag eller ideell förening.
-2. *F-skattsedel*
-Om organisationen bedriver näringsverksamhet i Sverige, kontrollera att organisationen har en giltig F-skattsedel.
-3. *Behöriga företrädare*
-Identifiera och administrera behörigheter för vilka personer inom organisationen som är behöriga att teckna avtal och företräda organisationen gentemot tredje part inom ramen för den federativa infrastrukturen. Kontrollera att dessa personer är korrekt registrerade hos Bolagsverket eller motsvarande myndighet.
-4. *Behöriga administratörer*
-Se till att organisationen har utsett behöriga administratörer som ansvarar för hantering av metadata om organisationens tjänster och de säkerhetslösningar som krävs för kontakt och åtkomst till administrationsgränssnitt inom ramen för den federativa infrastrukturen.
-5. *Affärsmål och strategi*
-Diskutera organisationens affärsmål och strategi för att säkerställa att de är förenliga med inriktningen för den digitala infrastrukturen och att det finns potential för ett långsiktigt samarbete. Diskutera även hur organisationens affärsmål och strategi kan stödja eller förbättra den digitala infrastrukturen.
-6. *Avtal*
-Säkerställa att anslutningsavtal tecknas för att reglera ansvarsförhållanden och lämpliga rutiner för hantering av organisationens ansvar gentemot övriga parter som brukar den digitala infrastrukturen. I avtalet bör det också ingå reglering av krav på att organisationen följer gällande bestämmelser och lagar, t ex korrekt reviderad bokföring, avtal för personuppgiftsbehandling och dataskydd.
+1. *Juridiska status* <br />Kontrollera att organisationen som är ansluten till den federativa infrastrukturen är registrerad och har en korrekt organisationsnummer och juridisk status, t ex kommun, aktiebolag eller ideell förening.
+2. *F-skattsedel* <br />Om organisationen bedriver näringsverksamhet i Sverige, kontrollera att organisationen har en giltig F-skattsedel.
+3. *Behöriga företrädare* <br />Identifiera och administrera behörigheter för vilka personer inom organisationen som är behöriga att teckna avtal och företräda organisationen gentemot tredje part inom ramen för den federativa infrastrukturen. Kontrollera att dessa personer är korrekt registrerade hos Bolagsverket eller motsvarande myndighet.
+4. *Behöriga administratörer* <br />Se till att organisationen har utsett behöriga administratörer som ansvarar för hantering av metadata om organisationens tjänster och de säkerhetslösningar som krävs för kontakt och åtkomst till administrationsgränssnitt inom ramen för den federativa infrastrukturen.
+5. *Affärsmål och strategi* <br />Diskutera organisationens affärsmål och strategi för att säkerställa att de är förenliga med inriktningen för den digitala infrastrukturen och att det finns potential för ett långsiktigt samarbete. Diskutera även hur organisationens affärsmål och strategi kan stödja eller förbättra den digitala infrastrukturen.
+6. *Avtal* <br />Säkerställa att anslutningsavtal tecknas för att reglera ansvarsförhållanden och lämpliga rutiner för hantering av organisationens ansvar gentemot övriga parter som brukar den digitala infrastrukturen. I avtalet bör det också ingå reglering av krav på att organisationen följer gällande bestämmelser och lagar, t ex korrekt reviderad bokföring, avtal för personuppgiftsbehandling och dataskydd.
 7. Ytterligare kontroller kan tillkomma i särskilda fall och utifrån behov i en federativ kontext, exempelvis uppföljning av:
-    1. *Ekonomisk stabilitet*
-Vid misstanke om ekonomiska oegentligheter begära att få ta del av organisationens senaste årsredovisning för att bedöma dess ekonomiska stabilitet och utveckling.
-    2. *Försäkringar och tillstånd*
-Se till att organisationen har nödvändiga försäkringar och tillstånd för sin verksamhet, t.ex. ansvarsförsäkring och eventuella branschspecifika tillstånd.
+    1. *Ekonomisk stabilitet* <br />Vid misstanke om ekonomiska oegentligheter begära att få ta del av organisationens senaste årsredovisning för att bedöma dess ekonomiska stabilitet och utveckling.
+    2. *Försäkringar och tillstånd* <br />Se till att organisationen har nödvändiga försäkringar och tillstånd för sin verksamhet, t.ex. ansvarsförsäkring och eventuella branschspecifika tillstånd.
 
  
 #### Registrator medlemsorganisation &ndash; behov och funktioner 
