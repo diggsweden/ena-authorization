@@ -39,17 +39,21 @@ Detta avsnitt redogör för rollernas behov och krav på funktioner, vilka beskr
 ### Användare
 Användare är en person som använder en digital tjänst, exempelvis i en webbläsare eller i en mobil app. Privatpersoner som företräder sig själva eller någon annan och medarbetare som utför sin tjänst i en organisation är olika exempel på användare.
 
+#### Användare &ndash; behov och funktioner 
+
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
-| Nyttorealisering | **Behov**: <br />:white_check_mark: Enkelt att hitta till och förstå olika inloggningsalternativ.<br /> :white_check_mark: Hög tillgänglighet och säkert att logga in. <br /><br />**Funktioner**: <br />:exclamation: Vägledning, stöd och designriktlinjer till utvecklare av e-tjänster. |
-| Digitala tjänster | **Behov**: <br />:white_check_mark: Digitala tjänster som är användbara och tillgängliga. <br /><br />**Funktioner**: <br />:exclamation: Smarta infrastrukturstjänster som erbjuder sömlösa eller smidiga övergångar vid realisering av integrationer i den digitala infrastrukturen. <br />:exclamation: Vägledning, och stöd till utvecklare av e-tjänster. |
-| Stödfunktioner | **Behov**: <br />:white_check_mark: Infrastrukturen ska fungera på ett sådant sätt så att användaren inte ska behöva förstå eller ha kunskap om infrastrukturens olika delar och aktörernas roller i ekosystemet. <br /><br />**Funktioner**: <br />:exclamation: Förvaltningsgemensamt tekniskt ramverk.<br />:exclamation: Vägledning och stöd till utvecklare av e-tjänster.  |
-| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Styrning som verkar för att den e-legitimation som användaren har anskaffat också accepteras av alla förlitande parter. <br />:white_check_mark: Styrning som leder till igenkänning i användbarhet och interaktionsdesign. <br /><br />**Funktioner**: <br />:exclamation: Valfrihetssystem och kravställning på tjänsteleverantörer. <br />:exclamation: Designriktlinjer för utvecklare av e-tjänster. |
+| Nyttorealisering | **Behov**: <br />:white_check_mark: Enkelt att hitta till och förstå olika inloggningsalternativ.<br /> :white_check_mark: Hög tillgänglighet och säkert att logga in. <br /><br />**Funktioner**: <br />:exclamation: Igenkänning i anvisningstjänster, begrepp (UX Copy) och inloggningsflöden. <br /> :exclamation: E-legitimation eller annan typ av digital identitet som kan användas inom ramen för den digitala infrastrukturen. |
+| Digitala tjänster | **Behov**: <br />:white_check_mark: Digitala tjänster som är användbara och tillgängliga. <br /><br />**Funktioner**: <br />:exclamation: Tillgänglig e-legitimeringstjänst, eller vid behov motsvarande lösning för identitetskontroll med andra typer av digitala identiteter.<br />:exclamation: Smarta infrastrukturstjänster som erbjuder sömlösa eller smidiga övergångar vid realisering av integrationer i den digitala infrastrukturen. |
+| Stödfunktioner | **Behov**: <br />:white_check_mark: Infrastrukturen ska fungera på ett sådant sätt så att användaren inte ska behöva förstå eller ha kunskap om infrastrukturens olika delar och aktörernas roller i ekosystemet. <br /><br />**Funktioner**: <br />:exclamation: Interaktionsdesign som strävar efter att vara intuitiv, det vill säga upplevs av de flesta användare att följa vanliga användarbeteenden och navigeringsfunktioner som erbjuds i en webbläsare, mobiltelefon eller den miljö som användaren använder.  |
+| Infrastrukturens styrning och regelverk | **Behov**: <br />:white_check_mark: Styrning som verkar för att den e-legitimation som användaren har anskaffat också accepteras av alla förlitande parter. <br />:white_check_mark: Styrning som leder till igenkänning i användbarhet och interaktionsdesign. <br /><br />**Funktioner**: <br />:exclamation: Policy som verkar för att användaren och/eller användarorganisationen (snarare än förlitande part) ska få välja leverantör av e-legitimation så länge krav på tillitsnivå uppfylls. |
 
 <a name="fp" />
 
 ### Förlitande part
 Förlitande part är den roll som i en federation ansvarar för den digitala tjänstens säkerhetslösning och är den organisation som i en federativ kontext avser att skydda en eller flera digitala tjänster mot obehörig åtkomst.  Beslut om åtkomst baseras på uppgifter som förmedlas av från en betrodd part. Den betrodda parten kan vara en e-legitimeringstjänst eller en slutanvändarorganisation.
+
+#### Förlitande part &ndash; behov och funktioner 
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -63,6 +67,8 @@ Förlitande part är den roll som i en federation ansvarar för den digitala tj�
 ### Granskningsorgan
 Roll i ekosystemet som granskar och intygar att digitala tjänster och dess leverantörer uppfyller de krav som gäller. Rollern kan dels intas utifrån specifika krav i en eller flera federativa kontexter, men den kan också inbegripa certifieringsorgan som granskar och verifierar att organisationen uppfyller krav en standard.
 
+#### Granskningsorgan &ndash; behov och funktioner 
+
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
 | Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
@@ -74,6 +80,8 @@ Roll i ekosystemet som granskar och intygar att digitala tjänster och dess leve
 
 ### Leverantör av attributkälla
 Roll som ansvarar för värdemängder i en katalog eller register med utgångspunkt i någon form av förordning, instruktion, regleringsbrev eller officiellt uppdrag. Skatteveret är exempel på en aktör som besitter denna roll för folkbokföringsuppgifter. 
+
+#### Leverantör av attributkälla &ndash; behov och funktioner 
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -87,6 +95,8 @@ Roll som ansvarar för värdemängder i en katalog eller register med utgångspu
 ### Leverantör av e-legitimation
 Rollen tilldelas leverantörer av granskade och godkända e-legitimationer i enlighet med tillitsramverket för _Svensk e-legitimation_. Rollen kan även kallas för _utfärdare av e-legitimation_.
 
+#### Leverantör av e-legitimation &ndash; behov och funktioner 
+
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
 | Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
@@ -98,6 +108,8 @@ Rollen tilldelas leverantörer av granskade och godkända e-legitimationer i enl
 
 ### Leverantör av e-legitimeringstjänst
 Rollen tilldelas parter som utför identifiering av användare i en federativ kontext. Identifiering sker alltid med en godkänd e-legitimation och genom _direkt e-legitimering_, som innebär att intyget levereras från den aktör som utfärdar e-legitimationen eller av motsvarande kvalificerade tillitskedja.
+
+#### Leverantör av e-legitimeringstjänst &ndash; behov och funktioner 
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -111,6 +123,8 @@ Rollen tilldelas parter som utför identifiering av användare i en federativ ko
 ### Leverantör av federativa infrastrukturtjänster
 Rollen tilldelas parter som utvecklar och ansvarar för gemensamma specifikationer, verktyg och/eller infrastrukturtjänster i en eller flera federativa kontexter.
 
+#### Leverantör av federativa infrastrukturtjänster &ndash; behov och funktioner 
+
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
 | Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
@@ -122,6 +136,8 @@ Rollen tilldelas parter som utvecklar och ansvarar för gemensamma specifikation
 
 ### Leverantör av kvalificerad e-underskriftstjänst 
 Rollen tilldelas leverantör av e-underskriftstjänst som har genomgått granskning och certifiering av kvalificerad betrodd tjänst är enligt eIDAS-förordningen.
+
+#### Leverantör av kvalificerad e-underskriftstjänst &ndash; behov och funktioner 
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -135,6 +151,8 @@ Rollen tilldelas leverantör av e-underskriftstjänst som har genomgått granskn
 ### Registrator avrop
 Rollen intas av parter som administrerar och ansvarar för information avseende prissättning, kommersiella villkor, avrop och andra uppgifter som kan underlätta etablering av federerad interoperabilitet för offentliga aktörer.
 
+#### Registrator avrop &ndash; behov och funktioner 
+
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
 | Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
@@ -145,7 +163,29 @@ Rollen intas av parter som administrerar och ansvarar för information avseende 
 <a name="medlemsreg" />
 
 ### Registrator medlemsorganisation
-Rollen tilldelas parter som ansvarar för registrering av medlemmar (det vill säga organisatiner och deras digitala tjänster) i en eller flera federativa kontexter. I ansvaret ingår även administration och åtgärder för kvalitetssäkring av metadata.
+Rollen tilldelas parter som ansvarar för registrering av medlemmar (det vill säga organisationer och deras digitala tjänster) i en eller flera federativa kontexter. I ansvaret ingår även administration och åtgärder för kvalitetssäkring av metadata.
+
+Följande kontroller utförs inom rollens ansvarsområde:
+1. *Juridiska status*
+Kontrollera att organisationen som är ansluten till den federativa infrastrukturen är registrerad och har en korrekt organisationsnummer och juridisk status, t ex kommun, aktiebolag eller ideell förening.
+2. *F-skattsedel*
+Om organisationen bedriver näringsverksamhet i Sverige, kontrollera att organisationen har en giltig F-skattsedel.
+3. *Behöriga företrädare*
+Identifiera och administrera behörigheter för vilka personer inom organisationen som är behöriga att teckna avtal och företräda organisationen gentemot tredje part inom ramen för den federativa infrastrukturen. Kontrollera att dessa personer är korrekt registrerade hos Bolagsverket eller motsvarande myndighet.
+4. *Behöriga administratörer*
+Se till att organisationen har utsett behöriga administratörer som ansvarar för hantering av metadata om organisationens tjänster och de säkerhetslösningar som krävs för kontakt och åtkomst till administrationsgränssnitt inom ramen för den federativa infrastrukturen.
+5. *Affärsmål och strategi*
+Diskutera organisationens affärsmål och strategi för att säkerställa att de är förenliga med inriktningen för den digitala infrastrukturen och att det finns potential för ett långsiktigt samarbete. Diskutera även hur organisationens affärsmål och strategi kan stödja eller förbättra den digitala infrastrukturen.
+6. *Avtal*
+Säkerställa att anslutningsavtal tecknas för att reglera ansvarsförhållanden och lämpliga rutiner för hantering av organisationens ansvar gentemot övriga parter som brukar den digitala infrastrukturen. I avtalet bör det också ingå reglering av krav på att organisationen följer gällande bestämmelser och lagar, t ex korrekt reviderad bokföring, avtal för personuppgiftsbehandling och dataskydd.
+7. Ytterligare kontroller kan tillkomma i särskilda fall och utifrån behov i en federativ kontext, exempelvis uppföljning av:
+    1. *Ekonomisk stabilitet*
+Vid misstanke om ekonomiska oegentligheter begära att få ta del av organisationens senaste årsredovisning för att bedöma dess ekonomiska stabilitet och utveckling.
+    2. *Försäkringar och tillstånd*
+Se till att organisationen har nödvändiga försäkringar och tillstånd för sin verksamhet, t.ex. ansvarsförsäkring och eventuella branschspecifika tillstånd.
+
+ 
+#### Registrator medlemsorganisation &ndash; behov och funktioner 
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -159,6 +199,8 @@ Rollen tilldelas parter som ansvarar för registrering av medlemmar (det vill s�
 ### Registrator av tillitsmärken
 Rollen intas av parter som administrerar och ansvarar för information om tillitsmärken, certifieringar och/eller motsvarande tillitsparametrar för digitala tjänster i en eller flera federativa kontexter.
 
+#### Registrator tillitsmärken &ndash; behov och funktioner 
+
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
 | Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
@@ -170,6 +212,8 @@ Rollen intas av parter som administrerar och ansvarar för information om tillit
 
 ### Slutanvändarorganisation
 Rollen tilldelas parter som ansvarar för sin användares identitets- och behörighetsinformation. Uppgifter verifieras vid användarens inloggning och förmedlas genom ett intyg till tjänsteleverantören.
+
+#### Slutanvändarorganisation &ndash; behov och funktioner 
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
@@ -183,6 +227,8 @@ Rollen tilldelas parter som ansvarar för sin användares identitets- och behör
 ### Tillsynsmyndighet
 Rollen intas av kontrollmyndigheter med ansvar att se till att underordnade organisationer lever upp till de krav som ställs inom en viss verksamhet eller ett visst verksamhetsområde. Regeringen fattar beslut om vilka tillsynsmyndigheter som ska finnas.
 
+#### Tillsynsmyndighet &ndash; behov och funktioner 
+
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
 | Nyttorealisering | **Behov**: <br />:white_check_mark: Lorem ipsum. <br /><br />**Funktioner**: <br />:exclamation: Lorem ipsum. |
@@ -194,6 +240,8 @@ Rollen intas av kontrollmyndigheter med ansvar att se till att underordnade orga
 
 ### IT-leverantörer
 Leverantörer som erbjuder produkter, tjänster och/eller helhetslösningar för identitets- och behörighetshantering i federativa kontext.
+
+#### IT-leverantörer &ndash; behov och funktioner 
 
 | Perspektiv | Roll: Användare |
 | :------------- | :------------- |
