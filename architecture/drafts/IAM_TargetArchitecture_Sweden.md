@@ -1,21 +1,24 @@
 # Målarkitektur för en Svensk identitets- och åtkomsthantering
 
 **Innehållsförteckning**
-- [1. Inledning](#inledning)
-  - [1.1 Bakgrund och syfte](#bakgrund-och-syfte)
-- [2. Behovsanalys/typfall](#behovsanalystypfall)
-  - [2.1 Användare anropar extern tjänst, med förprovisionerade användarkonto](#användare-anropar-extern-tjänst-med-förprovisionerade-användarkonto)
-  - [2.2 Användare anropar extern tjänst](#användare-anropar-extern-tjänst)
-  - [2.3 System anropar system i annan organisation](#system-anropar-system-i-annan-organisation)
-- [3. Övergripande arkitektur](#övergripande-arkitektur)
-  - [3.1 Arkitektoniska principer](#arkitektoniska-principer)
-  - [3.2 IAM-system](#iam-system)
-  - [3.3 Begreppsmodellering](#begreppsmodellering)
-- [4. Målarkitektur](#målarkitektur)
-  - [4.1 Tillitshantering](#tillitshantering)
-  - [4.2 Identitetshantering](#identitetshantering)
-  - [4.3 Behörighetshantering](#behörighetshantering)
-  - [4.4 Åtkomsthantering](#åtkomsthantering)
+- [1. Inledning](#1-inledning)
+  - [1.1 Syfte](#11-syfte)
+  - [1.2 Avgränsningar](#12-avgränsningar)  
+- [2. Behovsanalys/mönster](#2-behovsanalysmönster)
+  - [2.1 System anropar system, under egen identitet](#21-system-anropar-system-under-egen-identitet)
+  - [2.2 System anropar system, på uppdrag av användare](#22-system-anropar-system-på-uppdrag-av-användare)
+  - [2.3 Medarbetare anropar extern e-tjänst, utan förprovisionerat konto](#23-medarbetare-anropar-extern-e-tjänst-utan-förprovisionerat-konto)
+  - [2.4 Medarbetare anropar extern tjänst, med förprovisionerat användarkonto](#24-medarbetare-anropar-extern-tjänst-med-förprovisionerat-användarkonto)
+- [3. Exempel](#3-exempel)
+  - [3.1 Finansiell status](#31-finansiell-status)
+- [4. Målarkitektur](#4-målarkitektur)
+  - [4.1 Arkitektoniska principer](#41-arkitektoniska-principer)
+  - [4.2 Ena IAM](#42-ena-iam)
+  - [4.3 Begreppsmodell](#43-begreppsmodell)
+  - [4.4 Tillit](#44-tillit)
+  - [4.5 Identitet](#45-identitet)
+  - [4.6 Behörighet](#46-behörighet)
+  - [4.7 Åtkomst](#47-åtkomst)
 
 <hr>
 
@@ -31,9 +34,8 @@
 </td></tr><table>
 
 
-
 ## 1. Inledning 
-För en tillitsfull och kostnadseffektiv samverkan inom offentlig förvaltning behöver vi utveckla och förankra nationell arkitektur, infrastruktur och tillämpningsanvisningar för identitets- och åtkomsthantering. Denna målarkitektur syftar till att ge en bild över hur ett sådant åtkomstsystem kan och bör utformas för att möjliggöra en tids- och kostnadseffektiv digitalisering av svensk offentlig sektor.
+För en tillitsfull och kostnadseffektiv samverkan över organisationsgränser inom offentlig förvaltning behöver vi utveckla och förankra nationell arkitektur, infrastruktur och tillämpningsanvisningar för identitets- och åtkomsthantering. Denna målarkitektur syftar till att ge en bild över hur en nationella standardisering av IAM-hantering (Identity and Access Management) kan och bör utformas för att möjliggöra en tids- och kostnadseffektiv digitalisering av svensk offentlig sektor.
 
 ```mermaid
 graph TD
@@ -47,7 +49,7 @@ direction LR
  p(Privata aktörer):::org
 end
 
-subgraph iam[IAM-system]
+subgraph iam[Ena IAM]
  Å(Åtkomsthantering)
  I(Identitetshantering)
  B(Behörighetshantering)
@@ -59,27 +61,153 @@ actors--har behov av-->iam
 ```
 *Logisk bild över hur områdena tillitshantering, identitetshantering och behörighetshantering ger förutsättningar för åtkomsthantering i digitala tjänster*
 
+Inom alla dessa områden finns det redan idag olika grad av standardisering. Det används dock olika standarder inom olika verksamhetsområden och detta leder till att parter som behöver samverka inom flera av dessa verksamhetsområden behöver investera i att stödja många standarder parallellt. Med ett gemensamt system för att hantera digitala identiteter och åtkomstbeslut kan samverkan mellan aktörer verksamma inom svensk offentlig förvaltning underlättas avsevärt. 
 
-### 1.1 Bakgrund och syfte 
-Inom alla dessa områden finns det redan idag olika grad av standardisering. Det används dock olika standarder inom olika verksamhetsområden och detta leder till att parter som behöver samverka inom flera av dessa verksamhetsområden behöver investera i att stödja många standarder parallellt. Med ett gemensamt system för att hantera digitala identiteter och åtkomstbeslut kan samverkan mellan aktörer verksamma inom svensk offentlig förvaltning underlättas avsevärt. Systemet behöver stödja såväl offentliga organisationer som privata utförare av offentliga uppdrag.
+### 1.1 Syfte
+Målarkitekturen även omfatta en enklare strategisk plan för vilka förflyttningar som behöver genomföras över tid och beroenden dem emellan. Den strategiska plan behöver förhålla sig till existerande arkitektur och infrastrur, samt redan gjorda investeringar i digitaliseringstillämpningar. Planen bör även innehålla vägledning för om, när och hur existerande digitala tjänster ska migrera över till ENA IAMs samverkansmönster och nyttja ny infrastruktur.
 
-Målarkitekturen kommer även omfatta en enklare strategisk plan för vilka förflyttningar som behöver genomföras över tid och beroenden dem emellan. Denna strategiska plan behöver förhålla sig till existerande arkitektur och infrastrur, samt redan gjorda investeringar i digitaliseringstillämpningar. Planen bör även innehålla vägledning för om. när och hur existerande digitala tjänster ska migrera över till det nya åtkomstsystemets samverkansmönster och nyttja ny infrastruktur.
+Målarkitekturen är tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och nå samsyn kring hur ett framtida IAM-funktionalitet kan och bör utformas. Ena IAM behöver omfatta följande områden:
+- Hantering av tillit till organisationer, system och användare
+- Utgivning av digitala identiteter - för fysiska användare och system
+- Förmedling av behörighetsstyrande information - för individer, medarbetare och system
+- Standardisering av digital legitimering och åtkomstbeslut - för fysiska användare och system
 
-Målarkitekturen är tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och nå samsyn kring hur ett framtida nationellt IAM-system kan och bör utformas. Ett IAM-system behöver omfatta följande områden:
-- Hantering av tillit - till organisationer och system
-- Hantering av digitala identiteter - för fysiska användare och system
-- Hantering av behörighetsstyrande information - för individer, medarbetare och system
-- Hantering av digital legitimering och åtkomstbeslut - för alla typer av användare och med stöd för olika tekniska standarder
+### 1.2 Avgränsningar
+Målarkitekturen som tas fram här syftar till att fungera normerande för digital samverkan mellan organisationer verksamma inom Svensk offentlig förvaltning. För annan hantering av IAM kan Ena IAM fungera vägledande men kommer inte vara heltäckande.
 
-## 2. Behovsanalys/Typfall
-När parter etablerar samverkan via en digital tjänst finns det ett antal olika scenarion.
+## 2. Behovsanalys/Mönster
+När parter etablerar samverkan via en digital tjänst finns det ett antal olika mönster. Nedan presenteras identifierade mönster och exempel på tillämpningar där dess mönster används.
 
-### 2.1 Användare anropar extern tjänst, med förprovisionerade användarkonto
+### 2.1 System anropar system, under egen identitet
+
 ```mermaid
 graph LR
-TBD
+
+subgraph po[Tjänsteproducent]
+    p(API)
+    as(Åtkomstintygstjänst)
+end
+
+subgraph ss[Nationella stödtjänster]
+    t(Tillitsfederation)
+end
+
+subgraph so[Samverkansoperatör]
+    tk(Tjänstekatalog)
+    ak(Avtalskatalog)
+end
+
+subgraph co[Tjänstekonsument]
+    c(Klient)
+end
+
+c--1. Skapa signerad Privat Key JWT-->c
+c--2. hitta tjänst-->tk
+c--3. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+c--4. begär åtkomst till API-->as
+as--4.1. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+as--4.2 verifiera tillit till Klient-->t
+c--5. Anropa API-->p
+p-.litar på.->as
+p--5.1 Validera åtkomstintyg-->p
 ```
-### 2.2 Användare anropar extern tjänst
+
+
+### 2.2 System anropar system, på uppdrag av användare
+```mermaid
+graph LR
+
+subgraph po[Tjänsteproducent]
+    p(API)
+    as(Åtkomstintygstjänst)
+end
+
+subgraph ss[Nationella stödtjänster]
+    t(Tillitsfederation)
+end
+
+subgraph so[Samverkansoperatör]
+    tk(Tjänstekatalog)
+    ak(Avtalskatalog)
+end
+
+subgraph co[Tjänstekonsument]
+    idp(Legitimeringstjänst IdP)
+    u(Användare)
+    c(Klient)
+end
+
+u--1. Starta klient-->c
+u--2. Legitimera användare-->idp
+c--3. hitta tjänst-->tk
+c--4. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+c--5. begär åtkomst till API utifrån<br> användarens åtkomst till Klient-->as
+as--5.1. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+as--5.2 verifiera tillit till Klient-->t
+as--5.3 utvärdera åtkomstpolicy baserad på <br>användarens behörighetsgrundande attribut-->as
+c--6. Anropa API-->p
+p-.litar på.->as
+p--6.1 Validera åtkomstintyg-->p
+```
+
+
+### 2.3 Medarbetare anropar extern e-tjänst, utan förprovisionerat konto
+```mermaid
+graph LR
+
+subgraph po[Tjänsteproducent]
+    p(E-tjänst)
+    as(Åtkomstintygstjänst)
+end
+
+subgraph co[Tjänstekonsument]
+    idp(Legitimeringstjänst IdP)
+    u(Användare)
+end
+
+idp ~~~ p
+
+u--1. Starta e-tjänst-->p
+p-.Anvisa IdP.->idp
+u--2. Legitimera-->idp
+u--3. Begär åtkomst-->as
+as--3.1 utvärdera åtkomstpolicy baserad på <br>användarens behörighetsgrundande attribut-->as
+u--4. Använd e-tjänst-->p
+p-.litar på.->as
+p--4.1 Validera åtkomstintyg-->p
+```
+
+
+### 2.4 Medarbetare anropar extern tjänst, med förprovisionerat användarkonto 
+
+```mermaid
+graph LR
+
+subgraph po[Tjänsteproducent]
+    p(E-tjänst)
+    idp(Legitimeringstjänst IdP)
+    as(Åtkomstintygstjänst)
+    udb[(Användar-<br>konton)]
+end
+
+subgraph co[Tjänstekonsument]
+    u(Användare)
+end
+
+idp ~~~ p
+
+u--1. Starta e-tjänst-->p
+p-.Anvisa IdP.->idp
+u--2. Legitimera-->idp
+u--3. Begär åtkomst-->as
+as--3.1 Hämta behörigheter-->udb
+u--4. Använd e-tjänst-->p
+p-.litar på.->as
+p--4.1 Validera åtkomstintyg-->p
+```
+
+## 3. Exempel
+### 3.1 Finansiell status
 
 #### Nuläge
 
@@ -183,42 +311,8 @@ Möjliga förutsättningar
 - Agent/ombud: Granskad och godkänd av federationen att stötta andra organisationer med deras federationsansökan, e-tjänster, intygsutfärdartjänst, attributskälla, e-legitimationer
 
 
-### 2.3 System anropar system i annan organisation
 
-```mermaid
-graph LR
-
-subgraph po[Tjänsteproducent]
-    p(API)
-    as(Åtkomsttjänst)
-end
-
-subgraph ss[Nationella stödtjänster]
-    t(Tillitsregister)
-    m(Metadata IAM)
-end
-
-subgraph so[Samverkansoperatör]
-    tk(Tjänstekatalog)
-    ak(Avtalskatalog)
-end
-
-subgraph co[Tjänstekonsument]
-    c(Klient)
-end
-
-c--1. hitta tjänst utifrån <br>interoperabilitetsspecifikationsidentifierare<br>och tjänsteproducents organisationsidentifierare-->tk
-c--2. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-c--3. begär åtkomst till API-->as
-as--3.1. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-as--3.2 verifiera tillit till Klient-->t
-as--3.3 verifiera metadata för klient-->m
-c--4. Anropa API-->p
-p-.litar på.->as
-
-```
-
-## 3. Övergripande arkitektur
+## 4. Målarkitektur
 <table bgcolor="lightblue" border=1><tr><td>
 Det finns ett förslag på en ny EU-förordning, <a href="https://commission.europa.eu/system/files/2022-11/com2022720_0.pdf">Interoperabilitetsförordningen</a>, vilken tar avstamp i European Interoperability Framwork (EIF) och reglerar hur man säkerställer att digitala tjänster som tas fram inom EU linjerar mot EIF.
 <br/>
@@ -236,7 +330,7 @@ Jag har i mina arkitekturskisser nedan använt termer från T2, men beskrivninga
 
 
 
-### 3.1 Arkitektoniska principer
+### 4.1 Arkitektoniska principer
 [Svenskt ramverk för digital samverkan (Digg)](https://www.digg.se/kunskap-och-stod/svenskt-ramverk-for-digital-samverkan) är en svensk anpassning av det europeiska ramverket för interoperabilitet (EIF). Det innehåller principer för digtalisering, samt rekommendationer för hur dessa principer tillämpas. För IAM-området kan vi komma att behöva ta fram specifika rekommendationer. 
 
 Vi kompletterar det svenska ramverket med ett antal konkreta rekommendationer för etableringen av IAM-systemet - nedan insorterade under ramverkets grundprinciper
@@ -262,8 +356,8 @@ Vi kompletterar det svenska ramverket med ett antal konkreta rekommendationer f�
     - Skapa ett IAM-system, med huvudsakligen en anslutningsprocess per anslutande part. Låt anslutningar till specifika verksamhetstillämpningar bygga på genomförd anslutning till IAM-systemet för att därmed minimera den administrativa bördan.
 13. Ha helhetssyn på informationshantering
 
-### 3.2 IAM-system
-På den högsta nivån ser vi nedanstående bild av ett framtida Svenskt IAM-system. Vi har nationella federationer för hantering av tillit, identitet och behörighet. Dessa nationella federationer kombinerat med nationellt förvaltade tekniska systemstöd skapar förutsättningar för att skapa syftesspecifika informationsutbyten mellan en grupp av aktörer 
+### 4.2 Ena IAM
+På den högsta nivån ser vi nedanstående bild av ett framtida Svensk standardisering inom IAM. Vi har nationella federationer för hantering av tillit, identitet och behörighet. Dessa nationella federationer kombinerat med nationellt förvaltade tekniska systemstöd skapar förutsättningar för att skapa syftesspecifika informationsutbyten mellan en grupp av aktörer 
 ```mermaid
 graph TD
 classDef org fill:#D2B9D5
@@ -295,7 +389,7 @@ f--skapar förutsättningar för-->s
 | Tjänstekonsument | Organisation som har behov  av att nyttja en digital tjänst (Public Service Consumer från EIRA) 
 | Tjänsteproducent | Organisation som erbjuder en digital tjänst till andra tjänstekonsumenter (Public Service Producer från EIRA)
 
-### 3.3 Begreppsmodell
+### 4.3 Begreppsmodell
 
 Den tekniska vyn syftar till att beskriva tekniska begrepp som behövs inom ovan beskrivna federationer för att realisera samverkan
 ```mermaid
@@ -367,9 +461,7 @@ end
 |Åtkomstpolicy|Ett regelverk som mappar en användares behörighetsgrundande attribut, samt eventuell företrädarroll gentemot annan användare, mot vilka 
 |Kodverk| Mappning mellan en identifierare och en överenskommen tolkning av hur information "kodat" med den identifieraren ska tolkas
 
-## 4. Målarkitektur
-
-### 4.1 Tillitshantering
+### 4.4 Tillit
 
 Vid all samverkan behöver man ha tillit till den part man samverkar med. Det finns idag ett antal tillvägagångssätt för detta som syftar till att både privatpersoner och organisationer ska känna tillit till att information som delas via e-tjänster och APIer inom samhället hanteras på ett korrekt sätt.
 
@@ -386,7 +478,7 @@ För att kunna samverka över organisationsgränser behövs tillit på två niv�
 
 Säkerställandet av tillitsskapande förmågor kan behöva ske med olika grad av försäkran beroende på samverkanskontext och skyddskrav för den funktionalitet och information som delas. Kraven som ställs behöver också kunna skilja sig mellan olika typer av aktörer.
 
-Teknisk efterlevnad säkerställas genom testning eller. Organistorisk efterlevnad säkerställs genom lagstiftning, avtal och/eller certifiering. 
+Teknisk efterlevnad säkerställas genom testning eller certifiering. Organistorisk efterlevnad säkerställs genom lagstiftning, avtal och/eller certifiering. 
 
 Inom cyber- och informationssäkerhetsområdena ser man ökande risker, vilket ställer kontinuerligt högre krav på tillit. Speciellt offentliga aktörer förväntas stärka sina tillitsskapande förmågor då fokus är stort på att realisera samhällsnyttor genom digitalisering och nyttjande av de möjligheter som digitalisering ger förutsätter tillit. 
 
@@ -396,8 +488,8 @@ Vilka tillitsskapande förmågor som krävs och hur dessa styrks regleras ofta i
 Tillit är typiskt antingen grundmurad eller avtalsbaserad. Tillitsskapande förmågor styrks ofta genom självdeklaration, ibland byggd på internrevision. Ibland krävs dock revision av extern part, eller till och med certifiering utförd av ackrediterad part.
 
  - Svenska myndigheter har lagstadgad organisationstillit mellan varandra.
- - Sveriges regioner och kommuner tillämpar avtalsbaserad organisationstillit, styrkt via självdeklaration för samverkan som sker via Inera.
- - ...
+ - Sveriges regioner och kommuner tillämpar avtalsbaserad tillit mellan samverkande organisationer, styrkt med överenskommelser kring kvalitetssäkring, samt självdeklarationer av följsamhet.
+
 
 #### Vision
 För att möjliggöra kostnadseffektiv digitalisering av Svensk offentlig förvaltning bör bygga upp ett system där bilaterala avtal inte behöver reglera tilliten utan att detta styrs nationellt via en tillitsfederation.
@@ -437,11 +529,11 @@ Det behöver finnas utrymme för många olika typer av kvalitetsmärken för de 
 
 <table border=1 bgcolor="lightblue"><tr><td>
 Tillitsmärken för olika nivåer av organisatorisk tillit skulle kunna användas och namnges LoT1, LoT2, LoT3 och LoT4 (<i>"Level of trust"</i>).  
-Att en organisation tilldelats ett kvalitetsmärke för en högre LoT-nivå skulle då kunna innebära att organisationen granskats mot högre krav avseende dess tillitsskapande förmågor./td></tr></table> 
+Att en organisation tilldelats ett kvalitetsmärke för en högre LoT-nivå skulle då kunna innebära att organisationen granskats mot högre krav avseende dess tillitsskapande förmågor.</td></tr></table> 
 
-Att en aktör tilldelats ett visst LoT-tillitsmärke skulle kunna ingå som del i kvalificering för en avtalsskrining, eller som åtkomststyrande attribut för åtkomstbeslut vid ett faktiskt tjänsteanrop.
+Att en aktör tilldelats ett visst LoT-tillitsmärke skulle kunna ingå som del i kvalificering för en avtalsskrivning, eller som åtkomststyrande attribut för åtkomstbeslut vid ett faktiskt tjänsteanrop.
 
-### 4.2 Identitetshantering
+### 4.5 Identitet
 
 #### Nuläge
 För privatepersoner har Digg ansvar för kvalitetsmärket Svensk e-legitimation. Detta möjliggör olika aktörer att erbjuda digitala identiteter till privatpersoner förutsatt att de kvalitetssäkrats av Digg. Idag erbjuder BankId, Freja och Svenska Pass denna typ av e-legitimationer.
@@ -464,7 +556,7 @@ Dagens utgivna digitala identiteter behöver fungera även för framtida samverk
 Vi ser även ett behov av ett nationellt kvalitetsmärke för utgivare av funktionscertifikat. Ett sådant kvalitetsmärke kan, i kombination med ett nationellt tillitsfederation, möjliggöra tillitsfull samverkan mellan system.
 
 
-### 4.3 Behörighetshantering
+### 4.6 Behörighet
 För att kunna garantera kvaliteten i den åtkomsthantering som sker bör informationsförsörjningen av behörighetsgrundande information ske med en tillförlitlighet på en nivå som motsvarar skyddsbehovet för den digitala tjänst som beslutet avser.
 
 Högst kvalitet på behörighetsgrundande information fås genom att den part som äger och administrera informationen också används som källa för informationsförsörjningen. Exempelvis bör information om läkarlegitimationer informationsförsörjas från Socialstyrelsens HOSP-register. På samma sätt bör medarbetares uppdragsgivare informationsförsörja information som härrör till de uppdrag medarbetaren har.
@@ -489,7 +581,7 @@ Vad som är en adekvat nivå av säkerhet för cahning behöver man komma övere
 <li>De parter som bifogar behörighetsgrundande information till en digital identitet bör ha granskats för att detta sker kontrollerat och tillitsfullt, exempelvis genom granskning mot ett kvalitetsmärke</li>
 </ol>
 
-### 4.4 Åtkomsthantering
+### 4.7 Åtkomst
 I åtkomsthanteringen knyts alla aspekter av digitalaidentiteter, tillitskedjor, samt informationsförsörjning av behörighetsgrundande information samman.
 
 Korrekta åtkomsbeslut kan vara beroende av informationsförsörjning av behörighetsgrundande från både externa och lokala källor utöver information som tillförts under legitimeringen. 
@@ -531,94 +623,5 @@ B-AS--utvärderar-->B-P
 B--litar på-->B-AS
 ```
 *Beroenden mellan olika aktörer och komponenter för att möjliggöra tillitsfulla åtkomstbeslut*
-
-
-<hr>
-
-# STUFF BELOW IS TO BE SORTED IN ABOVE
-
-<hr>
-
-#######################################
-
-
-## Övrigt ej sorterat
-
-## Tekniska Standards och Protokoll
-
-### Specifikation av tekniska standarder och protokoll som används inom federationerna
-- SAML (Security Assertion Markup Language)
-- OAuth
-- OpenID Connect etc.
-
-## Arkitektonisk Design och Komponenter
-
-### Beskrivning av arkitektoniska komponenter och deras funktion inom federationen(-erna)
-
-## Säkerhetsaspekter och Riskhantering
-
-### Identifiera säkerhetsrisker och hantering av dessa inom identitetsfederationen
-
-### Åtgärder för att säkra identitetshantering över federativa gränser
-
-
-## OICD Federation och tillit
-1. Vad är skillnaden mellan trust anchors, intermediates och trust mark issuers? Är det två olika tillitsstrukturer?
-2. Sparas trust marks i samma metadataregister som de digitala identiteterna?
-
-```mermaid
-flowchart LR
-
-subgraph AO[Tjänstekonsument]
-    A(API-konsumerande system)
-end
-
-subgraph BO[Tjänsteproducent]
-    B-AS(Auktorisationstjänst)
-    B(API)
-end
-
-subgraph TO[Sweden Trust - tillitsfederation]
-    T-AS(Auktorisationstjänst)
-    T(Metadataregister)
-end
-
-
-A--begär åtkomst-->B-AS
-A--anropar-->B
-B-AS--begär åtkomst-->T-AS
-BO & AO -.har tillit till.->TO
-B-AS--hämtar behörighetsgrundande attribut-->T
-```
-### Nationella OAuth2-profiler - behovsinventering
-
-#### 1. Tjänsteperson använder annan organisations e-tjänst
-
-```mermaid
-flowchart LR
-
-subgraph BO[Tjänsteproducent]
-    subgraph B-IAM[IAM]
-        B-U(Uppdragsväljare) & B-ID(Legitimeringstjänst)
-        --?-->B-A(Attributkälla)
-        B-AS(Auktorisationstjänst)
-    end
-    B-UI(E-tjänst)
-end
-
-subgraph EIDO[eID-utfärdare]
-    EID(Autentiseringstjänst)
-end
-
-U(Tjänsteperson)--1. vill nyttja-->B-UI
-U--2. legitimerar sig via-->B-ID
-U--2.1 autentiserar sin digitala identitet mot-->EID
-U--2.2 väljer bland tillgängliga\n medarbetaruppdrag-->B-U
-U--3. begär åtkomst till tjänst\n med valt uppdrag-->B-AS
-B-ID-.medger autentisering med.->EID
-```
-### Modell för behörighetgrundande attribut
-
-### Attributprofiler
 
 
