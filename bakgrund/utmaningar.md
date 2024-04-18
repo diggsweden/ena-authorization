@@ -4,6 +4,11 @@
 ---------
 testtest
 
+%%comment
+
+> [!NOTE]
+> Testa en inlinekommentar
+
 :arrow_backward: [Tillbaka](README.md)
 
 Senaste uppdatering: 4 december 2023
