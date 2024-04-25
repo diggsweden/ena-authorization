@@ -114,6 +114,7 @@ p--5.1 Validera åtkomstintyg-->p
 
 
 ### 2.2 System anropar system, på uppdrag av användare
+#### 2.2.1 Intygsväxling
 ```mermaid
 graph LR
 
@@ -151,6 +152,46 @@ p-.litar på.->as
 p--6.1 Validera åtkomstintyg-->p
 ```
 
+#### 2.2.2 Återautentisering
+```mermaid
+graph LR
+
+subgraph po[Tjänsteproducent]
+    p(API)
+    as(Åtkomstintygstjänst)
+end
+
+subgraph ss[Nationella stödtjänster]
+    t(Tillitsfederation)
+end
+
+subgraph so[Samverkansoperatör]
+    tk(Tjänstekatalog)
+    ak(Avtalskatalog)
+end
+
+subgraph co[Tjänstekonsument]
+    idp(Legitimeringstjänst IdP)
+    u(Användare)
+    c(Klient)
+end
+
+u--1. Starta klient-->c
+u--2. Legitimera användare-->idp
+c-.anvisa IdP.->idp
+c--3. hitta tjänst-->tk
+c--4. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+c--5. begär åtkomst till API-->as
+as--5.1. authentisera användare-->idp 
+idp--5.2 Single Sign On-->idp
+as--5.3 verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+as--5.4 verifiera tillit till Klient & Legitimeringstjänst-->t
+as--6 utvärdera åtkomstpolicy baserad på <br>användarens behörighetsgrundande attribut-->as
+c--7. Anropa API-->p
+p-.litar på.->as
+p--7.1 Validera åtkomstintyg-->p
+```
+
 
 ### 2.3 Medarbetare anropar extern e-tjänst, utan förprovisionerat konto
 ```mermaid
@@ -181,6 +222,7 @@ p--4.1 Validera åtkomstintyg-->p
 
 ### 2.4 Medarbetare anropar extern tjänst, med förprovisionerat användarkonto 
 
+#### 2.4.1 Alt 1? 
 ```mermaid
 graph LR
 
@@ -207,7 +249,37 @@ p-.litar på.->as
 p--4.1 Validera åtkomstintyg-->p
 ```
 
+#### 2.4.1 Alt 2? 
+
+```mermaid
+graph LR
+
+subgraph po[Tjänsteproducent]
+    p(E-tjänst)
+    idp(Legitimeringstjänst IdP)
+    as(Åtkomstintygstjänst)
+    udb[(Användar-<br>konton)]
+end
+
+subgraph co[Tjänstekonsument]
+    u(Användare)
+end
+
+idp ~~~ p
+
+u--1. Starta e-tjänst-->p
+as-.Anvisa IdP.->idp
+p--2. Begär åtkomst-->as
+u--3. Legitimera-->idp
+as--3.1 Hämta behörigheter-->udb
+as--3.2 Skapa id- och åtkomstintyg-->as 
+u--4. Använd e-tjänst-->p
+p-.litar på.->as
+p--4.1 Validera åtkomstintyg-->p
+```
+
 ## 3. Scenarion
+
 ### 3.1 Finansiell status
 
 #### Nuläge
