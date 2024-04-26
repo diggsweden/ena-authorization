@@ -45,8 +45,10 @@ sequenceDiagram
 ```
 
 
-1. Centralt metadata för klienter syncas regelbundet mot lokal kopia.
-2. Beskriv inloggning
+1. Centralt metadata för klienter syncas regelbundet mot lokal kopia. En förutsättning för detta är att klienter kan registreras i metadata under viss organisation för att senare kunna verifieras. Ej beskriven här, men en förutsättning för detta.
+
+2. Inloggning för användare i Klient. IDP autentiserar och ställer ut identitetsintyg (kan även innehålla behörighetsinformation, men behöver inte göra det). Ej beskriven närmare här, utan förenklat till "SAML Assertion finns i klienten". I framtiden kan detta även vara OIDC-intyg, men här och nu är det vanligast med SAML-grejer och det är det vi behöver utgå ifrån. 
+
 3. Klient tillverkar JWT (RFC7515) för klientidentitet och signerar denna till en JWS (RFC7519). Claims enligt RFC75201 och RFC7523, "client_JWT":
 ~~~markdown
 {

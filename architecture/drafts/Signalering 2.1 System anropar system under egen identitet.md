@@ -36,7 +36,8 @@ sequenceDiagram
 
 ```
 
-1. Centralt metadata för klienter syncas regelbundet mot lokal kopia.
+1. Centralt metadata för klienter syncas regelbundet mot lokal kopia. En förutsättning för detta är att klienter kan registreras i metadata under viss organisation för att senare kunna verifieras. Ej beskriven här, men en förutsättning för detta.
+
 2. Klient tillverkar JWT (RFC7515) och signerar denna till en JWS (RFC7519). Claims enligt RFC75201 och RFC7523, "client_JWT":
 ~~~markdown
 {
