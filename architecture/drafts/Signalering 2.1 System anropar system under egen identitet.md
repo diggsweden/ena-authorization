@@ -22,11 +22,10 @@ sequenceDiagram
     cMetadata-->>AT-B: sync
 
     Rect rgb(240, 240, 240)
-        Note right of E-tjänst: JWS: RFC7519
-        E-tjänst->>E-tjänst: Tillverka och signera JWT
-
+        Note right of E-tjänst: client_JWT: RFC7519
+        E-tjänst->>E-tjänst: Tillverka och signera JWT<br> för klientidentitet
         Note right of E-tjänst: Klient: RFC7523 JWT profile<br>- Client auth
-        E-tjänst->>AT-B: Begär åtkomstintyg<br>client_assertion_type=jwt-bearer&client_assertion=<JWT>
+        E-tjänst->>AT-B: Begär åtkomstintyg(client_JWT)
         AT-B->>AT-B: Verifiera klient<br>Åtkomstbeslut/<br>Ställ ut access token
         Note left of AT-B: Format ej specat<br/>(JWS/JWE/valfri)
         AT-B-->>E-tjänst: Åtkomstintyg
@@ -38,20 +37,20 @@ sequenceDiagram
 ```
 
 1. Centralt metadata för klienter syncas regelbundet mot lokal kopia.
-2. Klient tillverkar JWT (RFC7515) och signerar denna till en JWS (RFC7519). Claims enligt RFC75201 och RFC7523:
+2. Klient tillverkar JWT (RFC7515) och signerar denna till en JWS (RFC7519). Claims enligt RFC75201 och RFC7523, "client_JWT":
 ~~~markdown
 {
-    "iss" : "{client_id}"
-    "sub" : "{client_id}"
-    "aud" : "{token_endpoint}"
-    "jti" : "{uuid}"
-    "exp" : "{expiration time}"
+    "iss" : "{client_id}",
+    "sub" : "{client_id}",
+    "aud" : "{token_endpoint}",
+    "jti" : "{uuid}",
+    "exp" : "{expiration time}",
     "iat" : "{issuance time}"
 }
 ~~~
 Signering sker med privat nyckel vars publika del finns i metadata med client_id som nyckel. Behöver även vara knuten till utfärdande organisation.
 
-3. Klient anropar auktorisationstjänst (token endpoint) ochj anger client_assertion_type som urn:ietf:params:oauth:client-assertion-type:jwt-bearer och client_assertion med JWS. Scope kan anges men ligger utanför denna specifikation (inget avtryck i metadata eller liknande).
+3. Klient anropar auktorisationstjänst (token endpoint) och anger client_assertion_type som urn:ietf:params:oauth:client-assertion-type:jwt-bearer och client_assertion med JWS. Scope kan anges men ligger utanför denna specifikation (inget avtryck i metadata eller liknande).
 
 ~~~markdown
   POST /token HTTP/1.1
@@ -61,7 +60,7 @@ Signering sker med privat nyckel vars publika del finns i metadata med client_id
   grant_type=client_id=s6BhdRkqt3&
     client_assertion_type=
     urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
-    client_assertion=PHNhbWxwOl ... ZT
+    client_assertion=<client_JWT>
 ~~~
 OBS client_id i body utgår eventuellt.
 
