@@ -24,10 +24,10 @@ sequenceDiagram
     Rect rgb(240, 240, 240)
         Note right of E-tjänst: client_JWT: RFC7519
         E-tjänst->>E-tjänst: Tillverka och signera JWT<br> för klientidentitet
-        Note right of E-tjänst: Klient: RFC7523 JWT profile<br>- Client auth
+        Note right of E-tjänst: Klient: RFC7523<br>JWT profile Client auth
         E-tjänst->>AT-B: Begär åtkomstintyg(client_JWT)
         AT-B->>AT-B: Verifiera klient<br>Åtkomstbeslut/<br>Ställ ut access token
-        Note left of AT-B: Format ej specat<br/>(JWS/JWE/valfri)
+        Note left of AT-B: Access token: RFC9068<br>JWT Profile Access tokens<br/>(Rekommendation)
         AT-B-->>E-tjänst: Åtkomstintyg
     end
     Note right of E-tjänst: TLS (ej mTLS - <br>token identifierar klient)
@@ -92,9 +92,11 @@ https://datatracker.ietf.org/doc/html/rfc7522
 RFC 7521 Assertion Framework for OAuth 2.0 Client Authentication and Authorization Grants
 https://datatracker.ietf.org/doc/html/rfc7521
 
+RFC 9068 JSON Web Token (JWT) Profile for OAuth 2.0 Access Tokens
+https://datatracker.ietf.org/doc/rfc9068/
+
 OAuth 2.0 Client Authentication
 https://darutk.medium.com/oauth-2-0-client-authentication-4b5f929305d4
-
 
 Hur används scope - Är det bilateralt mellan klient och API eller något som hanteras i metadata?
 

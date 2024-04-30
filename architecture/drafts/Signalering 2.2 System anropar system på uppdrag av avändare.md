@@ -32,10 +32,10 @@ sequenceDiagram
         Note right of E-tjänst: user_JWT: RFC7519
         E-tjänst->>E-tjänst: Tillverka och signera JWT<br> för användarinformation
 
-        Note right of E-tjänst: Klient: RFC7523 JWT profile<br>-Auth grants och<br>Client auth
+        Note right of E-tjänst: Klient: RFC7523<br>JWT profile Auth grants &<br>Client auth
         E-tjänst->>AT-B: Begär åtkomstintyg(client_JTW, user_JWT)
         AT-B->>AT-B: Verifiera klient<br>Åtkomstbeslut/<br>Ställ ut access token
-        Note left of AT-B: Format ej specat<br/>(JWS/JWE/valfri)
+        Note left of AT-B: Access token: RFC9068<br>JWT Profile Access tokens<br/>(Rekommendation)
         AT-B-->>E-tjänst: Åtkomstintyg
     end
     Note right of E-tjänst: TLS (ej mTLS - <br>token identifierar klient)
