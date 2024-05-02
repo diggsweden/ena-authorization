@@ -1,5 +1,5 @@
 
-# Signering (2.1) System anropar system, under egen identitet
+# Signalering (2.1) System anropar system, under egen identitet
 ## Flödesdiagram
 
 ```mermaid
@@ -58,9 +58,8 @@ Signering sker med privat nyckel vars publika del finns i metadata med client_id
   Host: server.example.com
   Content-Type: application/x-www-form-urlencoded
 
-  grant_type=client_id=s6BhdRkqt3&
-    client_assertion_type=
-    urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
+  grant_type=client_credentials&
+    client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
     client_assertion=<client_JWT>
 ~~~
 OBS client_id i body utgår eventuellt.
