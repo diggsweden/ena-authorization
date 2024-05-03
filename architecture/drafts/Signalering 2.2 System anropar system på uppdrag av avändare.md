@@ -1,5 +1,5 @@
 
-# Signering (2.2) System anropar system, på uppdrag av användare
+# Signalering (2.2) System anropar system, på uppdrag av användare
 ## Flödesdiagram
 
 ```mermaid
@@ -106,7 +106,6 @@ Signering sker med privat nyckel vars publika del finns i metadata med client_id
   Host: server.example.com
   Content-Type: application/x-www-form-urlencoded
 
-  grant_type=client_id=s6BhdRkqt3&
      grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer&
      assertion=<user_JWT>&
      client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
@@ -149,4 +148,6 @@ Hur används scope - Är det bilateralt mellan klient och API eller något som h
 
 private_key_jwt enligt OIDC:
 https://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication
+
+
 
