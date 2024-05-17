@@ -20,6 +20,11 @@
   - [Fidus](federationer.md#fidus)
 - [Tillit](tillit.md)
 - [Utmaningar](utmaningar.md)
+- [En gemensam digital infrastruktur för identitets- och behörighetshantering](gemensam-infrastruktur)
+  - Vad
+  - Varför
+  - Vem
+  - Hur OpenID Federation
 - [Ordlista](ordlista.md)
 
 ----
