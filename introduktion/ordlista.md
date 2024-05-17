@@ -13,10 +13,11 @@ Nedan följer en förklarande lista på tekniska komponenter, termer, förkortni
 | Term  | Beskrivning | Kommentar |
 | :------------- | :------------- | :------------- |
 | användare | Ett subjekt (människa eller maskin) som interagerar med en digital tjänst. |  |
+| anvisningstjänst | Ingår vanligtvis som funktion i en digital tjänst hos förlitande part och syftar till att stötta användaren i val av identitetsintygstjänst. |  |
 | auktorisation | En teknisk process för åtkomstbeslut till information eller digital tjänst. Beslut om åtkomst kan fattas genom en sammanvägd bedömning av identitets- och behörighetskontroll samt andra faktorer, till exempel policier som ger tillstånd utifrån plats/miljö och användningssituation. | Engelska: *authorization* |
 | auktorisationstjänst | En infrastrukturkomponent som används för att fastställa användares behörighet vid åtkomst till information eller digital tjänst. | Engelska: *authorization server* |
 | autentisering | En teknisk process för identifiering av användare. | Engelska: *authentication* |
-| autentiseringstjänst | En infrastrukturkomponent som används för att fastställa användares identitet vid inloggning till en digital tjänst. |  |
+| autentiseringstjänst | En infrastrukturkomponent som används för att fastställa användares identitet vid åtkomst till en digital tjänst. |  |
 | digital identitet | Ett elektroniskt *identitetsbevis*. | Engelska: *security credentials* |
 | e-legitimation | Ett elektroniskt *identitetsbevis* som kan användas för *legitimering* av en persons *identitet*. | Se även *Svensk e-legitimation* |
 | e-legitimering | En process när innehavaren av en e-legitimation använder sin *e-legitimation* vid en *identitetskontroll*. |  |
@@ -28,13 +29,14 @@ Nedan följer en förklarande lista på tekniska komponenter, termer, förkortni
 | identitet | En registrerad koppling som gjorts mellan en *användare* och en unik identifierare i ett identifieringssystem. Identifieringssystemet kan vara lokalt, nationellt eller globalt. |  |
 | identifiering | Process för fastställande av *identitet*. Syftet med identifiering är att kunna säkerställa entydiga och exakta hänvisningar till ett subjekt (människa eller maskin).  |  |
 | identitetsbevis | Ett bevis på att subjekt (människa eller maskin) är unikt kopplad till en specifik *identitet*. Identitetsbeviset behöver vara verifierbart så att en kontrollant kan avgöra handlingens äkthet. |  |
-| identitetsintyg | Ett digitalt verifierbart intyg som kan användas som identitetsbevis vid inloggning till digitala tjänster. Det utfärdas till den mottagare, även kallad *förlitande part*, som har beställt identitetskontrollen från en betrodd leverantör av identitetsintyg. |  |
-| identitetsintygstjänst |  En digital tjänst som ställer ut ett *identitetsintyg* föregås av en tillförlitlig identifiering av användaren. |   | 
+| identitetsintyg | Ett digitalt verifierbart intyg som kan användas som identitetsbevis vid *inloggning* till digitala tjänster. Det utfärdas till den mottagare, även kallad *förlitande part*, som har beställt identitetskontrollen från en betrodd leverantör av identitetsintyg. |  |
+| identitetsintygstjänst |  En digital tjänst som ställer ut ett signerat *identitetsintyg* som föregås av en tillförlitlig identifiering av användaren. |   | 
 | identitetskontroll | En verifiering som myndighet gör med hjälp av ett *identitetsbevis* i varje enskilt förvaltningsärende för att bedöma om det är angiven individ som kontaktar myndigheten. |  |
 | inloggning | En process för åtkomstsbeslut till en digital tjänst. Den involverar i regel identifiering av subjektet (människa eller maskin) genom autentisering och behörighetskontroll genom auktorisation.|  |
 | grundidentifiering | En verifiering som *utfärdare av e-legitimation* gör enligt ett tillitsramverk när en e-legitimation ska utfärdas.  | Reglerna bland annat i eIDAS-förordningen och EU-kommissionens tillämpningsföreskrifter. |
 | legitimeringstjänst | En *identitetsintygstjänst* som är granskad och godkänd enligt ett tillitsramverk för utställande av ett betrodd *identitetsintyg* som föregås av en tillförlitlig *e-legitimering* |  | 
 | svensk e-legitimation | En *e-legitimation* som är granskad och godkänd enligt *tillitsramverk för Svensk e-legitimation* |  |
+| intygsfunktion | teknisk komponent som ställer ut ett *identitetsintyg* i en *identitetsintygstjänst* | |
 | tillitsramverk |  |  |
 | tillitsramverk för Svensk e-legitimation | Tillitsramverket som definierar gemensamma krav för utfärdare av e-legitimation och e-legitimeringstjänster, vilka granskas och godkänns av Myndigheten för digital förvaltning (Digg).  |  |
 | utfärdare av e-legitimation | Aktör som förser användaren med en *e-legitimation* och tillhandahåller stödfunktioner för att användaren ska kunna bruka e-legitimationen för att legitimera sig. |  |
