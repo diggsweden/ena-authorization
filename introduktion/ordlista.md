@@ -3,12 +3,12 @@
 
 :arrow_backward: [Tillbaka](README.md)
 
-<sup>Senaste uppdatering: 15 maj 2024</sup>
+<sup>Senaste uppdatering: 17 maj 2024</sup>
 
 ---------
 
-# Tekniska komponenter 
-Nedan följer en förklarande lista på tekniska komponenter, termer, förkortningar och definitioner.
+# Termer och begrepp 
+Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 
 | Term  | Beskrivning | Kommentar |
 | :------------- | :------------- | :------------- |
