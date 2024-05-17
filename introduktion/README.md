@@ -26,6 +26,7 @@
   - Vem
   - Hur OpenID Federation
 - [Ordlista](ordlista.md)
+- [Externa länkar](merinfo.md)
 
 ----
 
