@@ -1,4 +1,10 @@
-# Innehållsförteckning  
+<sup>Senaste uppdatering: 17 maj 2024</sup>
+
+---------
+
+# Introduktion
+
+## Innehållsförteckning  
 - [Inledning](inledning.md)
 - [Ekosystem för digital samverkan](ekosystem.md)
 - [Dagens federationer](federationer.md)
