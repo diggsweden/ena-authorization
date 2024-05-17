@@ -13,7 +13,8 @@ Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 | Term  | Beskrivning | Kommentar |
 | :------------- | :------------- | :------------- |
 | användare | Ett subjekt (människa eller maskin) som interagerar med en digital tjänst. |  |
-| anvisningstjänst | Ingår vanligtvis som funktion i en digital tjänst hos förlitande part och syftar till att stötta användaren i val av identitetsintygstjänst. |  |
+| anvisningstjänst | Ingår vanligtvis som funktion i en digital tjänst hos *förlitande part* och syftar till att stötta användaren i val av identitetsintygstjänst. |  |
+| attributkälla | En katalog eller ett register som innehåller strukturerade värdemängder med information om användare. |  |
 | auktorisation | En teknisk process för åtkomstbeslut till information eller digital tjänst. Beslut om åtkomst kan fattas genom en sammanvägd bedömning av identitets- och behörighetskontroll samt andra faktorer, till exempel policier som ger tillstånd utifrån plats/miljö och användningssituation. | Engelska: *authorization* |
 | auktorisationstjänst | En infrastrukturkomponent som används för att fastställa användares behörighet vid åtkomst till information eller digital tjänst. | Engelska: *authorization server* |
 | autentisering | En teknisk process för identifiering av användare. | Engelska: *authentication* |
@@ -21,9 +22,10 @@ Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 | digital identitet | Ett elektroniskt *identitetsbevis*. | Engelska: *security credentials* |
 | e-legitimation | Ett elektroniskt *identitetsbevis* som kan användas för *legitimering* av en persons *identitet*. | Se även *Svensk e-legitimation* |
 | e-legitimering | En process när innehavaren av en e-legitimation använder sin *e-legitimation* vid en *identitetskontroll*. |  |
-| e-legitimeringstjänst | Se *Legitimeringstjänst*. |  |
+| e-legitimeringstjänst | Se *legitimeringstjänst*. |  |
 | e-tjänstelegitimation | En typ av *e-legitimation* som är personlig, men anskaffas av arbetsgivaren för att knyta användaren till en organisation. Syftet är användning av e-legitimation i tjänsten. |  |
 | förlitande part |  En aktör som tillhandahåller och ansvarar för en digital tjänsts säkerhetslösning. Den avser att skydda en eller flera digitala tjänster mot obehörig åtkomst. Beslut om åtkomst baseras på uppgifter som förmedlas av från en betrodd part, till exempel en *auktorisationstjänst* eller *identitetsintygstjänst*. | Engelska: *relying party (RP)* | 
+| granskningsorgan | En aktör som granskar och intygar att digitala tjänster och dess leverantörer uppfyller de fastställda kraven som är gällande för granskningen. Granskning av kravuppfyllnad kan utföras utifrån olika bestämmelser, såsom lagkrav, krav i en policy, tillitsramverk och/eller standard. | Exempelvis granskas utfärdare av e-legitimationer av myndigheten för digital förvaltning (Digg) |
 | id-handling | Ett *identitetsbevis* som kan användas vid legitimering av en persons *identitet*, i regel vid personligt besök. Id-handling kan vara en fysisk handling eller digital handling i en mobilapp.  | Som fullgod svensk id-handling räknas allmänt nationellt id-kort, Skatteverkets id-kort, körkort, svenskt pass i vinröd pärm och SIS-märkt id-kort. Utgivning av digitala id-handlingar i en mobilapp avsedda för legitimering vid personligt besök är inte reglerade. Organisationer som avser förlita sig på id-handlingar i en mobilapp behöver själva avgöra om en id-handling i mobilapp är godtagbart eller inte. |
 | identifikation | Se *identifiering*. |  |
 | identitet | En registrerad koppling som gjorts mellan en *användare* och en unik identifierare i ett identifieringssystem. Identifieringssystemet kan vara lokalt, nationellt eller globalt. |  |
@@ -35,11 +37,15 @@ Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 | inloggning | En process för åtkomstsbeslut till en digital tjänst. Den involverar i regel identifiering av subjektet (människa eller maskin) genom autentisering och behörighetskontroll genom auktorisation.|  |
 | grundidentifiering | En verifiering som *utfärdare av e-legitimation* gör enligt ett tillitsramverk när en e-legitimation ska utfärdas.  | Reglerna bland annat i eIDAS-förordningen och EU-kommissionens tillämpningsföreskrifter. |
 | legitimeringstjänst | En *identitetsintygstjänst* som är granskad och godkänd enligt ett tillitsramverk för utställande av ett betrodd *identitetsintyg* som föregås av en tillförlitlig *e-legitimering* |  | 
+| leverantör av attributkälla | En aktör som ansvarar för värdemängder i en katalog eller ett register med utgångspunkt i någon form av förordning, instruktion, regleringsbrev eller officiellt uppdrag. | Skatteveret är exempel på en aktör som besitter denna roll för folkbokföringsuppgifter. |
+| leverantör av e-legitimation  | Se *utfärdare av e-legitimation*. |  |
+| leverantör av e-legitimeringstjänst | Aktör som identifierar användaren i enlighet med kraven i *tillitsramverk för Svensk e-legitimation*. Identifiering sker alltid med en godkänd *e-legitimation* och genom direkt e-legitimering. Det innebär att intyget levereras genom en kvalificerad tillitskedja från den part som utfärdar e-legitimationen till den part som har beställt identifieringen, det vill säga *förlitande part*. |  |
+| slutanvändarorganisation | Aktör som ansvarar för sin användares identitets- och behörighetsinformation. Uppgifter verifieras vid användarens inloggning och förmedlas genom ett signerat intyg till *förlitande part*. |  | 
 | svensk e-legitimation | En *e-legitimation* som är granskad och godkänd enligt *tillitsramverk för Svensk e-legitimation* |  |
 | intygsfunktion | teknisk komponent som ställer ut ett *identitetsintyg* i en *identitetsintygstjänst* | |
 | tillitsramverk |  |  |
 | tillitsramverk för Svensk e-legitimation | Tillitsramverket som definierar gemensamma krav för utfärdare av e-legitimation och e-legitimeringstjänster, vilka granskas och godkänns av Myndigheten för digital förvaltning (Digg).  |  |
-| utfärdare av e-legitimation | Aktör som förser användaren med en *e-legitimation* och tillhandahåller stödfunktioner för att användaren ska kunna bruka e-legitimationen för att legitimera sig. |  |
+| utfärdare av e-legitimation | Aktör som i enlighet med kraven i ett tillitsramverk förser användaren med en *e-legitimation* och tillhandahåller stödfunktioner för att användaren ska kunna bruka e-legitimationen för att legitimera sig. |  |
 
 
 
