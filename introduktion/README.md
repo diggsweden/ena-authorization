@@ -1,3 +1,8 @@
+<p><img align="right" src="../images/Ena-logo.png" width="25%" Height="25%"></img></p>
+<p>&nbsp;</p>
+
+:arrow_backward: [Tillbaka](../README.md)
+
 <sup>Senaste uppdatering: 17 maj 2024</sup>
 
 ---------
@@ -15,6 +20,7 @@
   - [Fidus](federationer.md#fidus)
 - [Tillit](tillit.md)
 - [Utmaningar](utmaningar.md)
+- [Ordlista](ordlista.md)
 
 ----
 
