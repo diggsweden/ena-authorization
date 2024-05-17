@@ -10,7 +10,7 @@
 # Introduktion
 
 ## Innehållsförteckning  
-- [Inledning](inledning.md)
+- [Inledning](sammanfattning.md)
 - [Ekosystem för digital samverkan](ekosystem.md)
 - [Dagens federationer](federationer.md)
   - [Sweden Connect](federationer.md#swedenconnect)
