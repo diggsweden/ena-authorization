@@ -20,7 +20,7 @@
   - [Fidus](federationer.md#fidus)
 - [Tillit](tillit.md)
 - [Utmaningar](utmaningar.md)
-- [En gemensam digital infrastruktur för identitets- och behörighetshantering](gemensam-infrastruktur)
+- [En gemensam digital infrastruktur för identitets- och behörighetshantering](gemensam-infrastruktur.md)
   - Vad
   - Varför
   - Vem
