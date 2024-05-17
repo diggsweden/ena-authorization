@@ -19,7 +19,7 @@ Nedan följer en förklarande lista på tekniska komponenter, termer, förkortni
 | autentiseringstjänst | En infrastrukturkomponent som används för att fastställa användares identitet vid inloggning till en digital tjänst. |  |
 | digital identitet | Ett elektroniskt *identitetsbevis*. | Engelska: *security credentials* |
 | e-legitimation | Ett elektroniskt *identitetsbevis* som kan användas för *legitimering* av en persons *identitet*. | Se även *Svensk e-legitimation* |
-| e-legitimering | En process när innehavaren av en e-legitimation använder sin e-legitimation vid en identitetskontroll. |  |
+| e-legitimering | En process när innehavaren av en e-legitimation använder sin *e-legitimation* vid en *identitetskontroll*. |  |
 | e-legitimeringstjänst | Se *Legitimeringstjänst*. |  |
 | e-tjänstelegitimation | En typ av *e-legitimation* som är personlig, men anskaffas av arbetsgivaren för att knyta användaren till en organisation. Syftet är användning av e-legitimation i tjänsten. |  |
 | förlitande part |  En aktör som tillhandahåller och ansvarar för en digital tjänsts säkerhetslösning. Den avser att skydda en eller flera digitala tjänster mot obehörig åtkomst. Beslut om åtkomst baseras på uppgifter som förmedlas av från en betrodd part, till exempel en *auktorisationstjänst* eller *identitetsintygstjänst*. | Engelska: *relying party (RP)* | 
