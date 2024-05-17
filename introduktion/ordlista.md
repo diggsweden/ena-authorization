@@ -18,7 +18,7 @@ Nedan följer en förklarande lista på tekniska komponenter, termer, förkortni
 | autentisering | En teknisk process för identifiering av användare. | Engelska: *authentication* |
 | autentiseringstjänst | En infrastrukturkompontent som används för att fastställa användares identitet vid inloggning till en digital tjänst. |  |
 | digital identitet | En elektronisk identitetsbevis. | Engelska: *security credentials* |
-| id-handling | Se *identitetsbevis*. |  |
+| id-handling | Ett identitetsbevis som kan användas vid identifiering av en person, i regel vid personligt besök. Id-handling kan vara en fysisk handling eller digital i en mobilapp.  | Som fullgod svensk id-handling räknas allmänt nationellt id-kort, Skatteverkets id-kort, körkort, svenskt pass i vinröd pärm och SIS-märkt id-kort. Utgivning av digitala id-handlingar i en mobilapp är inte reglerade. Organisationer som avser förlita sig på id-handlingar i en mobilapp behöver själva avgöra om en id-handling i mobilapp är godtagbart eller inte. |
 | identifikation | Se *identifiering*. |  |
 | identitet | En registrerad koppling som gjorts mellan en *användare* och en unik identifierare i ett identifieringssystem. Identifieringssystemet kan vara lokalt, nationellt eller globalt. |  |
 | identifiering | Process för fastställande av identitet. Syftet med identifiering är att kunna säkerställa entydiga och exakta hänvisningar till ett subjekt (människa eller maskin).  |  |
