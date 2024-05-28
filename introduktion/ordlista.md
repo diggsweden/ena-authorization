@@ -48,6 +48,7 @@ Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 | inloggning | En process för åtkomstsbeslut till en digital tjänst. Den involverar i regel identifiering av subjekt (människa eller maskin) genom autentisering och behörighetskontroll genom auktorisation.|  |
 | intermediär operatör | En aktör som på uppdrag från en *federationsoperatör* hanterar registrering av digitala tjänster, vanligtvis för en organisation. | | 
 | intygsfunktion | teknisk komponent som ställer ut ett *identitetsintyg* i en *identitetsintygstjänst*. | |
+| intygsväxling |  |  |
 | grundidentifiering | En verifiering som *utfärdare av e-legitimation* gör enligt ett tillitsramverk när en e-legitimation ska utfärdas.  | Regleras bland annat i *eIDAS-förordningen* och EU-kommissionens tillämpningsföreskrifter. |
 | legitimeringstjänst | En *identitetsintygstjänst* som är granskad och godkänd enligt ett tillitsramverk för utställande av ett betrodd *identitetsintyg* som föregås av en tillförlitlig *e-legitimering*. |  | 
 | leverantör av e-legitimation  | Se *utfärdare av e-legitimation*. |  |
