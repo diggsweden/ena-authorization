@@ -3,7 +3,7 @@
 
 :arrow_backward: [Tillbaka](README.md)
 
-<sup>Senaste uppdatering: 17 maj 2024</sup>
+<sup>Senaste uppdatering: 28 maj 2024</sup>
 
 ---------
 
@@ -56,7 +56,7 @@ Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 | leverantör av formaliserade attribut | En aktör som ansvarar för värdemängder i en katalog eller ett register med utgångspunkt i någon form av förordning, instruktion, regleringsbrev eller officiellt uppdrag. | Skatteveret är exempel på en aktör som besitter denna roll för svenska folkbokföringsuppgifter. |
 | slutanvändarorganisation | Aktör som ansvarar för sin användares identitets- och behörighetsinformation. Uppgifter verifieras vid användarens inloggning och förmedlas genom ett signerat intyg till *förlitande part*. |  | 
 | svensk e-legitimation | En *e-legitimation* som är granskad och godkänd enligt *tillitsramverk för Svensk e-legitimation*. |  |
-| tillitsnivå |  |  |
+| tillitsnivå för e-legitimering | Ett mått på e-legitimationens tillförlitlighetsgrad baserat på teknisk och administrativ säkerhet samt noggranhet i utfärdarens förmåga att korrekt utföra *grundidentifiering* samt säkerställa att rätt person hämtar ut sin *e-legitimation*. |  De tillitsnivåer som definieras i *eIDAS-förordningen* är "låg", "väsentlig" och "hög", vilket i princip motsvarar nivåerna 2, 3 och 4 enligt *tillitsramverket för Svensk e-legitimation*. |
 | tillitsramverk |  |  |
 | tillitsramverk för Svensk e-legitimation | Tillitsramverket som definierar gemensamma krav för utfärdare av e-legitimation och e-legitimeringstjänster, vilka granskas och godkänns av Myndigheten för digital förvaltning (Digg).  |  |
 | utfärdare av e-legitimation | Aktör som i enlighet med kraven i ett tillitsramverk förser användaren med en *e-legitimation* och tillhandahåller stödfunktioner för att användaren ska kunna bruka e-legitimationen för att legitimera sig. |  |
