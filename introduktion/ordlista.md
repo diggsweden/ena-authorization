@@ -47,7 +47,7 @@ Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 | indirekt legitimering | Förmedling av identitetsintyg via en tredje part som beställer e-legitimeringen på uppdrag av en förlitande part. Intyget som ställs ut av e-legitimationsutfärdaren kan konverteras och anpassas vid förmedlingen genom ett nytt intyg. |  | 
 | inloggning | En process för åtkomstsbeslut till en digital tjänst. Den involverar i regel identifiering av subjekt (människa eller maskin) genom autentisering och behörighetskontroll genom auktorisation.|  |
 | intermediär operatör | En aktör som på uppdrag från en *federationsoperatör* hanterar registrering av digitala tjänster, vanligtvis för en organisation. | | 
-| intygsfunktion | teknisk komponent som ställer ut ett *identitetsintyg* i en *identitetsintygstjänst*. | |
+| intygsfunktion | teknisk komponent som ställer ut ett *identitetsintyg* i en *identitetsintygstjänst*. I vissa tillämpningar kan intyget även inkludera behörighetsinformation och andra uppgifter om den identifierade användaren.  | |
 | intygsväxling |  |  |
 | grundidentifiering | En verifiering som *utfärdare av e-legitimation* gör enligt ett tillitsramverk när en e-legitimation ska utfärdas.  | Regleras bland annat i *eIDAS-förordningen* och EU-kommissionens tillämpningsföreskrifter. |
 | legitimeringstjänst | En *identitetsintygstjänst* som är granskad och godkänd enligt ett tillitsramverk för utställande av ett betrodd *identitetsintyg* som föregås av en tillförlitlig *e-legitimering*. |  | 
