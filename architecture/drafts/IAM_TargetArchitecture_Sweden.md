@@ -9,7 +9,7 @@
   - [2.2 System anropar system, på uppdrag av användare](#22-system-anropar-system-på-uppdrag-av-användare)
   - [2.3 Medarbetare anropar extern e-tjänst, utan förprovisionerat konto](#23-medarbetare-anropar-extern-e-tjänst-utan-förprovisionerat-konto)
   - [2.4 Medarbetare anropar extern tjänst, med förprovisionerat användarkonto](#24-medarbetare-anropar-extern-tjänst-med-förprovisionerat-användarkonto)
-- [3. Exempel](#3-exempel)
+- [3. Scenarion](#3-scenarion)
   - [3.1 Finansiell status](#31-finansiell-status)
 - [4. Målarkitektur](#4-målarkitektur)
   - [4.1 Arkitektoniska principer](#41-arkitektoniska-principer)
@@ -114,6 +114,7 @@ p--5.1 Validera åtkomstintyg-->p
 
 
 ### 2.2 System anropar system, på uppdrag av användare
+#### 2.2.1 Intygsväxling
 ```mermaid
 graph LR
 
@@ -139,6 +140,7 @@ end
 
 u--1. Starta klient-->c
 u--2. Legitimera användare-->idp
+c-.anvisa IdP.->idp
 c--3. hitta tjänst-->tk
 c--4. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
 c--5. begär åtkomst till API utifrån<br> användarens åtkomst till Klient-->as
@@ -148,6 +150,46 @@ as--5.3 utvärdera åtkomstpolicy baserad på <br>användarens behörighetsgrund
 c--6. Anropa API-->p
 p-.litar på.->as
 p--6.1 Validera åtkomstintyg-->p
+```
+
+#### 2.2.2 Återautentisering
+```mermaid
+graph LR
+
+subgraph po[Tjänsteproducent]
+    p(API)
+    as(Åtkomstintygstjänst)
+end
+
+subgraph ss[Nationella stödtjänster]
+    t(Tillitsfederation)
+end
+
+subgraph so[Samverkansoperatör]
+    tk(Tjänstekatalog)
+    ak(Avtalskatalog)
+end
+
+subgraph co[Tjänstekonsument]
+    idp(Legitimeringstjänst IdP)
+    u(Användare)
+    c(Klient)
+end
+
+u--1. Starta klient-->c
+u--2. Legitimera användare-->idp
+c-.anvisa IdP.->idp
+c--3. hitta tjänst-->tk
+c--4. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+c--5. begär åtkomst till API-->as
+as--5.1. authentisera användare-->idp 
+idp--5.2 Single Sign On-->idp
+as--5.3 verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+as--5.4 verifiera tillit till Klient & Legitimeringstjänst-->t
+as--6 utvärdera åtkomstpolicy baserad på <br>användarens behörighetsgrundande attribut-->as
+c--7. Anropa API-->p
+p-.litar på.->as
+p--7.1 Validera åtkomstintyg-->p
 ```
 
 
@@ -180,6 +222,7 @@ p--4.1 Validera åtkomstintyg-->p
 
 ### 2.4 Medarbetare anropar extern tjänst, med förprovisionerat användarkonto 
 
+#### 2.4.1 Alt 1? 
 ```mermaid
 graph LR
 
@@ -206,7 +249,37 @@ p-.litar på.->as
 p--4.1 Validera åtkomstintyg-->p
 ```
 
-## 3. Exempel
+#### 2.4.1 Alt 2? 
+
+```mermaid
+graph LR
+
+subgraph po[Tjänsteproducent]
+    p(E-tjänst)
+    idp(Legitimeringstjänst IdP)
+    as(Åtkomstintygstjänst)
+    udb[(Användar-<br>konton)]
+end
+
+subgraph co[Tjänstekonsument]
+    u(Användare)
+end
+
+idp ~~~ p
+
+u--1. Starta e-tjänst-->p
+as-.Anvisa IdP.->idp
+p--2. Begär åtkomst-->as
+u--3. Legitimera-->idp
+as--3.1 Hämta behörigheter-->udb
+as--3.2 Skapa id- och åtkomstintyg-->as 
+u--4. Använd e-tjänst-->p
+p-.litar på.->as
+p--4.1 Validera åtkomstintyg-->p
+```
+
+## 3. Scenarion
+
 ### 3.1 Finansiell status
 
 #### Nuläge
@@ -382,7 +455,7 @@ f--skapar förutsättningar för-->s
 
 | Begrepp | Beskrivning 
 |:-|:-
-| Federation för identitet och behörighet | Ett antal aktörer som i avtalad samverkan delat information kring identieter och behörighetsgrundande information med hjälp av gemensamt definierade regler avseende teknik, semantik, legala tolkningar, samt organisatoriska regler och policyer.
+| Federation för identitet och behörighet | Ett antal aktörer som i avtalad samverkan delat information kring identiteter och behörighetsgrundande information med hjälp av gemensamt definierade regler avseende teknik, semantik, legala tolkningar, samt organisatoriska regler och policyer.
 | Federation för informationsutbyte | Ett antal aktörer som i avtalad samverkan delar information i ett gemensamt syfte med hjälp av gemensamt definierade regler för informationsutbytet både avseende teknik, semantik, legala tolkningar, samt organisatoriska regler och policyer. Namnges även *Informationsfederation*
 | Federation för tillit |  Ett antal aktörer som avtalad samverkan som realiserar tillitsskapande förmågor, främst inom informationssäkerhetsområdet, i hela eller delar av sin organisation. De tillitsskapande förmågorna definieras som krav, där varje krav också kan inkludera **hur** och **hur väl** väl en viss förmåga realiseras
 | Federationsoperatör | Den aktör som styr och koordinerar en federation, dess medlemmar, avtal, samt regler och villkor. 
@@ -391,25 +464,30 @@ f--skapar förutsättningar för-->s
 
 ### 4.3 Begreppsmodell
 
-Den tekniska vyn syftar till att beskriva tekniska begrepp som behövs inom ovan beskrivna federationer för att realisera samverkan
+En viktig del av en målarkitektur är att använda beskrivna begrepp. Nedan redovisas begrepp som används i arkitektoniska modeller, samverkansmönster och scenarion i denna målarkitektur.
 ```mermaid
 graph TB
 subgraph t[Tillit]
     direction LR
+    
     o(Organisation)
     v(Verksamhet)
+    ot(Organisationstillit)
     k(Tillitskrav)
     kk(Kravkatalog)
     kp(Kravprofil)
+
+    %% Layout
     o  ~~~ k
     v  ~~~ kk
-    k & kk & kp
+    ot ~~~ kp
 end
 ```
 | Begrepp | Beskrivning 
 |:-|:-
 | Organisation | Juridiskt identifierbar entitet som kan ha en roll i relation till ett informationsutbyte
 | Verksamhet | Mål­inriktat arbete som fort­löpande ut­förs in­om ramen för organisation
+| Organisationstillit | Tillit mellan organisationer baserad på lagstiftning eller avtal, ibland understödd av granskningsprocess
 | Tillitskrav | Beskrivning av ett specifikt krav som om det uppfylls stärker tilliten till en organisation eller verksamhet
 | Kravkatalog | Katalog med definierade tillitskrav
 | Kravprofil | Namngivet urval av tillitskrav från en kravkatalog 
@@ -423,20 +501,27 @@ subgraph ib[Identitet och behörighet]
     ba(Behörighetsgrundande attribut)
     fr(Företrädare)
     tp(Tekniskt ramverk)
+    a(Anvisning)
+    l(Legitimering)
+    uv(Uppdragsval)
 
     fa~~~fr
     sa~~~ba
-    tp
+    a~~~tp
+    l~~~uv
 end
 ```
 | Begrepp | Beskrivning 
 |:-|:-
 |Fysisk användare|Användare av kött och blod
 |Systemanvändare|IT-system som agerar använder en digital tjänst
+|Anvisning|En e-tjänsts förmåga att möjliggöra legitimering av användare i den legitimeringstjänst som har tillitlig behörighetsgrundande information om användaren 
+|Legitimering| Här, förmågan att bevisa sin identitet med stöd av tillit till en tredje parts 
 |Behörighetsgrundande attribut|Digital representation av egenskap hos en användare som påverkas dennes behörigheter i en digital tjänst
 |Företrädare|En användare som använder en digital tjänst å en annan användares räkning
 behörigheter användaren ska ges i en viss digital tjänst 
 |Tekniskt ramverk|Teknisk specifikation över hur information inom ett visst kontext ska representeras digitalt 
+|Uppdragsval|
 
 ```mermaid
 graph TB
