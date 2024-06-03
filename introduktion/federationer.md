@@ -17,8 +17,6 @@ Identitetskontrollerande part och förlitande part behöver känna till och ha t
 Det är först när förtroendeavtal är etablerad mellan identitetskontrollerande part och förlitande part, inklusive bestämmelser om attributredogörelse och krav på *tillitsnivåer*, som en användare kan genomföra autentiseringstransaktion för att logga in på en digital tjänst hos den förlitande parten. Den identitetskontrollerande partens identitetsintygstjänst ställer ut ett *identitetsintyg* till förlitande part till följd av identifiering av användaren. Förlitande partens digitala tjänst verifierar och bearbetar intyget och etablerar sedan en autentiserad session för användaren.
 
 
-Figur 1. Översikt federerad inloggning
-
 Vi har valt att kategorisera federationer i tre olika prestandasteg:
 -	Federation 1.0 (ad-hoc)
 -	Federation 2.0 (repeterbar)
