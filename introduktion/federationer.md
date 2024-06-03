@@ -3,9 +3,34 @@
 
 :arrow_backward: [Tillbaka](README.md)
 
-<sup>Senaste uppdatering: 15 maj 2024</sup>
+<sup>Senaste uppdatering: 4 juni 2024</sup>
 
 ---------
+
+# Federationer
+Sammanslutningar för federerad åtkomst, även kallad federationer, används när en part i federationen accepterar att förlita sig på en annan parts administrativa och tekniska system för att kontrollera en användares identitet och/eller behörigheter. Autentisering utförs i delegerad form och utformas genom en trepartsrelation mellan *användaren*, den identitetskontrollerande partens *identitetsintygstjänst* och den digitala tjänst som erbjuds av *förlitande part*. Identitetskontrollerande part och förlitande part behöver känna till och ha tillit till varandra. Genom att utbyta och registrera varandras metadata kan parter ingå ett förtroendeavtal på protokollnivå. Detta steg representerar initial tillåtelse för de två parterna att kommunicera med varandra och möjliggör säkert informationsutbyte mellan parterna. Förtroendeavtalet kan etableras bilateralt genom direkt utbyte mellan parterna, eller via registrerade metadata hos en betrodd tredje part. Parametrar för vad som kan begäras och släppas fastställs i detta steg, även om detaljerna om vilka attribut som släpps till en viss förlitande part för en viss användare kan skjutas upp till ett senare skede. Etablering av förtroendeavtal på protokollnivå föregås alltid av ett policybeslut som ger parter tillåtelse att ingå i federation samt reglerar de digitala tjänsternas representation och utformning i metadata genom federationsprotokollet.
+Det är först när förtroendeavtal är etablerad mellan identitetskontrollerande part och förlitande part, inklusive bestämmelser om attributredogörelse och krav på *tillitsnivåer*, som en användare kan genomföra autentiseringstransaktion för att logga in på en digital tjänst hos den förlitande parten. Den identitetskontrollerande partens identitetsintygstjänst ställer ut ett *identitetsintyg* till förlitande part till följd av identifiering av användaren. Förlitande partens digitala tjänst verifierar och bearbetar intyget och etablerar sedan en autentiserad session för användaren.
+
+
+Figur 1. Översikt federerad inloggning
+
+Vi har valt att kategorisera federationer i tre olika prestandasteg:
+-	Federation 1.0 (ad-hoc)
+-	Federation 2.0 (repeterbar)
+-	Federation 3.0 (optimerad)
+
+Många av [dagens federationer](#dagensfederationer) klassificeras som Federation 2.0.
+
+## Federation 1.0 (ad-hoc)
+Förtroendeavtal på protokollnivå utförs bilateralt genom direkt utbyte och registrering av metadata mellan identitetskontrollerande part och förlitande part. Erkännande av policyer, regler och bestämmelser hanteras också i regel bilateralt per tillitsetablering.
+
+## Federation 2.0 (repeterbar)
+Förtroendeavtal på protokollnivå utförs bilateralt genom en betrodd tredje part, *federationsoperatör*, som också ansvarar för anslutning av medlemmar, registrering av metadata samt federationens gemensamma policyer, regler och bestämmelser.
+
+## Federation 3.0 (optimerad)
+Ett distribuerat nätverk av digitala tjänster som möjliggör att förtroendeavtal på protokollnivå även kan utföras genom multilaterala tillitskedjor. Federationen inbegriper federationsövergripande policyer, regler och bestämmelser, samtidigt som den erbjuder flexibilitet att tillämpa anpassade regler för informationsutbyte, teknik, datasemantik, tillit, legala tolkningar, samt organisatoriska eller kontextuella regler och policyer. Förutom federationsoperatörer, finns andra betrodda parter som agerar utgivare respektive utfärdare av tillitsinformation. 
+
+<a name="dagensfederationer"/>
 
 # Dagens federationer
 Detta avsnitt ger kortfattade beskrivningar av de federationer som berör samhällsnära verksamheter i Sverige.
