@@ -28,7 +28,7 @@ Många av [dagens federationer](#dagensfederationer) klassificeras som Federatio
 Förtroendeavtal på protokollnivå utförs bilateralt genom direkt utbyte och registrering av metadata mellan identitetskontrollerande part och förlitande part. Erkännande av policyer, regler och bestämmelser hanteras också i regel bilateralt per tillitsetablering.
 
 ## Federation 2.0 (repeterbar)
-Förtroendeavtal på protokollnivå utförs bilateralt genom en betrodd tredje part, *federationsoperatör*, som också ansvarar för anslutning av medlemmar, registrering av metadata samt federationens gemensamma policyer, regler och bestämmelser.
+Förtroendeavtal på protokollnivå utförs bilateralt genom en betrodd tredje part, *federationsoperatör*, som också ansvarar för anslutning av medlemmar, registrering av metadata i en gemensam tjänst för aggregerade metadata samt federationens gemensamma policyer, regler och bestämmelser.
 
 ## Federation 3.0 (optimerad)
 Ett distribuerat nätverk av digitala tjänster som möjliggör att förtroendeavtal på protokollnivå även kan utföras genom multilaterala tillitskedjor. Federationen inbegriper federationsövergripande policyer, regler och bestämmelser, samtidigt som den erbjuder flexibilitet att tillämpa anpassade regler för informationsutbyte, teknik, datasemantik, tillit, legala tolkningar, samt organisatoriska eller kontextuella regler och policyer. Förutom federationsoperatörer, finns andra betrodda parter som agerar utgivare respektive utfärdare av tillitsinformation. 
