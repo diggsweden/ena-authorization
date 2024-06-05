@@ -16,16 +16,16 @@ Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 | anvisningstjänst | Ingår vanligtvis som funktion i en digital tjänst hos *förlitande part* och syftar till att stötta användaren i val av identitetsintygstjänst. |  |
 | attributkälla | En katalog eller ett register som innehåller strukturerade värdemängder med information om användare. |  |
 | auktorisation | Se *åtkomstbeslut*. | Engelska: *authorization* |
-| auktorisationstjänst | Se *åtkomstintygstjänst* | Engelska: *authorization server* |
+| auktorisationstjänst | Se *åtkomstintygstjänst*. | Engelska: *authorization server* |
 | autentisering | En teknisk process för identifiering av användare. | Engelska: *authentication* |
 | autentiseringstjänst | En infrastrukturkomponent som används för att fastställa användares identitet vid åtkomst till en digital tjänst. | Den kan vara komponent som ingår inom ramen för en e-legitimation, och i ett lokalt system kan den likställas Kerberos-verifiering i traditionell mening. |
 | ansvarig utgivare av tillitsmärke |  | Engelska: *Trust Mark Owner* |  
 | digital identitet | Ett elektroniskt *identitetsbevis*. | Engelska: *security credentials* |
 | direkt legitimering | En kvalificerad leveranskedja för förmedling av identitetsintyg från funktionen för identitetskontroll (*utfärdare av e-legitimation*) till den *förlitande part* som beställde e-legitimeringen. |  | 
-| e-legitimation | Ett elektroniskt *identitetsbevis* som kan användas för *legitimering* av en persons *identitet*. | Se även *Svensk e-legitimation* |
+| e-legitimation | Ett elektroniskt *identitetsbevis* som kan användas för *legitimering* av en persons *identitet*. | Se även *Svensk e-legitimation*. |
 | e-legitimering | En process när innehavaren av en e-legitimation styrker sin identitet genom att använda sin *e-legitimation* vid en *identitetskontroll*. |  |
 | e-legitimeringstjänst | Se *legitimeringstjänst*. |  |
-| e-tjänst | En digital tjänst som tillhandahålls med ett grafiskt användargränssnitt, som distibueras över internet. E-tjänster kan vara utformade för både individer och organisationer och omfattar ett brett spektrum av funktioner, från enkla webbformulär till komplexa interaktiva tjänster. E-tjänster kan delas in i offentliga e-tjänster (till exempel deklarera skatt, ansöka om bygglov eller boka läkartid) och kommersiella e-tjänster (internetbank, e-handel, bok-, film- och musiktjänster) |  |
+| e-tjänst | En digital tjänst som tillhandahålls med ett grafiskt användargränssnitt, som distibueras över internet. E-tjänster kan vara utformade för både individer och organisationer och omfattar ett brett spektrum av funktioner, från enkla webbformulär till komplexa interaktiva tjänster. E-tjänster kan delas in i offentliga e-tjänster (till exempel deklarera skatt, ansöka om bygglov eller boka läkartid) och kommersiella e-tjänster (till exempel internetbank, e-handel, bok-, film- och musiktjänster). |  |
 | e-tjänstelegitimation | En typ av *e-legitimation* som är personlig, men anskaffas av arbetsgivaren för att knyta användaren till en organisation. Syftet är användning av e-legitimation i tjänsten. |  |
 | eIDAS | EU-förordningen *eIDAS* fastställer en gemensam ram för säker elektronisk identifiering och betrodda tjänster i Europa. Den reglerar bland annat erkännandet av nationella elektroniska identiteter och hur e-legitimatiober kan användas över landsgränserna. | *eIDAS* är en förkortning av *Electronic Identification, Authentication and Trust Services*.  | 
 | eIDAS-nod | En förbindelsepunkt för anslutning av ett medlemslands e-legitimeringssystem. Den fungerar som en brygga för gränsöverskridande interoperabilitet. Medlemsländernas *eIDAS-noder* sammankopplar nationella elektroniska identiteter (e-legitimationer) med digitala tjänster i Europa. | Myndigheten för digital förvaltning (Digg) ansvarar för den svenska *eIDAS-noden*. |
@@ -65,6 +65,6 @@ Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 | tjänstekonsument | Organisation som har behov av att nyttja en digital tjänst. | Engelska: *Public Service Consumer* (från EIRA) |
 | tjänsteproducent | Organisation som erbjuder en digital tjänst till andra *tjänstekonsumenter*. | Engelska: *Public Service Producer* (från EIRA) |
 |  ursprunglig identitetskontroll |  Den granskning som identitetskontrollerande myndighet gör enligt lag när exempelvis en identitetsbeteckning ska registreras i ett befolkningsregister. |   |  
-| åtkomstbeslut | En teknisk process för beslut om åtkomst till information eller digital tjänst. Det kan fattas genom en sammanvägd bedömning av identitets- och behörighetskontroll samt andra faktorer, till exempel policier som ger tillstånd utifrån plats/miljö och användningssituation. | Kallas även *auktorisation* |
-| åtkomstintygstjänst | En infrastrukturkomponent som används för att fastställa användares behörighet vid åtkomst till information eller digital tjänst. Tjänsten inkluderar en *intygsfunktion* som stöttar delegering av behörighetskontroll, i regel utifrån ett omfång (scope).| Kallas även *auktorisationstjänst* |
+| åtkomstbeslut | En teknisk process för beslut om åtkomst till information eller digital tjänst. Det kan fattas genom en sammanvägd bedömning av identitets- och behörighetskontroll samt andra faktorer, till exempel policier som ger tillstånd utifrån plats/miljö och användningssituation. | Även kallad *auktorisation*. |
+| åtkomstintygstjänst | En infrastrukturkomponent som används för att fastställa användares behörighet vid åtkomst till information eller digital tjänst. Tjänsten inkluderar en *intygsfunktion* som stöttar delegering av behörighetskontroll, i regel utifrån ett omfång (scope).| Även kallad *auktorisationstjänst*. |
 
