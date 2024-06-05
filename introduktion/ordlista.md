@@ -12,7 +12,7 @@ Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 
 | Term  | Beskrivning | Kommentar |
 | :------------- | :------------- | :------------- |
-| användare | Ett subjekt (människa eller maskin) som interagerar med en digital tjänst. | En användare kan företräda sig själv eller någon annan fysisk eller juridisk person. |
+| användare | Ett subjekt, det vill säga slutanvändare eller API-klient, som interagerar med en digital tjänst. Slutanvändare är en människa eller robot som interagerar med den digitala tjänsten via dess grafiska eller fysiska användargränssnitt. API-klient är ett IT-system eller programvara som interagerar med den digitala tjänsten via dess maskinläsbara användargränssnitt, till exempel ett API. | En användare kan företräda sig själv eller någon annan fysisk eller juridisk person. |
 | anvisningstjänst | Ingår vanligtvis som funktion i en digital tjänst hos *förlitande part* och syftar till att stötta användaren i val av identitetsintygstjänst. |  |
 | attributkälla | En katalog eller ett register som innehåller strukturerade värdemängder med information om användare. |  |
 | auktorisation | En teknisk process för åtkomstbeslut till information eller digital tjänst. Beslut om åtkomst kan fattas genom en sammanvägd bedömning av identitets- och behörighetskontroll samt andra faktorer, till exempel policier som ger tillstånd utifrån plats/miljö och användningssituation. | Engelska: *authorization* |
