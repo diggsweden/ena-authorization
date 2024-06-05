@@ -12,11 +12,11 @@ Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 
 | Term  | Beskrivning | Kommentar |
 | :------------- | :------------- | :------------- |
-| användare | Ett subjekt, det vill säga slutanvändare eller API-klient, som interagerar med en digital tjänst. Slutanvändare är en människa eller robot som interagerar med den digitala tjänsten via dess grafiska eller fysiska användargränssnitt. API-klient är ett IT-system eller programvara som interagerar med den digitala tjänsten via dess maskinläsbara användargränssnitt, till exempel ett API. | En användare kan företräda sig själv eller någon annan fysisk eller juridisk person. |
+| användare | Ett subjekt, det vill säga slutanvändare eller API-klient, som interagerar med en digital tjänst. Slutanvändare är en människa eller robot som interagerar med den digitala tjänsten via dess grafiska eller fysiska användargränssnitt. API-klient är ett IT-system eller programvara som interagerar med den digitala tjänsten via dess maskinläsbara programgränssnitt, till exempel ett API eller annan form av system till systemgränssnitt. | En användare kan företräda sig själv eller någon annan fysisk eller juridisk person. |
 | anvisningstjänst | Ingår vanligtvis som funktion i en digital tjänst hos *förlitande part* och syftar till att stötta användaren i val av identitetsintygstjänst. |  |
 | attributkälla | En katalog eller ett register som innehåller strukturerade värdemängder med information om användare. |  |
-| auktorisation | En teknisk process för åtkomstbeslut till information eller digital tjänst. Beslut om åtkomst kan fattas genom en sammanvägd bedömning av identitets- och behörighetskontroll samt andra faktorer, till exempel policier som ger tillstånd utifrån plats/miljö och användningssituation. | Engelska: *authorization* |
-| auktorisationstjänst | En infrastrukturkomponent som används för att fastställa användares behörighet vid åtkomst till information eller digital tjänst. Den kan beskrivas som en intygsfunktion för delegering av behörighetskontroll, i regel utifrån ett omgång (scope).| Engelska: *authorization server* |
+| auktorisation | Se *åtkomstbeslut*. | Engelska: *authorization* |
+| auktorisationstjänst | Se *åtkomstintygstjänst* | Engelska: *authorization server* |
 | autentisering | En teknisk process för identifiering av användare. | Engelska: *authentication* |
 | autentiseringstjänst | En infrastrukturkomponent som används för att fastställa användares identitet vid åtkomst till en digital tjänst. | Den kan vara komponent som ingår inom ramen för en e-legitimation, och i ett lokalt system kan den likställas Kerberos-verifiering i traditionell mening. |
 | ansvarig utgivare av tillitsmärke |  | Engelska: *Trust Mark Owner* |  
@@ -25,6 +25,7 @@ Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 | e-legitimation | Ett elektroniskt *identitetsbevis* som kan användas för *legitimering* av en persons *identitet*. | Se även *Svensk e-legitimation* |
 | e-legitimering | En process när innehavaren av en e-legitimation styrker sin identitet genom att använda sin *e-legitimation* vid en *identitetskontroll*. |  |
 | e-legitimeringstjänst | Se *legitimeringstjänst*. |  |
+| e-tjänst |  |  |
 | e-tjänstelegitimation | En typ av *e-legitimation* som är personlig, men anskaffas av arbetsgivaren för att knyta användaren till en organisation. Syftet är användning av e-legitimation i tjänsten. |  |
 | eIDAS | EU-förordningen *eIDAS* fastställer en gemensam ram för säker elektronisk identifiering och betrodda tjänster i Europa. Den reglerar bland annat erkännandet av nationella elektroniska identiteter och hur e-legitimatiober kan användas över landsgränserna. | *eIDAS* är en förkortning av *Electronic Identification, Authentication and Trust Services*.  | 
 | eIDAS-nod | En förbindelsepunkt för anslutning av ett medlemslands e-legitimeringssystem. Den fungerar som en brygga för gränsöverskridande interoperabilitet. Medlemsländernas *eIDAS-noder* sammankopplar nationella elektroniska identiteter (e-legitimationer) med digitala tjänster i Europa. | Myndigheten för digital förvaltning (Digg) ansvarar för den svenska *eIDAS-noden*. |
@@ -39,14 +40,14 @@ Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 | identifiering | Process för fastställande av *identitet*. Syftet med identifiering är att kunna säkerställa entydiga och exakta hänvisningar till ett subjekt (människa eller maskin).  |  |
 | identitetsbeteckning | En unik identifierare för användaridentifiering, som kan spåras till ett identifierat subjekt. Formatet regleras i ett identifieringssystem. *Utfärdare av e-legitimation* (eller motsvarande) ska alltid kunna bekräfta kopplingen mellan en identitetsbeteckning och subjektets faktiska identit (till exempel ett personnummer), även när identitetsbeteckningen inte är igenkännbar för en förlitande part. | E-legitimering i tjänsten är exempel på användningsfall där identitetsbeteckning inte behöver vara igenkännbar för en förlitande part, som kan identifiera användaren med en tjänstebeteckning kopplad till ett organisationsnummer. | 
 | identitetsbevis | Ett bevis på att subjekt (människa eller maskin) är unikt kopplad till en specifik *identitet*. Identitetsbeviset behöver vara verifierbart så att en kontrollant kan avgöra handlingens äkthet. |  |
-| identitetsintyg | Ett digitalt verifierbart intyg som kan användas som identitetsbevis vid *inloggning* till digitala tjänster. Det utfärdas till den mottagare, även kallad *förlitande part*, som har beställt identitetskontrollen från en betrodd leverantör av identitetsintyg. |  |
+| identitetsintyg | Ett digitalt verifierbart intyg som kan användas som identitetsbevis vid *inloggning* till digitala tjänster. Det utfärdas till den mottagare, även kallad *förlitande part*, som har beställt identitetskontrollen från en betrodd leverantör av identitetsintyg. | I vissa tillämpningar kan ett identitetsintyg även inkludera behörighetsinformation och andra uppgifter om den identifierade användaren. |
 | identitetsintygstjänst |  En digital tjänst som ställer ut ett signerat *identitetsintyg* som föregås av en tillförlitlig identifiering av användaren. | Engelska: *Identity Provider (IdP)*, även kallad *OpenID Provider (OP)*  | 
 | identitetskontroll | En verifiering som myndighet gör med hjälp av ett *identitetsbevis* i varje enskilt förvaltningsärende för att bedöma om det är angiven individ som kontaktar myndigheten. |  |
 | identitetsmatchning | En process där uppgifter för användaridentifiering matchas mot eller länkas till en befintlig identitetsbeteckning som tillhör samma användare. | Engelska: *identity matching*. Regleras bland annat i nya revisionen av eIDAS för gränsöverskriande e-legitimering mellan medlemsländer. | 
 | indirekt legitimering | Förmedling av identitetsintyg via en tredje part som beställer e-legitimeringen på uppdrag av en förlitande part. Intyget som ställs ut av e-legitimationsutfärdaren kan konverteras och anpassas vid förmedlingen genom ett nytt intyg. |  | 
 | inloggning | En process för åtkomstsbeslut till en digital tjänst. Den involverar i regel identifiering av subjekt (människa eller maskin) genom autentisering och behörighetskontroll genom auktorisation.|  |
 | intermediär operatör | En aktör som på uppdrag från en *federationsoperatör* hanterar registrering av digitala tjänster, vanligtvis för en organisation. | | 
-| intygsfunktion | teknisk komponent som ställer ut ett *identitetsintyg* i en *identitetsintygstjänst*. I vissa tillämpningar kan intyget även inkludera behörighetsinformation och andra uppgifter om den identifierade användaren.  | |
+| intygsfunktion | teknisk komponent som ställer ut ett intyg i en *identitetsintygstjänst* eller *åtkomstintygstjänst*. | |
 | intygsväxling |  |  |
 | grundidentifiering | En verifiering som *utfärdare av e-legitimation* gör enligt ett tillitsramverk när en e-legitimation ska utfärdas.  | Regleras bland annat i *eIDAS-förordningen* och EU-kommissionens tillämpningsföreskrifter. |
 | legitimeringstjänst | En *identitetsintygstjänst* som är granskad och godkänd enligt ett tillitsramverk för utställande av ett betrodd *identitetsintyg* som föregås av en tillförlitlig *e-legitimering*. |  | 
@@ -63,8 +64,7 @@ Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 | tillitsmärke |  | Engelska: *Trust Mark* | 
 | tjänstekonsument | Organisation som har behov av att nyttja en digital tjänst. | Engelska: *Public Service Consumer* (från EIRA) |
 | tjänsteproducent | Organisation som erbjuder en digital tjänst till andra *tjänstekonsumenter*. | Engelska: *Public Service Producer* (från EIRA) |
-|  Ursprunglig identitetskontroll |  Den granskning som identitetskontrollerande myndighet gör enligt lag när exempelvis en identitetsbeteckning ska registreras i ett befolkningsregister. |   |  
-
-
-
+|  ursprunglig identitetskontroll |  Den granskning som identitetskontrollerande myndighet gör enligt lag när exempelvis en identitetsbeteckning ska registreras i ett befolkningsregister. |   |  
+| åtkomstbeslut | En teknisk process för beslut om åtkomst till information eller digital tjänst. Det kan fattas genom en sammanvägd bedömning av identitets- och behörighetskontroll samt andra faktorer, till exempel policier som ger tillstånd utifrån plats/miljö och användningssituation. | Kallas även *auktorisation* |
+| åtkomstintygstjänst | En infrastrukturkomponent som används för att fastställa användares behörighet vid åtkomst till information eller digital tjänst. Tjänsten inkluderar en *intygsfunktion* som stöttar delegering av behörighetskontroll, i regel utifrån ett omfång (scope).| Kallas även *auktorisationstjänst* |
 
