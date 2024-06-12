@@ -3,7 +3,7 @@
 
 :arrow_backward: [Tillbaka](README.md)
 
-<sup>Senaste uppdatering: 28 maj 2024</sup>
+<sup>Senaste uppdatering: 12 juni 2024</sup>
 
 ---------
 
