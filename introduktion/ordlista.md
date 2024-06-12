@@ -14,12 +14,15 @@ Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 | :------------- | :------------- | :------------- |
 | användare | Ett subjekt, det vill säga slutanvändare eller API-klient, som interagerar med en digital tjänst. Slutanvändare är en människa eller robot som interagerar med den digitala tjänsten via dess grafiska eller fysiska användargränssnitt. API-klient är ett IT-system eller programvara som interagerar med den digitala tjänsten via dess maskinläsbara programgränssnitt, till exempel ett API eller annan form av system till systemgränssnitt. | En användare kan företräda sig själv eller någon annan fysisk eller juridisk person. |
 | anvisningstjänst | Ingår vanligtvis som funktion i en digital tjänst hos *förlitande part* och syftar till att stötta användaren i val av identitetsintygstjänst. |  |
+| attribut | Data om användarens identitets- och/eller behörighetsuppgifter enligt en förutbestämd struktur, format och uppsättning regler. |  |
 | attributkälla | En katalog eller ett register som innehåller strukturerade värdemängder med information om användare. |  |
+| attributprofil | En samling av attribut som definierar specifika egenskaper om en användare i en specifik kontext. |  |
 | auktorisation | Se *åtkomstbeslut*. | Engelska: *authorization* |
 | auktorisationstjänst | Se *åtkomstintygstjänst*. | Engelska: *authorization server* |
 | autentisering | En teknisk process för identifiering av användare. | Engelska: *authentication* |
 | autentiseringstjänst | En infrastrukturkomponent som används för att fastställa användares identitet vid åtkomst till en digital tjänst. | Den kan vara komponent som ingår inom ramen för en e-legitimation, och i ett lokalt system kan den likställas Kerberos-verifiering i traditionell mening. |
 | ansvarig utgivare av tillitsmärke |  | Engelska: *Trust Mark Owner* |  
+| claims | Se *attribut*. |   | 
 | digital identitet | Ett elektroniskt *identitetsbevis*. | Engelska: *security credentials* |
 | direkt legitimering | En kvalificerad leveranskedja för förmedling av identitetsintyg från funktionen för identitetskontroll (*utfärdare av e-legitimation*) till den *förlitande part* som beställde e-legitimeringen. |  | 
 | e-legitimation | Ett elektroniskt *identitetsbevis* som kan användas för *legitimering* av en persons *identitet*. | Se även *Svensk e-legitimation*. |
@@ -66,5 +69,5 @@ Nedan följer en förklarande lista på termer, begrepp och deras definitioner.
 | tjänsteproducent | Organisation som erbjuder en digital tjänst till andra *tjänstekonsumenter*. | Engelska: *Public Service Producer* (från EIRA) |
 |  ursprunglig identitetskontroll |  Den granskning som identitetskontrollerande myndighet gör enligt lag när exempelvis en identitetsbeteckning ska registreras i ett befolkningsregister. |   |  
 | åtkomstbeslut | En teknisk process för beslut om åtkomst till information eller digital tjänst. Det kan fattas genom en sammanvägd bedömning av identitets- och behörighetskontroll samt andra faktorer, till exempel policier som ger tillstånd utifrån plats/miljö och användningssituation. | Även kallad *auktorisation*. |
-| åtkomstintygstjänst | En infrastrukturkomponent som används för att fastställa användares behörighet vid åtkomst till information eller digital tjänst. Tjänsten inkluderar en *intygsfunktion* som stöttar delegering av behörighetskontroll, i regel utifrån ett omfång (scope).| Även kallad *auktorisationstjänst*. |
+| åtkomstintygstjänst | En infrastrukturkomponent som används för att fastställa användares behörighet vid åtkomst till information eller digital tjänst. Tjänsten inkluderar en *intygsfunktion* som stöttar delegering av behörighetskontroll, i regel utifrån en samling av attribut och/eller ett omfång (engelska: *scope*).| Även kallad *auktorisationstjänst*. |
 
