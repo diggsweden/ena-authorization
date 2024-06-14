@@ -1,5 +1,16 @@
-# Innehållsförteckning  
-- [Inledning](inledning.md)
+<p><img align="right" src="../images/Ena-logo.png" width="25%" Height="25%"></img></p>
+<p>&nbsp;</p>
+
+:arrow_backward: [Tillbaka](../README.md)
+
+<sup>Senaste uppdatering: 17 maj 2024</sup>
+
+---------
+
+# Introduktion
+
+## Innehållsförteckning  
+- [Inledning](sammanfattning.md)
 - [Ekosystem för digital samverkan](ekosystem.md)
 - [Dagens federationer](federationer.md)
   - [Sweden Connect](federationer.md#swedenconnect)
@@ -9,6 +20,13 @@
   - [Fidus](federationer.md#fidus)
 - [Tillit](tillit.md)
 - [Utmaningar](utmaningar.md)
+- [En gemensam digital infrastruktur för identitets- och behörighetshantering](gemensam-infrastruktur.md)
+  - Vad
+  - Varför
+  - Vem
+  - Hur OpenID Federation
+- [Ordlista](ordlista.md)
+- [Externa länkar](merinfo.md)
 
 ----
 
