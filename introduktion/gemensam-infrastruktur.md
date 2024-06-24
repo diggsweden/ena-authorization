@@ -74,7 +74,7 @@ Av detta skäl har OIDF introducerat en valideringstjänst, som benämns <mark>*
 -	Validering av tillitsmärken.
 
 ## Federationskontext
-Federationskontext är de regler som gäller när en federationsansluten tjänst (*entitet*) valideras genom ett specifikt *tillitsankare*. Dessa regler specificeras för varje koppling mellan ett *tillitsankare* och varje underställd förbindelsepunkt (*intermediär entitet*). Reglerna uttrycks i ett aktörsintyg för varje förbindelsepunkt. Ett *tillitsankare* specificerar i varje utfärdat aktörsintyg de begränsningar som gäller för en förbindelsepunkt. Sådana begränsningar kan gälla vilka typer av digitala tjänster som får registreras samt vilka krav som måste ställas på registrerade tjänsters  metadata. Två viktiga begränsningar som kan specificeras är:
+Federationskontext är de regler som gäller när en federationsansluten tjänst (*entitet*) valideras genom ett specifikt *tillitsankare*. Dessa regler specificeras för varje koppling mellan ett *tillitsankare* och varje underställd förbindelsepunkt (*intermediär entitet*). Reglerna uttrycks i ett aktörsintyg (*entity statement*) för varje förbindelsepunkt. Ett *tillitsankare* specificerar i varje utfärdat aktörsintyg de begränsningar som gäller för en förbindelsepunkt. Sådana begränsningar kan gälla vilka typer av digitala tjänster som får registreras samt vilka krav som måste ställas på registrerade tjänsters  metadata. Två viktiga begränsningar som kan specificeras är:
 1. Metadatapolicy
 2. Godkända utfärdare av tillitsmärke
 
@@ -100,5 +100,9 @@ En metadatapolicy kan för varje definierad metadataparameter specificera regler
     tjänsts metadata valideras i denna federationskontext kommer endast de metadatavärden som stöds av 
     definierad policy att returneras, även om tjänsten har deklarerat stöd för andra alternativ.</dd>
 </dl>
+
+Om en valideringskedja innehåller flera metadatapolicyer så måste samtliga dessa policyer vara uppfyllda för att tjänstens (entitetens) metadata skall valideras som giltig.
+
+Genom att olika *tillitsankare* kan tillämpa olika metadatapolicyer för samma federationsanslutna tjänst (*entitet*) via olika intermediära förbindelsepunkter, kan samma tjänst (*entitet*) representeras av olika *metadata* beroende på vilket *tillitsankare* och vilken metadatapolicy som används.
 
 ### Tillitsmärken
