@@ -116,3 +116,5 @@ Godkända utfärdare av *tillitsmärken* inkluderas i tillitsankarets aktörsint
 OIDF skiljer mellan <mark>*ansvarig utgivare av tillitsmärken*</mark> och <mark>*utfärdare av tillitsmärken*</mark>. En ansvarig utgivare är den aktör som har rätten att bestämma reglerna för att part ska få erhålla ett tillitsmärke samt fastställer vem som har rätt att utfärda dessa. Ansvarig utgivare kan själv agera utfärdare eller endast administrera kraven och delegera utfärdandet till en annan aktör. Detta är särskilt praktiskt om man exmpelvis vill delegera till en betrodd aktör som både registrerar federationsanslutna tjänster, utför granskningen av dessa samt utfärdar de relevanta tillitsmärkena.
 
 Vid validering av tillitsmärken kontrolleras även att utfärdaren är auktoriserad att utfärda tillitsmärket samt att tillitsmärket inte blivit spärrat av dess ansvariga utgivare.
+
+## Registrering
