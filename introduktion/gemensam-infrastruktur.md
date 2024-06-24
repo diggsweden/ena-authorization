@@ -55,6 +55,8 @@ Data om de ingående digitala tjänsterna i federationen utgörs av <mark>*metad
     ett <i>tillitsankare</i>.</dd>
 </dl>
 
+----------------------
+
 Uppdelningen mellan <mark>*tillitsmärke*</mark> och <mark>*metadata*</mark> är en av nycklarna som möjliggör delegerad registrering av tjänster. Den aktör som är betrodd att hantera registrering av metadata är inte nödvändigtvis betrodd att intyga tillitsmärken. Likaså, behöver den aktör som är betrodd att intyga tillitsmärken, inte nödvändigtvis ha förmågan att ombesörja adekvat registrering av metadata. Mycket kan därför vinnas genom att dela upp registrering och administration av *metadata* respektive *tillitsmärken*.
 
 Vinsterna är betydande då denna uppdelning erbjuder en möjlighet att bygga stora federationer där ingen enskild aktör måste bära hela det administrativa ansvaret för federationen. Federationsoperatörens roll kan utvecklas i ett distribuerat nätverk som delegerar registrering av digitala tjänster till lämpliga *intermediära entiteter* och ansluter *utfärdare av tillitsmärken* till sitt *tillitsankare*. Därigenom utformas en dynamik som är mer skalbart och framtidssäkrat än den traditionella federationsoperatörsrollen, som förväntas att upprätta rutiner för administration och auktorisation av samtliga registrerade tjänster i federationen.
@@ -100,6 +102,9 @@ En metadatapolicy kan för varje definierad metadataparameter specificera regler
     tjänsts metadata valideras i denna federationskontext kommer endast de metadatavärden som stöds av 
     definierad policy att returneras, även om tjänsten har deklarerat stöd för andra alternativ.</dd>
 </dl>
+
+----------------------
+
 
 Om en valideringskedja innehåller flera metadatapolicyer så måste samtliga dessa policyer vara uppfyllda för att tjänstens (entitetens) metadata skall valideras som giltig.
 
