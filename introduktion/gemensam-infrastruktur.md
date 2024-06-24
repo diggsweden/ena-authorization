@@ -37,20 +37,22 @@ Data om de ingående digitala tjänsterna i federationen utgörs av <mark>*metad
 
 <dl>
   <dt>Metadata</dt>
-  <dd>Konfigurationsdata för en digital tjänst (*entitet*) inom ramen för det som är tillåtet, givet de standarder 
+  <dd>Konfigurationsdata för en digital tjänst (<i>entitet</i>) inom ramen för det som är tillåtet, givet de standarder 
     och profiler som tillämpas och de tillitsmärken som utfärdats för tjänsten. <br /><br />Exempel på metadata är 
     information om vilka algoritmer som stöds samt hur klienter måste identifiera sig för att hämta ut ett ID-token.
-    <br /><br />*Metadata* följer de metadatastandarder som upprättats för respektive tjänst, vilket för OpenID Connect
-    typiskt är *metadata* för en leverantör av identitetsintygstjänst, även kallad *OpenID Provider (OP)*, eller en 
-    förlitande part (exempelvis en e-tjänst som begär identitetskontroll).</dd>
+    <br /><br /><i>Metadata</i> följer de metadatastandarder som upprättats för respektive tjänst, vilket för OpenID 
+    Connect typiskt är <i>metadata</i> för en leverantör av identitetsintygstjänst, även kallad <i>OpenID Provider 
+    (OP)</i>, eller en förlitande part (exempelvis en e-tjänst som begär identitetskontroll).</dd>
   <dt>Tillitsmärke</dt>
-  <dd>Ett signerat intyg från en betrodd utfärdare av respektive *tillitsmärke*. Varje *tillitsmärke* intygar att en digital
-    tjänst uppfyller en definierad kravmassa, eller är auktoriserad att utföra/begära vissa tjänster. <br /><br />Exempel 
-    på *tillitsmärke* är certifiering att tillhandahålla legitimeringstjänst på tillitsnivå 3 enligt *tillitsramverk för
-    Svensk e-legitimation*. <br /><br />OIDF erbjuder även en specialvariant av *tillitsmärken* som kännetecknas av att vara
-    självutfärdade. Det innebär att en digital tjänst kan utfärda ett sådant *tillitsmärke* åt sig själv genom 
-    självdeklaration och därmed undantas från de valideringsregler som vanligtvis gäller för *tillitsmärken* utfärdade av en
-    betrodd utfärdare. Ett självutfärdat *tillitsmärke* behöver exempelvis inte valideras mot ett *tillitsankare*.</dd>
+  <dd>Ett signerat intyg från en betrodd utfärdare av respektive <i>tillitsmärke</i>. Varje <i>tillitsmärke</i> 
+    intygar att en federationsansluten tjänst (<i>entitet</i>) uppfyller en definierad kravmassa, eller är 
+    auktoriserad att utföra/begära vissa tjänster. <br /><br />Exempel på <i>tillitsmärke</i> är certifiering 
+    att tillhandahålla legitimeringstjänst på tillitsnivå 3 enligt <i>tillitsramverk för Svensk e-legitimation</i>. 
+    <br /><br />OIDF erbjuder även en specialvariant av <i>tillitsmärken</i> som kännetecknas av att vara
+    självutfärdade. Det innebär att en digital tjänst kan utfärda ett sådant <i>tillitsmärke</i> åt sig själv 
+    genom självdeklaration och därmed undantas från de valideringsregler som vanligtvis gäller för <i>tillitsmärken</i>
+    utfärdade av en betrodd utfärdare. Ett självutfärdat <i>tillitsmärke</i> behöver exempelvis inte valideras mot 
+    ett <i>tillitsankare</i>.</dd>
 </dl>
 
 Uppdelningen mellan <mark>*tillitsmärke*</mark> och <mark>*metadata*</mark> är en av nycklarna som möjliggör delegerad registrering av tjänster. Den aktör som är betrodd att hantera registrering av metadata är inte nödvändigtvis betrodd att intyga tillitsmärken. Likaså, behöver den aktör som är betrodd att intyga tillitsmärken, inte nödvändigtvis ha förmågan att ombesörja adekvat registrering av metadata. Mycket kan därför vinnas genom att dela upp registrering och administration av *metadata* respektive *tillitsmärken*.
