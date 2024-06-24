@@ -23,7 +23,7 @@ OIDF åstadkommer detta genom en decentraliserad modell som bryter ner ansvaret 
 ### Delegering
 Till skillnad från en traditionell federation där registrering av alla tjänster administreras av en central federationsoperatör, organiserar OIDF en delegerad modell som fördelar registreringsansvaret till olika aktörer som bildar en kedja av betrodda förbindelsepunkter. Denna modell erbjuder hierarkier av betrodda förbindelsepunkter som i standarden kallas för <mark>*tillitsankare*</mark> och <mark>*intermediära entiteter*</mark>.
 
-I stället för separata federationer med vattentäta skott, erbjuder OIDF samexistens av olika federativa kontext inom ramen för en samlad förvaltningsövergripande digital infrastruktur. En federativ kontext kan liknas som en traditionell federation, men skiljer sig i sin distributiva natur och nätverksstruktur. Varje federativ kontext definieras av ett tillitsankare som utgör toppen på en tillitskedja i federationen. Den används för att validera uppgifter om en specifik digital tjänst i nätverket av tjänster via en eller flera betrodda intermediära förbindelsepunkter. Tillitsankaret bestämmer reglerna för valideringen. Dessa regler avgör i sin tur vilka *metadata* och *tillitsmärken* som accepteras för en specifik digital tjänst.
+I stället för separata federationer med vattentäta skott, erbjuder OIDF samexistens av olika federativa kontext inom ramen för en samlad förvaltningsövergripande digital infrastruktur. En federativ kontext kan liknas som en traditionell federation, men skiljer sig i sin distributiva natur och nätverksstruktur. Varje federativ kontext definieras av ett *tillitsankare* som utgör toppen på en tillitskedja i federationen. Den används för att validera uppgifter om en specifik digital tjänst i nätverket av tjänster via en eller flera betrodda intermediära förbindelsepunkter. *Tillitsankaret* bestämmer reglerna för valideringen. Dessa regler avgör i sin tur vilka *metadata* och *tillitsmärken* som accepteras för en specifik digital tjänst.
 
 En federativ kontext kan representera ett specifikt behovsområde eller verksamhetsdomän som samlar en grupp av aktörer kring förmedling av strukturerade data om identiteter och behörighetsgrundande information. Kontexten definieras genom gemensamma syften, behov, datasemantik, tillitsramverk, regler och policyer. 
 
@@ -55,5 +55,27 @@ Data om de ingående digitala tjänsterna i federationen utgörs av <mark>*metad
 
 Uppdelningen mellan <mark>tillitsmärke</mark> och <mark>*metadata*</mark> är en av nycklarna som möjliggör delegerad registrering av tjänster. Den aktör som är betrodd att hantera registrering av metadata är inte nödvändigtvis betrodd att intyga tillitsmärken. Likaså, behöver den aktör som är betrodd att intyga tillitsmärken, inte nödvändigtvis ha förmågan att ombesörja adekvat registrering av metadata. Mycket kan därför vinnas genom att dela upp registrering och administration av *metadata* respektive *tillitsmärken*.
 
-### Hämtning och validering av data
+Vinsterna är betydande då denna uppdelning erbjuder en möjlighet att bygga stora federationer där ingen enskild aktör måste bära hela det administrativa ansvaret för federationen. Federationsoperatörens roll kan utvecklas i ett distribuerat nätverk som delegerar registrering av digitala tjänster till lämpliga *intermediära entiteter* och ansluter *utfärdare av tillitsmärken* till sitt *tillitsankare*. Därigenom utformas en dynamik som är mer skalbart och framtidssäkrat än den traditionella federationsoperatörsrollen, som förväntas att upprätta rutiner för administration och auktorisation av samtliga registrerade tjänster i federationen.
 
+### Hämtning och validering av data
+OIDF specificerar konkreta regler för hur metadata och tillitsmärken hämtas och valideras i infrastrukturen mot ett *tillitsankare*.
+
+Detta är process som i grova drag innefattar följande steg:
+1.	Lokalisera metadata för motpartens digitala tjänst (entitet).
+2.	Hitta en tillitskedja från motpartens tjänst via mellanliggande förbindelsepunkter (*intermediära eniteter*) till valt *tillitsankare*.
+3.	Validera metadata och tillitsmärken för motpartens tjänst enligt de regler som sätts av gällande *federationskontext*.
+
+Detta är i praktiken en ganska komplicerad och resurskrävande operation, eftersom data från en rad olika källor behöver inhämtas och valideras.
+
+Av detta skäl har OIDF introducerat en valideringstjänst, som benämns <mark>*resolver*</mark> eller *resolve endpoint*, vars uppgift är att hantera processen att inhämta och validera data åt en federationsansluten tjänst. I stället för att göra en komplett valideringsprocess enligt ovan, så kan tjänsten skicka en enkel begäran till valideringstjänsten, som returnerar filtrerade och validerade data för begärd tjänst i kontexten av valt *tillitsankare*. Detta innebär:
+-	Metadata valideras och filtreras genom federationskontextens metadata policy.
+-	Validering av tillitsmärken.
+
+## Federationskontext
+Federationskontext är de regler som gäller när en federationsansluten tjänst (entitet) valideras genom ett specifikt *tillitsankare*. Dessa regler specificeras för varje koppling mellan ett *tillitsankare* och varje underställd förbindelsepunkt (*intermediär enitet*). Reglerna uttrycks i ett aktörsintyg för varje förbindelsepunkt. Ett *tillitsankare* specificerar i varje utfärdat aktörsintyg de begränsningar som gäller för en förbindelsepunkt. Sådana begränsningar kan gälla vilka typer av digitala tjänster som får registreras samt vilka krav som måste ställas på registrerade tjänsters  metadata. Två viktiga begränsningar som kan specificeras är:
+1. Metadatapolicy
+2. Godkända utfärdare av tillitsmärke
+
+### Metadatapolicy
+
+### Tillitsmärken
