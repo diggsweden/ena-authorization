@@ -78,7 +78,7 @@ Av detta skäl har OIDF introducerat en valideringstjänst, som benämns <mark>*
 ## Federationskontext
 Federationskontext är de regler som gäller när en federationsansluten tjänst (*entitet*) valideras genom ett specifikt *tillitsankare*. Dessa regler specificeras för varje koppling mellan ett *tillitsankare* och varje underställd förbindelsepunkt (*intermediär entitet*). Reglerna uttrycks i ett aktörsintyg (*entity statement*) för varje förbindelsepunkt. Ett *tillitsankare* specificerar i varje utfärdat aktörsintyg de begränsningar som gäller för en förbindelsepunkt. Sådana begränsningar kan gälla vilka typer av digitala tjänster som får registreras samt vilka krav som måste ställas på registrerade tjänsters  metadata. Två viktiga begränsningar som kan specificeras är:
 1. Metadatapolicy
-2. Godkända utfärdare av tillitsmärke
+2. Utfärdande av tillitsmärken
 
 ### Metadatapolicy
 En metadatapolicy är en uppsättning regler som styr innehåller i metadata för en federationsansluten tjänst (*entitet*), vars uppgifter finns registrerade under en förbindelsepunkt (*intermediär entitet*). Varje förbindelsepunkt kan sedan ytterligare begränsa denna metadatapolicy för sina underordnade förbindelsepunkter.
@@ -110,4 +110,9 @@ Om en valideringskedja innehåller flera metadatapolicyer så måste samtliga de
 
 Genom att olika *tillitsankare* kan tillämpa olika metadatapolicyer för samma federationsanslutna tjänst (*entitet*) via olika intermediära förbindelsepunkter, kan samma tjänst (*entitet*) representeras av olika *metadata* beroende på vilket *tillitsankare* och vilken metadatapolicy som används.
 
-### Tillitsmärken
+### Utfärdande av tillitsmärken
+Godkända utfärdare av *tillitsmärken* inkluderas i tillitsankarets aktörsintyg (*entity statement*). Dessa redogörs i en lista över godkända utfärdare med specifikation om vilka tillitsmärken dessa är auktoriserade för att utfärda inom ramen för en federationskontext. På detta sätt kan ett *tillitsankare* styra vilka *tillitsmärken* som är godtagbara och vem som får utfärda dem.
+
+OIDF skiljer mellan <mark>*ansvarig utgivare av tillitsmärken*</mark> och <mark>*utfärdare av tillitsmärken*</mark>. En ansvarig utgivare är den aktör som har rätten att bestämma reglerna för att part ska få erhålla ett tillitsmärke samt fastställer vem som har rätt att utfärda dessa. Ansvarig utgivare kan själv agera utfärdare eller endast administrera kraven och delegera utfärdandet till en annan aktör. Detta är särskilt praktiskt om man exmpelvis vill delegera till en betrodd aktör som både registrerar federationsanslutna tjänster, utför granskningen av dessa samt utfärdar de relevanta tillitsmärkena.
+
+Vid validering av tillitsmärken kontrolleras även att utfärdaren är auktoriserad att utfärda tillitsmärket samt att tillitsmärket inte blivit spärrat av dess ansvariga utgivare.
