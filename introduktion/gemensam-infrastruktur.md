@@ -17,7 +17,7 @@ OpenID federation definierar en digital infrastruktur som kan försörja betrodd
 
 OpenID Federation (OIDF) tillför en helt ny modell för en öppen delegerad digital infrastruktur för administration och distribution av tillitsinformation för deltagande tjänster. Även om OIDF är framtagen av OpenID Foundation som utvecklat OpenID Connect, så är OIDF detta till trots en öppen modell för tillitsinformation som redan i sin grundform stödjer andra protokoll, till exempel OAuth för delegering av auktorisation. Faktum är att OIDF har väldigt få begränsningar för vilka typer av tjänster och protokoll som kan stödjas. Det finns inget som hindrar att OIDF byggs ut och används som basinfrastruktur för att hantera registrering av aktörer som tillämpar andra typer av protokoll, såsom SAML.
 
-OIDF åstadkommer detta genom en decentraliserad modell som bryter ner ansvaret för registrering, kontroll och administration till flera aktörer. I denna modell behöver parter som ingår i federationen ta ett större egenansvar för att publicera data (metadata) om sina tjänster (entiteter). På så sätt kan OIDF växa fram i en dynamisk process där bördan för att upprätta och underhålla federationen fördelas mellan flera aktörer utan att för den sakens skull göra avkall på kraven om kvalitet och tillit. 
+OIDF åstadkommer detta genom en decentraliserad modell som bryter ner ansvaret för registrering, kontroll och administration till flera aktörer. I denna modell behöver parter som ingår i federationen ta ett större egenansvar för att publicera data (*metadata*) om sina tjänster (*entiteter*). På så sätt kan OIDF växa fram i en dynamisk process där bördan för att upprätta och underhålla federationen fördelas mellan flera aktörer utan att för den sakens skull göra avkall på kraven om kvalitet och tillit. 
 
 ## Grundläggande struktur
 ### Delegering
@@ -37,7 +37,7 @@ Data om de ingående digitala tjänsterna i federationen utgörs av <mark>*metad
 
 <dl>
   <dt>Metadata</dt>
-  <dd>Konfigurationsdata för en digital tjänst (entitet) inom ramen för det som är tillåtet, givet de standarder 
+  <dd>Konfigurationsdata för en digital tjänst (*entitet*) inom ramen för det som är tillåtet, givet de standarder 
     och profiler som tillämpas och de tillitsmärken som utfärdats för tjänsten. <br /><br />Exempel på metadata är 
     information om vilka algoritmer som stöds samt hur klienter måste identifiera sig för att hämta ut ett ID-token.
     <br /><br />*Metadata* följer de metadatastandarder som upprättats för respektive tjänst, vilket för OpenID Connect
@@ -61,8 +61,8 @@ Vinsterna är betydande då denna uppdelning erbjuder en möjlighet att bygga st
 OIDF specificerar konkreta regler för hur metadata och tillitsmärken hämtas och valideras i infrastrukturen mot ett *tillitsankare*.
 
 Detta är process som i grova drag innefattar följande steg:
-1.	Lokalisera metadata för motpartens digitala tjänst (entitet).
-2.	Hitta en tillitskedja från motpartens tjänst via mellanliggande förbindelsepunkter (*intermediära eniteter*) till valt *tillitsankare*.
+1.	Lokalisera metadata för motpartens digitala tjänst (*entitet*).
+2.	Hitta en tillitskedja från motpartens tjänst via mellanliggande förbindelsepunkter (*intermediära entiteter*) till valt *tillitsankare*.
 3.	Validera metadata och tillitsmärken för motpartens tjänst enligt de regler som sätts av gällande *federationskontext*.
 
 Detta är i praktiken en ganska komplicerad och resurskrävande operation, eftersom data från en rad olika källor behöver inhämtas och valideras.
@@ -72,10 +72,31 @@ Av detta skäl har OIDF introducerat en valideringstjänst, som benämns <mark>*
 -	Validering av tillitsmärken.
 
 ## Federationskontext
-Federationskontext är de regler som gäller när en federationsansluten tjänst (entitet) valideras genom ett specifikt *tillitsankare*. Dessa regler specificeras för varje koppling mellan ett *tillitsankare* och varje underställd förbindelsepunkt (*intermediär enitet*). Reglerna uttrycks i ett aktörsintyg för varje förbindelsepunkt. Ett *tillitsankare* specificerar i varje utfärdat aktörsintyg de begränsningar som gäller för en förbindelsepunkt. Sådana begränsningar kan gälla vilka typer av digitala tjänster som får registreras samt vilka krav som måste ställas på registrerade tjänsters  metadata. Två viktiga begränsningar som kan specificeras är:
+Federationskontext är de regler som gäller när en federationsansluten tjänst (*entitet*) valideras genom ett specifikt *tillitsankare*. Dessa regler specificeras för varje koppling mellan ett *tillitsankare* och varje underställd förbindelsepunkt (*intermediär entitet*). Reglerna uttrycks i ett aktörsintyg för varje förbindelsepunkt. Ett *tillitsankare* specificerar i varje utfärdat aktörsintyg de begränsningar som gäller för en förbindelsepunkt. Sådana begränsningar kan gälla vilka typer av digitala tjänster som får registreras samt vilka krav som måste ställas på registrerade tjänsters  metadata. Två viktiga begränsningar som kan specificeras är:
 1. Metadatapolicy
 2. Godkända utfärdare av tillitsmärke
 
 ### Metadatapolicy
+En metadatapolicy är en uppsättning regler som styr innehåller i metadata för en federationsansluten tjänst (*entitet*), vars uppgifter finns registrerade under en förbindelsepunkt (*intermediär entitet*). Varje förbindelsepunkt kan sedan ytterligare begränsa denna metadatapolicy för sina underordnade förbindelsepunkter.
+
+En metadatapolicy kan för varje definierad metadataparameter specificera regler, såsom krav på:
+-	om ett värde måste vara satt
+-	värden som måste vara satta
+-	värden som får vara satta
+-	specifikt värde som måste vara satt
+- och så vidare
+
+<dl>
+  <dt>Exempel metadatapolicy</dt>
+  <dd>En OP kan specificera hur en e-tjänst måste autentisera sig för att hämta ut ett ID-token.  
+    Detta specificeras i metadataparametern: <code>token_endpoint_auth_methods_supported</code>.
+    <br /><br />Typiska giltiga värden för denna parameter är <code>client_secret_post</code>, 
+    <code>client_secret_basic</code>, <code>client_secret_jwt</code>, och <code>private_key_jwt</code>.
+    <br /><br />En federationskontext kan begränsa antalet giltiga autentiseringsmetoder genom att specificera 
+    en policy som styr över giltiga värden. Exempelvis kan giltiga värden begärnsas till 
+    <code>client_secret_jwt</code>, och <code>private_key_jwt</code>. <br /><br />När en federationsansluten 
+    tjänsts metadata valideras i denna federationskontext kommer endast de metadatavärden som stöds av 
+    definierad policy att returneras, även om tjänsten har deklarerat stöd för andra alternativ.</dd>
+</dl>
 
 ### Tillitsmärken
