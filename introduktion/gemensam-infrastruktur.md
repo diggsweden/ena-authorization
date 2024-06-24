@@ -21,15 +21,39 @@ OIDF åstadkommer detta genom en decentraliserad modell som bryter ner ansvaret 
 
 ## Grundläggande struktur
 ### Delegering
-Till skillnad från en traditionell federation där registrering av alla tjänster administreras av en central federationsoperatör, organiserar OIDF en delegerad modell som fördelar registreringsansvaret till olika aktörer som bildar en kedja av betrodda förbindelsepunkter. Denna modell erbjuder hierarkier av betrodda förbindelsepunkter som i standarden kallas för *tillitsankare* och *intermediära entiteter*.
+Till skillnad från en traditionell federation där registrering av alla tjänster administreras av en central federationsoperatör, organiserar OIDF en delegerad modell som fördelar registreringsansvaret till olika aktörer som bildar en kedja av betrodda förbindelsepunkter. Denna modell erbjuder hierarkier av betrodda förbindelsepunkter som i standarden kallas för <mark>*tillitsankare*</mark> och <mark>*intermediära entiteter*</mark>.
 
-I stället för separata federationer med vattentäta skott, erbjuder OIDF samexistens av olika federativa kontext inom ramen för en samlad förvaltningsövergripande digital infrastruktur. En federativ kontext kan liknas som en traditionell federation, men skiljer sig i sin distributiva natur och nätverksstruktur. Varje federativ kontext definieras av ett tillitsankare som utgör toppen på en tillitskedja i federationen. Den används för att validera uppgifter om en specifik digital tjänst i nätverket av tjänster via en eller flera betrodda intermediära förbindelsepunkter. Tillitsankaret bestämmer reglerna för valideringen. Dessa regler avgör i sin tur vilka metadata och tillitsmärken som accepteras för en specifik digital tjänst.
+I stället för separata federationer med vattentäta skott, erbjuder OIDF samexistens av olika federativa kontext inom ramen för en samlad förvaltningsövergripande digital infrastruktur. En federativ kontext kan liknas som en traditionell federation, men skiljer sig i sin distributiva natur och nätverksstruktur. Varje federativ kontext definieras av ett tillitsankare som utgör toppen på en tillitskedja i federationen. Den används för att validera uppgifter om en specifik digital tjänst i nätverket av tjänster via en eller flera betrodda intermediära förbindelsepunkter. Tillitsankaret bestämmer reglerna för valideringen. Dessa regler avgör i sin tur vilka *metadata* och *tillitsmärken* som accepteras för en specifik digital tjänst.
 
 En federativ kontext kan representera ett specifikt behovsområde eller verksamhetsdomän som samlar en grupp av aktörer kring förmedling av strukturerade data om identiteter och behörighetsgrundande information. Kontexten definieras genom gemensamma syften, behov, datasemantik, tillitsramverk, regler och policyer. 
 
 Exempel på federativa kontext: 
-•	Direkt e-legitimering för inloggning till webbaserade digitala tjänster. 
-•	Delegerad beslut för åtkomst till digitala resurser inom hälso- och sjukvård.
-•	Delegerad beslut för åtkomst till digitala resurser inom skola och utbildning.
+-	Direkt e-legitimering för inloggning till webbaserade digitala tjänster. 
+-	Delegerad beslut för åtkomst till digitala resurser inom hälso- och sjukvård.
+-	Delegerad beslut för åtkomst till digitala resurser inom skola och utbildning.
 
 ### Metadata och Tillitsmärke
+Data om de ingående digitala tjänsterna i federationen utgörs av <mark>*metadata*</mark> och <mark>*tillitsmärken*</mark> enligt nedan:
+
+<dl>
+  <dt>Metadata</dt>
+  <dd>Konfigurationsdata för en digital tjänst (entitet) inom ramen för det som är tillåtet, givet de standarder 
+    och profiler som tillämpas och de tillitsmärken som utfärdats för tjänsten. <br /><br />Exempel på metadata är 
+    information om vilka algoritmer som stöds samt hur klienter måste identifiera sig för att hämta ut ett ID-token.
+    <br /><br />*Metadata* följer de metadatastandarder som upprättats för respektive tjänst, vilket för OpenID Connect
+    typiskt är *metadata* för en leverantör av identitetsintygstjänst, även kallad *OpenID Provider (OP)*, eller en 
+    förlitande part (exempelvis en e-tjänst som begär identitetskontroll).</dd>
+  <dt>Tillitsmärke</dt>
+  <dd>Ett signerat intyg från en betrodd utfärdare av respektive *tillitsmärke*. Varje *tillitsmärke* intygar att en digital
+    tjänst uppfyller en definierad kravmassa, eller är auktoriserad att utföra/begära vissa tjänster. <br /><br />Exempel 
+    på *tillitsmärke* är certifiering att tillhandahålla legitimeringstjänst på tillitsnivå 3 enligt *tillitsramverk för
+    Svensk e-legitimation*. <br /><br />OIDF erbjuder även en specialvariant av *tillitsmärken* som kännetecknas av att vara
+    självutfärdade. Det innebär att en digital tjänst kan utfärda ett sådant *tillitsmärke* åt sig själv genom 
+    självdeklaration och därmed undantas från de valideringsregler som vanligtvis gäller för *tillitsmärken* utfärdade av en
+    betrodd utfärdare. Ett självutfärdat *tillitsmärke* behöver exempelvis inte valideras mot ett *tillitsankare*.</dd>
+</dl>
+
+Uppdelningen mellan <mark>tillitsmärke</mark> och <mark>*metadata*</mark> är en av nycklarna som möjliggör delegerad registrering av tjänster. Den aktör som är betrodd att hantera registrering av metadata är inte nödvändigtvis betrodd att intyga tillitsmärken. Likaså, behöver den aktör som är betrodd att intyga tillitsmärken, inte nödvändigtvis ha förmågan att ombesörja adekvat registrering av metadata. Mycket kan därför vinnas genom att dela upp registrering och administration av *metadata* respektive *tillitsmärken*.
+
+### Hämtning och validering av data
+
