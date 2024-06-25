@@ -41,7 +41,7 @@ Den centraliserade modellen för federationer som varit styrande i flera decenni
 
 6. [**Exempel på användningsfall**](#usecase)
 
-
+<br /><br />
 <a name="oidf-intro"/>
 
 ## OpenID federation 
