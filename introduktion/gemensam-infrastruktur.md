@@ -13,15 +13,23 @@ Registrering och distribution av tillitsinformation är en resurskrävande men k
 Den centraliserade modellen för federationer som varit styrande i flera decennier ställer stora krav på federationsoperatören med avseende på såväl administration som kontroll av aktörer och deras uppfyllnad av viktiga specifikationer och regelverk. Även om federationsoperatören kan införa olika former av delegerat ansvar, så är det i slutändan federationsoperatören som ikläder sig det yttersta ansvaret och är den som signerar och publicerar betrodd information om alla aktörer i federationen.
 
 ## Innehållsförteckning
-1. [OpenID federation](#oidf-intro)
-2. [Grundläggande struktur](#grund)
+1. [**OpenID federation**](#oidf-intro)
+
+2. [**Grundläggande struktur**](#grund)
+
     2.1. [Delegering](#delegering)
+
     2.2. [Metadata och Tillitsmärken](#metadata-tm)
+
     2.3. [Hämtning och validering av data](#validering)
-3. [Federationskontext](#federationskontext)
+
+3. [**Federationskontext**](#federationskontext)
+
     3.1. [Metadatapolicy](#metadatapolicy)
+
     3.2. [Utfärdande av tillitsmärken](#utfardatm)
-4. [Registrering](#registrering)
+
+4. [**Registrering**](#registrering)
 
 <a name="oidf-intro"/>
 
