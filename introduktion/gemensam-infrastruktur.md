@@ -35,6 +35,12 @@ Den centraliserade modellen för federationer som varit styrande i flera decenni
 
     4.2.  [Att registrera en tjänst](#entitetsregistrering)
 
+5. [**Möjlighet till en generell lösning**](#generell)
+
+    5.1. [SAML-metadata via OIDF](#saml-oidf)
+
+6. [**Exempel på användningsfall**](#usecase)
+
 
 <a name="oidf-intro"/>
 
@@ -203,10 +209,26 @@ En framgångsfaktor för OIDF är att standarden förenklar anslutningsprocessen
       men som behöver på ett smidigt sätt anslutas till en eller flera federationskontexter.</dd>
 </dl>
 
+<a name="generell"/>
 
+## Möjlighet till en generell lösning
+OIDF är i första hand en standard för OpenID Connect- och OAuth-tjänster. ODIF är dock en öppen standard där man fritt kan specificera stöd för valfri typ av infrastruktur med helt egen metadataprofil. Detta innebär att om man bara skapar en lämplig metadataprofil för att exempelvis specificera SAML-metadataparametrar, skulle man även kunna hantera registrering av SAML-baserade tjänster inom ramen för OIDF.
 
+<a name="saml-oidf"/>
 
- 
+### SAML-metadata via OIDF
+Att hantera registrering av SAML-metadata via OIDF skapar förutsättningar för att ha en gemensam digital infrastruktur för administration och registrering av federationsanslutna tjänster oberoende avsett vilket protokoll dessa använder. Samma federationsansluten tjänst (*entitet*) skulle kunna registrera både OpenID Connect-metadata och SAML-metadata till samma intermediär förbindelsepunkt. Detta skulle kunna innebära stora fördelar både för federationsoperatörer, tjänsteproducenter och tjänstekonsumenter.
+
+För att möjliggöra registrering och distribution av SAML-metadata via OIDF behöver följande göras:
+- Definiera en profil för hur man kan uttrycka SAML-metadata i ett dataformat som kan hanteras av OIDF.
+- Definiera metoder för att på bästa sätt uttrycka tillitsmärken genom SAML-metadata och metadataströmmar.
+- Registrera federationsanslutna tjänster (entiteter) enligt denna nya datamodell (*metadata* och *tillitsmärke*)
+- Skapa en metadatatjänst som kan publicera efterfrågade SAML-metadataströmmar baserat på registreringar inom ramen för OIDF.
+
+<a name="usecase"/>
+
+## Exempel på användningsfall
+
 
 
 [^1]: [Specifikation: OpenID Federation 1.0](https://openid.net/specs/openid-federation-1_0.html) 
