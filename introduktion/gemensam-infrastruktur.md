@@ -31,6 +31,11 @@ Den centraliserade modellen för federationer som varit styrande i flera decenni
 
 4. [**Registrering**](#registrering)
 
+    4.1. [Att upprätta en intermediär förbindelsepunkt](#upprattaie)
+
+    4.2.  [Att registrera en tjänst](#entitetsregistrering)
+
+
 <a name="oidf-intro"/>
 
 ## OpenID federation 
@@ -156,6 +161,52 @@ Vid validering av tillitsmärken kontrolleras även att utfärdaren är auktoris
 <a name="registrering"/>
 
 ## Registrering
+Idén med en distribuerad registreringsmodell möjliggör att ansvaret för registrering av federationsanslutna tjänster (*entiter*) kan fördelas och delegeras till flera federationsoperatörer (*tillitsankare*) och deras underställda intermediära förbindelsepunkter. Strukturen hanteras genom en övergripande federationspolicy som reglerar federationsoperatörens roll samt ställer krav på anslutningsprocesser för varje intermediär förbindelsepunkts rätt att registrera tjänster (entiteter).
+
+<a name="upprattaie"/>
+
+### Att upprätta en intermediär förbindelsepunkt
+En intermediär förbindelsepunkt ansvarar främst för att säkerställa identiteten för en federationsansluten tjänst (*entitet*). Registreringsprocessen inkluderar även att verifiera vilken organisation som tillhandahåller tjänsten, vem som är ansvarig för den och att all data som publiceras om tjänsten har godkänts av den ansvariga organisationen.
+
+En intermediär förbindelsepunkts uppgift handlar i mindre grad om att på enskild basis kontrollera eller godkänna vilka data som en registrerad tjänst (entitet) publicerar om sig själva. Skälet till detta är framför allt att:
+1. En intermediär förbindelsepunkt behöver inte reglera eller kontrollera information om uppfyllnad av regelverk eller kravmassa, då dessa hanteras separat av *tillitsmärken*.
+2. Istället för att kontrollera *metadata* på enskild basis kan en intermediär förbindelsepunkt upprätta en generell policy som reglerar publicerade data för alla registrerade tjänster (entiteter).
+
+Detta gör det betydligt lättare för ett *tillitsankare* som då mycket enklare kan ansluta grupper av tjänster (*entiteter*) i stället för att hantera varje tjänst separat.
+
+Sammantaget lämpar sig en intermediär förbindelsepunkt mycket väl för anslutning av organisationer som har en naturligt nära relation med registrerade tjänster (*entiteter*). Till exempel kan en naturligt lämplig intermediär förbindelsepunkt vara ett universitet som ansvarar för registreringen av universitets egna tjänster (*entiteter*). Denna förbindelsepunkt kan sedan vara underordnad tillitsankaret genom en nationell förbindelsepunkt för alla universitet och högskolor i Sverige.
+
+<a name="entitetsregistrering"/>
+
+### Att registrera en tjänst
+En framgångsfaktor för OIDF är att standarden förenklar anslutningsprocessen för federationsanslutna tjänster (*entiteter*) utan stora ingrepp i befintlig infrastruktur. Intermediära förbindelsepunkter kan därför en ha viktig roll i att erbjuda varianter av registrering som kan möta olika behov. Två metoder för som bör vara viktiga att stödja är: 
+1. Egen publicering av metadata
+2. Delegerad publicering av metadata
+
+<dl>
+  <dt>Egen publicering av metadata</dt>
+  <dd>Denna metod är typisk för registrering av federationsanslutna tjänster. Enligt denna modell bestämmer 
+      tjänsten en URL kopplad till sitt ID för publicering av data om tjänsten. Denna URL ska uppfylla 
+      OIDF-kraven, så att alla som känner till tjänstens ID även kan hitta dess publicerade data.
+      Den federationsanslutna tjänsten ansvarar själv för att skapa och signera de data som den avser att 
+      publicera om sig själv. <br /><br />Den stora fördelen med denna strategi är att den registrerade 
+      tjänsten har stor kontroll över hur den representeras i federationen, så länge den följer de 
+      fastställda reglerna. Den intermediära förbindelsepunkten behåller kontrollen över vad tjänsten får 
+      publicera om sig själv genom den metadatapolicy som upprättas för tjänsten.</dd>
+  <dt>Delegerad publicering av metadata</dt>
+  <dd>En betydligt enklare lösning för en tjänsteproducent är att ansluta en intermediär förbindelsepunkt 
+      som erbjuder stöd för att skapa, signera och publicera metadata om den federationsanslutna tjänsten. 
+      Detta kan vara ett mycket attraktivt erbjudande till de tjänsteproducent som inte har egen förmåga 
+      att skapa, signera och publicera data enligt kraven i OIDF. <br /><br />Det finns många möjligheter att 
+      utforma registreringsprocessen mellan federationsansluten tjänst och den intermediära 
+      förbindelsepunkten &ndash; inte minst avseende existerande tjänster, som inte har eget stöd för OIDF, 
+      men som behöver på ett smidigt sätt anslutas till en eller flera federationskontexter.</dd>
+</dl>
+
+
+
+
+ 
 
 
 [^1]: [Specifikation: OpenID Federation 1.0](https://openid.net/specs/openid-federation-1_0.html) 
