@@ -41,7 +41,13 @@ Den centraliserade modellen för federationer som varit styrande i flera decenni
 
 6. [**Exempel på användningsfall**](#usecase)
 
-<br /><br />
+    6.1. [Leverantör av identitetsintygstjänst enligt OpenID Connect](#op)
+
+    6.2. [Förlitande part](#rp)
+
+    6.3. [Tjänst som tillämpar SAML på traditionellt vis](#samlservice)
+
+<br />
 <a name="oidf-intro"/>
 
 ## OpenID federation 
@@ -228,7 +234,51 @@ För att möjliggöra registrering och distribution av SAML-metadata via OIDF be
 <a name="usecase"/>
 
 ## Exempel på användningsfall
+Detta avsnitt presenterar ett antal användningsfall som beskrivs ur följande tre perspektiv:
+1. Nuvarande situation utan OIDF, det vill säga hur gör vi idag?
+2. Registrering med stöd av OIDF, det vill säga hur registrera federationsanslutna tjänster enligt OIDF?
+3. Tjänsteflöde med OIDF, det vill säga hur kan tjänsten registrerad enligt OIDF tänkas fungera?
+
+<a name="op"/>
+
+### Leverantör av identitetsintygstjänst enligt OpenID Connect
+
+#### Nuvarande situation
 
 
+#### Registrering med OIDF
+
+
+#### Tjänsteflöde med OIDF
+
+
+<a name="rp"/>
+
+### Förlitande part
+
+#### Nuvarande situation
+
+
+#### Registrering med OIDF
+
+
+#### Tjänsteflöde med OIDF
+
+
+<a name="samlservice"/>
+
+### Tjänst som tillämpar SAML på traditionellt vis
+
+#### Nuvarande situation
+
+
+#### Registrering med OIDF
+
+
+#### Tjänsteflöde med OIDF
+
+
+
+<br /><br />
 
 [^1]: [Specifikation: OpenID Federation 1.0](https://openid.net/specs/openid-federation-1_0.html) 
