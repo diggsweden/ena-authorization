@@ -15,12 +15,12 @@ Den centraliserade modellen för federationer som varit styrande i flera decenni
 ## Innehållsförteckning
 1. [OpenID federation](#oidf-intro)
 2. [Grundläggande struktur](#grund)
-  2.1. [Delegering](#delegering)
-  2.2. [Metadata och Tillitsmärken](#metadata-tm)
-  2.3. [Hämtning och validering av data](#validering)
+    2.1. [Delegering](#delegering)
+    2.2. [Metadata och Tillitsmärken](#metadata-tm)
+    2.3. [Hämtning och validering av data](#validering)
 3. [Federationskontext](#federationskontext)
-  3.1. [Metadatapolicy](#metadatapolicy)
-  3.2. [Utfärdande av tillitsmärken](#utfardatm)
+    3.1. [Metadatapolicy](#metadatapolicy)
+    3.2. [Utfärdande av tillitsmärken](#utfardatm)
 4. [Registrering](#registrering)
 
 <a name="oidf-intro"/>
