@@ -12,14 +12,32 @@ Registrering och distribution av tillitsinformation är en resurskrävande men k
 
 Den centraliserade modellen för federationer som varit styrande i flera decennier ställer stora krav på federationsoperatören med avseende på såväl administration som kontroll av aktörer och deras uppfyllnad av viktiga specifikationer och regelverk. Även om federationsoperatören kan införa olika former av delegerat ansvar, så är det i slutändan federationsoperatören som ikläder sig det yttersta ansvaret och är den som signerar och publicerar betrodd information om alla aktörer i federationen.
 
-## OpenID federation 
-OpenID federation definierar en digital infrastruktur som kan försörja betrodda förbindelsepunkter i ett distribuerat nätverk. Det skapar möjlighet för en leverantör av intygsfunktion och en förlitande part att etablera tillit mellan sig även om parterna inte skulle ha ett direktförhållande till varandra. Etableringen hanteras genom en delegerad kedja för administration och distribution av tillitsinformation. 
+## Innehållsförteckning
+- [OpenID federation](#oidf-intro)
+- [Grundläggande struktur](#grund)
+  - [Delegering](#delegering)
+  - [Metadata och Tillitsmärken](#metadata-tm)
+  - [Hämtning och validering av data](#validering)
+- [Federationskontext](#federationskontext)
+  - [Metadatapolicy](#metadatapolicy)
+  - [Utfärdande av tillitsmärken](#utfardatm)
+- [Registrering](#registrering)
 
-OpenID Federation (OIDF) tillför en helt ny modell för en öppen delegerad digital infrastruktur för administration och distribution av tillitsinformation för deltagande tjänster. Även om OIDF är framtagen av OpenID Foundation som utvecklat OpenID Connect, så är OIDF detta till trots en öppen modell för tillitsinformation som redan i sin grundform stödjer andra protokoll, till exempel OAuth för delegering av auktorisation. Faktum är att OIDF har väldigt få begränsningar för vilka typer av tjänster och protokoll som kan stödjas. Det finns inget som hindrar att OIDF byggs ut och används som basinfrastruktur för att hantera registrering av aktörer som tillämpar andra typer av protokoll, såsom SAML.
+<a name="oidf-intro"/>
+
+## OpenID federation 
+*OpenID Federation (OIDF)*[^1] definierar en digital infrastruktur som kan försörja betrodda förbindelsepunkter i ett distribuerat nätverk. Det skapar möjlighet för en leverantör av intygsfunktion och en förlitande part att etablera tillit mellan sig även om parterna inte skulle ha ett direktförhållande till varandra. Etableringen hanteras genom en delegerad kedja för administration och distribution av tillitsinformation. 
+
+OIDF tillför en helt ny modell för en öppen delegerad digital infrastruktur för administration och distribution av tillitsinformation för deltagande tjänster. Även om OIDF är framtagen av OpenID Foundation som utvecklat OpenID Connect, så är OIDF detta till trots en öppen modell för tillitsinformation som redan i sin grundform stödjer andra protokoll, till exempel OAuth för delegering av auktorisation. Faktum är att OIDF har väldigt få begränsningar för vilka typer av tjänster och protokoll som kan stödjas. Det finns inget som hindrar att OIDF byggs ut och används som basinfrastruktur för att hantera registrering av aktörer som tillämpar andra typer av protokoll, såsom SAML.
 
 OIDF åstadkommer detta genom en decentraliserad modell som bryter ner ansvaret för registrering, kontroll och administration till flera aktörer. I denna modell behöver parter som ingår i federationen ta ett större egenansvar för att publicera data (*metadata*) om sina tjänster (*entiteter*). På så sätt kan OIDF växa fram i en dynamisk process där bördan för att upprätta och underhålla federationen fördelas mellan flera aktörer utan att för den sakens skull göra avkall på kraven om kvalitet och tillit. 
 
+<a name="grund"/>
+
 ## Grundläggande struktur
+
+<a name="delegering"/>
+
 ### Delegering
 Till skillnad från en traditionell federation där registrering av alla tjänster administreras av en central federationsoperatör, organiserar OIDF en delegerad modell som fördelar registreringsansvaret till olika aktörer som bildar en kedja av betrodda förbindelsepunkter. Denna modell erbjuder hierarkier av betrodda förbindelsepunkter som i standarden kallas för <mark>*tillitsankare*</mark> och <mark>*intermediära entiteter*</mark>.
 
@@ -32,7 +50,9 @@ Exempel på federativa kontext:
 -	Delegerad beslut för åtkomst till digitala resurser inom hälso- och sjukvård.
 -	Delegerad beslut för åtkomst till digitala resurser inom skola och utbildning.
 
-### Metadata och Tillitsmärke
+<a name="metadata-tm"/>
+
+### Metadata och Tillitsmärken
 Data om de ingående digitala tjänsterna i federationen utgörs av <mark>*metadata*</mark> och <mark>*tillitsmärken*</mark> enligt nedan:
 
 <dl>
@@ -61,6 +81,8 @@ Uppdelningen mellan <mark>*tillitsmärke*</mark> och <mark>*metadata*</mark> är
 
 Vinsterna är betydande då denna uppdelning erbjuder en möjlighet att bygga stora federationer där ingen enskild aktör måste bära hela det administrativa ansvaret för federationen. Federationsoperatörens roll kan utvecklas i ett distribuerat nätverk som delegerar registrering av digitala tjänster till lämpliga *intermediära entiteter* och ansluter *utfärdare av tillitsmärken* till sitt *tillitsankare*. Därigenom utformas en dynamik som är mer skalbart och framtidssäkrat än den traditionella federationsoperatörsrollen, som förväntas att upprätta rutiner för administration och auktorisation av samtliga registrerade tjänster i federationen.
 
+<a name="validering"/>
+
 ### Hämtning och validering av data
 OIDF specificerar konkreta regler för hur metadata och tillitsmärken hämtas och valideras i infrastrukturen mot ett *tillitsankare*.
 
@@ -75,10 +97,14 @@ Av detta skäl har OIDF introducerat en valideringstjänst, som benämns <mark>*
 -	Metadata valideras och filtreras genom federationskontextens metadata policy.
 -	Validering av tillitsmärken.
 
+<a name="federationskontext"/>
+
 ## Federationskontext
 Federationskontext är de regler som gäller när en federationsansluten tjänst (*entitet*) valideras genom ett specifikt *tillitsankare*. Dessa regler specificeras för varje koppling mellan ett *tillitsankare* och varje underställd förbindelsepunkt (*intermediär entitet*). Reglerna uttrycks i ett aktörsintyg (*entity statement*) för varje förbindelsepunkt. Ett *tillitsankare* specificerar i varje utfärdat aktörsintyg de begränsningar som gäller för en förbindelsepunkt. Sådana begränsningar kan gälla vilka typer av digitala tjänster som får registreras samt vilka krav som måste ställas på registrerade tjänsters  metadata. Två viktiga begränsningar som kan specificeras är:
 1. Metadatapolicy
 2. Utfärdande av tillitsmärken
+
+<a name="metadatapolicy"/>
 
 ### Metadatapolicy
 En metadatapolicy är en uppsättning regler som styr innehåller i metadata för en federationsansluten tjänst (*entitet*), vars uppgifter finns registrerade under en förbindelsepunkt (*intermediär entitet*). Varje förbindelsepunkt kan sedan ytterligare begränsa denna metadatapolicy för sina underordnade förbindelsepunkter.
@@ -110,6 +136,8 @@ Om en valideringskedja innehåller flera metadatapolicyer så måste samtliga de
 
 Genom att olika *tillitsankare* kan tillämpa olika metadatapolicyer för samma federationsanslutna tjänst (*entitet*) via olika intermediära förbindelsepunkter, kan samma tjänst (*entitet*) representeras av olika *metadata* beroende på vilket *tillitsankare* och vilken metadatapolicy som används.
 
+<a name="utfardatm"/>
+
 ### Utfärdande av tillitsmärken
 Godkända utfärdare av *tillitsmärken* inkluderas i tillitsankarets aktörsintyg (*entity statement*). Dessa redogörs i en lista över godkända utfärdare med specifikation om vilka tillitsmärken dessa är auktoriserade för att utfärda inom ramen för en federationskontext. På detta sätt kan ett *tillitsankare* styra vilka *tillitsmärken* som är godtagbara och vem som får utfärda dem.
 
@@ -117,4 +145,9 @@ OIDF skiljer mellan <mark>*ansvarig utgivare av tillitsmärken*</mark> och <mark
 
 Vid validering av tillitsmärken kontrolleras även att utfärdaren är auktoriserad att utfärda tillitsmärket samt att tillitsmärket inte blivit spärrat av dess ansvariga utgivare.
 
+<a name="registrering"/>
+
 ## Registrering
+
+
+[^1]: [Specifikation: OpenID Federation 1.0](https://openid.net/specs/openid-federation-1_0.html) 
