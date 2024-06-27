@@ -45,7 +45,7 @@ Den centraliserade modellen för federationer som varit styrande i flera decenni
 
     6.2. [Agera förlitande part med OpenID Connect](#rp)
 
-    6.3. [Tillämpa SAML på traditionellt vis](#samlservice)
+    6.3. [Tillämpa OIDF för SAML på traditionellt vis](#samlservice)
 
 <br />
 <a name="oidf-intro"/>
@@ -287,7 +287,7 @@ Som det beskrivs i föregående användningsfall är registrering av en federati
 Förlitande part måste göra sin registrering individuellt hos varje *OP*. Idag saknas möjligheter för en förlitande part som tillämpar *OpenID Connect* att registrera sig hos en central tjänst för åtkomst till federationens alla (enligt ingångna avtal) OP-tjänster.
 
 #### Registrering med OIDF
-OIDF möjliggör effektiv delegering till intermediära förbindelsepunkter, som har en naturligt nära koppling till de registrerade federationsanslutna tjänsterna. Dessa kan därmed erbjuda anpassade tjänster som på ett naturligt sätt möter tjänsteproducenternas kapacitet och behov. Se även tidigare resonemang runt egen publicering och delegerad publicering av metadata.
+OIDF möjliggör effektiv delegering till intermediära förbindelsepunkter, som har en naturligt nära koppling till de registrerade federationsanslutna tjänsterna. Dessa kan därmed erbjuda anpassade tjänster som på ett naturligt sätt möter tjänsteproducenternas kapacitet och behov. Se även tidigare resonemang kring [registrering av tjänst genom egen publicering eller delegerad publicering av metadata](#entitetsregistrering).
 
 Den viktiga skillnaden mellan egen och delegerad publicering av *metadata* är att den enklaste formen av delegerad publicering innebär att förlitande parts tjänst endast kan lokaliseras via en kompatibel *valideringstjänst*. Detta är inget problem så länge alla *OP* som förlitande part är beroende av, använder en kompatibel *valideringstjänst* för att hämta och validera data om tjänsten från förlitande part. Men, om förlitande part önskar att använda en *OP* som inte tillämpar en kompatibel *valideringstjänst*, då behöver förlitande part välja en annan publiceringsstrategi.
 
@@ -303,7 +303,8 @@ När användaren har valt legitimeringstjänst sker e-legitimering med stöd av 
 
 <a name="samlservice"/>
 
-### Tillämpa SAML på traditionellt vis
+### Tillämpa OIDF för SAML på traditionellt vis
+Idag saknas kompletta specifikationer för att registrera SAML-tjänster i OIDF. Detta användningsfall redogör för vad som skulle vara möjligt om stöd för SAML skapas i enlighet med diskussionen i avsnitt [SAML-metadata via OIDF](#saml-oidf).
 
 #### Nuvarande situation
 
