@@ -307,14 +307,21 @@ När användaren har valt legitimeringstjänst sker e-legitimering med stöd av 
 Idag saknas kompletta specifikationer för att registrera SAML-tjänster i OIDF. Detta användningsfall redogör för vad som skulle vara möjligt om stöd för SAML skapas i enlighet med diskussionen i avsnitt [SAML-metadata via OIDF](#saml-oidf).
 
 #### Nuvarande situation
+I dag behöver varje organisation leverera SAML-metadata för varje federationsansluten tjänst (entitet) till federationsoperatören. Detta inkluderar både konfigurationsdata och sådana uppgifter som i OIDF regleras med *tillitsmärken*. Registrering av data för SAML-tjänster innebär därför också insamling av data som granskning av tjänstens rättigheter och uppfyllnad av väsentliga krav.
 
+Kontroll av teknisk uppfyllnad är i allt väsentligt statisk och utförs i regel innan *metadata* accepteras för publicering. Ändring av regler för hur *metadata* utformas innebär ofta ändringar i de tjänster som används för att kontrollera och verifiera *metadata*.
+
+Samtliga parter hämtar metadata från federationsoperatörens metadatatjänst och ansvarar själva för att tolka och validera inhämtade *metadata* i relation till den tjänst/de tjänster som man önskar kommunicera med.
 
 #### Registrering med OIDF
+Om SAML-metadata skulle registreras i OIDF krävs en uppdelning mellan deklaration av kravuppfyllnad som hanteras av tillitsmärken och rena konfigurationsdata, vilka hanteras som metadata.
 
+Detta innebär att man kan delegera såväl registrering av metadata och utfärdande av tillitsmärke på samma sätt som om tjänsten använde *OpenID Connect*. Detta skulle kunna innebära stora administrativa förbättringar. Särskilt om man skapar en miljö där det finns ett val mellan SAML och *OpenID Connect*. En möjlighet som federationsoperatörer kan erbjuda är tjänster för anpassade metadataströmmar som konfigureras utifrån *tillitsmärken*.
 
 #### Tjänsteflöde med OIDF
+Vid införande av stöd för SAML i OIDF krävs upprättande av en traditionell SAML-metadatatjänst, som kan användas av SAML-tjänster för att konsumera metadata utan krav på modifiering av SAML-mjukvara. Detta innebär att integrationer ska fungera som vanligt för inblandade tjänster även efter övergången till OIDF.
 
-
+Skillnaden är endast hur data lagras om olika tjänster i det bakomliggande registreringssystemet och hur SAML-metadata produceras av federationsoperatören.
 
 <br /><br />
 
