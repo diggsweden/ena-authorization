@@ -242,35 +242,35 @@ Detta avsnitt presenterar ett antal användningsfall som beskrivs ur följande t
 <a name="op"/>
 
 ### Leverans av identitetsintygstjänst med OpenID Connect
-Detta användningsfall beskriver e-legitimering som utförs genom en *identitetsintygstjänst* som tillämpar *OpenID Connect*, även kallad *OpenID Provider (OP)*. *Identitetsintygstjänsten* utför identitetskontroll av en fysisk person på begäran av en förlitande part som tillhandahåller den e-tjänst som personen vill använda.
+Detta användningsfall beskriver hur försörjning av e-legitimering kan utföras med hjälp av en *legitimeringstjänst* som tillämpar *OpenID Connect*. Intygsutfärdandet görs genom en *identitetsintygstjänst*, som inom *OpenID Connect* benämns *OpenID Provider (OP)*. Förlitande part som tillhandahåller e-tjänsten beställer e-legitimering för den person som vill använda e-tjänsten. *Legitimeringstjänsten* utför identitetskontrollen genom att be personen att identifiera sig med en godkänd e-legitimation. När personens identitet har veriferats, utfärdas ett signerat identitetsintyg till e-tjänsten.  
 
-En typisk funktion för en OP är att finnas tillförfogande för flera e-tjänster. Registrering och underhåll av *metadata* om e-tjänster blir dock en betungande administrativ börda när antalet förlitande e-tjänster ökar. Detta är särskilt fallet när interoperabilitet och användning av OP regleras genom avtal och är förknippat med ersättning för e-legitimeringstransaktioner.
+En typisk funktion för en *OP* är att finnas tillförfogande för flera e-tjänster i en federation. Registrering och underhåll av *metadata* om e-tjänster blir dock en betungande administrativ börda när antalet förlitande e-tjänster ökar. Detta är särskilt fallet när interoperabilitet och användning av *legitimeringstjänsten* regleras genom avtal och är förknippat med ersättning för e-legitimeringstransaktioner.
 
 #### Nuvarande situation
-Idag har OP själv ansvaret för att reglera och administrera anslutning av e-tjänster. Detta sker ofta med processer som till övervägande del är beroende av manuella kontroller och manuell registrering.
+Idag har *OP* själv ansvaret för att reglera och administrera anslutning av e-tjänster. Detta sker ofta med processer som till övervägande del är beroende av manuella kontroller och manuell registrering.
 
 Det finns idag standarder för automatisk registrering av *metadata*, men dessa procedurer är väldigt begränsade vad gäller möjligheten att säkerställa ursprung och ansvar för de tjänster som registreras.
 
 #### Registrering med OIDF
-En OP är en kritisk tjänst i federationen och därför är det rimligt att begränsa registrering av sådana tjänster till någon eller några betrodda operatörer särskilt lämpade för uppgiften. Det som framförallt behöver säkerställas är att organisationen som tillhandhåller *identitetsintygstjänsten* och dess ansvariga företrädare autentiseras tillsammans med de nycklar som används för att tillhandahålla data och nycklar för *identitetsintygstjänsten*.
+En *OP* är en kritisk tjänst i federationen och därför är det rimligt att begränsa registrering av sådana tjänster till någon eller några betrodda operatörer särskilt lämpade för uppgiften. Det som framförallt behöver säkerställas är att organisationen som tillhandhåller *legitimeringstjänsten* och dess ansvariga företrädare autentiseras tillsammans med de nycklar som används för att tillhandahålla data och nycklar för *legitimeringstjänsten*.
 
-Operatören behöver däremot inte hantera frågor gällande om *identitetsintygstjänsten* uppfyller specifika krav, såsom tekniska-, administrativa-, juridiska- eller krav om certifiering. Dessa krav hanteras av *tillitsmärken*.
+*Federationsoperatören* behöver däremot inte hantera specifika frågor om *legitimeringstjänstens* uppfyllnad om diverse krav, såsom tekniska-, administrativa-, juridiska- eller krav om certifiering. Dessa hanteras av *tillitsmärken*.
 
-En OP som ska anslutas till federationen behöver således utföra följande steg:
-1.	Registrering hos federationsoperatör eller underliggande intermediär förbindelsepunkt, kopplade till relevanta tillitsankare.
+En *OP* som ska anslutas till federationen behöver således utföra följande steg:
+1.	Registrering hos *federationsoperatör* eller underliggande intermediär förbindelsepunkt, kopplade till relevanta *tillitsankare*.
 2.	Genomgång kontroller och granskning utifrån krav för att erhålla nödvändiga *tillitsmärken* från lämpliga *utfärdare av tillitsmärken*.
-3.	Publicering av *identitetsintygstjänstens* *metadata*.
+3.	Publicering av *metadata*.
 
-Här kan en OP välja olika metoder för att publicera sitt *metadata*, men ett rimligt antagande är att varje OP kommer att  publicera sitt eget *metadata*.
+Här kan en *OP* välja olika metoder för att publicera sitt *metadata*, men ett rimligt antagande är att varje *OP* kommer att  publicera sitt eget *metadata*.
 
 #### Tjänsteflöde med OIDF
-En OP kan kommunicera och tillhandahålla e-legitimering till alla förlitande parter som har federationsanslutna tjänster (*entiteter*) i OIDF, utan behov av ytterligare manuella processer. Hanteringen av en förlitande parts begäran om e-legitimering med stöd av OIDF sker enligt följande steg:
-1. OP tar emot en begäran om e-legitimering (*request*) från en förlitande part.
-2. OP kontaktar en *valideringstjänst* och begär ut validerade *metadata* och *tillitsmärken* för den förlitande partens tjänst (*entitet*) och gällande federationskontext.
-3. OP verifierar att förlitande part innehar nödvändiga *tillitsmärken* för att vara behörig att begära e-legitimering.
-4. OP använder de validerade *metadata* för att tillhandahålla sin *identitetsintygstjänst*.
+En *OP* kan kommunicera och tillhandahålla e-legitimering till alla förlitande parter som har federationsanslutna tjänster (*entiteter*) i OIDF, utan behov av ytterligare manuella processer. Hanteringen av en förlitande parts begäran om e-legitimering med stöd av OIDF sker enligt följande steg:
+1. *OP* tar emot en begäran om e-legitimering (*request*) från en förlitande part.
+2. *OP* kontaktar en *valideringstjänst* och begär ut validerade *metadata* och *tillitsmärken* för den förlitande partens tjänst (*entitet*) och gällande federationskontext.
+3. *OP* verifierar att förlitande part innehar nödvändiga *tillitsmärken* för att vara behörig att begära e-legitimering.
+4. *OP* använder de validerade *metadata* för att tillhandahålla *identitetsintyg* till förlitande part.
 
-Det är OP som bestämmer federationskontext samt vilka *tillitsmärken* som krävs för att begära e-legitimeringen. Ett sådant *tillitsmärke* kan mycket väl vara utfärdat av OP själv till de aktörer som OP-leverantören har avtal med.
+Det är *OP* som bestämmer federationskontext samt vilka *tillitsmärken* som krävs för att begära e-legitimeringen. Ett sådant *tillitsmärke* kan mycket väl vara utfärdat av *OP* själv till de aktörer som *legitimeringstjänsten* har avtal med.
 
 Om validerade *tillitsmärken* och *metadata* inte är kompatibla med den begärda tjänsten, avvisas begäran med en lämplig felkod.
 
