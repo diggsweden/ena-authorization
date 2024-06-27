@@ -43,7 +43,7 @@ Den centraliserade modellen för federationer som varit styrande i flera decenni
 
     6.1. [Leverans av identitetsintyg med OpenID Connect](#op)
 
-    6.2. [Agera förlitande part](#rp)
+    6.2. [Agera förlitande part med OpenID Connect](#rp)
 
     6.3. [Tillämpa SAML på traditionellt vis](#samlservice)
 
@@ -276,16 +276,30 @@ Om validerade *tillitsmärken* och *metadata* inte är kompatibla med den begär
 
 <a name="rp"/>
 
-### Agera förlitande part
+### Agera förlitande part med OpenID Connect
+Detta användningsfall beskriver hur förlitande part kan beställa e-legitimering i en e-tjänst som tillämpar *OpenID Connect*. En e-tjänst kan vara förlitande part i flera federationskontexter samtidigt. Ett exempel på detta skulle kunna vara om en sjukvårdssystem har inloggning för både förskrivande läkare via SITHS och för patienter med e-legitimationer som *BankID* eller *Freja eID+*.
+
+I detta användningsfall antar vi att samtliga legitimeringstjänster är *OP* enligt *OpenID Connect*.
 
 #### Nuvarande situation
+Som det beskrivs i föregående användningsfall är registrering av en federationsansluten tjänst förknippat med processer som till övervägande del är beroende av manuella kontroller och manuell registrering.
 
+Förlitande part måste göra sin registrering individuellt hos varje *OP*. Idag saknas möjligheter för en förlitande part som tillämpar *OpenID Connect* att registrera sig hos en central tjänst för åtkomst till federationens alla (enligt ingångna avtal) OP-tjänster.
 
 #### Registrering med OIDF
+OIDF möjliggör effektiv delegering till intermediära förbindelsepunkter, som har en naturligt nära koppling till de registrerade federationsanslutna tjänsterna. Dessa kan därmed erbjuda anpassade tjänster som på ett naturligt sätt möter tjänsteproducenternas kapacitet och behov. Se även tidigare resonemang runt egen publicering och delegerad publicering av metadata.
 
+Den viktiga skillnaden mellan egen och delegerad publicering av *metadata* är att den enklaste formen av delegerad publicering innebär att förlitande parts tjänst endast kan lokaliseras via en kompatibel *valideringstjänst*. Detta är inget problem så länge alla *OP* som förlitande part är beroende av, använder en kompatibel *valideringstjänst* för att hämta och validera data om tjänsten från förlitande part. Men, om förlitande part önskar att använda en *OP* som inte tillämpar en kompatibel *valideringstjänst*, då behöver förlitande part välja en annan publiceringsstrategi.
 
 #### Tjänsteflöde med OIDF
+Beroende på vilken typ av användare som loggar in väljs *OP* och lämplig federationskontext. Vald federationskontext bestämmer vilket *tillitsankare* och vilken *valideringstjänst* som används för att hämta och verifiera data om vald *OP*.
 
+När användaren har valt legitimeringstjänst sker e-legitimering med stöd av OIDF enligt följande:
+1.	Förlitande part hämtar validerade *metadata* och *tillitsmärken* för vald OP via lämplig valideringstjänst.
+2.	Förlitande part verifierar att *OP* innehar nödvändiga *tillitsmärken*.
+3.	Förlitande part använder validerad metadata om *OP* för att skicka en begäran om e-legitimering.
+
+*Tillitsmärken* som lämpligen bör kontrolleras av en förlitande part är sådana tillitsmärken som intygar att *OP* är auktoriserad att ge ut identitetsintyg på den tillitsnivå som efterfrågas i enlighet med lämplig teknisk profil.
 
 <a name="samlservice"/>
 
