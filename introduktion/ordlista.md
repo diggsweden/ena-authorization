@@ -14,12 +14,12 @@ Definitionerna nedan är specifikt anpassade för att förklara användningen av
 | :------------- | :------------- | :------------- |
 | <a name="anvandare"></a> användare | En människa som interagerar med en digital tjänst via dess grafiska eller fysiska användargränssnitt. En användare kan företräda sig själv eller någon annan fysisk eller juridisk person. | Se även *[system](#system)*. |
 | <a name="anvandarorganisation"></a> användarorganisation | Aktör som ansvarar för identitets- och behörighetsinformation om sina *[användare](#anvandare)* och *[system](#system)*. Uppgifterna verifieras på begäran från en *förlitande part* och förmedlas genom ett signerat intyg. |   | 
-| <a name="anvisningstjanst"></a> anvisningstjänst | Ingår vanligtvis som funktion i en digital tjänst hos förlitande part och stödjer *[användaren](#anvandare)* i valet av *[intygsfunktion](#intygsfunktion)*. |   |
+| <a name="anvisningstjanst"></a> anvisningstjänst | Ingår vanligtvis som funktion i en digital tjänst hos förlitande part och stödjer *[användaren](#anvandare)* i valet av intygstjänst. |   |
 | <a name="attribut"></a> attribut | Identitets- och behörighetsgrundande information om en *[användare](#anvandare)* eller ett *[system](#system)* enligt en förutbestämd struktur, format och uppsättning regler. |   |
 | <a name="attributkalla"></a> attributkälla | En katalog eller ett register som innehåller identitets- och/eller behörighetsgrundande information. Den används bland annat vid identitets- och behörighetskontroll, utfärdande av intyg, med mera. |   |
 | <a name="attributprofil"></a> attributprofil | En samling av *[attribut](#attribut)* för att specificera identitets- och/eller behörighetsgrundande information i ett specifikt sammanhang. |    |
-| auktorisation | Se *[åtkomstbeslut](#atkomstbeslut)*. | Engelska: *authorization* |
-| auktorisationstjänst | Se *[åtkomstintygstjänst](#atkomstintygstjanst)*. | Engelska: *authorization server* |
+| auktorisation | Se *[åtkomstbeslut](#auktorisation)*. | Engelska: *authorization* |
+| auktorisationstjänst | Se *[åtkomstintygstjänst](#auktorisationserver)*. | Engelska: *authorization server* |
 | <a name="autentisering"></a> autentisering | En process för identifiering och validering av *[identitet](#identitet)* för en *[användare](#anvandare)* eller ett *[system](#system)*. | Engelska: *authentication* |
 | <a name="autentiseringstjanst"></a> autentiseringstjänst | En infrastrukturkomponent som används för att fastställa ett subjekts *[identitet](#identitet)* (*[användare](#anvandare)* eller *[system](#system)*) vid åtkomst till en digital tjänst. |   | 
 | <a name="claims"></a> claims | I engelsk litteratur används *Claims* som ett begrepp för attributlista eller bärare av *[attribut](#attribut)*. |   | 
