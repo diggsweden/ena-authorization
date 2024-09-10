@@ -107,7 +107,7 @@ c--_3. verfiera organisatoriska och legala <br>förutsättningar för samverkan-
 c--_4. begär åtkomst till API-->as
 as--4.1. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
 as--4.2 verifiera tillit till Klient-->t
-c--5. Anropa API-->p
+c--_5. Anropa API-->p
 p-.litar på.->as
 p--5.1 Validera åtkomstintyg-->p
 ```
