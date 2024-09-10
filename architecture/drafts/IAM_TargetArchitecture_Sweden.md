@@ -101,7 +101,7 @@ subgraph co[Tjänstekonsument]
     c(Klient)
 end
 
-c--1. Skapa signerad Privat Key JWT-->c
+c--"1. Skapa signerad Privat Key JWT"-->c
 c--2. hitta tjänst-->tk
 c--3. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
 c--4. begär åtkomst till API-->as
