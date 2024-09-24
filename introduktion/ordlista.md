@@ -49,7 +49,7 @@ Definitionerna nedan är specifikt anpassade för att förklara användningen av
 | <a name="interfederation"></a> interfederation | Samverkan mellan urval av aktörer från olika *[federationer](#federation)* utifrån en gemensam överenskommelse med berörda *[federationsoperatörer](#federationsoperator)*. |  |
 | <a name="intygsvaxling"></a> intygsväxling | En funktion som utfärdar ett nytt intyg baserat på validering och innehåll från ett intyg utfärdat av en annan part. |  |
 | leverantör av e-legitimation  | Se *[utfärdare av e-legitimation](#elegutfardare)*. |  |
-| <a name="kvalitetsmarke"></a> kvalitetsmärke | Deklaration av att en part uppfyller de krav som är definierade för ett visst tillitsmärke. | Engelska: *trust mark* | 
+| <a name="kvalitetsmarke"></a> kvalitetsmärke | Deklaration av att en part uppfyller de krav som är definierade för ett visst kvalitetsmärke. | Engelska: *trust mark* | 
 | <a name="attributleverantor"></a> leverantör av formaliserade attribut | En aktör som ansvarar för värdemängder i en katalog eller ett register med utgångspunkt i någon form av förordning, instruktion, regleringsbrev eller officiellt uppdrag. | Skatteverket är exempel på en aktör som besitter denna roll för svenska folkbokföringsuppgifter. |
 | <a name="svenskelegitimation"></a> svensk e-legitimation | En *[e-legitimation](#elegitimation)* som är granskad och godkänd enligt *[tillitsramverk för Svensk e-legitimation](#tillitsramverksveleg)*. |  |
 | <a name="scope"></a> scope | Inom standarden *OAuth 2.0* används termen för att deklarera behörigheters omfång eller begärt omfång. |  |
