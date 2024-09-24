@@ -6,10 +6,10 @@ classDef Amber color:#000000,fill:#FFFF44
 classDef Green color:#000000,fill:#BDFFA4
 classDef orange color:#000000,fill:#f96
 A{{Användare<br>Org A}}:::Amber
-B([Digital<br>tjänst<br>Org B])
+B([Digital<br>tjänst<br>Org B]):::Green
 C(Anvisningstjänst)
-D[(Attribut-källa<br>Org C<br>Auth)]:::orange
-E[(Attribut-källa<br>Org D<br>Öppen)]:::Green
+D[(Attribut-källa<br>Org C<br>Auth)]
+E[(Attribut-källa<br>Org D<br>Öppen)]
 F(Intygstjänst Org A):::Amber
 G(Autentiseringstjänst)
 H(Uppdragsväljare):::Amber
