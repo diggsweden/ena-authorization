@@ -31,18 +31,16 @@ B-.->|7. E-tjänsten har tillit till de attribut<br> som behövs och auktorisera
 
 - Möjliga tjänstekomponenter i federationen (diskuteras):
   - E-legitimation
-  - E-tjänst
+  - Digital tjänst
   - Anvisningstjänst
-  - Intygsutfärdartjänst/IdP
-    - (med uppdragsväljare)
-    - åtkomstintygsutfördartjänst
+  - Identitetsintygstjänst/Åtkomstintygstjänst
   - Identifieringstjänst (beroende till)
   - Autentiseringstjänst(er)
-  - Attributtjänst
-  - Regelverkstjänst
-    - (med repository)
-- Stödtjänster
+  - Attributkälla
+  - Stödtjänster
     - Metadata
+    - Anvisningstjänst
+    - Tillitsintygstjänst
     - Revokering
     - Spårbarhet
     - Federations-federationsåtkomst
@@ -61,7 +59,7 @@ E-legitimation är en elektronisk id-handling som du kan använda för att legit
 
 En digital tjänst som tillhandahålls med ett grafiskt användargränssnitt. Digitalak tjänster kan vara utformade för både individer och organisationer och omfattar ett brett spektrum av funktioner, från enkla webbformulär till avancerade interaktiva tjänster. Digitala tjänster i en federation är verifierade/granskade och godkända för att uppnå tillit. Den digitala ställer krav på användarorganisationer och konsumenter av tjänsten att uppfylla tillit för få använda tjänsten.
 
-### Åtkomstintygstjänst/Identitetsintygstjänst (IdP)
+### Identitetsintygstjänst/Åtkomstintygstjänst (IdP)
 
 Intygstjänsterna ansvarar för att autentisera användaren, sammanställer de uppgifter uppgifter om användaren som en digital tjänst behöver och leverera dessa uppgifter på ett säkert sätt i ett intyg. Tjänsten använder flera andra tjänster för att genomföra detta; en *autentiseringstjänst* (eller alternativt en spärrtjänst/revokeringslista) och *attributkällor*. Intyget används sedan av den digitala tjänsten för att styra vad användaren ska få se och göra. Intygstjänster är föremål för verifiering/granskning i en federation.
 
