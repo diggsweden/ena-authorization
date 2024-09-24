@@ -6,7 +6,7 @@ classDef Amber color:#000000,fill:#FFFF44
 classDef Green color:#000000,fill:#BDFFA4
 classDef orange color:#000000,fill:#f96
 A{{Användare<br>Org A}}:::Amber
-B([E-tjänst<br>Org B])
+B([Digital<br>tjänst<br>Org B])
 C(Anvisningstjänst)
 D[(Attribut-källa<br>Org C<br>Auth)]:::orange
 E[(Attribut-källa<br>Org D<br>Öppen)]:::Green
@@ -15,17 +15,19 @@ G(Autentiseringstjänst)
 H(Uppdragsväljare):::Amber
 I(Attributskälla Org A):::Amber
 J(E-legitimationsutfärdare)
+K(Auktorisationstjänst)
 J ==> A
-A -->|1. Loggar in i extern e-tjänst<br> med e-legitimation | B
+A -->|_1. Loggar in i extern e-tjänst<br> med e-legitimation | B
 B <==> C
-B --> |2. Anropar<br>intygsutfärdartjänst| F
+B --> |_2. Anropar<br>intygstjänst| F
 F <==> G
 F --> H
-F --> |3. Hämtar behörighetsstyrande attribut| I
-F -.-> |4. Intyg med identitet<br>och attribut| B
-B -->|5. Kompletterande attribut<br>S2S autenticering| D
-B --> |6. Kompletterande<br>Offentliga uppgifter| E
-B-.->|7. E-tjänsten har tillit till de attribut<br> som behövs och auktoriserar användaren<br> för användning av e-tjänsten |A
+F --> |_3. Hämtar behörighetsstyrande attribut| I
+F -.-> |_4. Intyg med identitet<br>och attribut| B
+B -->|_5. Kompletterande attribut<br>S2S autenticering| D
+B --> |_6. Kompletterande<br>Offentliga uppgifter| E
+B-.->|_7. E-tjänsten har tillit till de attribut<br> som behövs och auktoriserar användaren<br> för användning av e-tjänsten |A
+B<-->K
 ```
 ## Tjänstekomponenter i federation
 
