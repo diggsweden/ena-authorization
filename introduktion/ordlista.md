@@ -13,8 +13,8 @@ Definitionerna nedan är specifikt anpassade för att förklara användningen av
 | Term  | Beskrivning | Kommentar |
 | :------------- | :------------- | :------------- |
 | <a name="anvandare"></a> användare | En människa som interagerar med en digital tjänst via dess grafiska eller fysiska användargränssnitt. En användare kan företräda sig själv eller någon annan fysisk eller juridisk person. | Se även *[systemanvändare](#system)*. |
-| <a name="anvandarorganisation"></a> användarorganisation | Aktör som ansvarar för identitets- och behörighetsinformation om sina *[användare](#anvandare)* och *[systemanvändare](#system)*. Uppgifterna verifieras på begäran från en *förlitande part* och förmedlas genom ett signerat intyg. |   | 
-| <a name="anvisningstjanst"></a> anvisningstjänst | Ingår vanligtvis som funktion i en digital tjänst hos förlitande part och stödjer *[användaren](#anvandare)* i valet av intygstjänst. |   |
+| <a name="anvandarorganisation"></a> användarorganisation | Aktör som ansvarar för identitets- och behörighetsinformation om sina *[användare](#anvandare)* och *[systemanvändare](#system)*. Uppgifterna verifieras på begäran från en *[förlitande part](#forlitandepart)* och förmedlas genom ett signerat intyg. |   | 
+| <a name="anvisningstjanst"></a> anvisningstjänst | Ingår vanligtvis som funktion i en digital tjänst hos *[förlitande part](#forlitandepart)* och stödjer *[användaren](#anvandare)* i valet av intygstjänst. |   |
 | <a name="attribut"></a> attribut | Identitets- och behörighetsgrundande information om en *[användare](#anvandare)* eller en *[systemanvändare](#system)* enligt en förutbestämd struktur, format och uppsättning regler. |   |
 | <a name="attributkalla"></a> attributkälla | En katalog eller ett register som innehåller identitets- och/eller behörighetsgrundande information. Den används bland annat vid identitets- och behörighetskontroll, utfärdande av intyg, med mera. |   |
 | <a name="attributprofil"></a> attributprofil | En samling av *[attribut](#attribut)* för att specificera identitets- och/eller behörighetsgrundande information i ett specifikt sammanhang. |    |
