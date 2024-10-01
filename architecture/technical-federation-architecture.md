@@ -17,7 +17,7 @@ I(Attributskälla Org A):::Amber
 J(E-legitimationsutfärdare)
 K(Auktorisationstjänst)
 J ==> A
-A -->|_1. Loggar in i extern e-tjänst<br> med e-legitimation | B
+A -->|_1. Loggar in i extern digital tjänst<br> med e-legitimation | B
 B <==> C
 B --> |_2. Anropar<br>intygstjänst| F
 F <==> G
@@ -26,7 +26,7 @@ F --> |_3. Hämtar behörighetsstyrande attribut| I
 F -.-> |_4. Intyg med identitet<br>och attribut| B
 B -->|_5. Kompletterande attribut<br>S2S autenticering| D
 B --> |_6. Kompletterande<br>Offentliga uppgifter| E
-B-.->|_7. E-tjänsten har tillit till de attribut<br> som behövs och auktoriserar användaren<br> för användning av e-tjänsten |A
+B-.->|_7. Tjänsten har tillit till de attribut<br> som behövs och auktoriserar användaren<br> för användning av e-tjänsten |A
 B<-->K
 ```
 ## Tjänstekomponenter i federation
@@ -61,7 +61,7 @@ E-legitimation är en elektronisk id-handling som du kan använda för att legit
 
 En digital tjänst som tillhandahålls med ett grafiskt användargränssnitt. Digitalak tjänster kan vara utformade för både individer och organisationer och omfattar ett brett spektrum av funktioner, från enkla webbformulär till avancerade interaktiva tjänster. Digitala tjänster i en federation är verifierade/granskade och godkända för att uppnå tillit. Den digitala ställer krav på användarorganisationer och konsumenter av tjänsten att uppfylla tillit för få använda tjänsten.
 
-### Identitetsintygstjänst/Åtkomstintygstjänst (IdP)
+### Intygstjänst (Identitetsintygstjänst + Åtkomstintygstjänst aka IdP)
 
 Intygstjänsterna ansvarar för att autentisera användaren, sammanställer de uppgifter uppgifter om användaren som en digital tjänst behöver och leverera dessa uppgifter på ett säkert sätt i ett intyg. Tjänsten använder flera andra tjänster för att genomföra detta; en *autentiseringstjänst* (eller alternativt en spärrtjänst/revokeringslista) och *attributkällor*. Intyget används sedan av den digitala tjänsten för att styra vad användaren ska få se och göra. Intygstjänster är föremål för verifiering/granskning i en federation.
 
@@ -92,9 +92,9 @@ Det viktigaste syftet med metadata är att tillhandahålla de nycklar/certifikat
 
 I en behörighets- och identitetsfederation är det möjligt att erbjuda och konsumera en gemensam anvisningstjänst, som listar vilka Intygstjänster som är möjliga för användaren att välja mellan. Syftet med en sådan anvisningstjänst är att låta användaren välja vilken organisation den tillhör och därmed anropa "rätt" Intygstjänst.
 
-#### Tillitsintygstjänst
+#### Kvalitetsmärkesverifieringstjänst
 
-Metadatatjänst som används för att verifiera vilken tillit som en viss tjänst, användare eller organisation har uppnått i federationen. Kan också användas för att se vilken tillit som en viss tj'nst kräver (se OIDC)
+Metadatatjänst som används för att verifiera vilket kvalitetsmärke som en viss tjänst, användare eller organisation har uppnått i federationen. Kan också användas för att se vilken tillit som en viss tjänst kräver.
 
 #### Revokeringstjänst
 
