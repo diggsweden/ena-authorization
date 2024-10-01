@@ -51,7 +51,7 @@ Definitionerna nedan är specifikt anpassade för att förklara användningen av
 | <a name="intygsvaxling"></a> intygsväxling | En funktion som utfärdar ett nytt intyg baserat på validering och innehåll från ett intyg utfärdat av en annan part. |  |
 | leverantör av e-legitimation  | Se *[utfärdare av e-legitimation](#elegutfardare)*. |  |
 | <a name="kvalitetsmarke"></a> kvalitetsmärke | Deklaration av att en part uppfyller de krav som är definierade för ett visst kvalitetsmärke. | Engelska: *Trust Mark* | 
-| <a name="kvalitetsmarkesverifieringstjanst"></a> Kvalitetsmärkesverifieringstjänst | En infrastrukturkomponent som tillhandahålls från en *[utfärdare av kvalitetsmärke](#utfardarekvalitetsmarke)* och används för att verifiera en parts påstående om kvalitetsmärke. |  |
+| <a name="kvalitetsmarkesverifieringstjanst"></a> kvalitetsmärkesverifieringstjänst | En infrastrukturkomponent som tillhandahålls från en *[utfärdare av kvalitetsmärke](#utfardarekvalitetsmarke)* och används för att verifiera en parts påstående om kvalitetsmärke. |  |
 | <a name="attributleverantor"></a> leverantör av formaliserade attribut | En aktör som ansvarar för värdemängder i en katalog eller ett register med utgångspunkt i någon form av förordning, instruktion, regleringsbrev eller officiellt uppdrag. | Skatteverket är exempel på en aktör som besitter denna roll för svenska folkbokföringsuppgifter. |
 | <a name="svenskelegitimation"></a> svensk e-legitimation | En *[e-legitimation](#elegitimation)* som är granskad och godkänd enligt *[tillitsramverk för Svensk e-legitimation](#tillitsramverksveleg)*. |  |
 | <a name="scope"></a> scope | Inom standarden *OAuth 2.0* används termen för att deklarera behörigheters omfång eller begärt omfång. |  |
