@@ -398,8 +398,21 @@ Målarkitekturen innehåller ett koncept med en kravkatalog där man samlar och 
 
 Exakt utformning av kvalitetsmärken tas fram inom Enas byggblick Tillit.
 
-### 4.2 Digital infrastruktur
+### 4.2 Digital IAM-infrastruktur
+Den IAM-infrastrukturen realiseras baserat på standarden OpenID Federation (OIDF), vilken möjliggör federativ hantering av tillitsgrundande information, digitala identiter och annan IAM-metadata. OIDF är ännu inte en fastställd standard, men den används redan i Italiens IAM-infrastruktur och i Sveriges <i>Single Digital Gateway</i>-realisering. Digg håller på att ta fram en svensk profileringen av standarden.
+
+<b>Not:</b> Sveriges IAM-infrastruktur omfattar även identitetshantering för invånare och sveriges eIDAS-nod för hantering av EU-medborgares identifiering. Arkitektur och tekniska komponenter för detta ändamål finns redan etablerade och har därför exkluderats från översikten ovan i syfte att minska komplexiteten.
+
+Den svenska IAM-infrastrukturen innehåller fyra roller:
+
+1. Ena infrastrukturansvarig - en roll som innebär att man har ett koordineringsansvar för att tillse att en svensk digital infrastruktur skapas och förvaltas. Digg innehar rollen idag.
+1. Sweden trust federationsansvarig - en roll som ansvarar för att hålla metadata om IAM-infrastrukturens anslutningsoperatörer och kvalitetsmärkesutfärdare. Man ska som federationsansvarig även tillhandahålla en tillitsuppslagstjänst.
+1. Sweden Trust kvalitetsmärkesutfärdare - en roll inom infrastrukturen för de aktörer som tillser att aktörers uppfyllnad av krav uppfylls med en för kvalitetsmärkets adekvat tillförlitlighet. Exempel på tillförlitlighetsnivåer i dessa granskningar kan vara självdeklaration, intern revision, eller extern revision. Kvalitetsmärkesutfärdaren registrerar utfärdade kvalitetsmärken i en federationsmetadatatjänst som är åtkomlig för federationsansvariges tillitsuppslagstjänst.
+1. Sweden trust anslutningsoperatör - en roll för de parter som tillser att aktörer som vill samverka via digitala tjänster inom Ena uppfyller SKALL-krav gällande kvalitetsmärken och därefter registrerar IAM-aktörens metadata i sin federationsmetadatatjänst.
+
 ### 4.3 Samverkan via digitala tjänster
+Samverkan via digitala tjänster kan ske antingen via direkt avtal med en tjänsteproducent i de fall det endast finns en tjänsteproducent för aktuell samverkan. Alternativt, om det finns multipla tjänstekonsumenter och tjänsteproducenter är det motiverat att forma en federation för informationsutbyte. Detta görs främst för att underlätta tecknande av komersiella avatl och GDPR personuppgiftsbiträdesavtal (PUB-avtal), men det kan också ge en effektiv struktur för styrning, kontroll och förvaltning av överenskommelser kring informationsutbytet. 
+
 
 ### 4.4 Utvärdering av interoperabilitet
 <a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/fakta-pm-om-eu-forslag/forordning-om-ett-interoperabelt-europa_ha06fpm33/">Förordning om ett interoperabelt Europa</a> innehåller krav på utvärdering av interoperabilitet för att följa upp effekter av uppdateringar i it-system av betydelse för gränsöverskridande interoperabilitet inom EU. Förordningen pekar på att utvärderingen ska göras i relation till det europeiska ramverket för interoperabilitet (EIF). 
