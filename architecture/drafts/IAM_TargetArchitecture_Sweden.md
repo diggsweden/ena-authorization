@@ -2,23 +2,9 @@
 
 **Innehållsförteckning**
 - [1. Inledning](#1-inledning)
-  - [1.1 Syfte](#11-syfte)
-  - [1.2 Avgränsningar](#12-avgränsningar)  
 - [2. Behovsanalys/mönster](#2-behovsanalysmönster)
-  - [2.1 System anropar system, under egen identitet](#21-system-anropar-system-under-egen-identitet)
-  - [2.2 System anropar system, på uppdrag av användare](#22-system-anropar-system-på-uppdrag-av-användare)
-  - [2.3 Medarbetare anropar extern e-tjänst, utan förprovisionerat konto](#23-medarbetare-anropar-extern-e-tjänst-utan-förprovisionerat-konto)
-  - [2.4 Medarbetare anropar extern tjänst, med förprovisionerat användarkonto](#24-medarbetare-anropar-extern-tjänst-med-förprovisionerat-användarkonto)
 - [3. Scenarion](#3-scenarion)
-  - [3.1 Finansiell status](#31-finansiell-status)
 - [4. Målarkitektur](#4-målarkitektur)
-  - [4.1 Arkitektoniska principer](#41-arkitektoniska-principer)
-  - [4.2 Ena IAM](#42-ena-iam)
-  - [4.3 Begreppsmodell](#43-begreppsmodell)
-  - [4.4 Tillit](#44-tillit)
-  - [4.5 Identitet](#45-identitet)
-  - [4.6 Behörighet](#46-behörighet)
-  - [4.7 Åtkomst](#47-åtkomst)
 
 <hr>
 
@@ -386,52 +372,75 @@ Möjliga förutsättningar
 
 
 ## 4. Målarkitektur
-<table bgcolor="lightblue" border=1><tr><td>
-Det finns ett förslag på en ny EU-förordning, <a href="https://commission.europa.eu/system/files/2022-11/com2022720_0.pdf">Interoperabilitetsförordningen</a>, vilken tar avstamp i European Interoperability Framwork (EIF) och reglerar hur man säkerställer att digitala tjänster som tas fram inom EU linjerar mot EIF.
-<br/>
-<br/>
-I december 2023 överlämnades ett betänkande <a href="https://www.regeringen.se/rattsliga-dokument/statens-offentliga-utredningar/2023/12/sou-202396/">En reform för datadelning (SOU 2023:96)</a> till regeringen. Denna utreder Interoperabilitetsförordningen utifrån ett Svenskt kontext.
-</td></tr></table>
-
 <table bgcolor="lightyellow" border=1><tr><td>
-Jag har i mina arkitekturskisser nedan använt termer från T2, men beskrivningarna har förenklats något för detta kontext. Terminologin genomgår en första revidering under 2024. Rekommendationen är att vi använder nuvarande termer tills revideringen är klar.
-<br>
-<br><a href="https://inera.atlassian.net/wiki/spaces/OITIFV">T2 - referensarkitektur för interoperabilitet inom svensk välfärd</a>
-<br><a href="https://inera.atlassian.net/wiki/spaces/OITAFIIVOO">T2 - referensarkitektur för interoperabilitet inom svensk vård och omsorg</a>
+Målarkitekturen använder termer från <a href="https://inera.atlassian.net/wiki/spaces/OITIFV/pages/3020324865/T2+-+v+lf+rden">T2 - referensarkitektur för interoperabilitet inom svensk välfärd</a>. En ny ordlista är under framtagande inom Enas byggblock Auktorisation och rekommendationen är att revidera nedanstående beskrivningar innan fastställande av denna målarkitektur.
 </td></tr></table>
 
+Målet med det arbete som idag pågår inom Ena - Sveriges digitala infrastruktur är en överenskommen nationell arkitektur,  en digital infrastruktur, samt grundläggande digitala tjänster som nyttjas av aktörer med offentliga uppdrag för att lyckas med en effektiv digitalisering inom olika offentliga verksamhetsområden. Tanken är vidare att alla digitala tjänster inom det offentliga uppdraget ska kunna nyttja framtagen arkitektur och infrastruktur och att man så sätt kan få till stånd en snabbare digitalisering av det svenska samhället i stort.
 
+Denna målarkitektur är uppdelad i tre huvudområden. 
 
+Det första området är tillitsskapande kvalitetsmärken och det beskriver behovet av en nationellt överenskommen hantering av tillitsskapande krav på aktörer som deltar i, eller möjliggör, digital samverkan. Dessa krav benämns kvalitetsmärken. Olika kvalitetsmärken kan innehålla olika uppsättningar krav och ge tillgång till olika utbud av digitala tjänster eller federationer för informationsutbyte. Exakt utformning av kvalitetsmärken behandlas inte här, men då den digitala IAM-infrastrukturen behöver kunna lagra och överföra information om dessa kvalitetsmärken så beskriver vi grundtanken bakom dessa här.
 
-### 4.1 Arkitektoniska principer
-[Svenskt ramverk för digital samverkan (Digg)](https://www.digg.se/kunskap-och-stod/svenskt-ramverk-for-digital-samverkan) är en svensk anpassning av det europeiska ramverket för interoperabilitet (EIF). Det innehåller principer för digtalisering, samt rekommendationer för hur dessa principer tillämpas. För IAM-området kan vi komma att behöva ta fram specifika rekommendationer. 
+Det andra området är den digital infrastruktur som behövs för att möjliggöra och underlätta säker samverkan mellan välfärdens aktörer. Detta genom kvalificering gentemot kvalitetsmärken, stöd med anslutning till infrastrukturen, och faktisk teknisk integrationen mot digitala tjänster med hjälp av diverse stödtjänster.
 
-Vi kompletterar det svenska ramverket med ett antal konkreta rekommendationer för etableringen av IAM-systemet - nedan insorterade under ramverkets grundprinciper
+Det tredje området syftar till att beskriva hur den digitala infrastrukturen och underliggande arkitektur och nationellt profilerade standarder faktiskt nyttjas för att etablera samverkan via digitala tjänster.
+
+Översiktsbilden nedan visar en översikt över det tre områdena tillitsskapande kvalitetsmärken, digital infrastruktur, och samverkan via digitala tjänster. Bilden visar roller i gult, digitala förmågor i blått. Bilden utelämnar avsiktligt många detaljer för att kunna ge vara konceptuellt lättförståelig. De artefakter som behöver säkerställas att de tas fram, alternativt tas fram inom Ena, visas i rosa.
+
+<img src="overview.jpg">
+<i>Översiktbild som beskriver IAM-infrastrukturens aktörer och förmågor, samt hur dessa möjliggör samverkan via digitala tjänster. (<a href="https://inera.atlassian.net/wiki/spaces/T2/whiteboard/4092854491">länk till originalbild hos Inera</a>)</i>
+
+### 4.1 Tillitsskapande kvalitetsmärken
+Målet med de tillitsskapande kvalitetsmärkena är att ge aktörer inom svensk offentlig förvaltning ett sätt att bevisa sin mognad inom informationssäkerhetsområdet och sin förmåga att agera ansvarsfull i samverkan med andra aktörer. Dessutom kan de behöva visa på en specifik mognadsgrad eller att de besitter en viss grad av teknisk mognad, eller specifika tekniska förmågor, för att delta i vissa samverkansområden där informationsklassning eller skyddskraven är högre.
+
+Målarkitekturen innehåller ett koncept med en kravkatalog där man samlar och jämkar befintliga krav från existerande tillitsfederationer (Sambi, HSA, Skolfederation, Sweden Connect, med flera) och utifrån dessa skapar kvalitetsmärken som ger en "mognadstrappa" för samverkande parter. Digitala tjänster som erbjuds inom Enas IAM-infrastruktur kan då ställa krav på samverkande parter att inneha ett specifikt kvalitetsmärke.
+
+Exakt utformning av kvalitetsmärken tas fram inom Enas byggblick Tillit.
+
+### 4.2 Digital infrastruktur
+### 4.3 Samverkan via digitala tjänster
+
+### 4.4 Utvärdering av interoperabilitet
+<a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/fakta-pm-om-eu-forslag/forordning-om-ett-interoperabelt-europa_ha06fpm33/">Förordning om ett interoperabelt Europa</a> innehåller krav på utvärdering av interoperabilitet för att följa upp effekter av uppdateringar i it-system av betydelse för gränsöverskridande interoperabilitet inom EU. Förordningen pekar på att utvärderingen ska göras i relation till det europeiska ramverket för interoperabilitet (EIF). 
+
+[Svenskt ramverk för digital samverkan (Digg)](https://www.digg.se/kunskap-och-stod/svenskt-ramverk-for-digital-samverkan) är en svensk anpassning av EIF. Det innehåller principer för digtalisering, samt rekommendationer för hur dessa principer tillämpas. För IAM-området kan vi komma att behöva ta fram specifika rekommendationer. 
+
+Exakt utformning av struktur och processer för denna interoperabilitetsutvärdering finns ej tillgänglig i dagsläget, men nedan belyses IAM-infrastrukturen gentemot ramverkets grundprinciper och gjorda reflektioner redovisas.
 
 1. Samverka som förstahandsval
 2. Arbeta aktivt med juridiken
-    - Ett nationellt IAM-system måste ha utrymme för privata aktörer att bidra till svensk offentlig förvaltnings digitala ekosystem, såväl som utförare av offentligt finansierad verksamhet, leverantörer av IAM-funktionalitet, eller agenter för andra sådana offentliga eller privata aktörer.
-    - Då dagens IAM-system tvingar fram bedrägliga betteenden i och med att systemet ej är utformat för att vara tillgängligt för alla invånare, bör man i design av ett nytt IAM-system lyfta behov av utökat legalt stöd för att söka hjälp utan att begå avtals- och lagbrott. Tillse redan nu att en framtida förenklad hantering av ombud via fullmakt eller annan ställföretraädarroll inte försvåras.
+    - En nationell IAM-infrastruktur måste ha utrymme för privata aktörer att bidra till svensk offentlig förvaltnings digitala ekosystem, såväl som utförare av offentligt finansierad verksamhet, leverantörer av IAM-funktionalitet, eller agenter för andra sådana offentliga eller privata aktörer.
+    - Då dagens IAM-infrastruktur tvingar fram bedrägliga betteenden hos invånare i och med att digitala lösningar i regel  ej är utformade för att vara tillgängligt för alla invånare, bör man i design av en nytt IAM-infrastruktur lyfta behov av utökat legalt stöd för att interagera via digitala tjänster med stöd av andra utan att begå avtals- och lagbrott. Tillse redan nu att en framtida förenklad hantering av ombud via fullmakt eller annan ställföretraädarroll inte försvåras.
 3. Öppna upp
 4. Skapa transparens till den interna hanteringen
 5. Återanvänd från andra
-    - Bygg IAM-systemet på brett förankrade standarder och <i>best practices</i>. Delta i standardiseringsprocesser hellre än att profilera befintliga standarder. Profilera hellre befintliga standarder än att hitta på egna.
+    - Bygg IAM-infrastrukturen på brett förankrade standarder och <i>best practices</i>. Delta i standardiseringsprocesser hellre än att profilera befintliga standarder. Profilera hellre befintliga standarder än att hitta på egna.
 6. Se till att information och data kan överföras
     - Bygg vidare på existerande kodverk för behörighetsstyrande attribut och försök förankra attributmappningar mellan existerande och nya kodverk. Över tid kan man främja en linjering gentemot en standard, men genom att respektera gjorda investeringar främjas en ökad digitaliseringstakt och dessutom ett ansvarsfullt nyttjande av skattemedel.
 7. Sätt användaren i centrum
 8. Gör digitala tjänster tillgängliga och inkluderande
     - Sök att i designbeslut på alla nivåer beakta problematiken med digitalt utanförskap genom att skapa förutsättningar för tillämpningar med hög tillgänglighet enligt [Lag (2018:1937) om tillgänglighet till digital offentlig service](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20181937-om-tillganglighet-till-digital_sfs-2018-1937/) och [Kognitiv tillgänglighet – Del 1: Allmänna riktlinjer (ISO 21801-1:2020, IDT)](https://www.sis.se/produkter/halso-och-sjukvard/hjalpmedel-for-personer-med-funktionsnedsattning/hjalpmedel-for-personer-med-funktionsnedsattningar/ss-en-iso-21801-120212/)
 9. Gör det säkert
-    - Beakta säkerheten avseende alla nivåer. Teknisk säkerhet i IAM-systemet i sig. Hög tillgänglighet avseende robusthet i systemets ingående komponenter. Hög tillgänglighet avseende användarinteraktioner med systemet. Säkerhetsmekanismer på adekvat nivå för att skydda respektive komponent och den information som behandlas av denne.
+    - Beakta säkerheten avseende alla nivåer. Teknisk säkerhet i IAM-infrastrukturen i sig. Hög tillgänglighet avseende robusthet i systemets ingående komponenter. Hög tillgänglighet avseende användarinteraktioner. Säkerhetsmekanismer på adekvat nivå för att skydda respektive komponent och den information som behandlas av denne.
 10. Hitta rätt balans för den personliga integriteten
 11. Använd ett språk som användarna förstår
 12. Gör administrationen enkel
-    - Skapa ett IAM-system, med huvudsakligen en anslutningsprocess per anslutande part. Låt anslutningar till specifika verksamhetstillämpningar bygga på genomförd anslutning till IAM-systemet för att därmed minimera den administrativa bördan.
+    - Skapa en IAM-infrastruktur med huvudsakligen en anslutningsprocess per anslutande part. Låt anslutningar till specifika verksamhetstillämpningar bygga vidare på genomförd anslutning till IAM-infrastrukturen för att därmed minimera den administrativa bördan.
 13. Ha helhetssyn på informationshantering
+
+
+# OLD STUFF BELOW 
+Begreppsmodellen ersätts mestadels av ordlistan. 
+
+<b>Lyft eventuellt upp intressanta resonmang kring till kapitel 4.1-4.3 ovan</b>
+<hr>
 
 ### 4.2 Ena IAM
 På den högsta nivån ser vi nedanstående bild av ett framtida Svensk standardisering inom IAM. Vi har nationella federationer för hantering av tillit, identitet och behörighet. Dessa nationella federationer kombinerat med nationellt förvaltade tekniska systemstöd skapar förutsättningar för att skapa syftesspecifika informationsutbyten mellan en grupp av aktörer 
+
 ```mermaid
+
 graph TD
 classDef org fill:#D2B9D5
 
