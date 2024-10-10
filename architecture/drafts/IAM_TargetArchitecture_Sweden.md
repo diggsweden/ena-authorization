@@ -413,6 +413,18 @@ Den svenska IAM-infrastrukturen innehåller fyra roller:
 ### 4.3 Samverkan via digitala tjänster
 Samverkan via digitala tjänster kan ske antingen via direkt avtal med en tjänsteproducent i de fall det endast finns en tjänsteproducent för aktuell samverkan. Alternativt, om det finns multipla tjänstekonsumenter och tjänsteproducenter är det motiverat att forma en federation för informationsutbyte. Detta görs främst för att underlätta tecknande av komersiella avatl och GDPR personuppgiftsbiträdesavtal (PUB-avtal), men det kan också ge en effektiv struktur för styrning, kontroll och förvaltning av överenskommelser kring informationsutbytet. 
 
+#### Förutsättningar
+* Klientapplikationen vet vilken tjänsteproducent man vill anropa, alternativt vilken typ av tjänst man vill få utförd (enligt vilken interoperabilitetsspecifikation)
+* Klientapplikationen är byggd för att kontakta tjänsteproducenter enligt interoperabilitetsspecifikation 
+* Den digitala tjänsten är byggd för att kunna ta emot anrop enligt interoperabilitetsspecifikationen
+
+**Notera** att såväl digitala tjänster som klientapplikationer och producerande system SKALL stödja minst två parallella huvudversioner av interoperabilitetsspecifikationen för att stödja tjänsters livscykelhantering. För klientapplikationer gäller detta för samverkan där det finns fler än en tjänsteproducent.
+
+#### Anropskedja
+1. Klienten söker digital tjänst i tjänstekatalogen 
+1. Klient validerar att den digitala tjänst man tänker sig anropa är med i samma federation för informationsutbyte som tjänstekonsumenten
+1. Tjänsteklienten begär åtkomst till den digitala tjänstens API från åtkomstintygstjänsten tillhörande den digitala tjänsten
+1. Tjänsteklienten 
 
 ### 4.4 Utvärdering av interoperabilitet
 <a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/fakta-pm-om-eu-forslag/forordning-om-ett-interoperabelt-europa_ha06fpm33/">Förordning om ett interoperabelt Europa</a> innehåller krav på utvärdering av interoperabilitet för att följa upp effekter av uppdateringar i it-system av betydelse för gränsöverskridande interoperabilitet inom EU. Förordningen pekar på att utvärderingen ska göras i relation till det europeiska ramverket för interoperabilitet (EIF). 
