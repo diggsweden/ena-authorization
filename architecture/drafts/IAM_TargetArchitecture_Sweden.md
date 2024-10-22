@@ -335,7 +335,6 @@ end
 subgraph id[Identitetsutfärdare]
     ida(Autentiseringstjänst)
 end
-
 subgraph fed[Federation]
     fedt[tillitsmetadata]
     fedmk(federationsmedlemskatalog)
@@ -344,9 +343,10 @@ end
 
 id & fk & x & k -.-> fed
 id--ger ut identiteter-->x
-x--anropar tjänst-->fk
 fk--ber om legitimering<br>av användare-->x
 fk--hämtar behörighetsgrundande<br>information-->k & b
+x --anropar tjänst--> fk
+
 ```
 
 ##### Förutsättningar
@@ -401,7 +401,7 @@ Exakt utformning av kvalitetsmärken tas fram inom Enas byggblick Tillit.
 ### 4.2 Digital IAM-infrastruktur
 Den IAM-infrastrukturen realiseras baserat på standarden OpenID Federation (OIDF), vilken möjliggör federativ hantering av tillitsgrundande information, digitala identiter och annan IAM-metadata. OIDF är ännu inte en fastställd standard, men den används redan i Italiens IAM-infrastruktur och i Sveriges <i>Single Digital Gateway</i>-realisering. Digg håller på att ta fram en svensk profileringen av standarden.
 
-<b>Not:</b> Sveriges IAM-infrastruktur omfattar även identitetshantering för invånare och sveriges eIDAS-nod för hantering av EU-medborgares identifiering. Arkitektur och tekniska komponenter för detta ändamål finns redan etablerade och har därför exkluderats från översikten ovan i syfte att minska komplexiteten.
+<b>Not:</b> Sveriges IAM-infrastruktur omfattar även identitetshantering för invånare (Svensk e-legitimation) och Sveriges eIDAS-nod (Sweden Connect) för hantering av EU-medborgares identifiering. Arkitektur och tekniska komponenter för detta ändamål finns redan etablerade och har därför exkluderats från översikten ovan i syfte att minska komplexiteten.
 
 Den svenska IAM-infrastrukturen innehåller fyra roller:
 
@@ -411,14 +411,14 @@ Den svenska IAM-infrastrukturen innehåller fyra roller:
 1. Sweden trust anslutningsoperatör - en roll för de parter som tillser att aktörer som vill samverka via digitala tjänster inom Ena uppfyller SKALL-krav gällande kvalitetsmärken och därefter registrerar IAM-aktörens metadata i sin federationsmetadatatjänst.
 
 ### 4.3 Samverkan via digitala tjänster
-Samverkan via digitala tjänster kan ske antingen via direkt avtal med en tjänsteproducent i de fall det endast finns en tjänsteproducent för aktuell samverkan. Alternativt, om det finns multipla tjänstekonsumenter och tjänsteproducenter är det motiverat att forma en federation för informationsutbyte. Detta görs främst för att underlätta tecknande av komersiella avatl och GDPR personuppgiftsbiträdesavtal (PUB-avtal), men det kan också ge en effektiv struktur för styrning, kontroll och förvaltning av överenskommelser kring informationsutbytet. 
+Samverkan via digitala tjänster kan ske antingen via direkt avtal med en tjänsteproducent i de fall det endast finns **en** tjänsteproducent för aktuell samverkan. Alternativt, om det finns multipla tjänstekonsumenter och tjänsteproducenter är det motiverat att forma en federation för informationsutbyte (benämns även informationsfederation). Detta görs främst för att underlätta tecknande av komersiella avtal och GDPR personuppgiftsbiträdesavtal (PUB-avtal), men en informationsfederation kan också ge en effektiv struktur för styrning, kontroll och förvaltning av överenskommelser kring informationsutbytet. 
 
 #### Förutsättningar
 * Klientapplikationen vet vilken tjänsteproducent man vill anropa, alternativt vilken typ av tjänst man vill få utförd (enligt vilken interoperabilitetsspecifikation)
 * Klientapplikationen är byggd för att kontakta tjänsteproducenter enligt interoperabilitetsspecifikation 
 * Den digitala tjänsten är byggd för att kunna ta emot anrop enligt interoperabilitetsspecifikationen
 
-**Notera** att såväl digitala tjänster som klientapplikationer och producerande system SKALL stödja minst två parallella huvudversioner av interoperabilitetsspecifikationen för att stödja tjänsters livscykelhantering. För klientapplikationer gäller detta för samverkan där det finns fler än en tjänsteproducent.
+**Notera** att såväl klientapplikationer och producerande system SKALL stödja minst två parallella huvudversioner av interoperabilitetsspecifikationen för att stödja tjänsters livscykelhantering. För klientapplikationer gäller detta för samverkan där det finns fler än en tjänsteproducent.
 
 #### Anropskedja
 1. Klienten söker digital tjänst i tjänstekatalogen 
@@ -453,294 +453,3 @@ Exakt utformning av struktur och processer för denna interoperabilitetsutvärde
 12. Gör administrationen enkel
     - Skapa en IAM-infrastruktur med huvudsakligen en anslutningsprocess per anslutande part. Låt anslutningar till specifika verksamhetstillämpningar bygga vidare på genomförd anslutning till IAM-infrastrukturen för att därmed minimera den administrativa bördan.
 13. Ha helhetssyn på informationshantering
-
-
-# OLD STUFF BELOW 
-Begreppsmodellen ersätts mestadels av ordlistan. 
-
-<b>Lyft eventuellt upp intressanta resonmang kring till kapitel 4.1-4.3 ovan</b>
-<hr>
-
-### 4.2 Ena IAM
-På den högsta nivån ser vi nedanstående bild av ett framtida Svensk standardisering inom IAM. Vi har nationella federationer för hantering av tillit, identitet och behörighet. Dessa nationella federationer kombinerat med nationellt förvaltade tekniska systemstöd skapar förutsättningar för att skapa syftesspecifika informationsutbyten mellan en grupp av aktörer 
-
-```mermaid
-
-graph TD
-classDef org fill:#D2B9D5
-
-subgraph f[<p>]
-    fto(Federationsoperatör):::org
-    fibo(Federationsoperatör):::org
-    fto-->ft(Federation för<br>tillit)
-    fibo-->fib(Federation för <br>identitet och behörighet)
-end
-
-subgraph s[<p>]
-    k(Tjänstekonsument):::org
-    p(Tjänsteproducent):::org
-    fio(Federationsoperatör):::org-->fi(Federation för <br>informationsutbyte)
-    k==>fi==>p
-end
-f--skapar förutsättningar för-->s
-
-```
-*Logisk bild över hur centrala förmågor för hantering av tillit, identiteter och behörigheter, skapar förutsättningar för samverkan*
-
-| Begrepp | Beskrivning 
-|:-|:-
-| Federation för identitet och behörighet | Ett antal aktörer som i avtalad samverkan delat information kring identiteter och behörighetsgrundande information med hjälp av gemensamt definierade regler avseende teknik, semantik, legala tolkningar, samt organisatoriska regler och policyer.
-| Federation för informationsutbyte | Ett antal aktörer som i avtalad samverkan delar information i ett gemensamt syfte med hjälp av gemensamt definierade regler för informationsutbytet både avseende teknik, semantik, legala tolkningar, samt organisatoriska regler och policyer. Namnges även *Informationsfederation*
-| Federation för tillit |  Ett antal aktörer som avtalad samverkan som realiserar tillitsskapande förmågor, främst inom informationssäkerhetsområdet, i hela eller delar av sin organisation. De tillitsskapande förmågorna definieras som krav, där varje krav också kan inkludera **hur** och **hur väl** väl en viss förmåga realiseras
-| Federationsoperatör | Den aktör som styr och koordinerar en federation, dess medlemmar, avtal, samt regler och villkor. 
-| Tjänstekonsument | Organisation som har behov  av att nyttja en digital tjänst (Public Service Consumer från EIRA) 
-| Tjänsteproducent | Organisation som erbjuder en digital tjänst till andra tjänstekonsumenter (Public Service Producer från EIRA)
-
-### 4.3 Begreppsmodell
-
-En viktig del av en målarkitektur är att använda beskrivna begrepp. Nedan redovisas begrepp som används i arkitektoniska modeller, samverkansmönster och scenarion i denna målarkitektur.
-```mermaid
-graph TB
-subgraph t[Tillit]
-    direction LR
-    
-    o(Organisation)
-    v(Verksamhet)
-    ot(Organisationstillit)
-    k(Tillitskrav)
-    kk(Kravkatalog)
-    kp(Kravprofil)
-
-    %% Layout
-    o  ~~~ k
-    v  ~~~ kk
-    ot ~~~ kp
-end
-```
-| Begrepp | Beskrivning 
-|:-|:-
-| Organisation | Juridiskt identifierbar entitet som kan ha en roll i relation till ett informationsutbyte
-| Verksamhet | Mål­inriktat arbete som fort­löpande ut­förs in­om ramen för organisation
-| Organisationstillit | Tillit mellan organisationer baserad på lagstiftning eller avtal, ibland understödd av granskningsprocess
-| Tillitskrav | Beskrivning av ett specifikt krav som om det uppfylls stärker tilliten till en organisation eller verksamhet
-| Kravkatalog | Katalog med definierade tillitskrav
-| Kravprofil | Namngivet urval av tillitskrav från en kravkatalog 
-
-
-```mermaid
-graph TB
-subgraph ib[Identitet och behörighet]
-    fa(Fysisk användare)
-    sa(Systemanvändare)
-    ba(Behörighetsgrundande attribut)
-    fr(Företrädare)
-    tp(Tekniskt ramverk)
-    a(Anvisning)
-    l(Legitimering)
-    uv(Uppdragsval)
-
-    fa~~~fr
-    sa~~~ba
-    a~~~tp
-    l~~~uv
-end
-```
-| Begrepp | Beskrivning 
-|:-|:-
-|Fysisk användare|Användare av kött och blod
-|Systemanvändare|IT-system som agerar använder en digital tjänst
-|Anvisning|En e-tjänsts förmåga att möjliggöra legitimering av användare i den legitimeringstjänst som har tillitlig behörighetsgrundande information om användaren 
-|Legitimering| Här, förmågan att bevisa sin identitet med stöd av tillit till en tredje parts 
-|Behörighetsgrundande attribut|Digital representation av egenskap hos en användare som påverkas dennes behörigheter i en digital tjänst
-|Företrädare|En användare som använder en digital tjänst å en annan användares räkning
-behörigheter användaren ska ges i en viss digital tjänst 
-|Tekniskt ramverk|Teknisk specifikation över hur information inom ett visst kontext ska representeras digitalt 
-|Uppdragsval|
-
-```mermaid
-graph TB
-subgraph fi[Informationsutbyte]
-    is(Informationsspecifikation)
-    ints(Interoperabilitetsspecifikation)
-    as(API-specifikation)
-    åp(Åtkomstpolicy)
-    k(Kodverk)
-
-    is~~~as
-    ints~~~åp
-end
-```
-
-
-| Begrepp | Beskrivning 
-|:-|:-
-|Informationsspecifikation|En specificering av en datamodell för en viss domän
-|Interoperabilitetsspecifikation|Ett samlingsbegrepp för överenskommelser som beskriver förutsättningar och krav för digitala tjänster
-|API-specifikation|Teknisk specifikation för ett visst API
-|Åtkomstpolicy|Ett regelverk som mappar en användares behörighetsgrundande attribut, samt eventuell företrädarroll gentemot annan användare, mot vilka 
-|Kodverk| Mappning mellan en identifierare och en överenskommen tolkning av hur information "kodat" med den identifieraren ska tolkas
-
-### 4.4 Tillit
-
-Vid all samverkan behöver man ha tillit till den part man samverkar med. Det finns idag ett antal tillvägagångssätt för detta som syftar till att både privatpersoner och organisationer ska känna tillit till att information som delas via e-tjänster och APIer inom samhället hanteras på ett korrekt sätt.
-
-Hur skapas denna tillit och hur säkerställs den över tid?
-
-För att kunna samverka över organisationsgränser behövs tillit på två nivåer:
-
-1. Teknisk nivå 
-1. Organisatorisk nivå
- 
- På teknisk nivå behöver det säkerställas att olika parter utför sin roll i samverkan på ett tekniskt korrekt sätt, enligt överenskomna ramverk, standarder, specifikationer och profileringar.
-
- På organisatorisk nivå behöver man kravställa att de olika parterna som på något sätt deltar i samverkan har den organisation, de processer, samt den kompetens som krävs för att hålla en god kvalitet i hur de utför sina ansvar. Detta kan till exempel vara att ha ett ledningssystem för informationssäkerhet, samt processer för att säkerställa efterlevnad och kontinuerligt förbättringsarbete. 
-
-Säkerställandet av tillitsskapande förmågor kan behöva ske med olika grad av försäkran beroende på samverkanskontext och skyddskrav för den funktionalitet och information som delas. Kraven som ställs behöver också kunna skilja sig mellan olika typer av aktörer.
-
-Teknisk efterlevnad säkerställas genom testning eller certifiering. Organistorisk efterlevnad säkerställs genom lagstiftning, avtal och/eller certifiering. 
-
-Inom cyber- och informationssäkerhetsområdena ser man ökande risker, vilket ställer kontinuerligt högre krav på tillit. Speciellt offentliga aktörer förväntas stärka sina tillitsskapande förmågor då fokus är stort på att realisera samhällsnyttor genom digitalisering och nyttjande av de möjligheter som digitalisering ger förutsätter tillit. 
-
-#### Nuläge
-Vilka tillitsskapande förmågor som krävs och hur dessa styrks regleras ofta i avtal bilateralt mellan samverkande parter eller via en federationsoperatör.
-
-Tillit är typiskt antingen grundmurad eller avtalsbaserad. Tillitsskapande förmågor styrks ofta genom självdeklaration, ibland byggd på internrevision. Ibland krävs dock revision av extern part, eller till och med certifiering utförd av ackrediterad part.
-
- - Svenska myndigheter har lagstadgad organisationstillit mellan varandra.
- - Sveriges regioner och kommuner tillämpar avtalsbaserad tillit mellan samverkande organisationer, styrkt med överenskommelser kring kvalitetssäkring, samt självdeklarationer av följsamhet.
-
-
-#### Vision
-För att möjliggöra kostnadseffektiv digitalisering av Svensk offentlig förvaltning bör bygga upp ett system där bilaterala avtal inte behöver reglera tilliten utan att detta styrs nationellt via en tillitsfederation.
-
-En tillitsfederation bör definiera vilka krav som ska gälle för respektive typ av aktörs, graderat i olika tillitsnivåer.
-
-
-```mermaid
-flowchart TD
-
-subgraph AO[Tjänstekonsument]
-    A(API-konsumerande system)
-end
-
-subgraph BO[Tjänsteproducent]
-    B-AS(Auktorisationstjänst)
-    BW(E-tjänst)
-    B(API)
-end
-
-subgraph TO[Sweden Trust - tillitsfederation]
-    T(Metadataregister)
-end
-
-subgraph TM[Tillitsgranskare X]
-    Q(Tillitsmärkesgranskning)
-end
-
-TM--granskar-->AO & BO
-TM--registrerar tillitsmärke-->TO
-AO & BO --säkerställer att \ntillitsmärkning finns-->TO
-AO==samverkar med etablerad tillit==>BO
-```
-*Schematisk bild över hur tillit mellan samverkande parter kan regleras via en tillitsfederation*
-
-Det behöver finnas utrymme för många olika typer av kvalitetsmärken för de olika roller en aktör kan inneha samt kanske även olika tillitsmärken för olika tillitsnivåer som krävs beroende på samverkanskontextet.
-
-<table border=1 bgcolor="lightblue"><tr><td>
-Tillitsmärken för olika nivåer av organisatorisk tillit skulle kunna användas och namnges LoT1, LoT2, LoT3 och LoT4 (<i>"Level of trust"</i>).  
-Att en organisation tilldelats ett kvalitetsmärke för en högre LoT-nivå skulle då kunna innebära att organisationen granskats mot högre krav avseende dess tillitsskapande förmågor.</td></tr></table> 
-
-Att en aktör tilldelats ett visst LoT-tillitsmärke skulle kunna ingå som del i kvalificering för en avtalsskrivning, eller som åtkomststyrande attribut för åtkomstbeslut vid ett faktiskt tjänsteanrop.
-
-### 4.5 Identitet
-
-#### Nuläge
-För privatepersoner har Digg ansvar för kvalitetsmärket Svensk e-legitimation. Detta möjliggör olika aktörer att erbjuda digitala identiteter till privatpersoner förutsatt att de kvalitetssäkrats av Digg. Idag erbjuder BankId, Freja och Svenska Pass denna typ av e-legitimationer.
-
-För medarbetare med behov av att legitimera sig digitalt inom sitt tjänsteutövande har Digg idag ett liknande kvalitetsmärke för utgivning av e-tjänstelegitimationer. Här har Freja och EFOS(???) avtal med Digg idag. Det finns sedan ett antal fristående utgivare av e-tjänstelegitimationer - störst här är SITHS som ger ut e-tjänstelegitimationer till en majoritet av medarbetarna inom Svensk vård och omsorg.
-
-De digitala identiteterna för fysiska personer autentiseras i regel av en legitimeringstjänst som ansvaras för av utgivaren. Den tjänsteproducerande aktören (även benämnd förlitande part) behöver ha explicit tillit till legitimeringstjänsten.
-
-För systemaktörer finns idag ingen nationell samordning av utgivning av digitala identiteter. Det finns ett antal aktörer som ger ut certifikat som kan nyttjas i mer eller mindre avgränsade syften. SITHS och EFOS ger ut så kallade funktionscertifikat (X.509-certifikat att nyttjas av systemaktörer). Digg ger ut funktionscertifikat till avtalsparter inom Säker Digital Kommunikation (SDK). 
-
-För individer utan vare sig svenskt personnummer eller styrkt samordningsnummer finns idag ingen möjlighet att få en digital identitet. Inom vården används reservidn för detta ändamål, men för interaktion med annan offentlig förvaltning saknas lösning idag - TODO: DOKUMENTERA!!!
-
-<table border=1 bgcolor="lightblue"><tr><td>
-Tilliten mellan systemaktörer regleras ofta till det verksamhetskontext där utgivningen skett eller explicit till specifika certifikat baserat på bilaterala avtal
-</td></tr></table>
-
-#### Vision
-Dagens utgivna digitala identiteter behöver fungera även för framtida samverkan inom svensk offentlig förvaltning. Detta då man under lång tid investerat stora summor inom IAM-området och ansvarsfullt användande av statens finanser och skattemedel är av stor betydelse. 
-
-Vi ser även ett behov av ett nationellt kvalitetsmärke för utgivare av funktionscertifikat. Ett sådant kvalitetsmärke kan, i kombination med ett nationellt tillitsfederation, möjliggöra tillitsfull samverkan mellan system.
-
-
-### 4.6 Behörighet
-För att kunna garantera kvaliteten i den åtkomsthantering som sker bör informationsförsörjningen av behörighetsgrundande information ske med en tillförlitlighet på en nivå som motsvarar skyddsbehovet för den digitala tjänst som beslutet avser.
-
-Högst kvalitet på behörighetsgrundande information fås genom att den part som äger och administrera informationen också används som källa för informationsförsörjningen. Exempelvis bör information om läkarlegitimationer informationsförsörjas från Socialstyrelsens HOSP-register. På samma sätt bör medarbetares uppdragsgivare informationsförsörja information som härrör till de uppdrag medarbetaren har.
-
-#### Nuläge
-
-#### Vision
-**SKRIV OM-->ATTRIBUT...**
-*Vidare behöver en person kunna agera utifrån olika uppdrag inom en och samma organisation och utifrån valt uppdrag få olika tillgång till information och funktioner.*
-
-*En behörighetsmodell behöver även ge stöd för att uttrycka ställföreträdande- och andra ombudsroller och det behöver tas fram kodverk och strukturer för att överföra denna information digitalt.*
-
-
-I många fall är det tidsödande eller ogörligt att informationsförsörja behörighetsstyrande information direkt från källan utan man kopierar informationen till enn annan plats varifrån den enklare kan inhämtas. Detta kan till exempel handla om att en organisation hämtar en fräsch kopia av HOSP varje dag, eller att en legitimeringstjänst cachar dataposter från en informationskälla under en timme innan den inhämtas igen. Detta i syfte att skapa ökad robusthet och bättre svarstider. 
-
-Vad som är en adekvat nivå av säkerhet för cahning behöver man komma överens om, samt om detta ska kunna skilja sig för olika tillämpningsområden eller informationsmängder.
-
-**Rekommendationer:**
-<ol>
-<li>Behörighetsgrundande information ska ha en utpekad källa</li>
-<li>Behörighetsgrundande information kan cachas för mer robust och effektiv åtkomstbeslutshantering</li>
-<li>De parter som bifogar behörighetsgrundande information till en digital identitet bör ha granskats för att detta sker kontrollerat och tillitsfullt, exempelvis genom granskning mot ett kvalitetsmärke</li>
-</ol>
-
-### 4.7 Åtkomst
-I åtkomsthanteringen knyts alla aspekter av digitalaidentiteter, tillitskedjor, samt informationsförsörjning av behörighetsgrundande information samman.
-
-Korrekta åtkomsbeslut kan vara beroende av informationsförsörjning av behörighetsgrundande från både externa och lokala källor utöver information som tillförts under legitimeringen. 
-
-```mermaid
-graph TD
-subgraph TO[Tillitsfederation]
-    TM(Metadataregister)
-end
-
-subgraph IDO[Identitetsutgivare]
-    ID(Digital identitet)
-    IDA(Autentisering)
-end
-
-subgraph AO[Tjänstekonsumerande organisation]
-    AK[(uppdragskälla)]
-    AL(Legitimeringstjänst) 
-end
-
-subgraph NO[Registerhållande organisation]
-    NK[(Extern källa)]
-end
-
-subgraph BO[Tjänsteproducerande organisation]
-    B-AS(Auktorisering)
-    B-P(Åtkomstpolicy)
-    BK[(Explicita\nBehörigheter)]
-    B(Digital tjänst)
-end
-
-BO ~~~~~ AO
-IDO & AO & BO & NO -.är medlem i.->TO
-AL--bifogar info från-->AK
-AL--autentiserar digital identitet via-->IDA
-B-AS--inhämtar info från-->NK & BK
-B-AS--verifierar tillit med hjälp av-->TM
-B-AS--utvärderar-->B-P
-B--litar på-->B-AS
-```
-*Beroenden mellan olika aktörer och komponenter för att möjliggöra tillitsfulla åtkomstbeslut*
-
-
