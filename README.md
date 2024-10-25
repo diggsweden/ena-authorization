@@ -8,10 +8,10 @@ Denna samarbetsyta används för lagring och produktion av idéer och arbetsdoku
 # Infrastruktur för gränsöverskridande identitets- och behörighetshantering
 Arbetsgruppens mål är etablering av en förvaltningsövergripande infrastruktur är att stödja digital samverkan över organisationsgränser. Denna infrastruktur ska stödja säker identifiering och förmedling av tillförlitliga behörighetsintyg för åtkomstbeslut, både för användare (människa) och systemanvändare (maskin) inom det svenska värdenätverk av samhällsaktörer som i samverkan producerar komplexa välfärdstjänster.
 
-- [Introduktion](/Introduktion) &ndash; En nationell infrastruktur för identitet- och behörighetshantering
-- [Tillitsstruktur](/Tillitsstruktur)
-- [Federationsinfrastruktur](/Federationsinfrastruktur)
-- [Digital samverkan](/Digitalsamverkan) (Nyttjande av infrastrukturen)
+- [Introduktion](/introduktion) &ndash; En nationell infrastruktur för identitet- och behörighetshantering
+- [Tillitsstruktur](/tillitsstruktur)
+- [Federationsinfrastruktur](/federationsinfrastruktur)
+- [Digital samverkan](/digitalsamverkan) (Nyttjande av infrastrukturen)
 
 # Arbetssätt
 Det material som finns här i denna GitHub-repo är att betrakta som arbetsdokument, som produceras under tidiga faser (idé och koncept), snarare än färdiga specifikationer för implementering. Arbetsgruppen har ambition att göra materialet lättillgänglig och skapa transparens för att kunna få feedback och förslag. Alla bidrag och inspel välkomnas. 
