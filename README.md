@@ -5,12 +5,13 @@ Denna samarbetsyta används för lagring och produktion av arbetsdokuement för 
 
 **Ena är Sveriges digitala infrastruktur** som siktar på att etablera en förvaltningsgemensam digital infrastruktur för att information ska kunna utbytas på ett säkert och effektivt sätt. Ett *byggblock* är ett samlingsnamn för ett antal ”delar” som kan vara tekniska förmågor, tjänster, standardiserade modeller, ramverk och mönster. De ska lösa gemensamma infrastrukturella utmaningar inom ett fokusområde, som i detta sammanhang handlar om gränsöverskridande identitets- och behörighetshantering. För mer information om Ena, se https://www.digg.se/ledning-och-samordning/ena---sveriges-digitala-infrastruktur 
 
-# Möten
-Arbetsgruppen träffas i regel på veckobasis, en vardag under normala kontorstider.
-I nuvarande arbetsgrupp ingår resurser från Digg, E-hälsomyndigheten och Inera.
+# Sveriges digitala infrastruktur för gränsöverskridande identitets- och behörighetshantering
+Arbetsgruppens mål är etablering av en förvaltningsövergripande infrastruktur är att stödja digital samverkan över organisationsgränser. Denna infrastruktur ska stödja säker identifiering och förmedling av tillförlitliga behörighetsintyg för åtkomstbeslut, både för användare (människa) och systemanvändare (maskin) inom det svenska värdenätverk av samhällsaktörer som i samverkan producerar komplexa välfärdstjänster.
 
-# Kontakt
-För att komma i kontakt med arbetsgruppen, skicka ett meddelande till e-legitimation@digg.se 
+- [Introduktion](/Introduktion) &ndash; En nationell infrastruktur för identitet- och behörighetshantering
+- [Tillitsstruktur](/Tillitsstruktur)
+- [Federationsinfrastruktur](/Federationsinfrastruktur)
+- [Digital samverkan](/Digitalsamverkan) (Nyttjande av infrastrukturen)
 
 # Arbetssätt
 Det material som finns här i denna GitHub-repo är att betrakta som arbetsdokument, som produceras under tidiga faser (idé och koncept), snarare än färdiga specifikationer för implementering. Arbetsgruppen har ambition att göra materialet lättillgänglig och skapa transparens för att kunna få feedback och förslag. Alla bidrag och inspel välkomnas. 
@@ -28,10 +29,5 @@ Steg 5-7 kan upprepas i en iterativ arbetsprocess för ombearbetning och utveckl
 
 Sammanställning av resultat dokumenteras i mapparna här på GitHub.
 
-- [Målbild](/objectives)
-  - Målbild/vision/koncept - En nationell lösning för identitet- och behörighetshantering
-- [Arkitektur](/architecture)
-    - Övergripande arkitektur, federationsarkitektur, referensarkitektur
-- [Tillit](/tillitsmodell/)
-    - Tillitsstruktur, tillitsmodell, tillitskrav
-
+# Kontakt
+För att komma i kontakt med arbetsgruppen, skicka ett meddelande till e-legitimation@digg.se 
