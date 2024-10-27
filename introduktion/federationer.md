@@ -84,8 +84,8 @@ Internetstiftelsen är federationsoperatör.
 [^5]: [Sweden Connect](https://swedenconnect.se/) 
 [^6]: [Vårt uppdrag | Digg - Myndigheten för digital förvaltning](https://www.digg.se/om-oss/vart-uppdrag)
 [^7]: [Tillitsramverk för Svensk e-legitimation](https://www.digg.se/digitala-tjanster/e-legitimering/tillitsnivaer-for-e-legitimering/tillitsramverk-for-svensk-e-legitimation)
-[^8]: [SWAMID](https://www.sunet.se/services/identifiering/swamid)
-[^9]: [Sambi](https://sambi.se/)
-[^10]: [Skolfederation](https://skolfederation.se/)
-[^11]: [Fidus](https://www.skolverket.se/om-oss/var-verksamhet/skolverkets-prioriterade-omraden/digitalisering/digitala-nationella-prov/tekniska-forutsattningar-for-digitala-nationella-prov/interfederationen-fidus)
+[^8]: [SWAMID | SUNET](https://www.sunet.se/services/identifiering/swamid)
+[^9]: [Sambi | Internetstiftelsen](https://sambi.se/)
+[^10]: [Skolfederation | Internetstiftelsen](https://skolfederation.se/)
+[^11]: [Fidus | Skolverket](https://www.skolverket.se/om-oss/var-verksamhet/skolverkets-prioriterade-omraden/digitalisering/digitala-nationella-prov/tekniska-forutsattningar-for-digitala-nationella-prov/interfederationen-fidus)
 
