@@ -70,11 +70,25 @@ Identifiering och behörighetskontroll är två närliggande och nödvändiga ko
 <a name="tillit"></a>
 
 ### Tillitsfull digital samverkan
+När två aktörer ska samverka och utbyta information digitalt krävs att parterna ska ha tillräcklig tillit till varandra utan att behöva involvera andra. Detta är exempelvis fallet när två aktörer utbyter intyg för att den som tillhandahåller e-tjänsten (*förlitande part*) ska kunna fatta åtkomstbeslut för den användare som agerar i den andra aktörens vägnar. Samverkan uppstår inte heller ur ett vakuum – den är snarare alltid förankrad i ett behov och ett specifikt sammanhang. Det finns därför en distinktion mellan en gemensam digital infrastruktur som alla organisationer kan använda och det faktum att alla parter i nätverket inte har behovet eller ska samarbeta med alla andra i välfärdens värdenätverk. För de aktörer som behöver samverka är tillit avgörande för att denna samverkan ska fungera effektivt. Det handlar inte bara om tekniska lösningar utan också om ansvarsfrågor, systematiskt säkerhetsarbete och lagar, exempelvis behandling av personuppgifter.
 
+I situationer där aktörer inte har en direkt relation eller känner varandra, kan en tredje betrodd part involveras för att kunna forma en tillitskedja mellan aktörerna. Exempelvis förlitar sig många idag på identitetskontroller som utförs av en e-legitimationsutfärdare, vilka Digg har granskat enligt *[tillitsramverket för Svensk e-legitimation](ordlista.md#svenskelegitimation)*. Den förlitande parten som behöver identifiera sina användare kan på så sätt lita på statens kvalitetsmärke och slipper på egen hand verifiera utfärdarens kravuppfyllnad. Liknande system finns på sektornivå, inom vården, forskning och högre utbildningar, där en federationsoperatör utför tillitgranskning för att kunna gå i god för en aktörs digitala tjänst.
+
+Det är dock viktigt att poängtera att en sådan granskning eller tillitsetablering kan inte alltid garantera absolut sanning. I ett informationsutbyte mellan två organisationer kan aktörer ibland behöva acceptera den information som ges, även om full tillit kan i vissa fall saknas. Vid utbyte av ett betyg i ett enskilt ärende finns endast det som kan tillgås, även om den ansvariga skolan kan förmodat vara mer generös i sina bedömningar än andra skolor. Den typen av tillitsfrågor hanteras inte av infrastrukturen och är i slutändan reglerade av processer och beslut hos ansvariga tillsynsmyndigheter – i detta exempel Skolinspektion. Inspektionen för vård och omsorgs (IVO) som utövar tillsyn enligt bestämmelser i 7 kap. patientsäkerhetslagen (2010:659) kan också nämnas som exempel. IVO har ett vidsträckt uppdrag som även kan anknyta till såväl behörighetskontroller som säkerheten i informationssystem. Den tillitsetablering som behandlas av denna arbetsgrupp handlar snarare om frågor som ger förutsättningar till tillitsfullt åtkomstbeslut genom att erbjuda tekniska möjligheter för varje förlitande part att inom ramen för sitt ansvar kunna kontrollera ett intygs äkthet och bedöma om identitets- och behörighetsuppgifter täcker den aktuella åtgärden som kan beviljas av ett åtkomstbeslut. 
+
+Den som ska fatta beslut om åtkomst till skyddsvärd information måste på så sätt kunna verifiera:<br />
+A)	Vem som i rollen användare eller systemanvändare agerar åt sin huvudmans vägnar,<br />
+B)	Vem som är huvudmannen (användarorganisationen) i det aktuella fallet,<br />
+C)	Om huvudmannen anser att användaren har behörighet att utföra uppgiften (rätt att agera),<br />
+D)	Riktigheten i de påstådda kvalifikationerna och kravuppfyllnad genom tekniskt verifierbara kvalitetsmärken. 
 
 <a name="ordlista"></a>
 
 ### Ordlista
+Arbetsgruppen har tagit fram en ordlista med definitioner som är specifikt anpassade för att förklara användningen av termer och begrepp inom området identitets- och behörighetshantering med fokus på Sveriges digitala infrastruktur (ENA) och digital samverkan över organisationsgränser.
 
+**[Öppna ordlistan](ordlista.md)**
+
+--------
 
 [^1]: [Ena - Sveriges digitala infrastruktur | Digg - Myndigheten för digital förvaltning](https://www.digg.se/ledning-och-samordning/ena---sveriges-digitala-infrastruktur)
