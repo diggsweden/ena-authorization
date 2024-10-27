@@ -37,12 +37,20 @@ Den infrastrukturmodell som nu förespråkas hänvisar till internetstandarden O
 <a name="arbetsgrupp"></a>
 
 ## Arbetsgrupp
+Ena är Sveriges förvaltningsgemensamma digitala infrastruktur[^1] där information kan utbytas säkert och effektivt. De komponenter som realiserar infrastrukturen kallas för byggblock, som är ett samlingsnamn för ett antal ”delar” som kan vara tekniska förmågor, tjänster, standardiserade modeller, ramverk och mönster. De ska lösa gemensamma infrastrukturella utmaningar inom ett fokusområde, som i detta sammanhang handlar om gränsöverskridande identitets- och behörighetshantering. 
 
+Informationen här i arbetsgruppens yta på GitHub har skapats inom ramen för arbetet i byggblock Auktorisation och omfattar dokumentation om infrastruktur och förvaltningsgemensamma digitala tjänster med fokus på säker åtkomst till digitala tjänster för människor, organisationer och smarta saker.
+
+Byggblocket har en fast arbetsgrupp som träffas i regel på veckobasis, en vardag under normala kontorstider. I nuvarande arbetsgrupp ingår företrädare från Digg, E-hälsomyndigheten, Inera och Region Stockholm. Därutöver bedrivs även arbete med särskilda teman, utifrån intresse, behov eller på uppdragsbasis. Under innehavande år har följande arbetsgrupper varit aktiva inom byggblocket:
+-	Infrastruktur för identifiering och förmedling av behörighetsintyg i systemintegrationer (maskin-maskin). I arbetsgruppen ingår företrädare från Digg, Skolverket, SUNET och Internetstiftelsen.
+-	Federationsoperatörens roll och nationell federationsstruktur. I arbetsgruppen ingår företrädare från Digg, SUNET och Internetstiftelsen.
+
+Arbetsgruppens yta här i GitHub är en publik samarbetsyta, öppen och tillgänglig för alla. Allt material är dock att betrakta som utkast och arbetsdokument under tidiga faser (idé och koncept). Arbetsgruppens ambition med ytan är att göra materialet lättillgänglig och skapa transparens för att kunna få feedback och förslag. Syftet är alltså inte produktion av färdiga specifikationer för implementering. 
   
 <a name="malgrupp"></a>
 
 ## Målgrupp
-
+Detta dokument behandlar frågor om identitets- och behörighethantering vid gränsöverskridande samverkan mellan organisationer. Dokumentet riktar sig i första hand till IT-beslutsfattare, IT-strateger, IT-arkitekter samt beställare/utvecklare av digitala tjänster inom verksamheter som är offentliga, offentligt finansierade eller utför uppgifter som på något sätt är offentligrättsligt reglerade.
 
 <a name="termer"></a>
 
@@ -50,7 +58,14 @@ Den infrastrukturmodell som nu förespråkas hänvisar till internetstandarden O
 
 <a name="IAM"></a>
 
-### Identitet, behörighet och åtkomst
+### Identitet, behörighet och åtkomstbeslut
+**Identitet** inom ramen för detta dokuments sammanhang handlar om ett elektroniskt *[identitetsbevis](ordlista.md#identitetsbevis)*, som kan bestyrka *[identiteten](ordlista.md#identitet)* för ett subjekt, det vill säga en *[användare](ordlista.md#anvandare)* (människa) eller *[systemanvändare](ordlista.md#system)* (maskin), som interagerar med digitala tjänster i en användningssituation. 
+
+En kontrollerad identitetshantering är viktig hörnsten i ett adekvat säkerhetsskydd och en nödvändig del av den samlade infrastrukturen för digital samverkan över organisationsgränser. 
+
+Medan identitet handlar om vem är subjektet som använder en digital tjänst, handlar **behörighet** om vad subjektet har rätt att se och göra. I tekniska termer utförs *[identifiering](ordlista.md#identifiering)* genom *[autentisering](ordlista.md#autentisering)* och behörighetskontroll genom **åtkomstbeslut**, även kallad *[auktorisation](ordlista.md#auktorisation)*. 
+
+Identifiering och behörighetskontroll är två närliggande och nödvändiga komponenter för åtkomstbeslut, men är samtidigt två helt skilda säkerhetsprocesser som sker när exempelvis en användare ska logga in i en e-tjänst: (1) att på ett tillräckligt säkert sätt kontrollera vem användaren är; och (2) att på ett tillförlitligt sätt verifiera användarens behörigheter för användningen av e-tjänsten.
 
 <a name="tillit"></a>
 
@@ -60,3 +75,6 @@ Den infrastrukturmodell som nu förespråkas hänvisar till internetstandarden O
 <a name="ordlista"></a>
 
 ### Ordlista
+
+
+[^1]: [Ena - Sveriges digitala infrastruktur | Digg - Myndigheten för digital förvaltning](https://www.digg.se/ledning-och-samordning/ena---sveriges-digitala-infrastruktur)
