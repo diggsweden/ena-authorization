@@ -3,7 +3,7 @@
 
 :arrow_backward: [Tillbaka](../README.md)
 
-<sup>Senaste uppdatering: 25 oktober 2024</sup>
+<sup>Senaste uppdatering: 27 oktober 2024</sup>
 
 ---------
 
@@ -19,7 +19,7 @@
     - [Identitet, behörighet och åtkomst](inledning.md#IAM)
     - [Tillitsfull digital samverkan](inledning.md#tillit)
     - [Ordlista](ordlista.md)
-- [Dagens federationer](federationer.md)
+- [Svenska federationer för digital interoperabilitet inom välfärdens samverkansnätverk](federationer.md)
   - [Sweden Connect](federationer.md#swedenconnect)
   - [SWAMID](federationer.md#swamid)
   - [Sambi](federationer.md#sambi)
