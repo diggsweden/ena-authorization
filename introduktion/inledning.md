@@ -88,7 +88,7 @@ D)	Riktigheten i de påstådda kvalifikationerna och kravuppfyllnad genom teknis
 Arbetsgruppen har tagit fram en ordlista med definitioner som är specifikt anpassade för att förklara användningen av termer och begrepp inom området identitets- och behörighetshantering med fokus på Sveriges digitala infrastruktur (ENA) och digital samverkan över organisationsgränser.
 
 **[Öppna ordlistan](ordlista.md)**
+<br /><br />
 
---------
 
 [^1]: [Ena - Sveriges digitala infrastruktur | Digg - Myndigheten för digital förvaltning](https://www.digg.se/ledning-och-samordning/ena---sveriges-digitala-infrastruktur)
