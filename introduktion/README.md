@@ -30,7 +30,7 @@
     - [Sambi](federationer.md#sambi)
     - [Skolfederation](federationer.md#skolfederation)
     - [Fidus](federationer.md#fidus)
-- [OpenID Federation - en introduktion](oidf-intro.md)
+- [OpenID Federation &ndash; en introduktion](oidf-intro.md)
 - [Externa länkar](merinfo.md)
 
 ----
