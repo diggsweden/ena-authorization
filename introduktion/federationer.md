@@ -26,7 +26,7 @@ Identitets- och/eller behörighetskontrollerande part respektive förlitande par
 ### Federerad inloggning
 Det är först när förtroendeavtal är etablerat mellan identitetskontrollerande part och förlitande part, inklusive bestämmelser om attributredogörelse och krav på *tillitsnivåer*, som en användare kan genomföra transaktionen för att exempelvis logga in på en digital tjänst hos den förlitande parten. Den identitetskontrollerande partens intygstjänst ställer då ut ett *identitetsintyg* till förlitande part efter att användaren har identifierats. Förlitande partens digitala tjänst verifierar och bearbetar intyget och etablerar sedan en autentiserad session för användaren.
 
-<a name="tekniska protokoll"></a>
+<a name="protokoll"></a>
 
 ### Tekniska protokoll
 Tekniska protokoll är centrala för att möjliggöra standardiserad och säker kommunikation. Dessa protokoll omfattar både etablering av tillit mellan aktörer och mekanismer för autentisering och behörighetsstyrning.
