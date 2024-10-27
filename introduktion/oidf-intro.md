@@ -3,9 +3,11 @@
 
 :arrow_backward: [Tillbaka](README.md)
 
-<sup>Senaste uppdatering: 17 maj 2024</sup>
+<sup>Senaste uppdatering: 27 oktober 2024</sup>
 
 ---------
 
-# En gemensam digital infrastruktur för identitets- och behörighetshantering
+# OpenID Federation &ndash; en introduktion
+
+## En gemensam digital infrastruktur för identitets- och behörighetshantering
 Kommer att uppdateras...
