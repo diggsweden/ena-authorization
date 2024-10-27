@@ -16,7 +16,7 @@
   - [Arbetsgrupp](inledning.md#arbetsgrupp)
   - [Målgrupp](inledning.md#malgrupp)
   - [Definition av centrala termer och begrepp](inledning.md#termer)
-    - [Identitet, behörighet och åtkomst](inledning.md#IAM)
+    - [Identitet, behörighet och åtkomstbeslut](inledning.md#IAM)
     - [Tillitsfull digital samverkan](inledning.md#tillit)
     - [Ordlista](ordlista.md)
 - [Svenska federationer för digital interoperabilitet inom välfärdens samverkansnätverk](federationer.md)
