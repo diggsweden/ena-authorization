@@ -73,6 +73,7 @@ När parter etablerar samverkan via en digital tjänst finns det ett antal olika
 ### 2.1 System anropar system, under egen identitet
 
 ```mermaid
+%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 graph 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
@@ -82,32 +83,33 @@ subgraph po[Tjänsteproducent]
     p(API):::comp
     as(Åtkomstintygstjänst):::comp
 end
-po:::box
+po:::org
 
 subgraph ss[Tillitsfederationsoperatör]
     t(Tillitsuppslags-<br>tjänst):::comp
 end
-ss:::box
+ss:::org
 
 subgraph so[Informationsfederationsoperatör]
     tk(Tjänstekatalog):::comp
     ak(Avtalskatalog):::comp
 end
-so:::box
+so:::org
 
 subgraph co[Tjänstekonsument]
     c(Klient):::comp
 end
-co:::box
-co & po~~~so & ss
+co:::org
 
 c--<p>1. Skapa signerad Privat Key JWT-->c
-c--<p>2. hitta tjänst-->tk
-c--<p>3. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-c--<p>4. begär åtkomst till API-->as
-as--<p>4.1. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-as--<p>4.2 verifiera tillit till Klient-->t
+c--<p>2. Hitta tjänst-->tk
+c--<p>3. Verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+c--<p>4. Begär åtkomst till API-->as
+as--<p>4.1 Verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+as--<p>4.2 Verifiera tillit till Klient-->t
+as--<p>4.3 Ställ ut åtkomstintyg-->as
 c--<p>5. Anropa API-->p
+p--<p>5.1 Verifiera åtkomstintyg-->p
 p-.litar på.->as
 ```
 
@@ -115,6 +117,7 @@ p-.litar på.->as
 ### 2.2 System anropar system, på uppdrag av användare
 #### 2.2.1 Intygsväxling
 ```mermaid
+%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 graph 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
@@ -124,41 +127,43 @@ subgraph po[Tjänsteproducent]
     p(API):::comp
     as(Åtkomstintygstjänst):::comp
 end
-po:::box
+po:::org
 
 subgraph ss[Tillitsfederationsoperatör]
     t(Tillitsuppslags-<br>tjänst):::comp
 end
-ss:::box
+ss:::org
 
 subgraph so[Informationsfederationsoperatör]
     tk(Tjänstekatalog):::comp
     ak(Avtalskatalog):::comp
 end
-so:::box
+so:::org
 
 subgraph co[Tjänstekonsument]
     idp(Legitimeringstjänst IdP):::comp
     u(Användare)
     c(Klient):::comp
 end
-co:::box
+co:::org
 
-co & po~~~so & ss
 u--<p>1. Starta klient-->c
 u--<p>2. Legitimera användare-->idp
 c-.anvisa IdP.->idp
-c--<p>3. hitta tjänst-->tk
-c--<p>4. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-c--<p>5. begär åtkomst till API utifrån<br> användarens åtkomst till Klient-->as
-as--<p>5.1. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-as--<p>5.2 verifiera tillit till Klient-->t
+c--<p>4. Verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+c--<p>5. Begär åtkomst till API utifrån<br> användarens åtkomst till Klient-->as
+c--<p>3. Hitta tjänst-->tk
+as--<p>5.1 Verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+as--<p>5.2 Verifiera tillit till Klient--> t
+as--<p>5.3 Ställ ut åtkomstintyg-->as
 c--<p>6. Anropa API-->p
+p--<p>6.1 Verifiera åtkomstintyg-->p
 p-.litar på.->as
 ```
 
 #### 2.2.2 Återautentisering
 ```mermaid
+%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 graph 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
@@ -168,43 +173,46 @@ subgraph po[Tjänsteproducent]
     p(API):::comp
     as(Åtkomstintygstjänst):::comp
 end
-po:::box
+po:::org
 
 subgraph ss[Tillitsfederationsoperatör]
     t(Tillitsuppslags-<br>tjänst):::comp
 end
-ss:::box
+ss:::org
 
 subgraph so[Samverkansoperatör]
     tk(Tjänstekatalog):::comp
     ak(Avtalskatalog):::comp
 end
-so:::box
+so:::org
 
 subgraph co[Tjänstekonsument]
     idp(Legitimeringstjänst IdP):::comp
     u(Användare)
     c(Klient):::comp
 end
-co:::box
+co:::org
 co & po~~~so & ss
 
 u--<p>1. Starta klient-->c
 u--<p>2. Legitimera användare-->idp
 c-.anvisa IdP.->idp
-c--<p>3. hitta tjänst-->tk
-c--<p>4. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-c--<p>5. begär åtkomst till API-->as
-as--<p>5.1. authentisera användare-->idp 
-as--<p>5.3 verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-as--<p>5.4 verifiera tillit till Klient & Legitimeringstjänst-->t
-c--<p>7. Anropa API-->p
+c--<p>3. Hitta tjänst-->tk
+c--<p>4. Verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+c--<p>5. Begär åtkomst till API-->as
+as--<p>5.1. Autentisera användare-->idp 
+as--<p>5.2 Verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+as--<p>5.3 Verifiera tillit till Klient & Legitimeringstjänst-->t
+as--<p>5.4 Ställ ut åtkomstintyg-->as
+c--<p>6. Anropa API-->p
+p--<p>6.1 Verifiera åtkomstintyg-->p
 p-.litar på.->as
 ```
 
 
 ### 2.3 Medarbetare anropar extern e-tjänst, utan förprovisionerat konto
 ```mermaid
+%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 graph 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
@@ -214,13 +222,13 @@ subgraph po[Tjänsteproducent]
     p(E-tjänst):::comp
     as(Åtkomstintygstjänst):::comp
 end
-po:::box
+po:::org
 
 subgraph co[Tjänstekonsument]
     idp(Legitimeringstjänst IdP):::comp
     u(Användare)
 end
-co:::box
+co:::org
 
 idp ~~~ p
 
@@ -228,7 +236,9 @@ u--<p>1. Starta e-tjänst-->p
 p-.Anvisa IdP.->idp
 u--<p>2. Legitimera-->idp
 u--<p>3. Begär åtkomst-->as
+as--<p>3.1 Utvärdera användarens åtkomst mot tjänstens åtkomstpolicy och ställ ut åtkomstintyg-->as
 u--<p>4. Använd e-tjänst-->p
+p--<p>4.1 Verifiera åtkomstintyg-->p
 p-.litar på.->as
 ```
 
@@ -237,6 +247,7 @@ p-.litar på.->as
 
 #### 2.4.1 Alt 1? 
 ```mermaid
+%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 graph 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
@@ -248,12 +259,12 @@ subgraph po[Tjänsteproducent]
     as(Åtkomstintygstjänst):::comp
     udb[(Användar-<br>konton)]:::comp
 end
-po:::box
+po:::org
 
 subgraph co[Tjänstekonsument]
     u(Användare)
 end
-co:::box
+co:::org
 
 idp ~~~ p
 
@@ -262,13 +273,16 @@ p-.Anvisa IdP.->idp
 u--<p>2. Legitimera-->idp
 u--<p>3. Begär åtkomst-->as
 as--<p>3.1 Hämta behörigheter-->udb
+as--<p>3.2 Ställ ut åtkomstintyg-->as
 u--<p>4. Använd e-tjänst-->p
+p--<p>4.1 Validera åtkomstintyg-->p
 p-.litar på.->as
 ```
 
 #### 2.4.1 Alt 2? 
 
 ```mermaid
+%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 graph 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
@@ -280,21 +294,23 @@ subgraph po[Tjänsteproducent]
     as(Åtkomstintygstjänst):::comp
     udb[(Användar-<br>konton)]:::comp
 end
-po:::box
+po:::org
 
 subgraph co[Tjänstekonsument]
     u(Användare)
 end
-co:::box
+co:::org
 
 idp ~~~ p
 
 u--<p>1. Starta e-tjänst-->p
-as-.Anvisa IdP.->idp
 p--<p>2. Begär åtkomst-->as
-u--<p>3. Legitimera-->idp
-as--<p>3.1 Hämta behörigheter-->udb
-u--<p>4. Använd e-tjänst-->p
+as--<p>2.1 Anvisa IdP-->idp
+u--<p>2.2 Legitimera-->idp
+as--<p>2.3 Hämta behörigheter-->udb
+as--<p>2.4 Ställ ut åtkomstintyg-->as
+u--<p>3. Använd e-tjänst-->p
+p--<p>3.1 Validera åtkomstintyg-->p
 p-.litar på.->as
 ```
 
@@ -305,6 +321,7 @@ p-.litar på.->as
 #### Nuläge
 
 ```mermaid
+%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 graph TD
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
@@ -318,7 +335,7 @@ subgraph t[Typfall Finansiell status]
 A -->|Loggar in i extern e-tjänst<br> med e-legitimation | B
 C -->|Administrerar kommunens användare | B
 end
-t:::box
+t:::org
 ```
 
 ##### Förutsättningar
@@ -341,6 +358,7 @@ t:::box
 *Lite förenklad bild med komponenter per aktör, utan varje interaktion* - Pelle väljer!
 
 ```mermaid
+%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 graph TD
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
@@ -352,35 +370,35 @@ subgraph xo[Kommun X]
     xuv(<p>&lt&ltUppdragsväljare&gt&gt):::comp
     xak[(Personalsystem<br>&lt&ltAttributkälla&gt&gt)]:::comp
 end
-xo:::box
+xo:::org
 
 subgraph k[Kronofogden]
     kd[(Informationskälla<br>&lt&ltAttributkälla&gt&gt)]:::comp
 end
-k:::box
+k:::org
 
 subgraph b[Bolagsverket]
     bd[(Informationskälla<br>&lt&ltAttributkälla&gt&gt)]:::comp
 end
-b:::box
+b:::org
 
 subgraph fk[Försäkringskassan]
     fkt(Finansiell status<br>&lt&ltE-tjänst&gt&gt):::comp
     fka(<p>&lt&ltAnvisningstjänst&gt&gt):::comp
 end
-fk:::box
+fk:::org
 
 subgraph id[Identitetsutfärdare]
     ida(Autentiseringstjänst):::comp
 end
-id:::box
+id:::org
 
 subgraph fed[Federation]
     fedt[tillitsmetadata]:::comp
     fedmk(federationsmedlemskatalog):::comp
     fedprof(tjänstemetadata<br>per teknik):::comp
 end
-fed:::box
+fed:::org
 
 id & fk & xo & k -.-> fed
 id--ger ut identiteter-->xo
