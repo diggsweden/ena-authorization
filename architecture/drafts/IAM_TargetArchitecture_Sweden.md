@@ -38,7 +38,7 @@ direction LR
 end
 actors:::box
 
-subgraph iam[Sweden Trust]
+subgraph iam[Digital IAM-infrastruktur]
  Å(Åtkomsthantering):::area
  I(Identitetshantering):::area
  B(Behörighetshantering):::area
@@ -56,11 +56,13 @@ Inom alla dessa områden finns det redan idag olika grad av standardisering. Det
 ### 1.1 Syfte
 Målarkitekturen även omfatta en enklare strategisk plan för vilka förflyttningar som behöver genomföras över tid och beroenden dem emellan. Den strategiska plan behöver förhålla sig till existerande arkitektur och infrastrur, samt redan gjorda investeringar i digitaliseringstillämpningar. Planen bör även innehålla vägledning för om, när och hur existerande digitala tjänster ska migrera över till ENA IAMs samverkansmönster och nyttja ny infrastruktur.
 
-Målarkitekturen är tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och nå samsyn kring hur ett framtida IAM-funktionalitet kan och bör utformas. Nationell arkitektur och digital infrastruktur för IAM-området tas fram under arbetsnamnet Sweden Trust, vilket kommer användas i detta dokument. Sweden Trust behöver omfatta följande områden:
+Målarkitekturen är tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och nå samsyn kring hur ett framtida IAM-funktionalitet kan och bör utformas. Nationell arkitektur och digital infrastruktur för IAM-området behöver omfatta följande områden:
 - Hantering av tillit till organisationer, system och användare
 - Hantering av digitala identiteter för alla typer av användare, såväl individer, medarbetare och system
 - Förmedling av behörighetsstyrande information - för individer, medarbetare och system
 - Standardisering av digital legitimering och åtkomstbeslut - för fysiska användare och system
+
+Redan idag finns arkitektur för hantering av invånares e-legitimationer och medarbetares e-tjänstelegitimationer. Det som saknas är framförallt ett övergripande stöd för hantering av systemanvändare identiteter, samt tillitsgrundande information för organisationer och medarbetare. Arkitekturella mönster, standarder och nationell infrastruktur för dessa ändamål är målet för den mårarkitektur som presenteras i detta dokument.
 
 ### 1.2 Avgränsningar
 Målarkitekturen som tas fram här syftar till att fungera normerande för digital samverkan mellan organisationer verksamma inom Svensk offentlig förvaltning. För annan hantering av IAM kan Sweden Trusts standardiseringar fungera vägledande men de kommer inte vara heltäckande utan kan behöva kompletteras.
@@ -71,7 +73,7 @@ När parter etablerar samverkan via en digital tjänst finns det ett antal olika
 ### 2.1 System anropar system, under egen identitet
 
 ```mermaid
-graph LR
+graph 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
@@ -97,6 +99,7 @@ subgraph co[Tjänstekonsument]
     c(Klient):::comp
 end
 co:::box
+co & po~~~~~so & ss
 
 c--<p>1. Skapa signerad Privat Key JWT-->c
 c--<p>2. hitta tjänst-->tk
@@ -106,14 +109,13 @@ as--<p>4.1. verfiera organisatoriska och legala <br>förutsättningar för samve
 as--<p>4.2 verifiera tillit till Klient-->t
 c--<p>5. Anropa API-->p
 p-.litar på.->as
-p--<p>5.1 Validera åtkomstintyg-->p
 ```
 
 
 ### 2.2 System anropar system, på uppdrag av användare
 #### 2.2.1 Intygsväxling
 ```mermaid
-graph LR
+graph 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
@@ -142,6 +144,7 @@ subgraph co[Tjänstekonsument]
 end
 co:::box
 
+co & po~~~so & ss
 u--<p>1. Starta klient-->c
 u--<p>2. Legitimera användare-->idp
 c-.anvisa IdP.->idp
@@ -150,15 +153,13 @@ c--<p>4. verfiera organisatoriska och legala <br>förutsättningar för samverka
 c--<p>5. begär åtkomst till API utifrån<br> användarens åtkomst till Klient-->as
 as--<p>5.1. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
 as--<p>5.2 verifiera tillit till Klient-->t
-as--<p>5.3 utvärdera åtkomstpolicy baserad på <br>användarens behörighetsgrundande attribut-->as
 c--<p>6. Anropa API-->p
 p-.litar på.->as
-p--<p>6.1 Validera åtkomstintyg-->p
 ```
 
 #### 2.2.2 Återautentisering
 ```mermaid
-graph LR
+graph 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
@@ -186,6 +187,7 @@ subgraph co[Tjänstekonsument]
     c(Klient):::comp
 end
 co:::box
+co & po~~~so & ss
 
 u--<p>1. Starta klient-->c
 u--<p>2. Legitimera användare-->idp
@@ -194,19 +196,16 @@ c--<p>3. hitta tjänst-->tk
 c--<p>4. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
 c--<p>5. begär åtkomst till API-->as
 as--<p>5.1. authentisera användare-->idp 
-idp--<p>5.2 Single Sign On-->idp
 as--<p>5.3 verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
 as--<p>5.4 verifiera tillit till Klient & Legitimeringstjänst-->t
-as--<p>6. utvärdera åtkomstpolicy baserad på <br>användarens behörighetsgrundande attribut-->as
 c--<p>7. Anropa API-->p
 p-.litar på.->as
-p--<p>7.1 Validera åtkomstintyg-->p
 ```
 
 
 ### 2.3 Medarbetare anropar extern e-tjänst, utan förprovisionerat konto
 ```mermaid
-graph LR
+graph 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
@@ -229,8 +228,6 @@ u--<p>1. Starta e-tjänst-->p
 p-.Anvisa IdP.->idp
 u--<p>2. Legitimera-->idp
 u--<p>3. Begär åtkomst-->as
-p--<p>4.1 Validera åtkomstintyg-->p
-as--<p>3.1 utvärdera åtkomstpolicy baserad på användarens behörighetsgrundande attribut-->as
 u--<p>4. Använd e-tjänst-->p
 p-.litar på.->as
 ```
@@ -240,7 +237,7 @@ p-.litar på.->as
 
 #### 2.4.1 Alt 1? 
 ```mermaid
-graph LR
+graph 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
@@ -267,13 +264,12 @@ u--<p>3. Begär åtkomst-->as
 as--<p>3.1 Hämta behörigheter-->udb
 u--<p>4. Använd e-tjänst-->p
 p-.litar på.->as
-p--<p>4.1 Validera åtkomstintyg-->p
 ```
 
 #### 2.4.1 Alt 2? 
 
 ```mermaid
-graph LR
+graph 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
@@ -298,10 +294,8 @@ as-.Anvisa IdP.->idp
 p--<p>2. Begär åtkomst-->as
 u--<p>3. Legitimera-->idp
 as--<p>3.1 Hämta behörigheter-->udb
-as--<p>3.2 Skapa id- och åtkomstintyg-->as 
 u--<p>4. Använd e-tjänst-->p
 p-.litar på.->as
-p--<p>4.1 Validera åtkomstintyg-->p
 ```
 
 ## 3. Scenarion
@@ -311,7 +305,7 @@ p--<p>4.1 Validera åtkomstintyg-->p
 #### Nuläge
 
 ```mermaid
-graph 
+graph TD
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
@@ -492,7 +486,9 @@ Exakt utformning av struktur och processer för denna interoperabilitetsutvärde
     - Bygg vidare på existerande kodverk för behörighetsstyrande attribut och försök förankra attributmappningar mellan existerande och nya kodverk. Över tid kan man främja en linjering gentemot en standard, men genom att respektera gjorda investeringar främjas en ökad digitaliseringstakt och dessutom ett ansvarsfullt nyttjande av skattemedel.
 7. Sätt användaren i centrum
 8. Gör digitala tjänster tillgängliga och inkluderande
-    - Sök att i designbeslut på alla nivåer beakta problematiken med digitalt utanförskap genom att skapa förutsättningar för tillämpningar med hög tillgänglighet enligt [Lag (2018:1937) om tillgänglighet till digital offentlig service](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20181937-om-tillganglighet-till-digital_sfs-2018-1937/) och [Kognitiv tillgänglighet – Del 1: Allmänna riktlinjer (ISO 21801-1:2020, IDT)](https://www.sis.se/produkter/halso-och-sjukvard/hjalpmedel-for-personer-med-funktionsnedsattning/hjalpmedel-for-personer-med-funktionsnedsattningar/ss-en-iso-21801-120212/)
+    - Sök att i designbeslut på alla nivåer beakta problematiken med digitalt utanförskap genom att skapa förutsättningar för tillämpningar med hög tillgänglighet. 
+    - Att legitimera sig digitalt måste vara möjligt för alla invånare oavsett deras fysiska och kognitiva förmåga (se [Lag (2018:1937) om tillgänglighet till digital offentlig service](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20181937-om-tillganglighet-till-digital_sfs-2018-1937/) och [Kognitiv tillgänglighet – Del 1: Allmänna riktlinjer (ISO 21801-1:2020, IDT)](https://www.sis.se/produkter/halso-och-sjukvard/hjalpmedel-for-personer-med-funktionsnedsattning/hjalpmedel-for-personer-med-funktionsnedsattningar/ss-en-iso-21801-120212/)). 
+    - Detta kräver tillgänglighetsanpassade förfaranden, samt möjlighet för ombudsförfaranden för de som behöver de som behöver stöd. Manuella alternativ är ingen lösning då dessa, om det är enda anpassningen, cementerar det digitala utanförskapet.
 9. Gör det säkert
     - Beakta säkerheten avseende alla nivåer. Teknisk säkerhet i IAM-infrastrukturen i sig. Hög tillgänglighet avseende robusthet i systemets ingående komponenter. Hög tillgänglighet avseende användarinteraktioner. Säkerhetsmekanismer på adekvat nivå för att skydda respektive komponent och den information som behandlas av denne.
 10. Hitta rätt balans för den personliga integriteten
