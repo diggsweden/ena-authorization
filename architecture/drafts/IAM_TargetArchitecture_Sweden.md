@@ -25,7 +25,9 @@ För en tillitsfull och kostnadseffektiv samverkan över organisationsgränser i
 
 ```mermaid
 graph TD
-classDef org fill:#D2B9D5
+classDef org fill:#F8E5A0
+classDef area fill:#F8a059
+classDef box fill:#ffffff,stroke:#000000
 
 subgraph actors[Aktörer]
 direction LR     
@@ -34,13 +36,15 @@ direction LR
  m(Myndigheter):::org~~~
  p(Privata aktörer):::org
 end
+actors:::box
 
-subgraph iam[Ena IAM]
- Å(Åtkomsthantering)
- I(Identitetshantering)
- B(Behörighetshantering)
- T(Tillitshantering)
+subgraph iam[Sweden Trust]
+ Å(Åtkomsthantering):::area
+ I(Identitetshantering):::area
+ B(Behörighetshantering):::area
+ T(Tillitshantering):::area
 end
+iam:::box
 
 actors--har behov av-->iam
 Å--kräver-->I & B--kräver-->T
@@ -52,14 +56,14 @@ Inom alla dessa områden finns det redan idag olika grad av standardisering. Det
 ### 1.1 Syfte
 Målarkitekturen även omfatta en enklare strategisk plan för vilka förflyttningar som behöver genomföras över tid och beroenden dem emellan. Den strategiska plan behöver förhålla sig till existerande arkitektur och infrastrur, samt redan gjorda investeringar i digitaliseringstillämpningar. Planen bör även innehålla vägledning för om, när och hur existerande digitala tjänster ska migrera över till ENA IAMs samverkansmönster och nyttja ny infrastruktur.
 
-Målarkitekturen är tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och nå samsyn kring hur ett framtida IAM-funktionalitet kan och bör utformas. Ena IAM behöver omfatta följande områden:
+Målarkitekturen är tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och nå samsyn kring hur ett framtida IAM-funktionalitet kan och bör utformas. Nationell arkitektur och digital infrastruktur för IAM-området tas fram under arbetsnamnet Sweden Trust, vilket kommer användas i detta dokument. Sweden Trust behöver omfatta följande områden:
 - Hantering av tillit till organisationer, system och användare
-- Utgivning av digitala identiteter - för fysiska användare och system
+- Hantering av digitala identiteter för alla typer av användare, såväl individer, medarbetare och system
 - Förmedling av behörighetsstyrande information - för individer, medarbetare och system
 - Standardisering av digital legitimering och åtkomstbeslut - för fysiska användare och system
 
 ### 1.2 Avgränsningar
-Målarkitekturen som tas fram här syftar till att fungera normerande för digital samverkan mellan organisationer verksamma inom Svensk offentlig förvaltning. För annan hantering av IAM kan Ena IAM fungera vägledande men kommer inte vara heltäckande.
+Målarkitekturen som tas fram här syftar till att fungera normerande för digital samverkan mellan organisationer verksamma inom Svensk offentlig förvaltning. För annan hantering av IAM kan Sweden Trusts standardiseringar fungera vägledande men de kommer inte vara heltäckande utan kan behöva kompletteras.
 
 ## 2. Behovsanalys/Mönster
 När parter etablerar samverkan via en digital tjänst finns det ett antal olika mönster. Nedan presenteras identifierade mönster och exempel på tillämpningar där dess mönster används.
@@ -68,34 +72,41 @@ När parter etablerar samverkan via en digital tjänst finns det ett antal olika
 
 ```mermaid
 graph LR
+classDef org fill:#F8E5A0
+classDef comp fill:#CCE1FF
+classDef box fill:#ffffff,stroke:#000000
 
 subgraph po[Tjänsteproducent]
-    p(API)
-    as(Åtkomstintygstjänst)
+    p(API):::comp
+    as(Åtkomstintygstjänst):::comp
 end
+po:::box
 
-subgraph ss[Nationella stödtjänster]
-    t(Tillitsfederation)
+subgraph ss[Tillitsfederationsoperatör]
+    t(Tillitsuppslags-<br>tjänst):::comp
 end
+ss:::box
 
-subgraph so[Samverkansoperatör]
-    tk(Tjänstekatalog)
-    ak(Avtalskatalog)
+subgraph so[Informationsfederationsoperatör]
+    tk(Tjänstekatalog):::comp
+    ak(Avtalskatalog):::comp
 end
+so:::box
 
 subgraph co[Tjänstekonsument]
-    c(Klient)
+    c(Klient):::comp
 end
+co:::box
 
-c--_1. Skapa signerad Privat Key JWT-->c
-c--_2. hitta tjänst-->tk
-c--_3. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-c--_4. begär åtkomst till API-->as
-as--4.1. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-as--4.2 verifiera tillit till Klient-->t
-c--_5. Anropa API-->p
+c--<p>1. Skapa signerad Privat Key JWT-->c
+c--<p>2. hitta tjänst-->tk
+c--<p>3. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+c--<p>4. begär åtkomst till API-->as
+as--<p>4.1. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+as--<p>4.2 verifiera tillit till Klient-->t
+c--<p>5. Anropa API-->p
 p-.litar på.->as
-p--5.1 Validera åtkomstintyg-->p
+p--<p>5.1 Validera åtkomstintyg-->p
 ```
 
 
@@ -103,106 +114,125 @@ p--5.1 Validera åtkomstintyg-->p
 #### 2.2.1 Intygsväxling
 ```mermaid
 graph LR
+classDef org fill:#F8E5A0
+classDef comp fill:#CCE1FF
+classDef box fill:#ffffff,stroke:#000000
 
 subgraph po[Tjänsteproducent]
-    p(API)
-    as(Åtkomstintygstjänst)
+    p(API):::comp
+    as(Åtkomstintygstjänst):::comp
 end
+po:::box
 
-subgraph ss[Nationella stödtjänster]
-    t(Tillitsfederation)
+subgraph ss[Tillitsfederationsoperatör]
+    t(Tillitsuppslags-<br>tjänst):::comp
 end
+ss:::box
 
-subgraph so[Samverkansoperatör]
-    tk(Tjänstekatalog)
-    ak(Avtalskatalog)
+subgraph so[Informationsfederationsoperatör]
+    tk(Tjänstekatalog):::comp
+    ak(Avtalskatalog):::comp
 end
+so:::box
 
 subgraph co[Tjänstekonsument]
-    idp(Legitimeringstjänst IdP)
+    idp(Legitimeringstjänst IdP):::comp
     u(Användare)
-    c(Klient)
+    c(Klient):::comp
 end
+co:::box
 
-u--1. Starta klient-->c
-u--2. Legitimera användare-->idp
+u--<p>1. Starta klient-->c
+u--<p>2. Legitimera användare-->idp
 c-.anvisa IdP.->idp
-c--3. hitta tjänst-->tk
-c--4. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-c--5. begär åtkomst till API utifrån<br> användarens åtkomst till Klient-->as
-as--5.1. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-as--5.2 verifiera tillit till Klient-->t
-as--5.3 utvärdera åtkomstpolicy baserad på <br>användarens behörighetsgrundande attribut-->as
-c--6. Anropa API-->p
+c--<p>3. hitta tjänst-->tk
+c--<p>4. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+c--<p>5. begär åtkomst till API utifrån<br> användarens åtkomst till Klient-->as
+as--<p>5.1. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+as--<p>5.2 verifiera tillit till Klient-->t
+as--<p>5.3 utvärdera åtkomstpolicy baserad på <br>användarens behörighetsgrundande attribut-->as
+c--<p>6. Anropa API-->p
 p-.litar på.->as
-p--6.1 Validera åtkomstintyg-->p
+p--<p>6.1 Validera åtkomstintyg-->p
 ```
 
 #### 2.2.2 Återautentisering
 ```mermaid
 graph LR
+classDef org fill:#F8E5A0
+classDef comp fill:#CCE1FF
+classDef box fill:#ffffff,stroke:#000000
 
 subgraph po[Tjänsteproducent]
-    p(API)
-    as(Åtkomstintygstjänst)
+    p(API):::comp
+    as(Åtkomstintygstjänst):::comp
 end
+po:::box
 
-subgraph ss[Nationella stödtjänster]
-    t(Tillitsfederation)
+subgraph ss[Tillitsfederationsoperatör]
+    t(Tillitsuppslags-<br>tjänst):::comp
 end
+ss:::box
 
 subgraph so[Samverkansoperatör]
-    tk(Tjänstekatalog)
-    ak(Avtalskatalog)
+    tk(Tjänstekatalog):::comp
+    ak(Avtalskatalog):::comp
 end
+so:::box
 
 subgraph co[Tjänstekonsument]
-    idp(Legitimeringstjänst IdP)
+    idp(Legitimeringstjänst IdP):::comp
     u(Användare)
-    c(Klient)
+    c(Klient):::comp
 end
+co:::box
 
-u--1. Starta klient-->c
-u--2. Legitimera användare-->idp
+u--<p>1. Starta klient-->c
+u--<p>2. Legitimera användare-->idp
 c-.anvisa IdP.->idp
-c--3. hitta tjänst-->tk
-c--4. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-c--5. begär åtkomst till API-->as
-as--5.1. authentisera användare-->idp 
-idp--5.2 Single Sign On-->idp
-as--5.3 verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-as--5.4 verifiera tillit till Klient & Legitimeringstjänst-->t
-as--6 utvärdera åtkomstpolicy baserad på <br>användarens behörighetsgrundande attribut-->as
-c--7. Anropa API-->p
+c--<p>3. hitta tjänst-->tk
+c--<p>4. verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+c--<p>5. begär åtkomst till API-->as
+as--<p>5.1. authentisera användare-->idp 
+idp--<p>5.2 Single Sign On-->idp
+as--<p>5.3 verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
+as--<p>5.4 verifiera tillit till Klient & Legitimeringstjänst-->t
+as--<p>6. utvärdera åtkomstpolicy baserad på <br>användarens behörighetsgrundande attribut-->as
+c--<p>7. Anropa API-->p
 p-.litar på.->as
-p--7.1 Validera åtkomstintyg-->p
+p--<p>7.1 Validera åtkomstintyg-->p
 ```
 
 
 ### 2.3 Medarbetare anropar extern e-tjänst, utan förprovisionerat konto
 ```mermaid
 graph LR
+classDef org fill:#F8E5A0
+classDef comp fill:#CCE1FF
+classDef box fill:#ffffff,stroke:#000000
 
 subgraph po[Tjänsteproducent]
-    p(E-tjänst)
-    as(Åtkomstintygstjänst)
+    p(E-tjänst):::comp
+    as(Åtkomstintygstjänst):::comp
 end
+po:::box
 
 subgraph co[Tjänstekonsument]
-    idp(Legitimeringstjänst IdP)
+    idp(Legitimeringstjänst IdP):::comp
     u(Användare)
 end
+co:::box
 
 idp ~~~ p
 
-u--1. Starta e-tjänst-->p
+u--<p>1. Starta e-tjänst-->p
 p-.Anvisa IdP.->idp
-u--2. Legitimera-->idp
-u--3. Begär åtkomst-->as
-as--3.1 utvärdera åtkomstpolicy baserad på <br>användarens behörighetsgrundande attribut-->as
-u--4. Använd e-tjänst-->p
+u--<p>2. Legitimera-->idp
+u--<p>3. Begär åtkomst-->as
+p--<p>4.1 Validera åtkomstintyg-->p
+as--<p>3.1 utvärdera åtkomstpolicy baserad på användarens behörighetsgrundande attribut-->as
+u--<p>4. Använd e-tjänst-->p
 p-.litar på.->as
-p--4.1 Validera åtkomstintyg-->p
 ```
 
 
@@ -211,57 +241,67 @@ p--4.1 Validera åtkomstintyg-->p
 #### 2.4.1 Alt 1? 
 ```mermaid
 graph LR
+classDef org fill:#F8E5A0
+classDef comp fill:#CCE1FF
+classDef box fill:#ffffff,stroke:#000000
 
 subgraph po[Tjänsteproducent]
-    p(E-tjänst)
-    idp(Legitimeringstjänst IdP)
-    as(Åtkomstintygstjänst)
-    udb[(Användar-<br>konton)]
+    p(E-tjänst):::comp
+    idp(Legitimeringstjänst IdP):::comp
+    as(Åtkomstintygstjänst):::comp
+    udb[(Användar-<br>konton)]:::comp
 end
+po:::box
 
 subgraph co[Tjänstekonsument]
     u(Användare)
 end
+co:::box
 
 idp ~~~ p
 
-u--1. Starta e-tjänst-->p
+u--<p>1. Starta e-tjänst-->p
 p-.Anvisa IdP.->idp
-u--2. Legitimera-->idp
-u--3. Begär åtkomst-->as
-as--3.1 Hämta behörigheter-->udb
-u--4. Använd e-tjänst-->p
+u--<p>2. Legitimera-->idp
+u--<p>3. Begär åtkomst-->as
+as--<p>3.1 Hämta behörigheter-->udb
+u--<p>4. Använd e-tjänst-->p
 p-.litar på.->as
-p--4.1 Validera åtkomstintyg-->p
+p--<p>4.1 Validera åtkomstintyg-->p
 ```
 
 #### 2.4.1 Alt 2? 
 
 ```mermaid
 graph LR
+classDef org fill:#F8E5A0
+classDef comp fill:#CCE1FF
+classDef box fill:#ffffff,stroke:#000000
 
 subgraph po[Tjänsteproducent]
-    p(E-tjänst)
-    idp(Legitimeringstjänst IdP)
-    as(Åtkomstintygstjänst)
-    udb[(Användar-<br>konton)]
+    p(E-tjänst):::comp
+    idp(Legitimeringstjänst IdP):::comp
+    as(Åtkomstintygstjänst):::comp
+    udb[(Användar-<br>konton)]:::comp
 end
+po:::box
 
 subgraph co[Tjänstekonsument]
     u(Användare)
 end
+co:::box
 
 idp ~~~ p
 
-u--1. Starta e-tjänst-->p
+u--<p>1. Starta e-tjänst-->p
 as-.Anvisa IdP.->idp
-p--2. Begär åtkomst-->as
-u--3. Legitimera-->idp
-as--3.1 Hämta behörigheter-->udb
-as--3.2 Skapa id- och åtkomstintyg-->as 
-u--4. Använd e-tjänst-->p
+p--<p>2. Begär åtkomst-->as
+u--<p>3. Legitimera-->idp
+as--<p>3.1 Hämta behörigheter-->udb
+as--<p>3.2 Skapa id- och åtkomstintyg-->as 
+u--<p>4. Använd e-tjänst-->p
 p-.litar på.->as
-p--4.1 Validera åtkomstintyg-->p
+p--<p>4.1 Validera åtkomstintyg-->p
 ```
 
 ## 3. Scenarion
@@ -271,23 +311,20 @@ p--4.1 Validera åtkomstintyg-->p
 #### Nuläge
 
 ```mermaid
-graph LR
-classDef Amber color:#000000,fill:#FFDEAD
-classDef Green color:#000000,fill:#FF5555
-classDef orange color:#000000,fill:#f96
-A{{Användare<br>Handläggare<br>Kommun}}:::Amber
-B([E-tjänst<br>Finansiell status<br>FK]):::orange
-C{{Administratör<br>Kommun}}:::Amber
-D[(extern e-tjänst)]:::Green
-E[(20 e-tjänster)]:::Green
-subgraph Typfall Finansiell status
+graph 
+classDef org fill:#F8E5A0
+classDef comp fill:#CCE1FF
+classDef box fill:#ffffff,stroke:#000000
+
+A(Handläggare<br>Kommun<br>&lt&ltAnvändare&gt&gt)
+B(Finansiell status<br>Försäkringskassan<br>&lt&ltE-tjänst&gt&gt):::comp
+C(Administratör<br>Kommun<br>&lt&ltAnvändare&gt&gt)
+
+subgraph t[Typfall Finansiell status]
 A -->|Loggar in i extern e-tjänst<br> med e-legitimation | B
 C -->|Administrerar kommunens användare | B
 end
-subgraph Fler typfall
-C --> D
-C --> E
-end
+t:::box
 ```
 
 ##### Förutsättningar
@@ -311,41 +348,51 @@ end
 
 ```mermaid
 graph TD
+classDef org fill:#F8E5A0
+classDef comp fill:#CCE1FF
+classDef box fill:#ffffff,stroke:#000000
 
-subgraph x[Kommun X]
-    xu(Handläggare kommun X<br>&lt&lt Medarbetare &gt&gt)
-    xidp(IdP kommun X<br> &lt&lt Legitimeringstjänst IdP&gt&gt)
-    xuv(&lt&lt Uppdragsväljare &gt&gt)
-    xak[(Personalsystem<br> &lt&lt Attributkälla &gt&gt)]
+subgraph xo[Kommun X]
+    xu(Handläggare kommun X<br>&lt&ltAnvändare&gt&gt)
+    xidp(IdP kommun X<br>&lt&ltLegitimeringstjänst IdP&gt&gt):::comp
+    xuv(<p>&lt&ltUppdragsväljare&gt&gt):::comp
+    xak[(Personalsystem<br>&lt&ltAttributkälla&gt&gt)]:::comp
 end
+xo:::box
 
 subgraph k[Kronofogden]
-    kd[(Informationskälla<br> &lt&lt Attributkälla &gt&gt)]
+    kd[(Informationskälla<br>&lt&ltAttributkälla&gt&gt)]:::comp
 end
+k:::box
 
 subgraph b[Bolagsverket]
-    bd[(Informationskälla<br> &lt&lt Attributkälla &gt&gt)]
+    bd[(Informationskälla<br>&lt&ltAttributkälla&gt&gt)]:::comp
 end
+b:::box
 
 subgraph fk[Försäkringskassan]
-    fkt(Finansiell status<br>&lt&lt E-tjänst &gt&gt)
-    fka(&lt&lt Anvisningstjänst &gt&gt)
+    fkt(Finansiell status<br>&lt&ltE-tjänst&gt&gt):::comp
+    fka(<p>&lt&ltAnvisningstjänst&gt&gt):::comp
 end
+fk:::box
 
 subgraph id[Identitetsutfärdare]
-    ida(Autentiseringstjänst)
+    ida(Autentiseringstjänst):::comp
 end
-subgraph fed[Federation]
-    fedt[tillitsmetadata]
-    fedmk(federationsmedlemskatalog)
-    fedprof(tjänstemetadata<br>per teknik)
-end
+id:::box
 
-id & fk & x & k -.-> fed
-id--ger ut identiteter-->x
-fk--ber om legitimering<br>av användare-->x
+subgraph fed[Federation]
+    fedt[tillitsmetadata]:::comp
+    fedmk(federationsmedlemskatalog):::comp
+    fedprof(tjänstemetadata<br>per teknik):::comp
+end
+fed:::box
+
+id & fk & xo & k -.-> fed
+id--ger ut identiteter-->xo
+fk--ber om legitimering<br>av användare-->xo
 fk--hämtar behörighetsgrundande<br>information-->k & b
-x --anropar tjänst--> fk
+xo--anropar tjänst--> fk
 
 ```
 
