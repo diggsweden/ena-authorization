@@ -99,7 +99,7 @@ subgraph co[Tjänstekonsument]
     c(Klient):::comp
 end
 co:::box
-co & po~~~~~so & ss
+co & po~~~so & ss
 
 c--<p>1. Skapa signerad Privat Key JWT-->c
 c--<p>2. hitta tjänst-->tk
