@@ -80,7 +80,7 @@ classDef box fill:#ffffff,stroke:#000000
 po(Tjänsteproducent)
 po:::org
 
-ss(Tillitsfederationsoperatör)
+ss(Digital IAM-infrastruktur)
 ss:::org
 
 co(Tjänstekonsument)
@@ -107,7 +107,7 @@ subgraph po[Tjänsteproducent]
 end
 po:::org
 
-subgraph ss[Tillitsfederationsoperatör]
+subgraph ss[Digital IAM-infrastruktur]
     t(Tillitsuppslags-<br>tjänst):::comp
 end
 ss:::org
@@ -141,7 +141,7 @@ subgraph po[Tjänsteproducent]
 end
 po:::org
 
-subgraph ss[Tillitsfederationsoperatör]
+subgraph ss[Digital IAM-infrastruktur]
     t(Tillitsuppslags-<br>tjänst):::comp
 end
 ss:::org
@@ -178,7 +178,7 @@ subgraph po[Tjänsteproducent]
 end
 po:::org
 
-subgraph ss[Tillitsfederationsoperatör]
+subgraph ss[Digital IAM-infrastruktur]
     t(Tillitsuppslags-<br>tjänst):::comp
 end
 ss:::org
@@ -382,7 +382,7 @@ subgraph id[Identitetsutfärdare]
 end
 id:::org
 
-subgraph fed[Federation]
+subgraph fed[Digital IAM-infrastruktur]
     fedt[tillitsmetadata]:::comp
     fedmk(federationsmedlemskatalog):::comp
     fedprof(tjänstemetadata<br>per teknik):::comp
