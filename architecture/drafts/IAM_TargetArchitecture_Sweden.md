@@ -109,8 +109,8 @@ as--<p>4.1 Verfiera organisatoriska och legala <br>förutsättningar för samver
 as--<p>4.2 Verifiera tillit till Klient-->t
 as--<p>4.3 Ställ ut åtkomstintyg-->as
 c--<p>5. Anropa API-->p
-p--<p>5.1 Verifiera åtkomstintyg-->p
-p-.litar på.->as
+p-- 5.1 Verifiera åtkomstintyg-->p
+p-. 5#46;2 litar på.->as
 ```
 
 
@@ -148,8 +148,8 @@ end
 co:::org
 
 u--<p>1. Starta klient-->c
+c-.1#46;1 Anvisa IdP.->idp
 u--<p>2. Legitimera användare-->idp
-c-.anvisa IdP.->idp
 c--<p>4. Verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
 c--<p>5. Begär åtkomst till API utifrån<br> användarens åtkomst till Klient-->as
 c--<p>3. Hitta tjänst-->tk
@@ -158,7 +158,7 @@ as--<p>5.2 Verifiera tillit till Klient--> t
 as--<p>5.3 Ställ ut åtkomstintyg-->as
 c--<p>6. Anropa API-->p
 p--<p>6.1 Verifiera åtkomstintyg-->p
-p-.litar på.->as
+p-.6#46;2 litar på.->as
 ```
 
 #### 2.2.2 Återautentisering
@@ -196,7 +196,7 @@ co & po~~~so & ss
 
 u--<p>1. Starta klient-->c
 u--<p>2. Legitimera användare-->idp
-c-.anvisa IdP.->idp
+c-.2#46;1 Anvisa IdP.->idp
 c--<p>3. Hitta tjänst-->tk
 c--<p>4. Verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
 c--<p>5. Begär åtkomst till API-->as
@@ -206,7 +206,7 @@ as--<p>5.3 Verifiera tillit till Klient & Legitimeringstjänst-->t
 as--<p>5.4 Ställ ut åtkomstintyg-->as
 c--<p>6. Anropa API-->p
 p--<p>6.1 Verifiera åtkomstintyg-->p
-p-.litar på.->as
+p-.6#46;2 litar på.->as
 ```
 
 
@@ -239,7 +239,7 @@ u--<p>3. Begär åtkomst-->as
 as--<p>3.1 Utvärdera användarens åtkomst mot tjänstens åtkomstpolicy och ställ ut åtkomstintyg-->as
 u--<p>4. Använd e-tjänst-->p
 p--<p>4.1 Verifiera åtkomstintyg-->p
-p-.litar på.->as
+p-.<p>4#46;2 litar på.->as
 ```
 
 
@@ -276,7 +276,7 @@ as--<p>3.1 Hämta behörigheter-->udb
 as--<p>3.2 Ställ ut åtkomstintyg-->as
 u--<p>4. Använd e-tjänst-->p
 p--<p>4.1 Validera åtkomstintyg-->p
-p-.litar på.->as
+p-.<p>4#46;2 litar på.->as
 ```
 
 #### 2.4.1 Alt 2? 
@@ -311,7 +311,7 @@ as--<p>2.3 Hämta behörigheter-->udb
 as--<p>2.4 Ställ ut åtkomstintyg-->as
 u--<p>3. Använd e-tjänst-->p
 p--<p>3.1 Validera åtkomstintyg-->p
-p-.litar på.->as
+p-.<p>3#46;2 litar på.->as
 ```
 
 ## 3. Scenarion
