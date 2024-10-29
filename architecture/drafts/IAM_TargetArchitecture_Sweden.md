@@ -65,10 +65,12 @@ Målarkitekturen är tänkt att fungera som underlag för diskussioner inom sven
 Redan idag finns arkitektur för hantering av invånares e-legitimationer och medarbetares e-tjänstelegitimationer. Det som saknas är framförallt ett övergripande stöd för hantering av systemanvändare identiteter, samt tillitsgrundande information för organisationer och medarbetare. Arkitekturella mönster, standarder och nationell infrastruktur för dessa ändamål är målet för den mårarkitektur som presenteras i detta dokument.
 
 ### 1.2 Avgränsningar
-Målarkitekturen som tas fram här syftar till att fungera normerande för digital samverkan mellan organisationer verksamma inom Svensk offentlig förvaltning. För annan hantering av IAM kan Sweden Trusts standardiseringar fungera vägledande men de kommer inte vara heltäckande utan kan behöva kompletteras.
+Målarkitekturen som tas fram här syftar till att fungera normerande för digital samverkan mellan organisationer verksamma inom Svensk offentlig förvaltning. För hantering av IAM kan standarder framtagna för den nationella digitala IAM-infrastrukturen fungera vägledande men de kommer inte vara heltäckande utan kan behöva kompletteras eller profileras ytterligare.
 
 ## 2. Behovsanalys/Mönster
 När parter etablerar samverkan via en digital tjänst finns det ett antal olika mönster. Nedan presenteras identifierade mönster och exempel på tillämpningar där dess mönster används.
+
+Det övergripande mönstret beskrivs logiskt i nedanstående bild.
 
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
@@ -77,20 +79,23 @@ classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
 
-po(Tjänsteproducent)
-po:::org
+subgraph is[Digital samverkan]
+    po(Tjänsteproducent)
+    po:::org
+
+    co(Tjänstekonsument)
+    co:::org
+
+    co==Samverka==>po
+end
+is:::box
 
 ss(Digital IAM-infrastruktur)
 ss:::org
 
-co(Tjänstekonsument)
-co:::org
-
-co--<p>1. Begär åtkomst till API-->po
-po--<p>1.1 Verifiera tillit till tjänstekonsument-->ss
-co--<p>2. Anropa API-->po
+is==Verifiera tillit==>ss
 ```
-
+ I efterföljande bilder detaljeras bilden för olika mönster som möter olika behov.
 
 ### 2.1 System anropar system, under egen identitet
 
@@ -454,9 +459,9 @@ Den IAM-infrastrukturen realiseras baserat på standarden OpenID Federation (OID
 Den svenska IAM-infrastrukturen innehåller fyra roller:
 
 1. Ena infrastrukturansvarig - en roll som innebär att man har ett koordineringsansvar för att tillse att en svensk digital infrastruktur skapas och förvaltas. Digg innehar rollen idag.
-1. Sweden trust federationsansvarig - en roll som ansvarar för att hålla metadata om IAM-infrastrukturens anslutningsoperatörer och kvalitetsmärkesutfärdare. Man ska som federationsansvarig även tillhandahålla en tillitsuppslagstjänst.
+1. Sweden Trust federationsansvarig - en roll som ansvarar för att hålla metadata om IAM-infrastrukturens anslutningsoperatörer och kvalitetsmärkesutfärdare. Man ska som federationsansvarig även tillhandahålla en tillitsuppslagstjänst.
 1. Sweden Trust kvalitetsmärkesutfärdare - en roll inom infrastrukturen för de aktörer som tillser att aktörers uppfyllnad av krav uppfylls med en för kvalitetsmärkets adekvat tillförlitlighet. Exempel på tillförlitlighetsnivåer i dessa granskningar kan vara självdeklaration, intern revision, eller extern revision. Kvalitetsmärkesutfärdaren registrerar utfärdade kvalitetsmärken i en federationsmetadatatjänst som är åtkomlig för federationsansvariges tillitsuppslagstjänst.
-1. Sweden trust anslutningsoperatör - en roll för de parter som tillser att aktörer som vill samverka via digitala tjänster inom Ena uppfyller SKALL-krav gällande kvalitetsmärken och därefter registrerar IAM-aktörens metadata i sin federationsmetadatatjänst.
+1. Sweden Trust anslutningsoperatör - en roll för de parter som tillser att aktörer som vill samverka via digitala tjänster inom Ena uppfyller SKALL-krav gällande kvalitetsmärken och därefter registrerar IAM-aktörens metadata i sin federationsmetadatatjänst.
 
 ### 4.3 Samverkan via digitala tjänster
 Samverkan via digitala tjänster kan ske antingen via direkt avtal med en tjänsteproducent i de fall det endast finns **en** tjänsteproducent för aktuell samverkan. Alternativt, om det finns multipla tjänstekonsumenter och tjänsteproducenter är det motiverat att forma en federation för informationsutbyte (benämns även informationsfederation). Detta görs främst för att underlätta tecknande av komersiella avtal och GDPR personuppgiftsbiträdesavtal (PUB-avtal), men en informationsfederation kan också ge en effektiv struktur för styrning, kontroll och förvaltning av överenskommelser kring informationsutbytet. 
