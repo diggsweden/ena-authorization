@@ -228,11 +228,17 @@ subgraph co[Tjänstekonsument]
 end
 co:::org
 
+subgraph ss[Digital IAM-infrastruktur]
+    t(Tillitsuppslags-<br>tjänst):::comp
+end
+ss:::org
+
 u--<p>1. Starta e-tjänst-->p
 p-.1#46;1 Anvisa IdP.->idp
 u--<p>2. Legitimera-->idp
 u--<p>3. Begär åtkomst-->as
-as--<p>3.1 Utvärdera användarens åtkomst mot tjänstens åtkomstpolicy och ställ ut åtkomstintyg-->as
+as--<p>3.1 Verifiera tillit till Legitimeringstjänst-->t
+as--<p>3.2 Utvärdera användarens åtkomst mot tjänstens åtkomstpolicy och ställ ut åtkomstintyg-->as
 u--<p>4. Använd e-tjänst-->p
 p--<p>4.1 Verifiera åtkomstintyg-->p
 p-.<p>4#46;2 litar på.->as
