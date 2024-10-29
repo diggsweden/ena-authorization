@@ -5,20 +5,10 @@
 - [2. Behovsanalys/mönster](#2-behovsanalysmönster)
 - [3. Scenarion](#3-scenarion)
 - [4. Målarkitektur](#4-målarkitektur)
+- [5. Strategisk plan för införande](#5-strategisk-plan-för-införande)
+- [6. Utvärdering av interoperabilitet](#6-utvärdering-av-interoperabilitet)
 
 <hr>
-
-## Funderingar att diskutera
-*Alla kan fylla på nedan*
-
-<table bgcolor=yellow><tr><td>
-<li>Representeras LoA-nivåerna inte egentligen av olika <b>kravprofiler</b> i "federationen", vilken realiserar vårt framtida IAM-system?
-<li>Kan vi inte generellt koppla ihop "uppfyllande av kravprofil" med konceptet <b>kvalitetsmärke</b>!? <i>T.ex. Svensk e-legitimation är en kravprofil som en viss utgivare av digitala identiteter uppfyller.</i>
-<li>Hur relaterar kvalitetsmärke till tillitsmärke? Är tillitsmärkeken inte bara en mekanism i OpenID Federation som vibland annat använder för att representera kvalitetsmärken/uppfyllande av kravprofil? 
-<li>Kan Sveriges realisering av OpenID Federation och trust marks bli en generell lösning för att attributera förmågor till digitala aktörer? Eller vill vi begränsa det till Diggs uppdrag?
-<li>Borde inte OpenID Federation-realiseringen heta <b>Sweden Trust</b> :)
-</td></tr><table>
-
 
 ## 1. Inledning 
 För en tillitsfull och kostnadseffektiv samverkan över organisationsgränser inom offentlig förvaltning behöver vi utveckla och förankra nationell arkitektur, infrastruktur och tillämpningsanvisningar för identitets- och åtkomsthantering. Denna målarkitektur syftar till att ge en bild över hur en nationella standardisering av IAM-hantering (Identity and Access Management) kan och bör utformas för att möjliggöra en tids- och kostnadseffektiv digitalisering av svensk offentlig sektor.
@@ -485,7 +475,14 @@ Samverkan via digitala tjänster kan ske antingen via direkt avtal med en tjäns
 1. Tjänsteklienten begär åtkomst till den digitala tjänstens API från åtkomstintygstjänsten tillhörande den digitala tjänsten
 1. Tjänsteklienten 
 
-### 4.4 Utvärdering av interoperabilitet
+## 5. Strategisk plan för införande
+Det finns behov av att formulera en strategisk plan för etablering av hanteringen av de tillitsskapande kvalitetsmärkena vad gäller uppdrag och finansiering, styrning, etablering av organisation och processer, samt standardisering. Inom tillitsområdet behöver det också tas höjd för hur samverkan och samverkande aktörer kan förflytta sig från nuvarande tillitshantering till en ny hantering, över tid.
+
+Det finns behov av en strategisk plan för etablering av en nationell digital IAM-infrastruktur och en distribuerad hantering av anslutningar till denna. Hur skalas den organisation som behövs efter de behov som ställs, över tid. Det kan också behövas en plan för hur man över tid skärper kraven gällande informationssäkerhetsmognad för att få till stånd en inbyggd kontinuerlig förbättrad förmåga att möta utmaningar och skapa en robust offentlig förvaltning överlag.
+
+Det behöver ochså finnas en strategisk och taktisk plan för vilka interoperabla lösningar man prioriterar och i vilken ordning man etablerar dem. Detta bör göras med hänsyn tagen till hur man kan driva på en stegvis etablering och förvaltning av den digitala IAM-infrastrukturen.
+
+## 6. Utvärdering av interoperabilitet
 <a href="https://www.riksdagen.se/sv/dokument-och-lagar/dokument/fakta-pm-om-eu-forslag/forordning-om-ett-interoperabelt-europa_ha06fpm33/">Förordning om ett interoperabelt Europa</a> innehåller krav på utvärdering av interoperabilitet för att följa upp effekter av uppdateringar i it-system av betydelse för gränsöverskridande interoperabilitet inom EU. Förordningen pekar på att utvärderingen ska göras i relation till det europeiska ramverket för interoperabilitet (EIF). 
 
 [Svenskt ramverk för digital samverkan (Digg)](https://www.digg.se/kunskap-och-stod/svenskt-ramverk-for-digital-samverkan) är en svensk anpassning av EIF. Det innehåller principer för digtalisering, samt rekommendationer för hur dessa principer tillämpas. För IAM-området kan vi komma att behöva ta fram specifika rekommendationer. 
@@ -495,21 +492,23 @@ Exakt utformning av struktur och processer för denna interoperabilitetsutvärde
 1. Samverka som förstahandsval
 2. Arbeta aktivt med juridiken
     - En nationell IAM-infrastruktur måste ha utrymme för privata aktörer att bidra till svensk offentlig förvaltnings digitala ekosystem, såväl som utförare av offentligt finansierad verksamhet, leverantörer av IAM-funktionalitet, eller agenter för andra sådana offentliga eller privata aktörer.
-    - Då dagens IAM-infrastruktur tvingar fram bedrägliga betteenden hos invånare i och med att digitala lösningar i regel  ej är utformade för att vara tillgängligt för alla invånare, bör man i design av en nytt IAM-infrastruktur lyfta behov av utökat legalt stöd för att interagera via digitala tjänster med stöd av andra utan att begå avtals- och lagbrott. Tillse redan nu att en framtida förenklad hantering av ombud via fullmakt eller annan ställföretraädarroll inte försvåras.
+    - Då dagens IAM-infrastruktur tvingar fram bedrägliga betteenden hos invånare i och med att digitala lösningar i regel  ej är utformade för att vara tillgängligt för alla invånare, bör man i design av en nytt IAM-infrastruktur lyfta behov av utökat legalt stöd för att interagera via digitala tjänster med stöd av andra utan att begå avtals- och lagbrott. Tillse redan nu att en framtida förenklad hantering av ombud via fullmakt eller företrädarroll inte försvåras.
 3. Öppna upp
 4. Skapa transparens till den interna hanteringen
 5. Återanvänd från andra
-    - Bygg IAM-infrastrukturen på brett förankrade standarder och <i>best practices</i>. Delta i standardiseringsprocesser hellre än att profilera befintliga standarder. Profilera hellre befintliga standarder än att hitta på egna.
+    - Bygg IAM-infrastrukturen på brett förankrade standarder och <i>best practices</i>. Delta i och påverka standardiseringsarbeten hellre än att profilera befintliga standarder. Profilera hellre befintliga standarder än att hitta på egna.
 6. Se till att information och data kan överföras
     - Bygg vidare på existerande kodverk för behörighetsstyrande attribut och försök förankra attributmappningar mellan existerande och nya kodverk. Över tid kan man främja en linjering gentemot en standard, men genom att respektera gjorda investeringar främjas en ökad digitaliseringstakt och dessutom ett ansvarsfullt nyttjande av skattemedel.
 7. Sätt användaren i centrum
+    - Användare (invånare och medarbetare) bör ges stöd i att så effektivt som möjligt utföra förfaranden gentemot offentliga aktörer. Inom IAM-området innebär detta att man i största möjliga mån ska nyttja single-sign-on och tillitsstrukturer för att automatisera åtkomsbeslut utan att behöva belasta användare med multipla legitimeringar eller införskaffanden av "onödiga" samtycken.
 8. Gör digitala tjänster tillgängliga och inkluderande
-    - Sök att i designbeslut på alla nivåer beakta problematiken med digitalt utanförskap genom att skapa förutsättningar för tillämpningar med hög tillgänglighet. 
-    - Att legitimera sig digitalt måste vara möjligt för alla invånare oavsett deras fysiska och kognitiva förmåga (se [Lag (2018:1937) om tillgänglighet till digital offentlig service](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20181937-om-tillganglighet-till-digital_sfs-2018-1937/) och [Kognitiv tillgänglighet – Del 1: Allmänna riktlinjer (ISO 21801-1:2020, IDT)](https://www.sis.se/produkter/halso-och-sjukvard/hjalpmedel-for-personer-med-funktionsnedsattning/hjalpmedel-for-personer-med-funktionsnedsattningar/ss-en-iso-21801-120212/)). 
-    - Detta kräver tillgänglighetsanpassade förfaranden, samt möjlighet för ombudsförfaranden för de som behöver de som behöver stöd. Manuella alternativ är ingen lösning då dessa, om det är enda anpassningen, cementerar det digitala utanförskapet.
+    - Sök att i designbeslut på alla nivåer beakta problematiken med digitalt utanförskap genom att skapa förutsättningar för tillämpningars tillgänglighetsanpassning. 
+    - Att legitimera sig digitalt måste vara möjligt för alla invånare oavsett deras fysiska och kognitiva förmåga. Utgå ifrån [Lag (2018:1937) om tillgänglighet till digital offentlig service](https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-20181937-om-tillganglighet-till-digital_sfs-2018-1937/ och komplettera design utifrån [Kognitiv tillgänglighet – Del 1: Allmänna riktlinjer (ISO 21801-1:2020, IDT)](https://www.sis.se/produkter/halso-och-sjukvard/hjalpmedel-for-personer-med-funktionsnedsattning/hjalpmedel-for-personer-med-funktionsnedsattningar/ss-en-iso-21801-120212/). 
+    - Detta kräver tillgänglighetsanpassade förfaranden, samt möjlighet för ombudsförfaranden för de som behöver de som behöver stöd. Manuella förfaranden är ingen långsiktig lösning då dessa, om det är enda anpassningen, cementerar det digitala utanförskapet.
 9. Gör det säkert
-    - Beakta säkerheten avseende alla nivåer. Teknisk säkerhet i IAM-infrastrukturen i sig. Hög tillgänglighet avseende robusthet i systemets ingående komponenter. Hög tillgänglighet avseende användarinteraktioner. Säkerhetsmekanismer på adekvat nivå för att skydda respektive komponent och den information som behandlas av denne.
+    - Beakta säkerheten avseende alla nivåer. Teknisk säkerhet i IAM-infrastrukturen i sig. Hög tillgänglighet avseende robusthet i systemets ingående komponenter. Hög tillgänglighet avseende användarinteraktioner. Säkerhetsmekanismer på adekvat nivå för att skydda respektive komponent och den information som behandlas.
 10. Hitta rätt balans för den personliga integriteten
+    - En majoritet av invånare prioriterar förenklade förfaranden gentemot offentliga aktörer och deras processer framför att själva tvingas ansvara för informationsförsörjning via ofta svårförståeliga formulär i digitala tjänster. När det finns möjlighet att utbyta information mellan aktörer ska detta göras. Om invånare förväntas inhämta information från en aktör och överföra den till en annan aktör bör invånare kunna ge en digital tjänst behörighet att agera i invånarens namn och inhämta den information som behövs.
 11. Använd ett språk som användarna förstår
 12. Gör administrationen enkel
     - Skapa en IAM-infrastruktur med huvudsakligen en anslutningsprocess per anslutande part. Låt anslutningar till specifika verksamhetstillämpningar bygga vidare på genomförd anslutning till IAM-infrastrukturen för att därmed minimera den administrativa bördan.
