@@ -70,6 +70,28 @@ Målarkitekturen som tas fram här syftar till att fungera normerande för digit
 ## 2. Behovsanalys/Mönster
 När parter etablerar samverkan via en digital tjänst finns det ett antal olika mönster. Nedan presenteras identifierade mönster och exempel på tillämpningar där dess mönster används.
 
+```mermaid
+%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
+graph 
+classDef org fill:#F8E5A0
+classDef comp fill:#CCE1FF
+classDef box fill:#ffffff,stroke:#000000
+
+po(Tjänsteproducent)
+po:::org
+
+ss(Tillitsfederationsoperatör)
+ss:::org
+
+co(Tjänstekonsument)
+co:::org
+
+co--<p>1. Begär åtkomst till API-->po
+po--<p>1.1 Verifiera tillit till tjänstekonsument-->ss
+co--<p>2. Anropa API-->po
+```
+
+
 ### 2.1 System anropar system, under egen identitet
 
 ```mermaid
@@ -90,27 +112,17 @@ subgraph ss[Tillitsfederationsoperatör]
 end
 ss:::org
 
-subgraph so[Informationsfederationsoperatör]
-    tk(Tjänstekatalog):::comp
-    ak(Avtalskatalog):::comp
-end
-so:::org
-
 subgraph co[Tjänstekonsument]
     c(Klient):::comp
 end
 co:::org
 
-c--<p>1. Skapa signerad Privat Key JWT-->c
-c--<p>2. Hitta tjänst-->tk
-c--<p>3. Verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-c--<p>4. Begär åtkomst till API-->as
-as--<p>4.1 Verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-as--<p>4.2 Verifiera tillit till Klient-->t
-as--<p>4.3 Ställ ut åtkomstintyg-->as
-c--<p>5. Anropa API-->p
-p-- 5.1 Verifiera åtkomstintyg-->p
-p-. 5#46;2 litar på.->as
+c--<p>1. Begär åtkomst till API-->as
+as--<p>1.1 Verifiera tillit till Klient-->t
+as--<p>1.2 Ställ ut åtkomstintyg-->as
+c--<p>2. Anropa API-->p
+p-- 2.1 Verifiera åtkomstintyg-->p
+p-. 2#46;2 litar på.->as
 ```
 
 
@@ -134,12 +146,6 @@ subgraph ss[Tillitsfederationsoperatör]
 end
 ss:::org
 
-subgraph so[Informationsfederationsoperatör]
-    tk(Tjänstekatalog):::comp
-    ak(Avtalskatalog):::comp
-end
-so:::org
-
 subgraph co[Tjänstekonsument]
     idp(Legitimeringstjänst IdP):::comp
     u(Användare)
@@ -150,15 +156,12 @@ co:::org
 u--<p>1. Starta klient-->c
 c-.1#46;1 Anvisa IdP.->idp
 u--<p>2. Legitimera användare-->idp
-c--<p>4. Verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-c--<p>5. Begär åtkomst till API utifrån<br> användarens åtkomst till Klient-->as
-c--<p>3. Hitta tjänst-->tk
-as--<p>5.1 Verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-as--<p>5.2 Verifiera tillit till Klient--> t
-as--<p>5.3 Ställ ut åtkomstintyg-->as
-c--<p>6. Anropa API-->p
-p--<p>6.1 Verifiera åtkomstintyg-->p
-p-.6#46;2 litar på.->as
+c--<p>3. Begär åtkomst till API utifrån<br> användarens åtkomst till Klient-->as
+as--<p>3.2 Verifiera tillit till Klient--> t
+as--<p>3.3 Ställ ut åtkomstintyg-->as
+c--<p>4. Anropa API-->p
+p--<p>4.1 Verifiera åtkomstintyg-->p
+p-.4#46;2 litar på.->as
 ```
 
 #### 2.2.2 Återautentisering
@@ -180,33 +183,23 @@ subgraph ss[Tillitsfederationsoperatör]
 end
 ss:::org
 
-subgraph so[Samverkansoperatör]
-    tk(Tjänstekatalog):::comp
-    ak(Avtalskatalog):::comp
-end
-so:::org
-
 subgraph co[Tjänstekonsument]
     idp(Legitimeringstjänst IdP):::comp
     u(Användare)
     c(Klient):::comp
 end
 co:::org
-co & po~~~so & ss
 
 u--<p>1. Starta klient-->c
+c-.1#46;1 Anvisa IdP.->idp
 u--<p>2. Legitimera användare-->idp
-c-.2#46;1 Anvisa IdP.->idp
-c--<p>3. Hitta tjänst-->tk
-c--<p>4. Verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-c--<p>5. Begär åtkomst till API-->as
-as--<p>5.1. Autentisera användare-->idp 
-as--<p>5.2 Verfiera organisatoriska och legala <br>förutsättningar för samverkan-->ak
-as--<p>5.3 Verifiera tillit till Klient & Legitimeringstjänst-->t
-as--<p>5.4 Ställ ut åtkomstintyg-->as
-c--<p>6. Anropa API-->p
-p--<p>6.1 Verifiera åtkomstintyg-->p
-p-.6#46;2 litar på.->as
+c--<p>3. Begär åtkomst till API-->as
+as--<p>3.1. Autentisera användare-->idp 
+as--<p>3.2 Verifiera tillit till Klient & Legitimeringstjänst-->t
+as--<p>3.3 Ställ ut åtkomstintyg-->as
+c--<p>4. Anropa API-->p
+p--<p>4.1 Verifiera åtkomstintyg-->p
+p-.4#46;2 litar på.->as
 ```
 
 
@@ -230,10 +223,8 @@ subgraph co[Tjänstekonsument]
 end
 co:::org
 
-idp ~~~ p
-
 u--<p>1. Starta e-tjänst-->p
-p-.Anvisa IdP.->idp
+p-.1#46;1 Anvisa IdP.->idp
 u--<p>2. Legitimera-->idp
 u--<p>3. Begär åtkomst-->as
 as--<p>3.1 Utvärdera användarens åtkomst mot tjänstens åtkomstpolicy och ställ ut åtkomstintyg-->as
@@ -266,10 +257,8 @@ subgraph co[Tjänstekonsument]
 end
 co:::org
 
-idp ~~~ p
-
 u--<p>1. Starta e-tjänst-->p
-p-.Anvisa IdP.->idp
+p-.<p>1#46;1 Anvisa IdP.->idp
 u--<p>2. Legitimera-->idp
 u--<p>3. Begär åtkomst-->as
 as--<p>3.1 Hämta behörigheter-->udb
@@ -477,7 +466,7 @@ Samverkan via digitala tjänster kan ske antingen via direkt avtal med en tjäns
 * Klientapplikationen är byggd för att kontakta tjänsteproducenter enligt interoperabilitetsspecifikation 
 * Den digitala tjänsten är byggd för att kunna ta emot anrop enligt interoperabilitetsspecifikationen
 
-**Notera** att tjänsteproducerande system SKALL stödja minst två parallella huvudversioner av interoperabilitetsspecifikationen för att stödja tjänsters livscykelhantering. Detsamma gäller klientapplikationer för samverkan där det finns fler än en tjänsteproducent.
+**Notera** att tjänsteproducerande system SKALL stödja minst två parallella huvudversioner av interoperabilitetsspecifikationen för att stödja tjänsters livscykelhantering. Detsamma gäller klientapplikationer  för samverkan där det finns fler än en tjänsteproducent.
 
 #### Anropskedja
 1. Klienten söker digital tjänst i tjänstekatalogen 
