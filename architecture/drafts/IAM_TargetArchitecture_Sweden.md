@@ -477,7 +477,7 @@ Samverkan via digitala tjänster kan ske antingen via direkt avtal med en tjäns
 * Klientapplikationen är byggd för att kontakta tjänsteproducenter enligt interoperabilitetsspecifikation 
 * Den digitala tjänsten är byggd för att kunna ta emot anrop enligt interoperabilitetsspecifikationen
 
-**Notera** att såväl klientapplikationer och producerande system SKALL stödja minst två parallella huvudversioner av interoperabilitetsspecifikationen för att stödja tjänsters livscykelhantering. För klientapplikationer gäller detta för samverkan där det finns fler än en tjänsteproducent.
+**Notera** att tjänsteproducerande system SKALL stödja minst två parallella huvudversioner av interoperabilitetsspecifikationen för att stödja tjänsters livscykelhantering. Detsamma gäller klientapplikationer för samverkan där det finns fler än en tjänsteproducent.
 
 #### Anropskedja
 1. Klienten söker digital tjänst i tjänstekatalogen 
