@@ -23,7 +23,7 @@ sequenceDiagram
     note over idpb, rsb: ... SAML login-flöde mot Ineras Idp utelämnas
     idpb-->>rsb: ID-intyg (SAML2 Assertion med behörighetsgrundande attribut)
 
-    Note left of rsb:RFC identity chaining (https://datatracker.ietf.org/doc/draft-ietf-oauth-identity-chaining/)
+    Note left of rsb:RFC identity chaining (https://drafts.oauth.net/oauth-identity-chaining/draft-ietf-oauth-identity-chaining.html)
 
     rsb->>asb: Växla SAML ID-intyg, aud="EHM:s AS" 
     asb-->>rsb: OAuth user_token
