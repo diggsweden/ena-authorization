@@ -17,20 +17,20 @@ sequenceDiagram
         participant rst as Resolver
     end
 
-    Note over ua, rst: 2.2 System anropar system, på uppdrag av användare
+    Note over ua, rst: 2.2 System anropar system, på uppdrag av användare - OAuth Identity Chaining scenario (https://drafts.oauth.net/oauth-identity-chaining/draft-ietf-oauth-identity-chaining.html)
 
-    ua->>rsb: Login
+    ua->>rsb: Öppna Pascal
     note over idpb, rsb: ... SAML login-flöde mot Ineras Idp utelämnas
     idpb-->>rsb: ID-intyg (SAML2 Assertion med behörighetsgrundande attribut)
 
-    Note left of rsb:RFC identity chaining (https://drafts.oauth.net/oauth-identity-chaining/draft-ietf-oauth-identity-chaining.html)
-
-    rsb->>asb: Växla SAML ID-intyg, aud="EHM:s AS" 
+    Note over asb, rsb:SAML Bearer Asssertion Flow for OAuth2 
+    rsb->>asb: Växla SAML ID-intyg 
     asb-->>rsb: OAuth user_token
 
-    Note over rsb: client_JWT: RFC7519
+    Note over rsb: RFC 7519
     rsb->>rsb: Tillverka och signera JWT för klientidentitet, aud="EHM:s AS"
 
+    note over rst: OIDC Fed resolver entity (https://openid.net/specs/openid-federation-1_0.html)
     rsb->>rst: Verifiera tillit till EHM:s auktorisationstjänst
     rst-->>rsb: OK alternativt EJ OK
     rsb->>asc: Begär åtkomst till EHM:s AS för Pascal 
@@ -38,7 +38,7 @@ sequenceDiagram
     rst-->>asc: OK alternativt EJ OK
     asc->>asc: Ta åtkomstbeslut och ställ ut access token, resource="EHM:s AS"
     asc-->>rsb: Åtkomstintyg1
-    Note over rsb, asc: RFCXXXX Token Exchange
+    Note over rsb, asc: RFC8693 Token Exchange
     rsb->>asc: Begär åtkomst till NLL baserat på åtkomstintyg 1 och user_token
     asc->>rst: Verifiera tillit till Pascal
     rst-->>asc: OK alternativt EJ OK
