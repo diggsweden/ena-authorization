@@ -10,7 +10,7 @@ Denna samarbetsyta används för lagring och produktion av idéer och arbetsdoku
 # Infrastruktur för identitets- och behörighetshantering vid digital samverkan över organisationsgränser
 Arbetsgruppens mål är etablering av en förvaltningsövergripande infrastruktur är att stödja digital samverkan över organisationsgränser. Denna infrastruktur ska stödja säker identifiering och förmedling av tillförlitliga behörighetsintyg för åtkomstbeslut, både för användare (människa) och systemanvändare (maskin) inom det svenska värdenätverk av samhällsaktörer som i samverkan producerar komplexa välfärdstjänster.
 
-- [Introduktion](/introduktion) &ndash; En nationell infrastruktur för identitet- och behörighetshantering
+- [Introduktion](/introduktion) &ndash; En förvaltningsgemensam infrastruktur för identitet- och behörighetshantering
 - [Tillitsstruktur](/tillitsstruktur)
 - [Federationsinfrastruktur](/federationsinfrastruktur)
 - [Digital samverkan](/digitalsamverkan) (Nyttjande av infrastrukturen)
