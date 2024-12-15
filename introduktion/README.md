@@ -3,29 +3,34 @@
 
 :arrow_backward: [Tillbaka](../README.md)
 
-<sup>Senaste uppdatering: 17 maj 2024</sup>
+<sup>Senaste uppdatering: 27 oktober 2024</sup>
 
 ---------
 
-# Introduktion
+# Introduktion – En nationell infrastruktur för identitet- och behörighetshantering
 
 ## Innehållsförteckning  
-- [Inledning](sammanfattning.md)
-- [Ekosystem för digital samverkan](ekosystem.md)
-- [Dagens federationer](federationer.md)
-  - [Sweden Connect](federationer.md#swedenconnect)
-  - [SWAMID](federationer.md#swamid)
-  - [Sambi](federationer.md#sambi)
-  - [Skolfederation](federationer.md#skolfederation)
-  - [Fidus](federationer.md#fidus)
-- [Tillit](tillit.md)
-- [Utmaningar](utmaningar.md)
-- [En gemensam digital infrastruktur för identitets- och behörighetshantering](gemensam-infrastruktur.md)
-  - Vad
-  - Varför
-  - Vem
-  - Hur OpenID Federation
-- [Ordlista](ordlista.md)
+- [Sammanfattning](sammanfattning.md)
+- [Inledning](inledning.md)
+  - [Förslag till sektorsövergripande infrastruktur](inledning.md#forslag)
+  - [Arbetsgrupp](inledning.md#arbetsgrupp)
+  - [Målgrupp](inledning.md#malgrupp)
+  - [Definition av centrala termer och begrepp](inledning.md#termer)
+    - [Identitet, behörighet och åtkomstbeslut](inledning.md#IAM)
+    - [Tillitsfull digital samverkan](inledning.md#tillit)
+    - [Ordlista](ordlista.md)
+- [Svenska federationer för digital interoperabilitet inom välfärdens samverkansnätverk](federationer.md)
+  - [Federation](federationer.md#federation)
+    - [Etablering av tillit](federationer.md#tillit)
+    - [Federerad inloggning](federationer.md#inloggning)
+    - [Tekniska protokoll](federationer.md#protokoll)
+  - [Dagens federationer](federationer.md#dagensfederationer)
+    - [Sweden Connect](federationer.md#swedenconnect)
+    - [SWAMID](federationer.md#swamid)
+    - [Sambi](federationer.md#sambi)
+    - [Skolfederation](federationer.md#skolfederation)
+    - [Fidus](federationer.md#fidus)
+- [OpenID Federation &ndash; en introduktion](oidf-intro.md)
 - [Externa länkar](merinfo.md)
 
 ----
