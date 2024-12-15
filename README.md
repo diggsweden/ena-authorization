@@ -3,11 +3,11 @@ This repository is used for collaboration about national digital infrastructure 
 # Arbetsgrupp för Ena, byggblock Auktorisation
 Denna samarbetsyta används för lagring och produktion av idéer och arbetsdokument från arbetsgruppen *Byggblock auktorisation* inom Ena. 
 
-**Ena är Sveriges digitala infrastruktur** som siktar på att etablera en förvaltningsgemensam digital infrastruktur för att information ska kunna utbytas på ett säkert och effektivt sätt. Ett *byggblock* är ett samlingsnamn för ett antal ”delar” som kan vara tekniska förmågor, tjänster, standardiserade modeller, ramverk och mönster. De ska lösa gemensamma infrastrukturella utmaningar inom ett fokusområde, som i detta sammanhang handlar om gränsöverskridande identitets- och behörighetshantering. 
+**Ena är Sveriges digitala infrastruktur** som siktar på att etablera en förvaltningsgemensam digital infrastruktur för att information ska kunna utbytas på ett säkert och effektivt sätt. Ett *byggblock* är ett samlingsnamn för ett antal ”delar” som kan vara tekniska förmågor, tjänster, standardiserade modeller, ramverk och mönster. De ska lösa gemensamma infrastrukturella utmaningar inom ett fokusområde, som i detta sammanhang handlar om  identitets- och behörighetshantering vid digital samverkan över organisationsgränser. 
 
 :link: [Mer information om Ena](https://www.digg.se/ledning-och-samordning/ena---sveriges-digitala-infrastruktur)  
 
-# Infrastruktur för gränsöverskridande identitets- och behörighetshantering
+# Infrastruktur för identitets- och behörighetshantering vid digital samverkan över organisationsgränser
 Arbetsgruppens mål är etablering av en förvaltningsövergripande infrastruktur är att stödja digital samverkan över organisationsgränser. Denna infrastruktur ska stödja säker identifiering och förmedling av tillförlitliga behörighetsintyg för åtkomstbeslut, både för användare (människa) och systemanvändare (maskin) inom det svenska värdenätverk av samhällsaktörer som i samverkan producerar komplexa välfärdstjänster.
 
 - [Introduktion](/introduktion) &ndash; En nationell infrastruktur för identitet- och behörighetshantering
