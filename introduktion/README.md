@@ -7,7 +7,7 @@
 
 ---------
 
-# Introduktion – En nationell infrastruktur för identitet- och behörighetshantering
+# Introduktion – En förvaltningsgemensam infrastruktur för identitet- och behörighetshantering
 
 ## Innehållsförteckning  
 - [Sammanfattning](sammanfattning.md)
