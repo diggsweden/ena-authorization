@@ -3,7 +3,7 @@
 
 :arrow_backward: [Tillbaka](README.md)
 
-<sup>Senaste uppdatering: 25 oktober 2024</sup>
+<sup>Senaste uppdatering: 15 december 2024</sup>
 
 ---------
 
@@ -21,6 +21,10 @@ Offentliga e-tjänster i Sverige har traditionellt utformats inom ramen för res
 De [federationer som existerar idag](federationer.md#dagensfederationer) har främst fokuserat på att skapa digitala tjänster för interaktion mellan individ och verksamhet, med government to citizen (G2C) som den primära leveransmodellen. Även om dessa federationer sektorsvis utgör effektiva och säkra infrastrukturer för förmedling av gränsöverskridande identitets- och behörighetsintyg för åtkomst till e-tjänster, saknas en samordnad nationell strategi för att stödja den svenska välfärdsmodellen fullt ut.
 De befintliga lösningarna, som konceptuellt verkar kunna fungera ihop, har i praktiken visat sig vara svåra att skala upp och integrera – något som också hämmar digitaliseringstakten. Dagens fragmenterade landskap behöver därför utökas med government to government (G2G) leveransmodeller som kan dels ta vara på redan gjorda investeringar, dels stärka stödet digital samverkan mellan verksamheter och över sektorsgränser. 
 
-## Färdplan
-Målet med en förvaltningsövergripande infrastruktur inom ramen för Ena, Sveriges digitala infrastruktur, är att stödja den svenska välfärdsmodellen fullt ut. Denna infrastruktur ska stödja säker identifiering och förmedling av tillförlitliga behörighetsintyg för åtkomstbeslut, både för användare (människa) och systemanvändare (maskin) inom det värdenätverk av samhällsaktörer som i samverkan producerar komplexa välfärdstjänster.
+## Syfte och mål
+Syftet med en förvaltningsövergripande infrastruktur inom ramen för Ena, Sveriges digitala infrastruktur, är att stödja den svenska välfärdsmodellen fullt ut genom att:
+* stödja säker identifiering och förmedling av tillförlitliga behörighetsintyg för åtkomstbeslut,
+* både för användare (människa) och systemanvändare (maskin),
+* inom det värdenätverk av samhällsaktörer som i samverkan producerar komplexa välfärdstjänster.
 
+Målet är att främja utvecklingen av en decentraliserad infrastruktur som stödjer hantering av tillitsinformation för försörjning av digitala tjänsters behov av gränsöverskridande identitets- och åtkomsthantering. Infrastrukturen ska stödja fördelning av ansvar avseende tillit, användning av olika tekniska protokoll, åtkomst för både användare och systemanvändare samt flexibilitet att anpassa hanteringen inom olika verksamhetsdomäner (till exmepel skolan, vården, socialtjänsten). 
