@@ -4,7 +4,7 @@ sequenceDiagram
         participant A as Användare
     end
      box rgb(230,255,230) EHM
-        participant RP as Relying Party<br>(Förskrivarkollen)
+        participant RP as Relying Party<br>(Förskrivningskollen)
     end
     box rgb(255,235,235) Inera<br>eller Region A
         participant OP as OpenID Provider (IdP)
