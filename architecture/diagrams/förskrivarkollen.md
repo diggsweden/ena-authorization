@@ -6,8 +6,8 @@ autonumber
     participant B as IdP
     end
     box rgb(230,255,230) EHM
-    participant C as SP Förskrivarkollen
-    participant D as Förskrivarkollen
+    participant C as SP Förskrivningskollen
+    participant D as Förskrivningskollen
     end
     Note over A,D: TILLIT I FEDERATION
     A->>C: HTTP GET (tillit förkonfigurerat)
