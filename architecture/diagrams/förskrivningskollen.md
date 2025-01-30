@@ -1,21 +1,21 @@
 ```mermaid 
 sequenceDiagram
 
-    box Region
+    box rgb(230,255,255) Region
         participant User
     end
-    box EHM
-        participant Client as NLL Client Server
+    box rgb(230,255,230) EHM
+        participant Client as Förskrivningskollen Client Server
     end
-    box Region/Ombud
+    box rgb(230,255,255) Region/Ombud
         participant OP as OpenID Provider (OP)
     end
-    box Region/Ombud
+    box rgb(230,255,255) Region/Ombud
         participant RS as Resource Server
     end
 
     %% User-to-Server OIDC Flow
-    Note over User,RS: ANVÄNDAR-FLÖDE
+    Note over A,OP: TILLIT I FEDERATION
     User->>Client: Access Protected Resource
     Client->>User: Redirect to OP for Authentication
     User->>OP: Authenticate and Consent
