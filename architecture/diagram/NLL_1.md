@@ -28,16 +28,3 @@ sequenceDiagram
     OP->>RS: Token Validation Response
     RS->>Client: Return Requested Resource
     Client->>User: Grant Access to Resource
-    %% Server-to-Server OIDC Flow
-    Note over User,RS: S2S-FLÖDE med användare
-     User->>Client: Access Protected Resource
-    Client->>User: Redirect to OP for Authentication
-    User->>OP: Authenticate and Consent
-    OP->>User: Redirect to Client with Authorization Code
-    User->>Client: Send Authorization Code
-    Client->>OP: Request Access Token (Client Credentials)
-    OP->>Client: Issue Access Token
-    Client->>RS: Request Resource with Access Token
-    RS->>OP: Validate Access Token
-    OP->>RS: Token Validation Response
-    RS->>Client: Return Requested Resource
