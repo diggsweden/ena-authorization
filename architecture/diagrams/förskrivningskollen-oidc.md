@@ -15,7 +15,7 @@ sequenceDiagram
     end
 
     %% User-to-Server OIDC Flow
-    Note over A,OP: TILLIT I FEDERATION
+    Note over User,RS: TILLIT I FEDERATION
     User->>Client: Access Protected Resource
     Client->>User: Redirect to OP for Authentication
     User->>OP: Authenticate and Consent
