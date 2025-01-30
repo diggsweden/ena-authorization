@@ -1,16 +1,16 @@
 ```mermaid 
 sequenceDiagram
 
-    box "User's Organization"
+    box Region
         participant User
     end
-    box "Client Server Organization"
-        participant Client as Client Server
+    box EHM
+        participant Client as NLL Client Server
     end
-    box "Identity Provider Organization"
+    box Region/Ombud
         participant OP as OpenID Provider (OP)
     end
-    box "Resource Server Organization"
+    box Region/Ombud
         participant RS as Resource Server
     end
 
@@ -29,7 +29,12 @@ sequenceDiagram
     RS->>Client: Return Requested Resource
     Client->>User: Grant Access to Resource
     %% Server-to-Server OIDC Flow
-    Note over Client,RS: NYTT S2S-FLÖDE
+    Note over User,RS: S2S-FLÖDE med användare
+     User->>Client: Access Protected Resource
+    Client->>User: Redirect to OP for Authentication
+    User->>OP: Authenticate and Consent
+    OP->>User: Redirect to Client with Authorization Code
+    User->>Client: Send Authorization Code
     Client->>OP: Request Access Token (Client Credentials)
     OP->>Client: Issue Access Token
     Client->>RS: Request Resource with Access Token
