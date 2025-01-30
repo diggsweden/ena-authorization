@@ -8,10 +8,10 @@ sequenceDiagram
         participant Client as Förskrivningskollen Client Server
     end
     box rgb(230,255,255) Region/Ombud
-        participant OP as OpenID Provider (OP)
+        participant OP as OpenID Provider (Autentisering)
     end
     box rgb(230,255,255) Region/Ombud
-        participant RS as Resource Server
+        participant RS as Resource Server (Auktorisation)
     end
 
     %% User-to-Server OIDC Flow
