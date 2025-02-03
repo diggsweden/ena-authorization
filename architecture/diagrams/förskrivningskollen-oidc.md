@@ -1,21 +1,21 @@
 ```mermaid 
 sequenceDiagram
 
-    box "User's Organization"
+    box rgb(230,255,255) Region
         participant User
     end
-    box "Client Server Organization"
-        participant Client as Client Server
+    box rgb(230,255,230) EHM
+        participant Client as Förskrivningskollen Client Server
     end
-    box "Identity Provider Organization"
-        participant OP as OpenID Provider (OP)
+    box rgb(230,255,255) Region/Ombud
+        participant OP as OpenID Provider (Autentication Server)
     end
-    box "Resource Server Organization"
-        participant RS as Resource Server
+    box rgb(230,255,255) Region/Ombud
+        participant RS as Resource Server (Authorisation Server)
     end
 
     %% User-to-Server OIDC Flow
-    Note over User,RS: ANVÄNDAR-FLÖDE
+    Note over User,RS: TILLIT I FEDERATION
     User->>Client: Access Protected Resource
     Client->>User: Redirect to OP for Authentication
     User->>OP: Authenticate and Consent
@@ -27,7 +27,9 @@ sequenceDiagram
     RS->>OP: Validate Access Token
     OP->>RS: Token Validation Response
     RS->>Client: Return Requested Resource
+    Client->>Client: User Authorization
     Client->>User: Grant Access to Resource
+<<<<<<< HEAD:architecture/diagrams/FederatedIAM.md
     %% Server-to-Server OIDC Flow
     Note over Client,RS: NYTT S2S-FLÖDE
     Client->>OP: Request Access Token (Client Credentials)
@@ -37,3 +39,5 @@ sequenceDiagram
     OP->>RS: Token Validation Response
     RS->>Client: Return Requested Resource
 ```
+=======
+>>>>>>> 708a8039335585352ead33ce5d23fe1ecb3a1974:architecture/diagrams/förskrivningskollen-oidc.md
