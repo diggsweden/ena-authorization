@@ -36,3 +36,4 @@ sequenceDiagram
     RS->>OP: Validate Access Token
     OP->>RS: Token Validation Response
     RS->>Client: Return Requested Resource
+```
