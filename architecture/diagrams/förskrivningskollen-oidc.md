@@ -27,6 +27,6 @@ sequenceDiagram
     RS->>OP: Validate Access Token
     OP->>RS: Token Validation Response
     RS->>Client: Return Requested Resource
-    Client->>Client: User Authorization
+    Client->>Client: Internal User Authorization
     Client->>User: Grant Access to Resource
 ```
