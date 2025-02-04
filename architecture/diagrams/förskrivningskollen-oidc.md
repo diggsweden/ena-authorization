@@ -1,6 +1,6 @@
 ```mermaid 
 sequenceDiagram
-
+autonumber
     box rgb(230,255,255) Region
         participant User
     end
