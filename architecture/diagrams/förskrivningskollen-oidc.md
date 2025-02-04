@@ -29,12 +29,4 @@ sequenceDiagram
     RS->>Client: Return Requested Resource
     Client->>Client: User Authorization
     Client->>User: Grant Access to Resource
-    %% Server-to-Server OIDC Flow
-    Note over Client,RS: NYTT S2S-FLÖDE
-    Client->>OP: Request Access Token (Client Credentials)
-    OP->>Client: Issue Access Token
-    Client->>RS: Request Resource with Access Token
-    RS->>OP: Validate Access Token
-    OP->>RS: Token Validation Response
-    RS->>Client: Return Requested Resource
 ```
