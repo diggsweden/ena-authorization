@@ -29,7 +29,6 @@ sequenceDiagram
     RS->>Client: Return Requested Resource
     Client->>Client: User Authorization
     Client->>User: Grant Access to Resource
-<<<<<<< HEAD:architecture/diagrams/FederatedIAM.md
     %% Server-to-Server OIDC Flow
     Note over Client,RS: NYTT S2S-FLÖDE
     Client->>OP: Request Access Token (Client Credentials)
@@ -39,5 +38,3 @@ sequenceDiagram
     OP->>RS: Token Validation Response
     RS->>Client: Return Requested Resource
 ```
-=======
->>>>>>> 708a8039335585352ead33ce5d23fe1ecb3a1974:architecture/diagrams/förskrivningskollen-oidc.md
