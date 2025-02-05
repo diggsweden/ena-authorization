@@ -14,7 +14,8 @@
 För en tillitsfull och kostnadseffektiv samverkan över organisationsgränser inom offentlig förvaltning behöver vi utveckla och förankra nationell arkitektur, infrastruktur och tillämpningsanvisningar för identitets- och åtkomsthantering. Denna målarkitektur syftar till att ge en bild över hur en nationella standardisering av IAM-hantering (Identity and Access Management) kan och bör utformas för att möjliggöra en tids- och kostnadseffektiv digitalisering av svensk offentlig sektor.
 
 ```mermaid
-graph TD
+flowchart TD
+
 classDef org fill:#F8E5A0
 classDef area fill:#F8a059
 classDef box fill:#ffffff,stroke:#000000
@@ -62,9 +63,11 @@ När parter etablerar samverkan via en digital tjänst finns det ett antal olika
 
 Det övergripande mönstret beskrivs logiskt i nedanstående bild.
 
+<table border=1 bgcolor="yellow"><tr><td><b>Notera att graferna blir "vackrare" med elk-rendreraren, men den verkar inte fungera i alla mermaid-versioner!<br><br>Det är dock värt att försöka använda den igen vid tillfälle<br><br>%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%</td></tr></table>
+
 ```mermaid
-%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-graph 
+flowchart TB
+
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
@@ -90,8 +93,8 @@ is==Verifiera tillit==>ss
 ### 2.1 System anropar system, under egen identitet
 
 ```mermaid
-%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-graph 
+flowchart TB
+
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
@@ -117,15 +120,16 @@ as--<p>1.1 Verifiera tillit till Klient-->t
 as--<p>1.2 Ställ ut åtkomstintyg-->as
 c--<p>2. Anropa API-->p
 p-- 2.1 Verifiera åtkomstintyg-->p
-p-. 2#46;2 litar på.->as
+p-- 2#46;2 litar på .->as
+
 ```
 
 
 ### 2.2 System anropar system, på uppdrag av användare
 #### 2.2.1 Intygsväxling
 ```mermaid
-%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-graph 
+flowchart TB
+ 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
@@ -161,8 +165,8 @@ p-.4#46;2 litar på.->as
 
 #### 2.2.2 Återautentisering
 ```mermaid
-%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-graph 
+flowchart TB
+ 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
@@ -200,8 +204,8 @@ p-.4#46;2 litar på.->as
 
 ### 2.3 Medarbetare anropar extern e-tjänst, utan förprovisionerat konto
 ```mermaid
-%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-graph 
+flowchart TB
+ 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
@@ -239,8 +243,8 @@ p-.<p>4#46;2 litar på.->as
 
 #### 2.4.1 Alt 1? 
 ```mermaid
-%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-graph 
+flowchart TB
+ 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
@@ -272,8 +276,8 @@ p-.<p>4#46;2 litar på.->as
 #### 2.4.1 Alt 2? 
 
 ```mermaid
-%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-graph 
+flowchart TB
+ 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
@@ -311,8 +315,8 @@ p-.<p>3#46;2 litar på.->as
 #### Nuläge
 
 ```mermaid
-%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-graph TD
+flowchart TB
+
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
@@ -348,8 +352,8 @@ t:::org
 *Lite förenklad bild med komponenter per aktör, utan varje interaktion* - Pelle väljer!
 
 ```mermaid
-%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-graph TD
+flowchart TB
+
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
