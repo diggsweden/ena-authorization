@@ -29,7 +29,7 @@ direction LR
 end
 actors:::box
 
-subgraph iam[Digital federationsinfrastruktur]
+subgraph iam[Federationsinfrastruktur]
  Å(Åtkomsthantering):::area
  I(Identitetshantering):::area
  B(Behörighetshantering):::area
@@ -90,7 +90,7 @@ subgraph is[Digital samverkan]
 end
 is:::box
 
-ss(Digital federationsinfrastruktur)
+ss(Federationsinfrastruktur)
 ss:::org
 
 is==Verifiera tillit==>ss
@@ -113,7 +113,7 @@ subgraph po[Tjänsteproducent]
 end
 po:::org
 
-subgraph ss[Digital federationsinfrastruktur]
+subgraph ss[Federationsinfrastruktur]
     t(Tillitsuppslags-<br>tjänst):::comp
 end
 ss:::org
@@ -149,7 +149,7 @@ subgraph po[Tjänsteproducent]
 end
 po:::org
 
-subgraph ss[Digital federationsinfrastruktur]
+subgraph ss[Federationsinfrastruktur]
     t(Tillitsuppslags-<br>tjänst):::comp
 end
 ss:::org
@@ -187,7 +187,7 @@ subgraph po[Tjänsteproducent]
 end
 po:::org
 
-subgraph ss[Digital federationsinfrastruktur]
+subgraph ss[Federationsinfrastruktur]
     t(Tillitsuppslags-<br>tjänst):::comp
 end
 ss:::org
@@ -233,7 +233,7 @@ subgraph co[Tjänstekonsument]
 end
 co:::org
 
-subgraph ss[Digital federationsinfrastruktur]
+subgraph ss[Federationsinfrastruktur]
     t(Tillitsuppslags-<br>tjänst):::comp
 end
 ss:::org
@@ -402,7 +402,7 @@ subgraph id[Identitetsutfärdare]
 end
 id:::org
 
-subgraph fed[Digital federationsinfrastruktur]
+subgraph fed[Federationsinfrastruktur]
     fedt[tillitsmetadata]:::comp
     fedmk(federationsmedlemskatalog):::comp
     fedprof(tjänstemetadata<br>per teknik):::comp
@@ -515,7 +515,7 @@ Målarkitekturen innehåller ett koncept med en kravkatalog där man samlar och 
 
 Exakt utformning av kvalitetsmärken tas fram inom Enas byggblock Tillit.
 
-### 4.2 Digital federationsinfrastruktur
+### 4.2 Federationsinfrastruktur
 Federationsinfrastrukturen realiseras baserat på standarden OpenID Federation (OIDF), vilken möjliggör federativ hantering av tillitsgrundande information, digitala identiter och annan metadata. OIDF är ännu inte en fastställd standard, men den används redan i Italiens federationsinfrastruktur och i Sveriges <i>Single Digital Gateway</i>-realisering. Digg håller på att ta fram en svensk profileringen av standarden.
 
 <b>Not:</b> Sveriges digitala infrastruktur omfattar även identitetshantering för invånare (Svensk e-legitimation) och Sveriges eIDAS-nod (Sweden Connect) för hantering av EU-medborgares identifiering. Arkitektur och tekniska komponenter för detta ändamål finns redan etablerade och har därför exkluderats från översikten ovan i syfte att minska komplexiteten.
