@@ -13,7 +13,7 @@ I dagsläget bygger många av dessa typer av tjänst-till-tjänst anrop på en d
 
 - Användaren som är inloggad i e-tjänsten får ingen vetskap om att dennes data hämtas från en annan tjänst, och kan inte påverka detta. I vissa fall kan det vara önskvärt att användaren ska godkänna denna datadelning. 
 
-- Eftersom server-sidan inte får något bevis på att användaren finns "på andra sidan" så innebär det i princip att säkerheten för API:et (server-sidan) är beroende på att klienten inte har några säkerhetshål och att den inte tagits över av en illvillig "attacker", som i teorin har möjlighet att dränera API:et på alla individers data.
+- Eftersom server-sidan inte får något bevis på att användaren finns "på andra sidan" så innebär det i princip att säkerheten för API:et (server-sidan) är beroende på att klienten inte har några säkerhetshål och att den inte tagits över av en illvillig angripare, som i teorin har möjlighet att dränera API:et på alla individers data.
 
 Om API:et (server-sidan) gör anrop i sin tur så flyttas dessa problem längre ned i kedjan, och problemet blir ännu större.
 
@@ -106,7 +106,7 @@ Ett e-tjänst kan alltså inte "spara" SAML-intyget för att senare i den s.k. k
 
 Detta mönster rekommenderas därför endast för väldigt specifika fall där legitimeringstjänsten (IdP:n) är anpassad och konfigurerad för utställande av intyg för auktorisationstjänst(er).
 
-**Notera:** Faktum är att de svagheter som lyfts fram ovan också gäller om e-tjänsten använder en central (d.v.s., ej domänknuten) OpenID Connect Provider. Även i dessa fall är det osannolikt att en *ID Token* som ställs ut har organisationens auktorisationstjänst som mottagare. Om däremot en OpenID Connect Provider som är lokal, eller specifik för e-tjänstens domän, används kan mönstret som beskrivs i avsnitt [2.4](#anvand-oidc-op), [Använd OpenID Connect OP som också är en auktorisationstjänst](#anvand-oidc-op), med fördel användas. 
+**Notera:** Faktum är att de svagheter som lyfts fram ovan också gäller om e-tjänsten använder en central (d.v.s., ej domänknuten) OpenID Provider. Även i dessa fall är det osannolikt att en *ID Token* som ställs ut har organisationens auktorisationstjänst som mottagare. Om däremot en OpenID Provider som är lokal, eller specifik för e-tjänstens domän, används kan mönstret som beskrivs i avsnitt [2.4](#anvand-oidc-op), [Använd OpenID Connect OP som också är en auktorisationstjänst](#anvand-oidc-op), med fördel användas. 
 
 > **\[1\]:** En SAML IdP kan antingen vara en lokal IdP inom en given domän, eller en central IdP som används av flera organisationer. Oavsett vilken typ av IdP som används så är flödet för detta mönster detsamma.
 
@@ -298,7 +298,7 @@ Vissa kan nog bli lite konfunderade, och hävda att vi gör våld på OAuth när
 
 I föregående kapitel fokuserade vi på det faktum att användaren autentiserade sig hos auktorisationstjänsten, som ställde ut ett åtkomstintyg till e-tjänsten som användes för att logga in användaren. Flödesmässigt finns i princip ingenting att anmärka på, men vi använder åtkomstintyg och OAuth2 på ett sätt det egentligen inte är menat. 
 
-Steget till en mer renlärig lösning är lyckligtvis inte långt. En OpenID Connect Provider (OP) är per definition också en OAuth2 auktorisationstjänst, och genom att en organisation, eller domän, har en komponent som agerar både som legitimeringstjänst (OIDC OP) och auktorisationstjänst (OAuth2 AS) kan i princip alla utmaningar som vi stött på i tidigare mönster hanteras på ett standardiserat sätt.
+Steget till en mer renlärig lösning är lyckligtvis inte långt. En OpenID Provider (OP) är per definition också en OAuth2 auktorisationstjänst, och genom att en organisation, eller domän, har en komponent som agerar både som legitimeringstjänst (OIDC OP) och auktorisationstjänst (OAuth2 AS) kan i princip alla utmaningar som vi stött på i tidigare mönster hanteras på ett standardiserat sätt.
 
 Flödet där en användare loggar in till en e-tjänst, och där e-tjänsten sedan gör ett API-anrop rörande användarens data, kommer då att se ut enligt nedan.
 
@@ -307,7 +307,7 @@ sequenceDiagram
 autonumber
     participant User as Användare
     participant Service as e-tjänst
-    participant AuthServer as Authorization Server och<br />OpenID Connect Provider
+    participant AuthServer as Authorization Server och<br />OpenID Provider
 
     participant API as Skyddat API
 
@@ -369,7 +369,7 @@ autonumber
 
 16. API:et (resursen) tar emot anropet, validerar åtkomstintyget, and kan nu returnera ett svar på API-frågan.
 
-Ovanstående lösning bygger på att domänen vari e-tjänsten verkar har en dedikerad auktorisationstjänst (Authorization Server) som också tar rollen som legitimeringstjänst (OpenID Connect Provider). Detta hindrar inte att centrala legitimeringstjänster (OpenID Connect eller SAML) används för att autentisera användarna. Den OIDC OP som används i exemplet kan mycket väl vara en proxy för externa legitimeringsmetoder.
+Ovanstående lösning bygger på att domänen vari e-tjänsten verkar har en dedikerad auktorisationstjänst (Authorization Server) som också tar rollen som legitimeringstjänst (OpenID Provider). Detta hindrar inte att centrala legitimeringstjänster (OpenID Connect eller SAML) används för att autentisera användarna. Den OIDC OP som används i exemplet kan mycket väl vara en proxy för externa legitimeringsmetoder.
 
 Det "rena" i ovanstående lösning är att inga intygsväxlingar eller annat "trixande" med intyg mellan olika tekniker behövs. En annan stor fördel är att attribut kan påföras/returneras där de behövs. En legitimeringstjänst behöver inte lägga på behörighetsstyrande attribut i samband med legitimeringen, utan dessa kan erbjudas via när de behövs.
 
@@ -378,11 +378,22 @@ OAuth2 och OpenID Connect möjliggör också en mycket tydligare uppdelning av d
 <a name="slutsatser"></a>
 ## 3. Slutsatser
 
-> TODO: Vi vill i största möjliga mån undvika intygsväxling eftersom det ...
+Vilka slutsatser kan vi dra från de mönster vi diskuterat ovan?
 
-> TODO: Intygsväxling kan/bör ske vid anrop mellan domäner, men en e-tjänst ska alltid prata med sin domäns AS.
+- Separera autentisering från auktorisation och delegering! Det är två helt separata problem, och bara för att de ofta sker nästan samtidigt i inloggningsflöden betyder inte det att vi inte ska hålla isär begreppen.
 
-## Referenser
+- Undvik intygsväxling från e-tjänster! Kapitel [2.2](#utnyttjande-av-sso-mot-legitimeringstjansten) presenterar ett mönster där en e-tjänst kan dra nytta av användarens session hos en SAML IdP istället för att växla in intyg. [RFC 7522, Security Assertion Markup Language (SAML) 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grant](#rfc7522) har använts på så många felaktiga sätt genom åren och faktum är att den skjuter många av OAuth2:s styrkor i sank.
+
+  - Intygsväxling har dock sin plats, i dokumentet [API-anrop över domängränser](inter-domain-calls.md) diskuterar vi hur vi en auktorisationstjänst som agerar "Security Token Service" kan agera brygga mellan olika domäner.
+  
+- Överväg att använda lokala (för domänen) auktorisationstjänster. Dessa tjänster kan ha god kunskap om de olika tjänsterna inom domänen, men också agera som brygga när anrop ska göras till tjänster utanför domänen. Ett sådant mönster kan också effektivt isolera tillitsfrågor mellan domäner och vi kan undvika tjänst till tjänst-konfigurationer.
+
+- Skicka inte runt data i intyg för framtida eventuellt bruk. Använd istället OAuth2 och OpenID Connect:s principer för data privacy.
+
+- Överväg att hoppa på OpenID Connect! Även om SAML IdP:er finns kvar inom överskådlig tid, så är en lokal OpenID Provider som agerar proxy mot legitimeringsmetoder lösa upp många problem. Se kapitel [2.4](#anvand-oidc-op) ovan.
+
+<a name="referenser"></a>
+## 4. Referenser
 
 <a name="rfc7522"></a>
 **\[RFC7522\]**
