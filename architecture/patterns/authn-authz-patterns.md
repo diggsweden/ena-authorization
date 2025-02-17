@@ -7,15 +7,15 @@
 
 Många e-tjänster är uppbyggda kring att användaren först styrs till en legitimeringstjänst för legitimering, för att sedan loggas in till e-tjänsten baserat på det identitetsintyg som ställs ut i samband med identifieringen. Baserat på de identitetsattribut, och i vissa fall också behörighetsattribut, som levereras i intyget tar e-tjänsten ett beslut huruvida användaren ska få tillgång till tjänsten.
 
-Denna modell används av de allra flesta e-tjänster, och fungerar bra för sitt primära syfte - att kunna logga in en användare till tjänsten. Många e-tjänster gör dock ytterligare anrop till bakomliggande tjänster kopplat till den inloggade användaren. I många fall är det till tjänster inom samma domän som e-tjänster finns i, men även anrop till tjänster i andra domäner utförs, t.ex. "användarens folkbokföringsdata hämtas från Skatteverkets Navet-tjänst", eller "användarens journaldata hämtas från annan vårdgivare".
+Denna modell används av de allra flesta e-tjänster, och fungerar bra för sitt primära syfte - att kunna logga in en användare till tjänsten. Många e-tjänster gör dock ytterligare anrop till bakomliggande tjänster kopplat till den inloggade användaren. I många fall är det till tjänster som finns inom samma domän som e-tjänst verkar i, men även anrop till tjänster i andra domäner utförs, t.ex. "användarens folkbokföringsdata hämtas från Skatteverkets Navet-tjänst", eller "användarens journaldata hämtas från annan vårdgivare".
 
 I dagsläget bygger många av dessa typer av tjänst-till-tjänst anrop på en direkt tillit mellan parterna, och det finns inga direkta bevis på att klientsidan verkligen agerar å användarens vägnar när data hämtas. Det finns två huvudsakliga problem rörande denna typ av modell:
 
 - Användaren som är inloggad i e-tjänsten får ingen vetskap om att dennes data hämtas från en annan tjänst, och kan inte påverka detta. I vissa fall kan det vara önskvärt att användaren ska godkänna denna datadelning. 
 
-- Eftersom server-sidan inte får något bevis på att användaren finns "på andra sidan" så innebär det i princip att säkerheten för API:et (server-sidan) är beroende på att klienten inte har några säkerhetshål och att den inte tagits över av en illvillig angripare, som i teorin har möjlighet att dränera API:et på alla individers data.
+- Eftersom server-sidan inte får något bevis på att användaren finns "på andra sidan" så innebär det i princip att säkerheten för API:et (server-sidan) är beroende på att klienten inte har några säkerhetshål och att den inte tagits över av en illvillig angripare, som i teorin har möjlighet att dränera API:et på alla individers data. 
 
-Om API:et (server-sidan) gör anrop i sin tur så flyttas dessa problem längre ned i kedjan, och problemet blir ännu större.
+Om API:et (server-sidan) i sin tur gör ytterligare anrop så flyttas dessa problem längre ned i kedjan, och problemet blir ännu större.
 
 Lösningen på dessa problem är att använda en gemensamt betrodd auktorisationstjänst (Authorization Server) som ställer ut ett åtkomstintyg (Access Token) som intygar:
 
@@ -43,11 +43,11 @@ Detta stycke ger exempel på ett antal olika typfall för hur en användare kan 
 
 I de allra flesta fall idag när en e-tjänst delegerar autentisering till en fristående legitimeringstjänst används SAML, där användare styrs till en SAML IdP<sup>1</sup> (Identity Provider) för legitimering, och styrs tillbaka till e-tjänsten med ett SAML identitetsintyg (Assertion). Givet detta intyg kan e-tjänsten logga in användaren. 
 
-OK, e-tjänsten vet nu vem användaren är, och kan via identitetsintyget också erhållit vissa behörighetsstyrande attribut<sup>2</sup>. Men när e-tjänsten nu behöver anropa en resurs (API) för att inhämta mer information om användaren så har vi just helt plötsligt en auktorisationsserver att förhålla oss till. Och denna tjänst har inte en aning om vilken användaren är.
+OK, e-tjänsten vet nu vem användaren är, och kan via identitetsintyget också erhållit vissa behörighetsstyrande attribut<sup>2</sup>. Men när e-tjänsten nu behöver anropa en resurs (API) för att inhämta mer information om användaren så har vi just helt plötsligt en auktorisationstjänst att förhålla oss till. Och denna tjänst har inte en aning om vilken användaren är.
 
 Enligt OAuth2 så är ju flödet för att skaffa ett åtkomstintyg enligt följande:
 
-1. Applikationen styr användaren till auktorisationstjänsten i ett s.k. "authentication request". Denna begäran innehåller önskan om vilka rättigheter (scopes) intyget ska utfärdas för (samt indikation om vilken resurs som intyget ska gälla för).
+1. Applikationen styr användaren till auktorisationstjänsten i ett s.k. "authorization request". Denna begäran innehåller önskan om vilka rättigheter (scopes) intyget ska utfärdas för (samt indikation om vilken resurs som intyget ska gälla för).
 
 2. Då användaren når auktorisationstjänsten behöver denne autentiseras (såvida användaren inte har en aktiv session).
 
@@ -339,7 +339,7 @@ autonumber
 
 1. Användaren besöker e-tjänsten och klickar på "Logga in".
 
-2. E-tjänsten sätter samma en OpenID Connect "Authentication Request", och inkluderar detta meddelande när den styr användaren (via webbläsaren) till "Authorization Endpoint" hos OP/AS.<br /><br />Ja, det är "Authorization Endpoint" och inte "Authentication Endpoint". Anropet som vi kallar "Authentication Request" är egentligen ett OAuth2-meddelande. Skillnaden är att vi inkluderar OAuth/OIDC "scopet" `openid", vilket talar om för OP/AS att det rör sig om en autentiseringsbegäran.
+2. E-tjänsten sätter samma en OpenID Connect "Authentication Request", och inkluderar detta meddelande när den styr användaren (via webbläsaren) till "Authorization Endpoint" hos OP/AS.<br /><br />Ja, det är "Authorization Endpoint" och inte "Authentication Endpoint". Anropet som vi kallar "Authentication Request" är egentligen ett OAuth2-meddelande. Skillnaden är att vi inkluderar OIDC "scopet" `openid`, vilket talar om för OP/AS att det rör sig om en autentiseringsbegäran.
 
 3. Då användaren når legitimeringstjänsten autentiseras denne. Hur detta går till är "out of scope" i detta läge, men det kan innebära att en valsida visas för användaren där denne väljer autentiseringsmetod, för att senare styras till en viss legitimeringstjänst.
 
@@ -384,13 +384,15 @@ Vilka slutsatser kan vi dra från de mönster vi diskuterat ovan?
 
 - Undvik intygsväxling från e-tjänster! Kapitel [2.2](#utnyttjande-av-sso-mot-legitimeringstjansten) presenterar ett mönster där en e-tjänst kan dra nytta av användarens session hos en SAML IdP istället för att växla in intyg. [RFC 7522, Security Assertion Markup Language (SAML) 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grant](#rfc7522) har använts på så många felaktiga sätt genom åren och faktum är att den skjuter många av OAuth2:s styrkor i sank.
 
-  - Intygsväxling har dock sin plats, i dokumentet [API-anrop över domängränser](inter-domain-calls.md) diskuterar vi hur vi en auktorisationstjänst som agerar "Security Token Service" kan agera brygga mellan olika domäner.
+  - Intygsväxling har dock sin plats, i dokumentet [API-anrop över domängränser](inter-domain-calls.md) diskuterar vi hur vi en auktorisationstjänst som agerar "Security Token Service" kan agera brygga mellan olika domäner. 
+  
+  - Ett annat fall för intygsväxling är där ett åtkomstintyg (access token) kan växlas in mot ett nytt dito enligt \[[RFC78693](#rfc8693)\]. Ett typfall är då en API-tjänst (resursserver) gör anrop till en bakomliggande tjänst och ursprungsanvändarens identitet och legitimeringsinformation ska bevaras. *Vi behöver nog dokumentera detta mönster i ett separat dokument ...*
   
 - Överväg att använda lokala (för domänen) auktorisationstjänster. Dessa tjänster kan ha god kunskap om de olika tjänsterna inom domänen, men också agera som brygga när anrop ska göras till tjänster utanför domänen. Ett sådant mönster kan också effektivt isolera tillitsfrågor mellan domäner och vi kan undvika tjänst till tjänst-konfigurationer.
 
 - Skicka inte runt data i intyg för framtida eventuellt bruk. Använd istället OAuth2 och OpenID Connect:s principer för data privacy.
 
-- Överväg att hoppa på OpenID Connect! Även om SAML IdP:er finns kvar inom överskådlig tid, så är en lokal OpenID Provider som agerar proxy mot legitimeringsmetoder lösa upp många problem. Se kapitel [2.4](#anvand-oidc-op) ovan.
+- Överväg att hoppa på OpenID Connect! Även om SAML IdP:er finns kvar inom överskådlig tid, så kan en lokal OpenID Provider som agerar proxy mot legitimeringsmetoder lösa upp många problem. Se kapitel [2.4](#anvand-oidc-op) ovan.
 
 <a name="referenser"></a>
 ## 4. Referenser
