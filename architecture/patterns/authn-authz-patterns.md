@@ -42,7 +42,7 @@ Notera: Vi diskuterar inte eventuella lösningar där ett identitetsintyg skicka
 
 Detta stycke ger exempel på ett antal olika typfall för hur en användare kan loggas in till en e-tjänst för att e-tjänsten senare kan begära ett åtkomstintyg för anrop (rörande användaren) till en bakomliggande tjänst.
 
-> I detta kapitel diskuterar vi inga typfall där anrop sker över organisationsgränser. Sådana typfall bygger på delade policies mellan auktorisationstjänster och intygsväxling och beskrivs i dokumentet [API-anrop över domängränser](inter-domain-calls.md). Dock bygger även dessa fall på att ett initialt åtkomstintyg finns.
+> I detta kapitel diskuterar vi inga typfall där anrop sker över organisationsgränser. Sådana typfall bygger på delade policies mellan auktorisationstjänster och intygsväxling och beskrivs i dokumentet [API-anrop över organisationsgränser](inter-domain-calls.md). Dock bygger även dessa fall på att ett initialt åtkomstintyg finns.
 
 <a name="vaxling-av-saml-intyg"></a>
 ### 2.1. Växling av SAML-intyg
@@ -390,7 +390,7 @@ Vilka slutsatser kan vi dra från de mönster vi diskuterat ovan?
 
 - Undvik intygsväxling från e-tjänster! Kapitel [2.2](#utnyttjande-av-sso-mot-legitimeringstjansten) presenterar ett mönster där en e-tjänst kan dra nytta av användarens session hos en SAML IdP istället för att växla in intyg. [RFC 7522, Security Assertion Markup Language (SAML) 2.0 Profile for OAuth 2.0 Client Authentication and Authorization Grant](#rfc7522) har använts på så många felaktiga sätt genom åren och faktum är att den skjuter många av OAuth2:s styrkor i sank.
 
-  - Intygsväxling har dock sin plats, i dokumentet [API-anrop över domängränser](inter-domain-calls.md) diskuterar vi hur vi en auktorisationstjänst som agerar "Security Token Service" kan agera brygga mellan olika domäner. 
+  - Intygsväxling har dock sin plats, i dokumentet [API-anrop över organisationsgränser](inter-domain-calls.md) diskuterar vi hur vi en auktorisationstjänst som agerar "Security Token Service" kan agera brygga mellan olika domäner. 
   
   - Ett annat fall för intygsväxling är där ett åtkomstintyg (access token) kan växlas in mot ett nytt dito enligt \[[RFC78693](#rfc8693)\]. Ett typfall är då en API-tjänst (resursserver) gör anrop till en bakomliggande tjänst och ursprungsanvändarens identitet och legitimeringsinformation ska bevaras. *Vi behöver nog dokumentera detta mönster i ett separat dokument ...*
   
