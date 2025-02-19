@@ -15,7 +15,7 @@
 
 > Abstrahera bort hur användaren har autentiserat sig. Hänvisa till senare diskussion.
 
-![pre](images/ena-logo-small.png)
+![pre](images/prereqs1.png)
 
 ## 2. Mönster för anrop över organisationsgränser
 
