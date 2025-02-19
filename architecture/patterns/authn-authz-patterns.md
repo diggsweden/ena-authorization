@@ -25,9 +25,15 @@ Lösningen på dessa problem är att använda en gemensamt betrodd auktorisation
 
 Detta löses med OAuth2 där anropande e-tjänst tar rollen som *Client*, användaren tar rollen som *Resource Owner*<sup>1</sup>, och där API:et som anropas är *Resource Server*. En OAuth2 *Authorization Server* ansvarar för att säkerställa användarens identitet, samla in dess godkännande (*consent*), autentisera klienten, samt att baserat på en konfiguration tilldela rättigheter till en klient på en resurs å en användares vägnar i ett åtkomstintyg (*Access Token*).
 
-OK, än är vi alla med. Nu kommer vi till det knepiga. Hur ska vi på ett säkert och smidigt sätt skapa ett åtkomstintyg? I kommande kapitel presenteras ett antal olika mönster, där vi för varje mönster diskuterar svagheter och övriga utmaningar.
+> Just samtycke eller godkännande (consent) kan behöva en litet förtydligande. I skolboksexempel av OAuth2 illustreras detta ofta med att en auktorisationstjänst frågar användaren något i stil med "Tillåter du att Facebook får tillgång till dina bilder på Instagram", d.v.s., har klienten Instagram rätt att läsa dina bilder på resursen Instagram?
 
-Notera: Vi diskuterar inte eventuella lösningar där ett identitetsintyg skickas med i en anropskedja som något slags bevis, istället fokuserar vi på olika typer av lösningar som löser vårt problem med bibehållen säkerhet.
+>I verkligheten vill vi inte, eller ska inte, fråga användaren om alla beslut. Vissa "consent-dialoger" ersätts med policies eller sedan tidigare överenskomna rättigheter, och i andra fall är det helt enkelt underförstått (t.ex. om jag loggar in till en tjänst så förväntar jag mig att min data visas).
+
+> Det viktiga här dock att förstå att utfärdandet av ett åtkonstintyg alltid innefattar ett (logiskt) samtycke (consent) från användaren. 
+
+OK, än är vi alla med. Nu kommer vi till det knepiga. Hur ska vi på ett säkert och smidigt sätt skapa ett åtkomstintyg? I kommande kapitel presenteras ett antal olika mönster, där vi för varje mönster diskuterar svagheter och övriga utmaningar. 
+
+Notera: Vi diskuterar inte eventuella lösningar där ett identitetsintyg skickas med i en anropskedja som något slags bevis, istället fokuserar vi på olika typer av lösningar som löser vårt problem med bibehållen säkerhet. Inte heller diskuterar vi tjänst-till-tjänst anrop där ingen användaren är delaktig, t.ex. batch-körningar eller anrop som bygger på direkt tillit mellan två parter.
 
 > **\[1\]:** Fastna nu inte i frågor om användaren juridiskt äger den data som efterfrågas. Rent logiskt kan vi se det så ...
 
@@ -351,7 +357,7 @@ autonumber
 
 7. Legitimeringstjänsten (OIDC OP) som precis autentiserat användaren kan nu ställa ut en s.k. ID token. Denna token innehåller information om hur autentiseringen genomfördes (tidpunkt, tillutsnivå, etc.) samt användarens primära identitet (`subj` claim). Utöver ID token levereras också ett åtkomstintyg (access token) och en "Refresh token". The "access token" som returneras i detta skede är primärt till för att ge klienten åtkomst till UserInfo endpoint (se nedan).
 
-8. E-tjänsten verifierar nu ID-token och m.a.p. dess giltighet och äkthet.
+8. E-tjänsten verifierar nu ID-token och m.a.p. dess giltighet och äkthet.<br />Denna ID-token kan likställas med ett SAML-intyg, och är endast till för att konsumeras en gång (av den part som begärt legitimering). Liksom för SAML-intyget har en ID-token en kort giltighetstid.
 
 9. Beroende på om det räcker med de attribut som mottogs i ID token eller inte så kan e-tjänsten använda den s.k. UserInfo endpoint att begära ytterligare attribut rörande den autentiserade användaren. Detta är en backend-anrop där e-tjänsten inkluderar det åtkomstintyg som mottogs i steg 7 ovan.
 
