@@ -24,6 +24,7 @@
 Enligt draften "OAuth Identity and Authorization Chaining Across Domains", \[[OAuth.Chaining](#oauth-chaining)\].
 
 ```mermaid
+%%{ init : { "theme" : "default", "themeVariables" : { "background" : "#000" }}}%%
 sequenceDiagram
 autonumber
     actor User as Användare
@@ -64,6 +65,7 @@ autonumber
 ### 2.2. Applikationen pratar endast med lokal auktorisationstjänst
 
 ```mermaid
+%%{ init : { "theme" : "default", "themeVariables" : { "background" : "#000" }}}%%
 sequenceDiagram
 autonumber
     actor User as Användare
