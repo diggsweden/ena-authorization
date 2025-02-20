@@ -24,18 +24,17 @@
 Enligt draften "OAuth Identity and Authorization Chaining Across Domains", \[[OAuth.Chaining](#oauth-chaining)\].
 
 ```mermaid
-%%{ init : { "theme" : "default", "themeVariables" : { "background" : "#000" }}}%%
 sequenceDiagram
 autonumber
     actor User as Användare
 
-    box rgb(16,185,187) "Organisation A"
+    box Organisation A
         participant Service as e-tjänst
         participant AsA as Authorization Server A
         participant ApiA as Skyddat API A
     end
 
-    box rgb(239,174,55) "Organisation B"
+    box Organisation B
         participant AsB as Authorization Server B
         participant ApiB as Skyddat API B
     end
@@ -65,18 +64,17 @@ autonumber
 ### 2.2. Applikationen pratar endast med lokal auktorisationstjänst
 
 ```mermaid
-%%{ init : { "theme" : "default", "themeVariables" : { "background" : "#000" }}}%%
 sequenceDiagram
 autonumber
     actor User as Användare
 
-    box rgb(16,185,187) "Organisation A"
+    box Organisation A
         participant Service as e-tjänst
         participant AsA as Authorization Server A
         participant ApiA as Skyddat API A
     end
 
-    box rgb(239,174,55) "Organisation B"
+    box Organisation B
         participant AsB as Authorization Server B
         participant ApiB as Skyddat API B
     end
