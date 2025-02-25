@@ -6,22 +6,62 @@
 
 1. [**Introduktion**](#introduktion)
 
-> TODO
+2. [**Mönster för anrop över organisationsgränser**](#monster-for-anrop-over-organisationsgranser)
+
+    2.1. [Applikationen samverkar med flera auktorisationstjänster](#applikationen-samverkar-med-flera-auktorisationstjanster)
+    
+    2.2. [Applikationen pratar endast med lokal auktorisationstjänst](#applikationen-pratar-endast-med-lokal-auktorisationstjanst)
+    
+    2.3. [Kedjade anrop](#kedjade-anrop)
+
+    2.4. [Säkerhetsaspekter](#sakerhetsaspekter)
+
+3. [**Autentisering av användare och förmedling av autentiseringsinformation**](#autentisering-av-anvandare-och-formedling-av-autentiseringsinformation)
+
+4. [**Slutsatser**](#slutsatser)
+
+5. [**Referenser**](#referenser)
+
+---
 
 <a name="introduktion"></a>
 ## 1. Introduktion
 
-> TODO
+Applikationer och e-tjänster behöver ofta tillgång till API:er (resurser) som befinner sig i andra "tillitsdomäner", eller organisationer, och där respektive domän eller organisation har sina egna auktorisationstjänster, och i många fall också sina egna sätt att autentisera användare. Som en följd av detta ställs en applikation inom en organisation inför situationen att ett skyddat API som hanteras av en annan organisation (tillitsdomän) skyddas av en annan auktorisationstjänst. Denna auktorisationstjänst kan ha helt andra regler och krav för åtkomst än vad applikationen i den förstnämnda organisationen kan hantera.
 
-> Abstrahera bort hur användaren har autentiserat sig. Hänvisa till senare diskussion.
+Ett API-anrop kan leda till att flera anrop passerar genom flera resurser i flera olika organisationer/domäner innan den slutförs. Alla skyddade resurser (API:er) som är involverade i en sådan begäran vill veta:
+
+- Å vilken användares vägnar initierades den ursprungliga begäran?
+
+  - På vilket sätt har denne användare styrkt sin identitet, och vilken legitimeringstjänst har utfört användarautentiseringen?
+
+- Vilken auktorisation har beviljats, d.v.s., vilka rättigheter har anropande part på den givna resursen?
+
+- Och eventuellt också: Vilka andra parter, utöver anropande part, är involverade i anropet?
+
+För varje anrop i en anropskedja presenteras ett OAuth2 Access Token (åtkomstintyg) som respektive API (resurs) validerar innan åtkomst medges. 
+
+Detta dokument diskuterar hur en aktör inom organisation A anropar ett API (resurs) inom organisation B. Vi illustrerar både "direkta anrop" (1) och "indirekta", eller kedjade, anrop (2).
 
 ![pre](images/prereqs1.png)
 
+Dokumentet diskuterar också kopplingen till användarautentisering. Om organisation A och organisation B använder samma typ av användarautentisering. Blir det en skillnad mot om de har sina egna sätt att legitimera användare?
+
+> Notera: Detta dokument hanterar inte fallen där en applikation från domän A, registreras hos domän B, autentiserar sina användare i enlighet med B, och använder B:s auktorisation. Dessa fall blir helt analoga med "vanliga" intra-domän användningsfall.
+
+<a name="monster-for-anrop-over-organisationsgranser"></a>
 ## 2. Mönster för anrop över organisationsgränser
 
-### 2.1. Applikationen samverkar med flera auktorisationstjänster 
+Detta kapitel diskuterar olika mönster för hur ett anrop kan göras över organisationsgränser, och där förutsättningarna och kraven som beskrivs i ovanstående kapitel upprätthålls.
 
-Enligt draften "OAuth Identity and Authorization Chaining Across Domains", \[[OAuth.Chaining](#oauth-chaining)\].
+Initialt diskuterar vi mönster där vi abstraherar bort hur användaren har autentiserat sig, och vilken påverkan denna process får på förutsättningarna. Se kapitel [3](#autentisering-av-anvandare-och-formedling-av-autentiseringsinformation) nedan för diskussioner om detta.
+
+För respektive mönster antar vi att användaren har autentiserat sig och att denna är inloggad hos e-tjänsten i organisation A samt att användaren är känd (läs, autentiserad) för auktorisationstjänsten i samma organisation. Detta för att sekvensdiagrammen ska vara så enkla och lättbegripliga som möjligt. Se dokumentet [Mönster för autentisering och auktorisation](authn-authz-patterns.md) för diskussioner rörande hur användaren loggar in till e-tjänsten och kommunicerar med auktorisationstjänsten. 
+
+<a name="applikationen-samverkar-med-flera-auktorisationstjanster"></a>
+### 2.1. Applikationen samverkar med flera auktorisationstjänster
+
+IETF draften "OAuth Identity and Authorization Chaining Across Domains", \[[OAuth.Chaining](#oauth-chaining)\], berör de frågor som detta dokument hanterar, och i stycke [2.1](https://www.ietf.org/archive/id/draft-ietf-oauth-identity-chaining-03.html#name-overview) av draften presenteras ett sekvensdiagram för en föreslagen lösning. Nedanstående sekvensdiagram illustrerar detta förslag i dokumentets kontext.
 
 ```mermaid
 sequenceDiagram
@@ -61,6 +101,7 @@ autonumber
 
 > TODO: Ge exempel på hur JWT kan se ut ...
 
+<a name="applikationen-pratar-endast-med-lokal-auktorisationstjanst"></a>
 ### 2.2. Applikationen pratar endast med lokal auktorisationstjänst
 
 ```mermaid
@@ -97,15 +138,64 @@ autonumber
     Service-->>User: Återkoppling till användare ...
 ```
 
-## 3. Kedjade anrop
+Fördelar: Vi låter organisationernas auktorisationstjänster hantera tillit över organisationsgränserna, och klienter och API:er kan vara relativt "obrydda".
 
-> TODO: En resursserver agerar klient.
+<a name="kedjade-anrop"></a>
+### 2.3. Kedjade anrop
 
-## 4. Användarautentisering och anrop över organisationsgränser
+> TODO: Beskriv hur vi hanterar ett anrop som skickas vidare.
+
+<a name="sakerhetsaspekter"></a>
+### 2.4. Säkerhetsaspekter
+
+Begreppet "Sender constrained tokens", eller "token binding", innebär att mekanismer som förhindrar stöld och återuppspelning av åtkomstintyg (Access Tokens) och "Refresh Tokens" används. "OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens", \[[RFC8705](#rfc8705)\], och "OAuth 2.0 Demonstrating Proof of Possession (DPoP)", \[[RFC9449](#rfc9449)\], är de två mekanismerna som fått störst acceptans.
+
+Utkastet (draften) för den kommande standarden för [OAuth 2.1](#oauth21) säger i stycke 1.4.3, "Sender-Constrained Access Tokens" följande:
+
+> Authorization and resource servers SHOULD use mechanisms for sender-constraining access tokens, such as OAuth Demonstration of Proof of Possession (DPoP) [RFC9449] or Mutual TLS for OAuth 2.0 [RFC8705]. 
+
+Framöver bör vi därför analysera våra olika modeller som diskuteras ovan utifrån att anrop till det skyddade API:et måste ha "sender constrained access tokens".
+
+Redan nu kan vi se svårigheter med att använda DPoP för mönstret [Applikationen pratar endast med lokal auktorisationstjänst](#applikationen-pratar-endast-med-lokal-auktorisationstjanst), då auktorisationstjänsten i organisation B skapar ett åtkomstintyg utan att vara i direkt kontakt med klientapplikationen. Det finns dock väger runt detta, och undertecknad har tagit upp frågan med arbetsgruppen för \[[OAuth.Chaining](#oauth-chaining)\], se https://github.com/oauth-wg/oauth-identity-chaining/issues/79.
+
+
+<a name="autentisering-av-anvandare-och-formedling-av-autentiseringsinformation"></a>
+## 3. Autentisering av användare och förmedling av autentiseringsinformation
+
+Subject-name
+
+Tillitsnivåer
+
+<a name="slutsatser"></a>
+## 4. Slutsatser
 
 <a name="referenser"></a>
-## Referenser
+## 5. Referenser
+
+<a name="rfc7523"></a>
+**\[RFC7523\]**
+> [Jones, M., Campbell, B., and C. Mortimore, "JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants", RFC 7523, May 2015](https://www.rfc-editor.org/rfc/rfc7523).
+
+<a name="rfc8705"></a>
+**\[RFC8705\]**
+> [Campbell, B., Bradley, J., Sakimura, N., Lodderstedt, T., "OAuth 2.0 Mutual-TLS Client Authentication and Certificate-Bound Access Tokens", RFC 8705, February 2020](https://www.rfc-editor.org/rfc/rfc8705).
+
+<a name="rfc8707"></a>
+**\[RFC8707\]**
+> [Campbell, B., Bradley, J., and H. Tschofenig, "Resource Indicators for OAuth 2.0", RFC 8707, February 2020](https://www.rfc-editor.org/rfc/rfc8707).
+
+<a name="rfc8693"></a>
+**\[RFC8693\]**
+> [Jones, M., Nadalin, A., Campbell, B., Ed., Bradley, J., and C. Mortimore, "OAuth 2.0 Token Exchange", RFC 8693, January 2020](https://www.rfc-editor.org/rfc/rfc8693).
+
+<a name="rfc9449"></a>
+**\[RFC9449\]**
+> [Fett, D., Campbell, B., Bradley, J., Lodderstedt, T., Jones, M., Waite, D., "OAuth 2.0 Demonstrating Proof of Possession (DPoP)", RFC 9449, September 2023](https://www.rfc-editor.org/rfc/rfc9449).
+
+<a name="oauth21"></a>
+**\[OAuth2.1\]**
+> [Hardt, D., Parecki, A., Lodderstedt, T., "The OAuth 2.1 Authorization Framework", November 2024](https://www.ietf.org/archive/id/draft-ietf-oauth-v2-1-12.html).
 
 <a name="oauth-chaining"></a>
 **\[OAuth.Chaining\]**
-> [OAuth Identity and Authorization Chaining Across Domains, December 2024](https://www.ietf.org/archive/id/draft-ietf-oauth-identity-chaining-03.html)
+> [Schwenkschuster, A., Kasselmann, P., Burgin, K., Jenkins, M., Campbell, B., "OAuth Identity and Authorization Chaining Across Domains", December 2024](https://www.ietf.org/archive/id/draft-ietf-oauth-identity-chaining-03.html)
