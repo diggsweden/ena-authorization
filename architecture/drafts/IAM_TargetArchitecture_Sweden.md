@@ -73,13 +73,14 @@ Du vet att det fungerar när pilarna är horisontala och vertikala med rundade h
 
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-flowchart TB
+flowchart LR
 
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
 
 subgraph is[Digital samverkan]
+direction TB
     po(Tjänsteproducent)
     po:::org
 
@@ -91,13 +92,31 @@ end
 is:::box
 
 ss(Federationsinfrastruktur)
-ss:::org
+ss:::box
 
-is==Verifiera tillit==>ss
+is--Tekniska komponenter verifierar tillit till andra tekniska komponenter-->ss
+is--Parter ansluter tekniska komponenter till federation-->ss
+is--Parter ansluter som organisation till federation-->ss
 ```
- I efterföljande bilder detaljeras bilden för olika mönster som möter olika behov.
+Genom anslutning till federationsinfrastrukturen bevisar tjänstekonsument och tjänsteproducent att de lever upp till de krav som ställs på dels dem som organisationer, dels att de tekniska komponenter de ansluter uppfyller överenskomna krav.
+
+Exakta krav kvarstår att utforma, men nedan listas några exempel på krav som kan ställas på en organisation:
+
+1. Registrerad hos Skatteverket
+1. Har ansvarsförsäkring
+1. Har ledningssystem för informationssäkerhetsarbete
+1. Processer för säkerhetsgranskning, kodhantering, patchhantering, incidenthantering, m.m. efterlevs och kan påvisas genom dokumentation.
+1. Årlig IT-revision genomförs
+1. Har avsatta resurser för löpande förvaltning av anslutna tekniska komponenter
+
+De tekniska kraven är olika beroende på vilka förmågor som erbjuds av en viss komponent man ansluter till federationsinfrastrukturen. Gemensamt för alla är att man har en adekvata tekniska förmågor att hantera kryptografiskt material och att behandla överförda personuppgifter och annan skyddsvärd information. Därefter kan det komma att skilja sig beroende på om komponenten agerar som API-klient, E-tjänst, eller API-producent. Man kan också ansluta komponenter som erb juder funktionalitet för till exempel legitimering, attributförsörjning, eller åtkomstbeslut. För dessa komponenter kan det ställas helt andra krav.
+
+Åtkomstbeslut baseras på identitet på konsumerande system och dess anslutning till dels federationsinfrastrukturen, dels den specifika samverkan (jmfr <a href="https://inera.atlassian.net/wiki/spaces/RTA/pages/4353360176/M+larkitektur+f+r+samverkan+enligt+T2+inom+svensk+v+lf+rd#4.4-Akt%C3%B6rer-och-komponenter">T2:s informationsfederationer</a>). Åtkomst kan också baseras på åtkomsstyrande attribut för den användare som orsakat åtkomstbegäran.
+
+I efterföljande bilder detaljeras identifierade samverkansmönster och vilka krav de tillgodoser. I dessa bilder utelämnas federationsinfrastrukturen och komponenters interaktioner med den för att säkerställa tillit.
 
 ### 2.1 System anropar system, under egen identitet
+I detta mönster delegerar tjänsteproducenten åtkomsthantering till tjänstekonsumentens API-klient. Detta kan göras i vissa fall baserat på lag, i andra fall baserat på ingångna avtal.
 
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
@@ -107,219 +126,172 @@ classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
 
-subgraph po[Tjänsteproducent]
-    p(API):::comp
-    as(Åtkomstintygstjänst):::comp
+subgraph is[Digital samverkan]
+    subgraph po[Tjänsteproducent]
+        p(API):::comp
+        as(Åtkomstintygstjänst):::comp
+    end
+    po:::org
+
+    subgraph co[Tjänstekonsument]
+        c(Klient):::comp
+    end
+    co:::org
 end
-po:::org
+is:::box
 
-subgraph ss[Federationsinfrastruktur]
-    t(Tillitsuppslags-<br>tjänst):::comp
-end
-ss:::org
-
-subgraph co[Tjänstekonsument]
-    c(Klient):::comp
-end
-co:::org
-
-c--<p>1. Begär åtkomst till API-->as
-as--<p>1.1 Verifiera tillit till Klient-->t
-as--<p>1.2 Ställ ut åtkomstintyg-->as
-c--<p>2. Anropa API-->p
-p-- 2.1 Verifiera åtkomstintyg-->p
-p-. 2#46;2 litar på .->as
-
+co--Begär åtkomst-->po
+co--Anropa tjänst-->po
 ```
+- Klient begär åtkomst baserat på sin egen identitet från åtkomstintygstjänsten
+- Klienten och dess organisationstillhörighet behöver finnas registrerad i federationsinfrastrukturens metadata
 
 
-### 2.2 System anropar system, på uppdrag av användare
-#### 2.2.1 Intygsväxling
+### 2.2 System anropar system, på uppdrag av invånare
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 flowchart TB
- 
+
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
 
-subgraph po[Tjänsteproducent]
-    p(API):::comp
-    as(Åtkomstintygstjänst):::comp
-end
-po:::org
+subgraph is[Digital samverkan]
+    u(Invånare)
+    subgraph uidpo[Leverantör av IdP]
+        uidp(Invånar-IdP):::comp
+    end
+    uidpo:::org
 
-subgraph ss[Federationsinfrastruktur]
-    t(Tillitsuppslags-<br>tjänst):::comp
-end
-ss:::org
+    subgraph po[Tjänsteproducent]
+        p(API):::comp
+        as(Åtkomstintygstjänst):::comp
+    end
+    po:::org
 
-subgraph co[Tjänstekonsument]
-    idp(Legitimeringstjänst IdP):::comp
-    u(Användare)
-    c(Klient):::comp
+    subgraph co[Tjänstekonsument]
+        c(Klient):::comp
+    end
+    co:::org
 end
-co:::org
+is:::box
 
-u--<p>1. Starta klient-->c
-c-.1#46;1 Anvisa IdP.->idp
-u--<p>2. Legitimera användare-->idp
-c--<p>3. Begär åtkomst till API utifrån<br> användarens åtkomst till Klient-->as
-as--<p>3.2 Verifiera tillit till Klient--> t
-as--<p>3.3 Ställ ut åtkomstintyg-->as
-c--<p>4. Anropa API-->p
-p--<p>4.1 Verifiera åtkomstintyg-->p
-p-. 4#46;2 litar på.->as
+u--Legitimerar sig-->uidp
+u--Använder tjänst-->co
+co--Begär delegerad åtkomst-->po
+co--Anropa tjänst-->po
 ```
+- Invånare legitimerar sig mot klienten via en IdP som stödjer användarens e-legitimation
+- Klienten begär åtkomst och bifogar invånarens identitet som beslutsunderlag 
+- Åtkomstintygstjänsten tar åtkomstbeslut till APIet baserat på klientens identitet och tar beslut om den specifika resursen som anropas baserat på invånarens identitet.
 
-#### 2.2.2 Återautentisering
+
+### 2.2 System anropar system, på uppdrag av medarbetare
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 flowchart TB
- 
+
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
 
-subgraph po[Tjänsteproducent]
-    p(API):::comp
-    as(Åtkomstintygstjänst):::comp
-end
-po:::org
+subgraph is[Digital samverkan]
+    subgraph po[Tjänsteproducent]
+        p(API):::comp
+        as(Åtkomstintygstjänst):::comp
+    end
+    po:::org
 
-subgraph ss[Federationsinfrastruktur]
-    t(Tillitsuppslags-<br>tjänst):::comp
+    subgraph co[Tjänstekonsument]
+        c(Klient):::comp
+        u(Medarbetare)
+        uidp(Medarbetar-IdP):::comp
+        uattr(Attributkälla):::comp
+        coas(Åtkomstintygstjänst):::comp
+    end
+    co:::org
 end
-ss:::org
+is:::box
 
-subgraph co[Tjänstekonsument]
-    idp(Legitimeringstjänst IdP):::comp
-    u(Användare)
-    c(Klient):::comp
-end
-co:::org
+co--Begär delegerad åtkomst-->po
+co--Anropa tjänst-->po
 
-u--<p>1. Starta klient-->c
-c-.1#46;1 Anvisa IdP.->idp
-u--<p>2. Legitimera användare-->idp
-c--<p>3. Begär åtkomst till API-->as
-as--<p>3.1. Autentisera användare-->idp 
-as--<p>3.2 Verifiera tillit till Klient & Legitimeringstjänst-->t
-as--<p>3.3 Ställ ut åtkomstintyg-->as
-c--<p>4. Anropa API-->p
-p--<p>4.1 Verifiera åtkomstintyg-->p
-p-.4#46;2 litar på.->as
 ```
+1. Medarbetare legitimerar sig mot klienten via sin uppdrgasgivares medarbetar-IdP
+1. Medarbetare ges åtkomst till klienten via sin uppdragsgivares åtkomstintygstjänst, vilken inhämtar åtkomststyrande attribut från en attributkälla - detta gäller de attribut som inte följde med från legitimeringen.
+1. Klienten begär delegerad åtkomst till ett externt API å medarbetarens vägnar. Åtkomstbegäran görs mot tjänsteproducentens åtkomstintygstjänst och medarbetarens åtkomststyrande attribut behöver på något sätt bifogas. (**Not: denna åtkomstbegäran kan tekniskt komma att realiseras genom integration mellan tjänstekonsuments och tjänsteproducents åtkomstintygstjänster för att underlätta för API-klienters realisering**)
 
 
 ### 2.3 Medarbetare anropar extern e-tjänst, utan förprovisionerat konto
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 flowchart TB
- 
+
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
 
-subgraph po[Tjänsteproducent]
-    p(E-tjänst):::comp
-    as(Åtkomstintygstjänst):::comp
-end
-po:::org
+subgraph is[Digital samverkan]
+    subgraph po[Tjänsteproducent]
+        p(E-tjänst):::comp
+        as(Åtkomstintygstjänst):::comp
+    end
+    po:::org
 
-subgraph co[Tjänstekonsument]
-    idp(Legitimeringstjänst IdP):::comp
-    u(Användare)
+    subgraph co[Tjänstekonsument]
+        u(Medarbetare)
+        uidp(Medarbetar-IdP):::comp
+        uattr(Attributkälla):::comp
+    end
+    co:::org
 end
-co:::org
+is:::box
 
-subgraph ss[Federationsinfrastruktur]
-    t(Tillitsuppslags-<br>tjänst):::comp
-end
-ss:::org
-
-u--<p>1. Starta e-tjänst-->p
-p-.1#46;1 Anvisa IdP.->idp
-u--<p>2. Legitimera-->idp
-u--<p>3. Begär åtkomst-->as
-as--<p>3.1 Verifiera tillit till Legitimeringstjänst-->t
-as--<p>3.2 Utvärdera användarens åtkomst mot tjänstens åtkomstpolicy och ställ ut åtkomstintyg-->as
-u--<p>4. Använd e-tjänst-->p
-p--<p>4.1 Verifiera åtkomstintyg-->p
-p-.<p>4#46;2 litar på.->as
+co--Begär delegerad åtkomst-->po
+co--Använder tjänst-->po
 ```
-
+1. Medarbetare öppnar E-tjänsten
+1. Medarbetaren väljer att legitimera sig emot sin uppdragsgivares IdP
+1. E-tjänsten redirectar medarbetaren till tjänsteproducentens åtkomstintygstjänst
+1. Åtkomsintygstjänsten tar ett åtkomstbeslut baserat på medarbetarens attribut som beskriver roller och uppdrag medarbetaren har i sin uppdragsgivare organisation.
 
 ### 2.4 Medarbetare anropar extern tjänst, med förprovisionerat användarkonto 
-
-#### 2.4.1 Alt 1? 
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 flowchart TB
- 
+
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
 
-subgraph po[Tjänsteproducent]
-    p(E-tjänst):::comp
-    idp(Legitimeringstjänst IdP):::comp
-    as(Åtkomstintygstjänst):::comp
-    udb[(Användar-<br>konton)]:::comp
-end
-po:::org
+subgraph is[Digital samverkan]
+    subgraph po[Tjänsteproducent]
+        p(E-tjänst):::comp
+        as(Åtkomstintygstjänst):::comp
+    end
+    po:::org
 
-subgraph co[Tjänstekonsument]
-    u(Användare)
-end
-co:::org
+    subgraph uidpo[Leverantör av IdP]
+        uidp(Invånar-IdP):::comp
+    end
+    uidpo:::org
 
-u--<p>1. Starta e-tjänst-->p
-p-.<p>1#46;1 Anvisa IdP.->idp
-u--<p>2. Legitimera-->idp
-u--<p>3. Begär åtkomst-->as
-as--<p>3.1 Hämta behörigheter-->udb
-as--<p>3.2 Ställ ut åtkomstintyg-->as
-u--<p>4. Använd e-tjänst-->p
-p--<p>4.1 Validera åtkomstintyg-->p
-p-.<p>4#46;2 litar på.->as
+    subgraph co[Tjänstekonsument]
+        u(Medarbetare)
+        uidp(Medarbetar-IdP):::comp
+    end
+    co:::org
+end
+is:::box
+
+u--Legitimerar sig-->uidp
+co--Begär åtkomst-->po
+co--Anropa tjänst-->po
 ```
-
-#### 2.4.1 Alt 2? 
-
-```mermaid
-%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-flowchart TB
- 
-classDef org fill:#F8E5A0
-classDef comp fill:#CCE1FF
-classDef box fill:#ffffff,stroke:#000000
-
-subgraph po[Tjänsteproducent]
-    p(E-tjänst):::comp
-    idp(Legitimeringstjänst IdP):::comp
-    as(Åtkomstintygstjänst):::comp
-    udb[(Användar-<br>konton)]:::comp
-end
-po:::org
-
-subgraph co[Tjänstekonsument]
-    u(Användare)
-end
-co:::org
-
-idp ~~~ p
-
-u--<p>1. Starta e-tjänst-->p
-p--<p>2. Begär åtkomst-->as
-as--<p>2.1 Anvisa IdP-->idp
-u--<p>2.2 Legitimera-->idp
-as--<p>2.3 Hämta behörigheter-->udb
-as--<p>2.4 Ställ ut åtkomstintyg-->as
-u--<p>3. Använd e-tjänst-->p
-p--<p>3.1 Validera åtkomstintyg-->p
-p-.<p>3#46;2 litar på.->as
-```
+1. Medarbetare öppnar E-tjänsten
+1. Medarbetaren väljer att legitimera sig emot en IdP som stödjer medarbetarens e-tjänstelegitimation
+1. E-tjänsten redirectar medarbetaren till tjänsteproducentens åtkomstintygstjänst
+1. Åtkomsintygstjänsten tar ett åtkomstbeslut baserat på det förprovisionerade kontot för medarbetaren
 
 ## 3. Scenarion
 
@@ -501,9 +473,9 @@ fed:::box
 
 ds--<p>Tillit till tekniska komponenter verifieras i alla steg-->fed
 
-oauth(Svenska profileringar av OAuth 2.0-flöden):::spec  
-beh(Svensk profil för behörighetsgrundande attribut):::spec
-oidf(Svensk OpenID Federationprofil):::spec
+oauth(Nationell profileringar av OAuth 2.0-flöden):::spec  
+beh(Nationell katalog med behörighetsgrundande attribut):::spec
+oidf(Nationell OpenID Federation-profil):::spec
 
 ds ~~~ oauth & beh ~~~ oidf
 
