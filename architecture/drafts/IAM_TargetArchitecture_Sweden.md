@@ -115,7 +115,78 @@ De tekniska kraven är olika beroende på vilka förmågor som erbjuds av en vis
 
 I efterföljande bilder detaljeras identifierade samverkansmönster och vilka krav de tillgodoser. I dessa bilder utelämnas federationsinfrastrukturen och komponenters interaktioner med den för att säkerställa tillit.
 
-### 2.1 System anropar system, under egen identitet
+### 2.1 Medarbetare anropar extern e-tjänst, utan förprovisionerat konto
+```mermaid
+%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
+flowchart TB
+
+classDef org fill:#F8E5A0
+classDef comp fill:#CCE1FF
+classDef box fill:#ffffff,stroke:#000000
+
+subgraph is[Digital samverkan]
+    subgraph po[Tjänsteproducent]
+        p(E-tjänst):::comp
+        as(Åtkomstintygstjänst):::comp
+    end
+    po:::org
+
+    subgraph co[Tjänstekonsument]
+        u(Medarbetare)
+        uidp(Medarbetar-IdP):::comp
+        uattr(Attributkälla):::comp
+    end
+    co:::org
+end
+is:::box
+
+co--Begär delegerad åtkomst-->po
+co--Använder tjänst-->po
+```
+1. Medarbetare öppnar E-tjänsten
+1. Medarbetaren väljer att legitimera sig emot sin uppdragsgivares IdP
+1. E-tjänsten redirectar medarbetaren till tjänsteproducentens åtkomstintygstjänst
+1. Åtkomsintygstjänsten tar ett åtkomstbeslut baserat på medarbetarens attribut som beskriver roller och uppdrag medarbetaren har i sin uppdragsgivare organisation, och eventuellt andra attributkällor som åtkomstintygstjänsten har tillgång till.
+
+### 2.2 Medarbetare anropar extern tjänst, med förprovisionerat användarkonto 
+```mermaid
+%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
+flowchart TB
+
+classDef org fill:#F8E5A0
+classDef comp fill:#CCE1FF
+classDef box fill:#ffffff,stroke:#000000
+
+subgraph is[Digital samverkan]
+    subgraph po[Tjänsteproducent]
+        p(E-tjänst):::comp
+        as(Åtkomstintygstjänst):::comp
+    end
+    po:::org
+
+    subgraph uidpo[Leverantör av IdP]
+        uidp(Invånar-IdP):::comp
+    end
+    uidpo:::org
+
+    subgraph co[Tjänstekonsument]
+        u(Medarbetare)
+        uidp(Medarbetar-IdP):::comp
+    end
+    co:::org
+end
+is:::box
+
+u--Legitimerar sig-->uidp
+co--Begär åtkomst-->po
+co--Anropa tjänst-->po
+```
+1. Medarbetare öppnar E-tjänsten
+1. Medarbetaren väljer att legitimera sig emot en IdP som stödjer medarbetarens e-tjänstelegitimation
+1. E-tjänsten redirectar medarbetaren till tjänsteproducentens åtkomstintygstjänst
+1. Åtkomsintygstjänsten tar ett åtkomstbeslut baserat på det förprovisionerade kontot för medarbetaren
+
+### 2.3 System anropar system, under egen identitet
 I detta mönster delegerar tjänsteproducenten åtkomsthantering till tjänstekonsumentens API-klient. Detta kan göras i vissa fall baserat på lag, i andra fall baserat på ingångna avtal.
 
 ```mermaid
@@ -147,7 +218,7 @@ co--Anropa tjänst-->po
 - Klienten och dess organisationstillhörighet behöver finnas registrerad i federationsinfrastrukturens metadata
 
 
-### 2.2 System anropar system, på uppdrag av invånare
+### 2.4 System anropar system, på uppdrag av invånare
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 flowchart TB
@@ -186,7 +257,7 @@ co--Anropa tjänst-->po
 - Åtkomstintygstjänsten tar åtkomstbeslut till APIet baserat på klientens identitet och tar beslut om den specifika resursen som anropas baserat på invånarens identitet.
 
 
-### 2.2 System anropar system, på uppdrag av medarbetare
+### 2.5 System anropar system, på uppdrag av medarbetare
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 flowchart TB
@@ -222,76 +293,6 @@ co--Anropa tjänst-->po
 1. Klienten begär delegerad åtkomst till ett externt API å medarbetarens vägnar. Åtkomstbegäran görs mot tjänsteproducentens åtkomstintygstjänst och medarbetarens åtkomststyrande attribut behöver på något sätt bifogas. (**Not: denna åtkomstbegäran kan tekniskt komma att realiseras genom integration mellan tjänstekonsuments och tjänsteproducents åtkomstintygstjänster för att underlätta för API-klienters realisering**)
 
 
-### 2.3 Medarbetare anropar extern e-tjänst, utan förprovisionerat konto
-```mermaid
-%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-flowchart TB
-
-classDef org fill:#F8E5A0
-classDef comp fill:#CCE1FF
-classDef box fill:#ffffff,stroke:#000000
-
-subgraph is[Digital samverkan]
-    subgraph po[Tjänsteproducent]
-        p(E-tjänst):::comp
-        as(Åtkomstintygstjänst):::comp
-    end
-    po:::org
-
-    subgraph co[Tjänstekonsument]
-        u(Medarbetare)
-        uidp(Medarbetar-IdP):::comp
-        uattr(Attributkälla):::comp
-    end
-    co:::org
-end
-is:::box
-
-co--Begär delegerad åtkomst-->po
-co--Använder tjänst-->po
-```
-1. Medarbetare öppnar E-tjänsten
-1. Medarbetaren väljer att legitimera sig emot sin uppdragsgivares IdP
-1. E-tjänsten redirectar medarbetaren till tjänsteproducentens åtkomstintygstjänst
-1. Åtkomsintygstjänsten tar ett åtkomstbeslut baserat på medarbetarens attribut som beskriver roller och uppdrag medarbetaren har i sin uppdragsgivare organisation.
-
-### 2.4 Medarbetare anropar extern tjänst, med förprovisionerat användarkonto 
-```mermaid
-%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-flowchart TB
-
-classDef org fill:#F8E5A0
-classDef comp fill:#CCE1FF
-classDef box fill:#ffffff,stroke:#000000
-
-subgraph is[Digital samverkan]
-    subgraph po[Tjänsteproducent]
-        p(E-tjänst):::comp
-        as(Åtkomstintygstjänst):::comp
-    end
-    po:::org
-
-    subgraph uidpo[Leverantör av IdP]
-        uidp(Invånar-IdP):::comp
-    end
-    uidpo:::org
-
-    subgraph co[Tjänstekonsument]
-        u(Medarbetare)
-        uidp(Medarbetar-IdP):::comp
-    end
-    co:::org
-end
-is:::box
-
-u--Legitimerar sig-->uidp
-co--Begär åtkomst-->po
-co--Anropa tjänst-->po
-```
-1. Medarbetare öppnar E-tjänsten
-1. Medarbetaren väljer att legitimera sig emot en IdP som stödjer medarbetarens e-tjänstelegitimation
-1. E-tjänsten redirectar medarbetaren till tjänsteproducentens åtkomstintygstjänst
-1. Åtkomsintygstjänsten tar ett åtkomstbeslut baserat på det förprovisionerade kontot för medarbetaren
 
 ## 3. Scenarion
 
