@@ -11,7 +11,7 @@
 <hr>
 
 ## 1. Inledning 
-För en tillitsfull och kostnadseffektiv samverkan över organisationsgränser inom offentlig förvaltning behöver vi utveckla och förankra nationell arkitektur, infrastruktur och tillämpningsanvisningar för identitets- och åtkomsthantering. Denna målarkitektur syftar till att ge en bild över hur en nationella standardisering av IAM-hantering (Identity and Access Management) kan och bör utformas för att möjliggöra en tids- och kostnadseffektiv digitalisering av svensk offentlig sektor.
+För en tillitsfull och kostnadseffektiv samverkan över organisationsgränser inom offentlig förvaltning behöver vi utveckla och förankra nationell arkitektur, infrastruktur och tillämpningsanvisningar för identitets- och åtkomsthantering. Denna målarkitektur syftar till att ge en bild över hur en nationella standardisering av IAM-hantering (Identity and Access Management) kan och bör utformas för att möjliggöra en tids- och kostnadseffektiv digitalisering av svensk offentlig sektor. 
 
 ```mermaid
 flowchart TD
@@ -25,7 +25,10 @@ direction LR
  k(Kommuner):::org~~~
  r(Regioner):::org~~~
  m(Myndigheter):::org~~~
- p(Privata aktörer):::org
+ p(Privata aktörer):::org~~~
+ l(Leverantörer):::org~~~
+ f(Forskningsinstitut):::org~~~
+ o(...):::org
 end
 actors:::box
 
@@ -454,8 +457,12 @@ subgraph ds[Digital samverkan]
         as:::comp
     end
     tp:::org
+    oauth(Nationell profileringar av OAuth 2.0-flöden):::spec  
+    beh(Nationell katalog med behörighetsgrundande attribut):::spec
+
     tk--<p>4. anropar-->tp
     tk--<p>3. begär åtkomst-->tp
+    tp ~~~ oauth & beh
 end
 ds:::box
 
@@ -465,20 +472,26 @@ subgraph fed[Federationsinfrastruktur]
     op(Anslutningsoperatör):::org
     tmop(Tillitsmärkesutfärdare):::org
     m(Federerat Metadata):::comp
+    oidf(Nationell OpenID Federation-profil):::spec
 
     tmop--registrera tillitsmärken-->m
     op--registrera tekniska komponenter-->m
     r--gör uppslag emot -->m
+    m~~~oidf
 end
 fed:::box
 
-ds--<p>Tillit till tekniska komponenter verifieras i alla steg-->fed
+subgraph tillit[Tillitshantering]
+    direction TB
+    tmk(Tillitskatalog):::comp
+    tm(Tillitsmärken):::spec
+    tmä(Tillitsmärkesägare):::org
+    tmä ~~~ tm & tmk
+end
+tillit:::box
 
-oauth(Nationell profileringar av OAuth 2.0-flöden):::spec  
-beh(Nationell katalog med behörighetsgrundande attribut):::spec
-oidf(Nationell OpenID Federation-profil):::spec
-
-ds ~~~ oauth & beh ~~~ oidf
+fed--Möjliggör verifiering av tillit mellan tekniska komponenter-->ds
+tillit-.förmedlas via.->fed
 
 ```
 ### 4.1 Tillitsskapande kvalitetsmärken
