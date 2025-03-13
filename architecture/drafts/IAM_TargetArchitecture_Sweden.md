@@ -458,11 +458,11 @@ subgraph ds[Digital samverkan]
     end
     tp:::org
     oauth(Nationell profileringar av OAuth 2.0-flöden):::spec  
-    beh(Nationell katalog med behörighetsgrundande attribut):::spec
+    saml(Nationell profileringar av SAML-flöden):::spec  
 
     tk--<p>4. anropar-->tp
     tk--<p>3. begär åtkomst-->tp
-    tp ~~~ oauth & beh
+    tp ~~~ oauth & saml
 end
 ds:::box
 
@@ -473,11 +473,12 @@ subgraph fed[Federationsinfrastruktur]
     tmop(Tillitsmärkesutfärdare):::org
     m(Federerat Metadata):::comp
     oidf(Nationell OpenID Federation-profil):::spec
+    beh(Nationell katalog med behörighetsgrundande attribut):::spec
 
     tmop--registrera tillitsmärken-->m
     op--registrera tekniska komponenter-->m
     r--gör uppslag emot -->m
-    m~~~oidf
+    m~~~oidf & beh
 end
 fed:::box
 
