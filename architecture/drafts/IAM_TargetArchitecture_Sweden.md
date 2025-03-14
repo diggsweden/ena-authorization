@@ -12,7 +12,7 @@
 
 2. [**Behovsanalys/mönster**](#behovsanalysmonster)
 
-    2.1. [Medarbetare anropar extern e-tjänst, utan förprovisionerade användaruppgifter](#medarbetare-anropar-extern e-tjanst-utan-forprovisionerade-anvandaruppgifter)
+    2.1. [Medarbetare anropar extern e-tjänst, utan förprovisionerade användaruppgifter](#medarbetare-anropar-extern-e-tjanst-utan-forprovisionerade-anvandaruppgifter)
 
     2.2. [Medarbetare anropar extern tjänst, med förprovisionerat användarkonto](#medarbetare-anropar-extern-tjanst-med-forprovisionerat-anvandarkonto)
 
@@ -156,7 +156,7 @@ De tekniska kraven är olika beroende på vilka förmågor som erbjuds av en vis
 
 I efterföljande bilder detaljeras identifierade samverkansmönster och vilka krav de tillgodoser. I dessa bilder utelämnas federationsinfrastrukturen och komponenters interaktioner med den för att säkerställa tillit.
 
-<a name="medarbetare-anropar-extern e-tjanst-utan-forprovisionerade-anvandaruppgifter"></a>
+<a name="medarbetare-anropar-extern-e-tjanst-utan-forprovisionerade-anvandaruppgifter"></a>
 ### 2.1. Medarbetare anropar extern e-tjänst, utan förprovisionerade användaruppgifter
 
 ```mermaid
