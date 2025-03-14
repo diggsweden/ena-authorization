@@ -1,12 +1,12 @@
-# Målarkitektur för en Svensk identitets- och åtkomsthantering
+# Målarkitektur för en svensk identitets- och åtkomsthantering
 
 **Innehållsförteckning**
-- [1. Inledning](#1-inledning)
-- [2. Behovsanalys/mönster](#2-behovsanalysmönster)
-- [3. Scenarion](#3-scenarion)
-- [4. Målarkitektur](#4-målarkitektur)
-- [5. Strategisk plan för införande](#5-strategisk-plan-för-införande)
-- [6. Utvärdering av interoperabilitet](#6-utvärdering-av-interoperabilitet)
+1. [Inledning](#1-inledning)
+1. [Behovsanalys/mönster](#2-behovsanalysmönster)
+1. [Scenarion](#3-scenarion)
+1. [Målarkitektur](#4-målarkitektur)
+1. [Strategisk plan för införande](#5-strategisk-plan-för-införande)
+1. [Utvärdering av interoperabilitet](#6-utvärdering-av-interoperabilitet)
 
 <hr>
 
@@ -48,7 +48,7 @@ actors--har behov av-->iam
 Inom alla dessa områden finns det redan idag olika grad av standardisering. Det används dock olika standarder inom olika verksamhetsområden och detta leder till att parter som behöver samverka inom flera av dessa verksamhetsområden behöver investera i att stödja många standarder parallellt. Med ett gemensamt system för att hantera digitala identiteter och åtkomstbeslut kan samverkan mellan aktörer verksamma inom svensk offentlig förvaltning underlättas avsevärt. 
 
 ### 1.1 Syfte
-Målarkitekturen även omfatta en enklare strategisk plan för vilka förflyttningar som behöver genomföras över tid och beroenden dem emellan. Den strategiska plan behöver förhålla sig till existerande arkitektur och infrastrur, samt redan gjorda investeringar i digitaliseringstillämpningar. Planen bör även innehålla vägledning för om, när och hur existerande digitala tjänster ska migrera över till ENAs nya samverkansmönster och nyttja ny federationsinfrastruktur.
+Målarkitekturen även omfatta en enklare strategisk plan för vilka förflyttningar som behöver genomföras över tid och beroenden dem emellan. Den strategiska plan behöver förhålla sig till existerande arkitektur och infrastruktur, samt redan gjorda investeringar i digitaliseringstillämpningar. Planen bör även innehålla vägledning för om, när och hur existerande digitala tjänster ska migrera över till ENAs nya samverkansmönster och nyttja ny federationsinfrastruktur.
 
 Målarkitekturen är tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och nå samsyn kring hur framtida funktionalitet kan och bör utformas. Nationell arkitektur och digital infrastruktur för IAM-området behöver omfatta följande områden:
 - Hantering av tillit till organisationer, system och användare
@@ -56,10 +56,10 @@ Målarkitekturen är tänkt att fungera som underlag för diskussioner inom sven
 - Förmedling av behörighetsstyrande information - för individer, medarbetare och system
 - Standardisering av digital legitimering och åtkomstbeslut - för fysiska användare och system
 
-Redan idag finns arkitektur för hantering av invånares e-legitimationer och medarbetares e-tjänstelegitimationer. Det som saknas är framförallt ett övergripande stöd för hantering av systemanvändare identiteter, samt tillitsgrundande information för organisationer och medarbetare. Arkitekturella mönster, standarder och nationell infrastruktur för dessa ändamål är målet för den mårarkitektur som presenteras i detta dokument.
+Redan idag finns arkitektur för hantering av invånares e-legitimationer och medarbetares e-tjänstelegitimationer. Det som saknas är framförallt ett övergripande stöd för hantering av systemanvändare identiteter, samt tillitsgrundande information för organisationer och medarbetare. Arkitekturella mönster, standarder och nationell infrastruktur för dessa ändamål är målet för den målarkitektur som presenteras i detta dokument.
 
 ### 1.2 Avgränsningar
-Målarkitekturen som tas fram här syftar till att fungera normerande för digital samverkan mellan organisationer verksamma inom Svensk offentlig förvaltning. För hantering av IAM kan standarder framtagna för den nationella digitala federationsinfrastrukturen fungera vägledande men de kommer inte vara heltäckande utan kan behöva kompletteras eller profileras ytterligare.
+Målarkitekturen som tas fram här syftar till att fungera normerande för digital samverkan mellan organisationer verksamma inom svensk offentlig förvaltning. För hantering av IAM kan standarder framtagna för den nationella digitala federationsinfrastrukturen fungera vägledande men de kommer inte vara heltäckande utan kan behöva kompletteras eller profileras ytterligare.
 
 ## 2. Behovsanalys/Mönster
 När parter etablerar samverkan via en digital tjänst finns det ett antal olika mönster. Nedan presenteras identifierade mönster och exempel på tillämpningar där dess mönster används.
@@ -110,15 +110,16 @@ Exakta krav kvarstår att utforma, men nedan listas några exempel på krav som 
 1. Har ledningssystem för informationssäkerhetsarbete
 1. Processer för säkerhetsgranskning, kodhantering, patchhantering, incidenthantering, m.m. efterlevs och kan påvisas genom dokumentation.
 1. Årlig IT-revision genomförs
+1. Uppfyller överenskomna tekniska standarder och profiler
 1. Har avsatta resurser för löpande förvaltning av anslutna tekniska komponenter
 
-De tekniska kraven är olika beroende på vilka förmågor som erbjuds av en viss komponent man ansluter till federationsinfrastrukturen. Gemensamt för alla är att man har en adekvata tekniska förmågor att hantera kryptografiskt material och att behandla överförda personuppgifter och annan skyddsvärd information. Därefter kan det komma att skilja sig beroende på om komponenten agerar som API-klient, E-tjänst, eller API-producent. Man kan också ansluta komponenter som erb juder funktionalitet för till exempel legitimering, attributförsörjning, eller åtkomstbeslut. För dessa komponenter kan det ställas helt andra krav.
+De tekniska kraven är olika beroende på vilka förmågor som erbjuds av en viss komponent man ansluter till federationsinfrastrukturen. Gemensamt för alla är att man har en adekvata tekniska förmågor att hantera kryptografiskt material och att behandla överförda personuppgifter och annan skyddsvärd information. Därefter kan det komma att skilja sig beroende på om komponenten agerar som API-klient, E-tjänst, eller API-producent. Man kan också ansluta komponenter som erbjuder funktionalitet för till exempel e-legitimering, attributförsörjning, eller åtkomstbeslut. För dessa komponenter kan det ställas helt andra krav.
 
 Åtkomstbeslut baseras på identitet på konsumerande system och dess anslutning till dels federationsinfrastrukturen, dels den specifika samverkan (jmfr <a href="https://inera.atlassian.net/wiki/spaces/RTA/pages/4353360176/M+larkitektur+f+r+samverkan+enligt+T2+inom+svensk+v+lf+rd#4.4-Akt%C3%B6rer-och-komponenter">T2:s informationsfederationer</a>). Åtkomst kan också baseras på åtkomsstyrande attribut för den användare som orsakat åtkomstbegäran.
 
 I efterföljande bilder detaljeras identifierade samverkansmönster och vilka krav de tillgodoser. I dessa bilder utelämnas federationsinfrastrukturen och komponenters interaktioner med den för att säkerställa tillit.
 
-### 2.1 Medarbetare anropar extern e-tjänst, utan förprovisionerat konto
+### 2.1 Medarbetare anropar extern e-tjänst, utan förprovisionerade användaruppgifter
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 flowchart TB
@@ -503,7 +504,7 @@ Målarkitekturen innehåller ett koncept med en kravkatalog där man samlar och 
 Exakt utformning av kvalitetsmärken tas fram inom Enas byggblock Tillit.
 
 ### 4.2 Federationsinfrastruktur
-Federationsinfrastrukturen realiseras baserat på standarden OpenID Federation (OIDF), vilken möjliggör federativ hantering av tillitsgrundande information, digitala identiter och annan metadata. OIDF är ännu inte en fastställd standard, men den används redan i Italiens federationsinfrastruktur och i Sveriges <i>Single Digital Gateway</i>-realisering. Digg håller på att ta fram en svensk profileringen av standarden.
+Federationsinfrastrukturen behöver möjliggöra federativ hantering av tillitsgrundande information, digitala identiter och annan metadata. Sveriges <i>Single Digital Gateway</i>-realisering är i färd att ta fram en första version av denna federationsinfrastruktur, som vi förhoppningsvis kan bygga vidare på.
 
 <b>Not:</b> Sveriges digitala infrastruktur omfattar även identitetshantering för invånare (Svensk e-legitimation) och Sveriges eIDAS-nod (Sweden Connect) för hantering av EU-medborgares identifiering. Arkitektur och tekniska komponenter för detta ändamål finns redan etablerade och har därför exkluderats från översikten ovan i syfte att minska komplexiteten.
 
