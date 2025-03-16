@@ -33,3 +33,94 @@ Exempel på krav för tillit mellan medlemmar i en federation:
 
 Exempel på krav för tillit för en E-tjänst i federationen:
 
+### Tillitskrav
+
+<table>
+  <tr>
+    <th colspan="4" style="text-align: center; background-color: #f2f2f2;">Tillitskrav Auktorisationstjänst</th>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center; background-color: #e2e2e2;"></th>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center; background-color: #e2e2e2;">Tekniska & IT-säkerhetskrav</th>
+  </tr>
+  <tr>
+    <th style="text-align: center;">Krav-kod</th>
+    <th style="text-align: center;">Beskrivning</th>
+    <th style="text-align: center;">Kravnivå</th>
+    <th style="text-align: center;">Kommentar</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav A.1</td>
+    <td style="text-align: center;">För verksamheten centrala delar ska skyddas fysiskt mot skada<br> som följd av miljörelaterade händelser, otillåten åtkomst<br> eller andra yttre störningar. Tillträdeskontroll ska tillämpas så att<br> åtkomst till känsliga utrymmen är begränsad till behörig personal,<br> att informationsbärande media förvaras och utmönstras på ett säkert sätt,<br> samt att tillträde till dessa skyddade utrymmen kontinuerligt övervakas.</td>
+    <td style="text-align: center;">Hög</td>
+    <td style="text-align: center;">N/A</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav A.2</td>
+    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Placeholder</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav A.3</td>
+    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Placeholder</td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center; background-color: #e2e2e2;">Informationssäkerhetskrav</th>
+  </tr>
+  <tr>
+    <th style="text-align: center;">Krav-kod</th>
+    <th style="text-align: center;">Beskrivning</th>
+    <th style="text-align: center;">Kravnivå</th>
+    <th style="text-align: center;">Kommentar</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav A.4</td>
+    <td style="text-align: center;"Placeholder</td>
+    <td style="text-align: center;">Hög</td>
+    <td style="text-align: center;">N/A</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav A.5</td>
+    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Placeholder</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav A.6</td>
+    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Placeholder</td>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center; background-color: #e2e2e2;">Administrativa krav</th>
+  </tr>
+    <th style="text-align: center;">Krav-kod</th>
+    <th style="text-align: center;">Beskrivning</th>
+    <th style="text-align: center;">Kravnivå</th>
+    <th style="text-align: center;">Kommentar</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav A.1</td>
+    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Hög</td>
+    <td style="text-align: center;">N/A</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav A.2</td>
+    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Placeholder</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav A.3</td>
+    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Placeholder</td>
+  </tr>
+
+</table>
