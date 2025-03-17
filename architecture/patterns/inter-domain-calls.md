@@ -85,7 +85,7 @@ Vidare antar vi följande:
 
 - Klienten (e-tjänsten) i organisation A kan inte nyttja auktorisationstjänsten i organisation B för "authorization requests", d.v.s., den kan inte styra användare för autentisering och delegering till auktorisationstjänst B. Detta kan t.ex. bero på att de olika organisationerna har olika typer av användarautentisering (t.ex. lokala IdP:er). Vi diskuterar detta vidare i kapitel [3](#autentisering-av-anvandare-och-formedling-av-autentiseringsinformation), [Autentisering av användare och förmedling av autentiseringsinformation](#autentisering-av-anvandare-och-formedling-av-autentiseringsinformation), nedan.
 
-- Det skyddade API:et (resursen) i organisation B godtar endast åtkomstintyg (access tokens) utställda av aktorisationstjänst B. Att knyta till en, och endast en, auktorisationstjänst är det absolut vanligaste tillämpningen av OAuth för skyddade resurser. 
+- Det skyddade API:et (resursen) i organisation B godtar endast åtkomstintyg (access tokens) utställda av aktorisationstjänst B. Att knyta till en, och endast en, auktorisationstjänst är den absolut vanligaste tillämpningen av OAuth för skyddade resurser. 
 
 - Det finns en tillit till auktorisationstjänst A konfigurerad i auktorisationstjänst B. Med andra ord, det finns definierade regler och överenskommelser mellan organisation A och B via respektive auktorisationstjänst.
 
