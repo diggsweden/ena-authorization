@@ -349,7 +349,22 @@ co--Anropa tjänst-->po
 <a name="nationella-lakemedelslistan"></a>
 ### 3.1 Nationella läkemedelslistan
 
-#### 3.1.1 Via regionalt vårdinformationssystem
+#### Förutsättningar
+1. Vårdgivarens legitimeringstjänst är tillitsgranskad och registrerad som IdP i Federationsinfrastrukturen 
+1. Vårdgivarens legitimeringstjänst är tillitsgranskad och registrerad som attributkälla i Federationsinfrastrukturen **OM** den tillför attribut som inte omfattas av IdP-granskningen
+1. Vårdgivarens åtkomstintygstjänst behöver vara tillitsgranskad och registrerad som attributkälla i Federationsinfrastrukturen **OM** den tillför attribut som andra åtkomstintygstjänster använder i senare åtkomstbeslut.
+1. Vårdgivarens åtkomstintygstjänst behöver vara tillitsgranskad och registrerad som auktorisationstjänst i Federationsinfrastrukturen
+1. Journalsystemet är tillitsgranskat och registrerad som API-klient i Federationsinfrastrukturen
+1. Ineras legitimeringstjänst är tillitsgranskad och registrerad som IdP i Federationsinfrastrukturen 
+1. Ineras legitimeringstjänst är tillitsgranskad och registrerad som attributkälla i Federationsinfrastrukturen **OM** den tillför attribut som inte omfattas av IdP-granskningen
+1. Ineras åtkomstintygstjänst behöver vara tillitsgranskad och registrerad som attributkälla i Federationsinfrastrukturen **OM** den tillför attribut som andra åtkomstintygstjänster använder i senare åtkomstbeslut.
+1. Ineras åtkomstintygstjänst behöver vara tillitsgranskad och registrerad som auktorisationstjänst i Federationsinfrastrukturen
+1. Pascal är tillitsgranskat och registrerad som API-klient i Federationsinfrastrukturen
+1. E-hälsomyndighetens åtkomstintygstjänst behöver vara tillitsgranskad och registrerad som auktorisationstjänst i Federationsinfrastrukturen
+1. NLL API behöver vara tillitsgranskad och registrerad som resursserver i Federationsinfrastrukturen
+
+#### 3.1.1 Via regionalt journalsystem
+För de flesta förskrivningar vill läkare kunna använda sitt eget journalsystem även för förskrivningar som hanteras i NLL. Journalsystemen behöver därför integreras direkt med NLL.
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 sequenceDiagram 
@@ -380,9 +395,8 @@ sequenceDiagram
     c->>api: Förskriv recept
     api-->>c: 
     c-->>u: visa resultat av förskrivning
-
-
 ```
+
 #### 3.1.2 Via Pascal
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
@@ -417,9 +431,8 @@ sequenceDiagram
     c->>api: Förskriv recept
     api-->>c: 
     c-->>u: visa resultat av förskrivning
-
-
 ```
+
 <a name="finansiell-status"></a>
 ### 3.2. Finansiell status
 
