@@ -1,40 +1,42 @@
 ![Logo](https://raw.githubusercontent.com/diggsweden/ena-authorization/refs/heads/main/images/ena-logo-small.png)
 
-# Målarkitektur för en svensk identitets- och åtkomsthantering
+# Federationsinfrastruktur för identitets- och åtkomsthantering inom Sverige
 
 ## Innehållsförteckning
 
 1. [**Inledning**](#inledning)
 
-    1.1. [Syfte](#syfte)
+    1.1 [Syfte](#syfte)
     
-    1.2. [Avgränsningar](#avgransningar)
+    1.2 [Avgränsningar](#avgransningar)
 
 2. [**Behovsanalys/mönster**](#behovsanalysmonster)
 
-    2.1. [Medarbetare anropar extern e-tjänst, utan förprovisionerade användaruppgifter](#medarbetare-anropar-extern-e-tjanst-utan-forprovisionerade-anvandaruppgifter)
+    2.1 [Medarbetare anropar extern e-tjänst, utan förprovisionerade användaruppgifter](#medarbetare-anropar-extern-e-tjanst-utan-forprovisionerade-anvandaruppgifter)
 
-    2.2. [Medarbetare anropar extern tjänst, med förprovisionerat användarkonto](#medarbetare-anropar-extern-tjanst-med-forprovisionerat-anvandarkonto)
+    2.2 [Medarbetare anropar extern tjänst, med förprovisionerat användarkonto](#medarbetare-anropar-extern-tjanst-med-forprovisionerat-anvandarkonto)
 
-    2.3. [System anropar system, under egen identitet](#system-anropar-system-under-egen-identitet)
+    2.3 [System anropar system, under egen identitet](#system-anropar-system-under-egen-identitet)
 
-    2.4. [System anropar system, på uppdrag av invånare](#system-anropar-system-pa-uppdrag-av-invanare)
+    2.4 [System anropar system, på uppdrag av invånare](#system-anropar-system-pa-uppdrag-av-invanare)
 
-    2.5. [System anropar system, på uppdrag av medarbetare](#system-anropar-system-pa-uppdrag-av-medarbetare)
+    2.5 [System anropar system, på uppdrag av medarbetare](#system-anropar-system-pa-uppdrag-av-medarbetare)
 
-3. [**Scenarion**](#scenarion)
+3. [**Exempel på scenarion**](#scenarion)
 
-    3.1. [Nationella läkemedelslistan](#nationella-lakemedelslistan)
+    3.1 [Nationella läkemedelslistan](#nationella-lakemedelslistan)
 
-    3.2. [Finansiell status](#finansiell-status)
+    3.2 [Finansiell status](#finansiell-status)
     
 4. [**Målarkitektur**](#malarkitektur)
 
-    4.1. [Tillitsskapande kvalitetsmärken](#tillitsskapande-kvalitetsmarken)
+    4.1 [Tillitsskapande kvalitetsmärken](#tillitsskapande-kvalitetsmarken)
 
-    4.2. [Federationsinfrastruktur](#federationsinfrastruktur)
+    4.2 [Infrastruktur](#infrastruktur)
 
-    4.3. [Samverkan via digitala tjänster](#samverkan-via-digitala-tjanster)
+    4.3 [Roller](#roller)
+
+    4.4 [Samverkan via digitala tjänster](#samverkan-via-digitala-tjanster)
 
 5. [**Strategisk plan för införande**](#strategisk-plan-for-inforande)
 
@@ -44,7 +46,9 @@
 
 <a name="inledning"></a>
 ## 1. Inledning 
-För en tillitsfull och kostnadseffektiv samverkan över organisationsgränser inom offentlig förvaltning behöver vi utveckla och förankra nationell arkitektur, infrastruktur och tillämpningsanvisningar för identitets- och åtkomsthantering. Denna målarkitektur syftar till att ge en bild över hur en nationella standardisering av IAM-hantering (Identity and Access Management) kan och bör utformas för att möjliggöra en tids- och kostnadseffektiv digitalisering av svensk offentlig sektor. 
+För en tillitsfull och kostnadseffektiv samverkan över organisationsgränser inom offentlig förvaltning behöver vi ta fram nationell arkitektur, infrastruktur och tillämpningsanvisningar för identitets- och åtkomsthantering. 
+
+Det som tas fram får dock inte begränsas till att kunna användas inom offentlig förvaltning utan ska kunna tillämpas även i annan digitalisering.
 
 ```mermaid
 flowchart TD
@@ -78,25 +82,26 @@ actors--har behov av-->iam
 ```
 *Logisk bild över hur områdena tillitshantering, identitetshantering och behörighetshantering ger förutsättningar för åtkomsthantering i digitala tjänster*
 
-Inom alla dessa områden finns det redan idag olika grad av standardisering. Det används dock olika standarder inom olika verksamhetsområden och detta leder till att parter som behöver samverka inom flera av dessa verksamhetsområden behöver investera i att stödja många standarder parallellt. Med ett gemensamt system för att hantera digitala identiteter och åtkomstbeslut kan samverkan mellan aktörer verksamma inom svensk offentlig förvaltning underlättas avsevärt. 
+Inom alla dessa områden finns det redan idag olika grad av standardisering. Det används dock olika standarder inom olika verksamhetsområden och detta leder till att parter som behöver samverka inom flera av dessa verksamhetsområden behöver investera i att stödja många standarder parallellt. Med ett gemensamt system för att hantera digitala identiteter och åtkomstbeslut kan samverkan mellan aktörer verksamma underlättas avsevärt. 
 
 <a name="syfte"></a>
-### 1.1. Syfte
+### 1.1 Syfte
+Detta dokument syftar till att ge en bild över hur en svensk federationsinfratruktur för hantering av IAM-området (Identity and Access Management) kan och bör utformas för att möjliggöra en tids- och kostnadseffektiv digitalisering av samhället. 
 
-Målarkitekturen även omfatta en enklare strategisk plan för vilka förflyttningar som behöver genomföras över tid och beroenden dem emellan. Den strategiska plan behöver förhålla sig till existerande arkitektur och infrastruktur, samt redan gjorda investeringar i digitaliseringstillämpningar. Planen bör även innehålla vägledning för om, när och hur existerande digitala tjänster ska migrera över till ENAs nya samverkansmönster och nyttja ny federationsinfrastruktur.
+Dokumentet bör kunna ligga som grund för en framtida strategisk plan för infrastrukturella förflyttningar som behöver genomföras, samt beroenden dem emellan. En strategisk plan behöver förhålla sig till existerande arkitektur och infrastruktur, samt redan gjorda investeringar i digitaliseringstillämpningar. Planen bör även innehålla vägledning för om, när och hur existerande digitala tjänster ska migrera över till Enas nya samverkansmönster och nyttja ny federationsinfrastruktur.
 
-Målarkitekturen är tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och nå samsyn kring hur framtida funktionalitet kan och bör utformas. Nationell arkitektur och digital infrastruktur för IAM-området behöver omfatta följande områden:
+Beskrivningen av federationsinfrastrukturen är även tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och leda till samsyn kring hur framtida interoperabla digitala tjänster kan och bör utformas. En nationell federationsinfrastruktur för IAM-området behöver omfatta följande områden:
 - Hantering av tillit till organisationer, system och användare
 - Hantering av digitala identiteter för alla typer av användare, såväl individer, medarbetare och system
 - Förmedling av behörighetsstyrande information - för individer, medarbetare och system
 - Standardisering av digital legitimering och åtkomstbeslut - för fysiska användare och system
 
-Redan idag finns arkitektur för hantering av invånares e-legitimationer och medarbetares e-tjänstelegitimationer. Det som saknas är framförallt ett övergripande stöd för hantering av systemanvändare identiteter, samt tillitsgrundande information för organisationer och medarbetare. Arkitekturella mönster, standarder och nationell infrastruktur för dessa ändamål är målet för den målarkitektur som presenteras i detta dokument.
+Redan idag finns arkitektur för hantering av invånares e-legitimationer och medarbetares e-tjänstelegitimationer. Det som saknas är framförallt ett övergripande stöd för hantering av systemanvändare identiteter, samt tillitsgrundande information för organisationer och medarbetare. Arkitekturella mönster, standarder och infrastruktur för dessa ändamål är presenteras i detta dokument.
 
 <a name="avgransningar"></a>
-### 1.2. Avgränsningar
+### 1.2 Avgränsningar
 
-Målarkitekturen som tas fram här syftar till att fungera normerande för digital samverkan mellan organisationer verksamma inom svensk offentlig förvaltning. För hantering av IAM kan standarder framtagna för den nationella digitala federationsinfrastrukturen fungera vägledande men de kommer inte vara heltäckande utan kan behöva kompletteras eller profileras ytterligare.
+Federationsinfrastrukturen för IAM som beskrivs syftar till att fungera normerande för digital samverkan i Sverige. För hantering av IAM i specifika tillämpningar kan de nationella standarderna behöva kompletteras eller profileras.
 
 <a name="behovsanalysmonster"></a>
 ## 2. Behovsanalys/mönster
@@ -194,7 +199,7 @@ co--Använder tjänst-->po
 4. Åtkomsintygstjänsten tar ett åtkomstbeslut baserat på medarbetarens attribut som beskriver roller och uppdrag medarbetaren har i sin uppdragsgivare organisation, och eventuellt andra attributkällor som åtkomstintygstjänsten har tillgång till.
 
 <a name="medarbetare-anropar-extern-tjanst-med-forprovisionerat-anvandarkonto"></a>
-### 2.2. Medarbetare anropar extern tjänst, med förprovisionerat användarkonto
+### 2.2 Medarbetare anropar extern tjänst, med förprovisionerat användarkonto
 
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
@@ -234,7 +239,7 @@ co--Anropa tjänst-->po
 4. Åtkomsintygstjänsten tar ett åtkomstbeslut baserat på det förprovisionerade kontot för medarbetaren
 
 <a name="system-anropar-system-under-egen-identitet"></a>
-### 2.3. System anropar system, under egen identitet
+### 2.3 System anropar system, under egen identitet
 
 I detta mönster delegerar tjänsteproducenten åtkomsthantering till tjänstekonsumentens API-klient. Detta kan göras i vissa fall baserat på lag, i andra fall baserat på ingångna avtal.
 
@@ -267,7 +272,7 @@ co--Anropa tjänst-->po
 - Klienten och dess organisationstillhörighet behöver finnas registrerad i federationsinfrastrukturens metadata
 
 <a name="system-anropar-system-pa-uppdrag-av-invanare"></a>
-### 2.4. System anropar system, på uppdrag av invånare
+### 2.4 System anropar system, på uppdrag av invånare
 
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
@@ -307,7 +312,7 @@ co--Anropa tjänst-->po
 - Åtkomstintygstjänsten tar åtkomstbeslut till APIet baserat på klientens identitet och tar beslut om den specifika resursen som anropas baserat på invånarens identitet.
 
 <a name="system-anropar-system-pa-uppdrag-av-medarbetare"></a>
-### 2.5. System anropar system, på uppdrag av medarbetare
+### 2.5 System anropar system, på uppdrag av medarbetare
 
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
@@ -344,44 +349,41 @@ co--Anropa tjänst-->po
 3. Klienten begär delegerad åtkomst till ett externt API å medarbetarens vägnar. Åtkomstbegäran görs mot tjänsteproducentens åtkomstintygstjänst och medarbetarens åtkomststyrande attribut behöver på något sätt bifogas. (**Not: denna åtkomstbegäran kan tekniskt komma att realiseras genom integration mellan tjänstekonsuments och tjänsteproducents åtkomstintygstjänster för att underlätta för API-klienters realisering**)
 
 <a name="scenarion"></a>
-## 3. Scenarion
+## 3. Exempel på scenarion
 
 <a name="nationella-lakemedelslistan"></a>
 ### 3.1 Nationella läkemedelslistan
 
-#### Förutsättningar
-1. Vårdgivarens legitimeringstjänst är tillitsgranskad och registrerad som IdP i Federationsinfrastrukturen 
+
+#### 3.1.1 Via regionalt journalsystem
+För de flesta förskrivningar vill läkare kunna använda sitt eget journalsystem även för förskrivningar som hanteras i NLL. Journalsystemen behöver därför integreras direkt med NLL.
+
+##### Förutsättningar
+1. Vårdgivarens legitimeringstjänst är tillitsgranskad enligt Svensk e-legitimation 
 1. Vårdgivarens legitimeringstjänst är tillitsgranskad och registrerad som attributkälla i Federationsinfrastrukturen **OM** den tillför attribut som inte omfattas av IdP-granskningen
 1. Vårdgivarens åtkomstintygstjänst behöver vara tillitsgranskad och registrerad som attributkälla i Federationsinfrastrukturen **OM** den tillför attribut som andra åtkomstintygstjänster använder i senare åtkomstbeslut.
 1. Vårdgivarens åtkomstintygstjänst behöver vara tillitsgranskad och registrerad som auktorisationstjänst i Federationsinfrastrukturen
 1. Journalsystemet är tillitsgranskat och registrerad som API-klient i Federationsinfrastrukturen
-1. Ineras legitimeringstjänst är tillitsgranskad och registrerad som IdP i Federationsinfrastrukturen 
-1. Ineras legitimeringstjänst är tillitsgranskad och registrerad som attributkälla i Federationsinfrastrukturen **OM** den tillför attribut som inte omfattas av IdP-granskningen
-1. Ineras åtkomstintygstjänst behöver vara tillitsgranskad och registrerad som attributkälla i Federationsinfrastrukturen **OM** den tillför attribut som andra åtkomstintygstjänster använder i senare åtkomstbeslut.
-1. Ineras åtkomstintygstjänst behöver vara tillitsgranskad och registrerad som auktorisationstjänst i Federationsinfrastrukturen
-1. Pascal är tillitsgranskat och registrerad som API-klient i Federationsinfrastrukturen
 1. E-hälsomyndighetens åtkomstintygstjänst behöver vara tillitsgranskad och registrerad som auktorisationstjänst i Federationsinfrastrukturen
 1. NLL API behöver vara tillitsgranskad och registrerad som resursserver i Federationsinfrastrukturen
 
-#### 3.1.1 Via regionalt journalsystem
-För de flesta förskrivningar vill läkare kunna använda sitt eget journalsystem även för förskrivningar som hanteras i NLL. Journalsystemen behöver därför integreras direkt med NLL.
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 sequenceDiagram 
     autonumber
     box Vårdgivare
-        participant u as Medarbetare
-        participant aidp as Legitimeringstjänst
-        participant aas as Åtkomstintygstjänst
-        participant c as Journalsystem
+        participant u as Medarbetare<br><<User>>
+        participant c as Journalsystem<br><<Client>>
+        participant aidp as Legitimeringstjänst<br><<OP>>
+        participant aas as Åtkomstintygstjänst<br><<AS>>
     end
 
     box Org E-hälsomyndigheten 
-        participant bas as Auktorisationstjänst
-        participant api as NLL API
+        participant bas as Auktorisationstjänst<br><<AS>>
+        participant api as NLL API<br><<RS>>
     end
 
-    note over u,c: Användare loggar in i journalsystem
+    note over u,aas: Användare loggar in i journalsystem
     u->>c: Öpnnar journalsystem och väljer att logga in
     u->>aidp: Användaren legitimerar <br>sig emot lokal IdP
     aidp-->>u: 
@@ -398,26 +400,37 @@ sequenceDiagram
 ```
 
 #### 3.1.2 Via Pascal
+Pascal används av all vårdpersonal främst för att skriva ut och beställa läkemedel och handelsvaror för patienter som får sina mediciner fördelade i påsar, så kallade dospatienter. Tjänsten riktar sig till regioner, kommuner och privata vårdgivare.
+
+##### Förutsättningar
+När man nyttjar Pascal för förskrivning istället för det egna journalsystemet flyttas även vissa krav på tillitsgranskning av komponenter.
+
+1. Ineras legitimeringstjänst är tillitsgranskad enligt Svensk e-legitimation 
+1. Ineras legitimeringstjänst är tillitsgranskad och registrerad som attributkälla i Federationsinfrastrukturen **OM** den tillför attribut som inte omfattas av IdP-granskningen
+1. Ineras åtkomstintygstjänst behöver vara tillitsgranskad och registrerad som attributkälla i Federationsinfrastrukturen **OM** den tillför attribut som andra åtkomstintygstjänster använder i senare åtkomstbeslut.
+1. Ineras åtkomstintygstjänst behöver vara tillitsgranskad och registrerad som auktorisationstjänst i Federationsinfrastrukturen
+1. Pascal är tillitsgranskat och registrerad som API-klient i Federationsinfrastrukturen
+
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 sequenceDiagram 
     autonumber
     box Vårdgivare
-        participant u as Medarbetare
+        participant u as Medarbetare<br><<User>>
     end
 
     box Inera
-        participant aidp as Legitimeringstjänst
-        participant aas as Åtkomstintygstjänst
-        participant c as Pascal
+        participant c as Pascal<br><<Client>>
+        participant aidp as Legitimeringstjänst<br><<OP>>
+        participant aas as Åtkomstintygstjänst<br><<AS>>
     end
 
     box Org E-hälsomyndigheten 
-        participant bas as Auktorisationstjänst
-        participant api as NLL API
+        participant bas as Auktorisationstjänst<br><<AS>>
+        participant api as NLL API<br><<RS>>
     end
 
-    note over u,c: Användare loggar in i Pascal
+    note over u,aas: Användare loggar in i Pascal
     u->>c: Öpnnar Pascal och väljer att logga in
     u->>aidp: Användaren legitimerar <br>sig emot Ineras IdP
     aidp-->>u: 
@@ -434,7 +447,7 @@ sequenceDiagram
 ```
 
 <a name="finansiell-status"></a>
-### 3.2. Finansiell status
+### 3.2 Finansiell status
 
 #### Nuläge
 
@@ -632,21 +645,23 @@ tillit-.förmedlas via.->fed
 ```
 
 <a name="tillitsskapande-kvalitetsmarken"></a>
-### 4.1. Tillitsskapande kvalitetsmärken
+### 4.1 Tillitsskapande kvalitetsmärken
 
 Målet med de tillitsskapande kvalitetsmärkena är att ge aktörer inom svensk offentlig förvaltning ett sätt att bevisa sin mognad inom informationssäkerhetsområdet och sin förmåga att agera ansvarsfull i samverkan med andra aktörer. Dessutom kan de behöva visa på en specifik mognadsgrad eller att de besitter en viss grad av teknisk mognad, eller specifika tekniska förmågor, för att delta i vissa samverkansområden där informationsklassning eller skyddskraven är högre.
 
-Målarkitekturen innehåller ett koncept med en kravkatalog där man samlar och jämkar befintliga krav från existerande tillitsfederationer (Sambi, HSA, Skolfederation, Sweden Connect, med flera) och utifrån dessa skapar kvalitetsmärken som ger en "mognadstrappa" för samverkande parter. Digitala tjänster som erbjuds inom Enas federationsinfrastruktur kan då ställa krav på samverkande parter att inneha ett visst urval av kvalitetsmärken utöver att de ur legalt och avtalsmässigt perspektiv har förutsättningar att delta i samverkan
+Federationsinfrastrukturen innehåller ett koncept med en kravkatalog där man samlar och jämkar befintliga krav från existerande tillitsfederationer (Sambi, HSA, Skolfederation, Sweden Connect, med flera) och utifrån dessa skapar tillitsmärken som ger en "mognadstrappa" för samverkande parter. Digitala tjänster som erbjuds inom Enas federationsinfrastruktur kan då ställa krav på samverkande parter att inneha ett vissa tillitsmärken utöver att de ur legalt och avtalsmässigt perspektiv har förutsättningar att delta i samverkan
 
-Exakt utformning av kvalitetsmärken tas fram inom Enas byggblock Tillit.
+Exakt utformning av tillitsmärken ska utredas vidare.
 
-<a name="federationsinfrastruktur"></a>
-### 4.2. Federationsinfrastruktur
+<a name="infrastruktur"></a>
+### 4.2 Infrastruktur
 
 Federationsinfrastrukturen behöver möjliggöra federativ hantering av tillitsgrundande information, digitala identiter och annan metadata. Sveriges <i>Single Digital Gateway</i>-realisering är i färd att ta fram en första version av denna federationsinfrastruktur, som vi förhoppningsvis kan bygga vidare på.
 
 <b>Not:</b> Sveriges digitala infrastruktur omfattar även identitetshantering för invånare (Svensk e-legitimation) och Sveriges eIDAS-nod (Sweden Connect) för hantering av EU-medborgares identifiering. Arkitektur och tekniska komponenter för detta ändamål finns redan etablerade och har därför exkluderats från översikten ovan i syfte att minska komplexiteten.
 
+<a name="roller"></a>
+### 4.3 Roller
 Den svenska federationsinfrastrukturen innehåller fyra roller:
 
 1. Ena infrastrukturansvarig - en roll som innebär att man har ett koordineringsansvar för att tillse att en svensk digital infrastruktur skapas och förvaltas. Digg innehar rollen idag.
@@ -655,7 +670,7 @@ Den svenska federationsinfrastrukturen innehåller fyra roller:
 1. Sweden Trust anslutningsoperatör - en roll för de parter som tillser att aktörer som vill samverka via digitala tjänster inom Ena uppfyller SKALL-krav gällande kvalitetsmärken och därefter registrerar aktörens metadata i sin federationsmetadatatjänst.
 
 <a name="samverkan-via-digitala-tjanster"></a>
-### 4.3. Samverkan via digitala tjänster
+### 4.4 Samverkan via digitala tjänster
 
 Samverkan via digitala tjänster kan ske antingen via direkt avtal med en tjänsteproducent i de fall det endast finns **en** tjänsteproducent för aktuell samverkan. Alternativt, om det finns multipla tjänstekonsumenter och tjänsteproducenter är det motiverat att forma en federation för informationsutbyte (benämns även informationsfederation). Detta görs främst för att underlätta tecknande av avtal och GDPR personuppgiftsbiträdesavtal (PUB-avtal), men en informationsfederation kan också ge en effektiv struktur för styrning, kontroll och förvaltning av överenskommelser kring informationsutbytet. 
 
