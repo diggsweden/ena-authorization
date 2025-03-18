@@ -110,14 +110,6 @@ När parter etablerar samverkan via en digital tjänst finns det ett antal olika
 
 Det övergripande mönstret beskrivs logiskt i nedanstående bild.
 
-<table border=1 bgcolor="yellow"><tr><td><b>
-Notera att graferna blir "vackrare" med elk-rendreraren, men den verkar inte fungera i alla mermaid-versioner!
-
-<br>%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-
-Du vet att det fungerar när pilarna är horisontala och vertikala med rundade hörn
-</td></tr></table>
-
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 flowchart LR
