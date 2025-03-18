@@ -24,7 +24,9 @@
 
 3. [**Scenarion**](#scenarion)
 
-    3.1. [Finansiell status](#finansiell-status)
+    3.1. [Nationella läkemedelslistan](#nationella-lakemedelslistan)
+
+    3.2. [Finansiell status](#finansiell-status)
     
 4. [**Målarkitektur**](#malarkitektur)
 
@@ -344,8 +346,82 @@ co--Anropa tjänst-->po
 <a name="scenarion"></a>
 ## 3. Scenarion
 
+<a name="nationella-lakemedelslistan"></a>
+### 3.1 Nationella läkemedelslistan
+
+#### 3.1.1 Via regionalt vårdinformationssystem
+```mermaid
+%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
+sequenceDiagram 
+    autonumber
+    box Vårdgivare
+        participant u as Medarbetare
+        participant aidp as Legitimeringstjänst
+        participant aas as Åtkomstintygstjänst
+        participant c as Journalsystem
+    end
+
+    box Org E-hälsomyndigheten 
+        participant bas as Auktorisationstjänst
+        participant api as NLL API
+    end
+
+    note over u,c: Användare loggar in i journalsystem
+    u->>c: Öpnnar journalsystem och väljer att logga in
+    u->>aidp: Användaren legitimerar <br>sig emot lokal IdP
+    aidp-->>u: 
+    u->>aas: Användaren får behörighet<br> baserad på medarbetaruppdrag
+    aas-->>u: 
+
+    note over u,api: Användaren förskriver recept via journalsystem
+    u->>c: Välj att förskriva recept
+    c->>bas: Begär delegerad åtkomst
+    bas-->>c: 
+    c->>api: Förskriv recept
+    api-->>c: 
+    c-->>u: visa resultat av förskrivning
+
+
+```
+#### 3.1.2 Via Pascal
+```mermaid
+%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
+sequenceDiagram 
+    autonumber
+    box Vårdgivare
+        participant u as Medarbetare
+    end
+
+    box Inera
+        participant aidp as Legitimeringstjänst
+        participant aas as Åtkomstintygstjänst
+        participant c as Pascal
+    end
+
+    box Org E-hälsomyndigheten 
+        participant bas as Auktorisationstjänst
+        participant api as NLL API
+    end
+
+    note over u,c: Användare loggar in i Pascal
+    u->>c: Öpnnar Pascal och väljer att logga in
+    u->>aidp: Användaren legitimerar <br>sig emot Ineras IdP
+    aidp-->>u: 
+    u->>aas: Användaren får behörighet<br> baserad på medarbetaruppdrag
+    aas-->>u: 
+
+    note over u,api: Användaren förskriver recept via Pascal
+    u->>c: Välj att förskriva recept
+    c->>bas: Begär delegerad åtkomst
+    bas-->>c: 
+    c->>api: Förskriv recept
+    api-->>c: 
+    c-->>u: visa resultat av förskrivning
+
+
+```
 <a name="finansiell-status"></a>
-### 3.1. Finansiell status
+### 3.2. Finansiell status
 
 #### Nuläge
 
