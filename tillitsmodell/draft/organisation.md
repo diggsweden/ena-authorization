@@ -8,7 +8,7 @@ Anslutning av organisation till den federativa infrastrukturen.
 Organisation ansöker om medlemskap till den federativa infrastrukturen för identitets- och behörighetshantering inom ramen för Ena (Sveriges digitala infrastruktur).
 
 :black_circle: **Slut** <br />
-Organisation är medelm i den federativa infrastrukturen.
+Organisation är medlem i den federativa infrastrukturen.
 
 :bookmark_tabs: **Önskat resultat** <br />
 Operatören kan i enlighet med anslutningsreglerna registrera en kontaktperson som blir huvudkontakt att företräda organisationen.  <br /><br />
