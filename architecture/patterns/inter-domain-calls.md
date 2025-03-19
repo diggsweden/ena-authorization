@@ -89,6 +89,8 @@ Vidare antar vi följande:
 
 - Det finns en tillit till auktorisationstjänst A konfigurerad i auktorisationstjänst B. Med andra ord, det finns definierade regler och överenskommelser mellan organisation A och B via respektive auktorisationstjänst.
 
+- Metoden för klientautentisering, d.v.s., hur en aktör som kommunicerar med en auktorisationstjänst autentiserar sig, förutsätts vara `private_key_jwt` (eller i värsta fall mutual TLS, \[[RFC8705](#rfc8705)\]). I övrigt är detta "out of scope" för detta dokument, och krav rörande stark klientautentiseringen anges i ENA:s OAuth2-profiler.
+
 <a name="applikationen-samverkar-med-flera-auktorisationstjanster"></a>
 ### 2.1. Applikationen samverkar med flera auktorisationstjänster
 
@@ -233,7 +235,7 @@ autonumber
 
 I förra stycket listade vi för- och nackdelar med mönstret. Låt oss göra detsamma för detta mönster. Eftersom vi påstod i inledningen av stycket av detta mönster skulle lösa de problem vi noterade för det föregående mönstret, så ser vi om vi kan vända minustecknen till plustecken:
 
-:heavy_plus_sign: I detta mönster behöver e-tjänsten i organisation A endast förhålla sig till auktorisationstjänsten inom sin egen organisation/domän. Detta är en stor fördel då det resulterar i en betydligt mindre komplex OAuth-integration i e-tjänsten.
+:heavy_plus_sign: I detta mönster behöver e-tjänsten i organisation A endast förhålla sig till auktorisationstjänsten inom sin egen organisation/domän. Detta är en stor fördel då det resulterar i en betydligt mindre komplex OAuth-integration i e-tjänsten. E-tjänster kan i många fall hanteras lokalt och dess metadata behöver inte exponeras utanför organisationen. Detta är en fördel, oavsett om OpenID Federation används eller inte.
 
 :heavy_plus_sign: Eftersom e-tjänsten (OAuth-klienten) skickar token-begäran till "egen" auktorisationstjänst behöver den inte ha kunskap om de scopes som krävs av API:et i organisation B. Den kan använda definierade scopes inom sin egen organisation, som sedan kan "mappas" om av auktorisationstjänsten i organisation A när den kommunicerar med auktorisationstjänsten i organisation B.
 
