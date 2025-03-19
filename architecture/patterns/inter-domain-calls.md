@@ -346,8 +346,51 @@ Alternativet till intygsväxling här är att använda "breda" åtkomstintyg, d.
 
 Ja, anrop över organisationsgränser pratar vi ju om. Hur skulle ovanstående exempel se ut i dessa fall? Orkar ni med fler sekvensdiagram?
 
-Inte? Bra, för det behövs egentligen inte. För om vi tänker oss att "Backend API" ligger i en annan organisation kan vi helt enkelt titta på de tidigare mönstren och låta "Skyddat API" motsvara e-tjänsten i dessa. Det blir samma resultat, med samma slutsatser. Specifikt för mönstret [Applikationen pratar endast med lokal auktorisationstjänst](#applikationen-pratar-endast-med-lokal-auktorisationstjanst) så skulle det innebära att punkt 5 i vårt exempel leder till att auktorisationstjänsten i organisation A agerar klient mot AS B. Och sen är allt lika. Ytterligare ett argument för detta mönster.
+OK, om vi antar mönstret i [kapitel 2.2](#applikationen-pratar-endast-med-lokal-auktorisationstjanst), [Applikationen pratar endast med lokal auktorisationstjänst](#applikationen-pratar-endast-med-lokal-auktorisationstjanst) och visar hur "kedjade anrop" ser ut över organisationsgränser så får vi ett sekvensdiagram enligt nedan.
+
+```mermaid
+sequenceDiagram
+autonumber
+    actor User as Användare
+
+    box Organisation A
+        participant Service as e-tjänst
+        participant ApiA as Skyddat API A
+        participant AsA as Authorization Server A
+    end
+
+    box Organisation B
+        participant AsB as Authorization Server B
+        participant ApiB as Skyddat API B
+    end
+
+    User-->Service: Inloggad hos e-tjänst
+
+    Note over Service: Anrop till Skyddat API A behöver<br />göras å användarens vägnar 
+    Service-->AsA: Skaffa Access Token (1) för åtkomst till Skyddat API<br />Detta kan göras med authorization code, RFC7522, RFC7523 ...
+
+    Service->>+ApiA: API Anrop<br />Access Token (1) skickas med
+    
+    Note over ApiA: Anrop till Skyddat API B<br /> behöver göras
+
+    ApiA->>+AsA: Begär Access Token för API B<br />Token Exhange (RFC8693)
+    AsA-->>AsA: Skapa JWT och signera (Authorization Grant JWT)
+    AsA->>+AsB: Begär Access Token<br />Skicka med Authorization Grant JWT (RFC7523)
+    AsB->>-AsA: Access Token
+
+    AsA->>-ApiA: Access Token
+
+    ApiA->>+ApiB: Gör API-anrop<br />Skickar med Access Token
+    ApiB->>-ApiA: API-svar
+
+    ApiA-->ApiA: Givet svaret från Backend API, bygg API-svar
+
+    ApiA->>-Service: API-svar    
+
+    Service-->>User: Återkoppling till användare ...
+```
  
+Detta flöde blir helt analog med mönstret i [kapitel 2.2](#applikationen-pratar-endast-med-lokal-auktorisationstjanst), med undantag att det istället för e-tjänsten är Skyddat API A som kommunicerar med auktorisationstjänst A.
 
 <a name="sakerhetsaspekter"></a>
 ### 2.4. Säkerhetsaspekter
