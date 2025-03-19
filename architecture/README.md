@@ -1,6 +1,6 @@
 # Arkitektur - tänkta leverabler
 
-## [Samverksans-/interoperabilitetsarkitektur](cooperation-architecture.md)
+## [Samverkans-/interoperabilitetsarkitektur](cooperation-architecture.md)
 - Övergripande mål och principer: 
 Detta inkluderar de övergripande målen för systemet eller organisationen och de arkitektoniska principer som ska styra utvecklingen och användningen av arkitekturen.
 
