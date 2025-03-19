@@ -43,84 +43,118 @@ Exempel på krav för tillit för en E-tjänst i federationen:
     <th colspan="4" style="text-align: center; background-color: #e2e2e2;"></th>
   </tr>
   <tr>
-    <th colspan="4" style="text-align: center; background-color: #e2e2e2;">Tekniska & IT-säkerhetskrav</th>
+    <th style="text-align: center;">Krav-kod</th>
+    <th style="text-align: center;">Beskrivning</th>
+    <th style="text-align: center;">Kravnivå</th>
+    <th style="text-align: center;">Kravtyp</th>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav F.1</td>
+    <td style="text-align: center;">Betrodd Part som tillhandahåller tjänst för utgivning av intyg för auktorisation ska se<br>till att denna tjänst har god tillgänglighet och att utlämnande av<br>intyg föregås av en tillförlitlig kontroll av att den anslutande<br>användarens/tjänstens elektroniska identitet och attribut är giltiga och korrekta.</td>
+    <td style="text-align: center;">Hög</td>
+    <td style="text-align: center;">Tekniskt</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav F.2</td>
+    <td style="text-align: center;">Ange ett tillgänglighetsmått för auktorisationstjänsten. Beskriv vilka autentiseringsmetoder<br>som används för att ansluta till intygsutfärdaren<br>för att utfärda intyg. Beskriv hur kontroll av identitetens och<br>attributens giltighet görs, inklusive vilka attributskällor som används.</td>
+    <td style="text-align: center;">Hög</td>
+    <td style="text-align: center;">Tekniskt</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav F.3</td>
+    <td style="text-align: center;">Lämnade intyg ska vara giltiga endast så länge som det krävs för att<br>användaren/tjänsten ska få tillgång till den efterfrågade E-tjänsten/resursen.<br>Giltighetstid för intyg ska anges.</td>
+    <td style="text-align: center;">Hög</td>
+    <td style="text-align: center;">Tekniskt</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav F.4</td>
+    <td style="text-align: center;">Intyg ska skyddas så att informationen endast är läsbar för den<br>mottagande E-tjänsten och att den kan kontrollera att mottagna intyg är äkta.<br>Krypterings- och signeringsförfarande ska beskrivas.</td>
+    <td style="text-align: center;">Hög</td>
+    <td style="text-align: center;">Tekniskt</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav F.5</td>
+    <td style="text-align: center;">Identifierade användares/tjänsters anslutningar mot auktorisationstjänsten ska<br>tidsbegränsas, varefter en ny identifiering av användaren/tjänsten ska ske i enlighet<br>med D.1. Beskriv hur länge<br>autentiseringen mot intygsutfärdaren är giltig innan ny<br>autentisering krävs.</td>
+    <td style="text-align: center;">Medel</td>
+    <td style="text-align: center;">Tekniskt</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav F.6</td>
+    <td style="text-align: center;">auktorisationstjänsten ska ha en typdligt utpekad ägare och förvaltning som ansvarar för<br>dokumenterade rutiner som säkerställer att erforderlig skyddsnivå i IT-miljön<br>kan upprätthållas över tid och i samband med förändringar,<br>innefattande regelbundna sårbarhetsundersökningar samt ändamålsenlig beredskap för att möta<br>förändrade risknivåer och inträffade incidenter.</td>
+    <td style="text-align: center;">Medel</td>
+    <td style="text-align: center;">Organisatoriskt</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav F.7</td>
+    <td style="text-align: center;">Tjänsten ska ha omfattande loggning av autentiseringshändelser, åtkomstförsök och administrativa ändringar.<br>Loggarna ska vara skyddade, sökbara och kunna användas för att snabbt identifiera och utreda säkerhetsincidenter.
+</td>
+    <td style="text-align: center;">Medel</td>
+    <td style="text-align: center;">Tekniskt</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav F.8</td>
+    <td style="text-align: center;">Det ska finnas processer för att skapa och uppdatera auktorisationsregler på ett kontrollerat sätt.
+</td>
+    <td style="text-align: center;">Teknisktr</td>
+    <td style="text-align: center;">Medel</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav F.9</td>
+    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Placeholder</td>
+  </tr>
+
+</table>
+
+<table>
+  <tr>
+    <th colspan="4" style="text-align: center; background-color: #f2f2f2;">Tillitskrav Federationsmedlem</th>
+  </tr>
+  <tr>
+    <th colspan="4" style="text-align: center; background-color: #e2e2e2;"></th>
   </tr>
   <tr>
     <th style="text-align: center;">Krav-kod</th>
     <th style="text-align: center;">Beskrivning</th>
     <th style="text-align: center;">Kravnivå</th>
-    <th style="text-align: center;">Kommentar</th>
+    <th style="text-align: center;">Kravtyp</th>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.1</td>
-    <td style="text-align: center;">För verksamheten centrala delar ska skyddas fysiskt mot skada<br> som följd av miljörelaterade händelser, otillåten åtkomst<br> eller andra yttre störningar. Tillträdeskontroll ska tillämpas så att<br> åtkomst till känsliga utrymmen är begränsad till behörig personal,<br> att informationsbärande media förvaras och utmönstras på ett säkert sätt,<br> samt att tillträde till dessa skyddade utrymmen kontinuerligt övervakas.</td>
+    <td style="text-align: center;"></td>
     <td style="text-align: center;">Hög</td>
-    <td style="text-align: center;">N/A</td>
+    <td style="text-align: center;">Tekniskt</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.2</td>
-    <td style="text-align: center;">Placeholder</td>
-    <td style="text-align: center;">Placeholder</td>
-    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;">Hög</td>
+    <td style="text-align: center;">Tekniskt</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.3</td>
-    <td style="text-align: center;">Placeholder</td>
-    <td style="text-align: center;">Placeholder</td>
-    <td style="text-align: center;">Placeholder</td>
-  </tr>
-  <tr>
-    <th colspan="4" style="text-align: center; background-color: #e2e2e2;">Informationssäkerhetskrav</th>
-  </tr>
-  <tr>
-    <th style="text-align: center;">Krav-kod</th>
-    <th style="text-align: center;">Beskrivning</th>
-    <th style="text-align: center;">Kravnivå</th>
-    <th style="text-align: center;">Kommentar</th>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;">Hög</td>
+    <td style="text-align: center;">Tekniskt</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.4</td>
-    <td style="text-align: center;"Placeholder</td>
+    <td style="text-align: center;"></td>
     <td style="text-align: center;">Hög</td>
-    <td style="text-align: center;">N/A</td>
+    <td style="text-align: center;">Tekniskt</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.5</td>
-    <td style="text-align: center;">Placeholder</td>
-    <td style="text-align: center;">Placeholder</td>
-    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;"></td>
+    <td style="text-align: center;">Hög</td>
+    <td style="text-align: center;">Tekniskt</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.6</td>
-    <td style="text-align: center;">Placeholder</td>
-    <td style="text-align: center;">Placeholder</td>
-    <td style="text-align: center;">Placeholder</td>
-  </tr>
-  <tr>
-    <th colspan="4" style="text-align: center; background-color: #e2e2e2;">Administrativa krav</th>
-  </tr>
-    <th style="text-align: center;">Krav-kod</th>
-    <th style="text-align: center;">Beskrivning</th>
-    <th style="text-align: center;">Kravnivå</th>
-    <th style="text-align: center;">Kommentar</th>
-  </tr>
-  <tr>
-    <td style="text-align: center;">Krav A.1</td>
-    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;"></td>
     <td style="text-align: center;">Hög</td>
-    <td style="text-align: center;">N/A</td>
-  </tr>
-  <tr>
-    <td style="text-align: center;">Krav A.2</td>
-    <td style="text-align: center;">Placeholder</td>
-    <td style="text-align: center;">Placeholder</td>
-    <td style="text-align: center;">Placeholder</td>
-  </tr>
-  <tr>
-    <td style="text-align: center;">Krav A.3</td>
-    <td style="text-align: center;">Placeholder</td>
-    <td style="text-align: center;">Placeholder</td>
-    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Tekniskt</td>
   </tr>
 
 </table>
