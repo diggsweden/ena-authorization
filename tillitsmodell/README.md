@@ -50,59 +50,59 @@ Exempel på krav för tillit för en E-tjänst i federationen:
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.1</td>
-    <td style="text-align: center;">Betrodd Part som tillhandahåller tjänst för utgivning av intyg för auktorisation ska se<br>till att denna tjänst har god tillgänglighet och att utlämnande av<br>intyg föregås av en tillförlitlig kontroll av att den anslutande<br>användarens/tjänstens elektroniska identitet och attribut är giltiga och korrekta.</td>
+    <td style="text-align: center;">Organisation som tillhandahåller tjänst för utgivning av intyg för auktorisation ska se till att denna tjänst har god tillgänglighet och att utlämnande av intyg föregås av en tillförlitlig kontroll av att den anslutande användarens/tjänstens elektroniska identitet och attribut är giltiga och korrekta.</td>
     <td style="text-align: center;">Hög</td>
-    <td style="text-align: center;">Tekniskt</td>
+    <td style="text-align: center;">Organisatoriska</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.2</td>
-    <td style="text-align: center;">Ange ett tillgänglighetsmått för auktorisationstjänsten. Beskriv vilka autentiseringsmetoder<br>som används för att ansluta till intygsutfärdaren<br>för att utfärda intyg. Beskriv hur kontroll av identitetens och<br>attributens giltighet görs, inklusive vilka attributskällor som används.</td>
+    <td style="text-align: center;">Ange ett tillgänglighetsmått för auktorisationstjänsten. Beskriv vilka autentiseringsmetoder som används för att ansluta till intygsutfärdaren för att utfärda intyg. Beskriv hur kontroll av identitetens och attributens giltighet görs, inklusive vilka attributskällor som används.</td>
     <td style="text-align: center;">Hög</td>
-    <td style="text-align: center;">Tekniskt</td>
+    <td style="text-align: center;">Tekniska</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.3</td>
-    <td style="text-align: center;">Lämnade intyg ska vara giltiga endast så länge som det krävs för att<br>användaren/tjänsten ska få tillgång till den efterfrågade E-tjänsten/resursen.<br>Giltighetstid för intyg ska anges.</td>
+    <td style="text-align: center;">Lämnade intyg ska vara giltiga endast så länge som det krävs för att användaren/tjänsten ska få tillgång till den efterfrågade E-tjänsten/resursen. Giltighetstid för intyg ska anges.</td>
     <td style="text-align: center;">Hög</td>
-    <td style="text-align: center;">Tekniskt</td>
+    <td style="text-align: center;">Tekniska</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.4</td>
-    <td style="text-align: center;">Intyg ska skyddas så att informationen endast är läsbar för den<br>mottagande E-tjänsten och att den kan kontrollera att mottagna intyg är äkta.<br>Krypterings- och signeringsförfarande ska beskrivas.</td>
+    <td style="text-align: center;">Intyg ska skyddas så att informationen endast är läsbar för den mottagande E-tjänsten och att den kan kontrollera att mottagna intyg är äkta. Krypterings- och signeringsförfarande ska beskrivas.</td>
     <td style="text-align: center;">Hög</td>
-    <td style="text-align: center;">Tekniskt</td>
+    <td style="text-align: center;">Tekniska</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.5</td>
-    <td style="text-align: center;">Identifierade användares/tjänsters anslutningar mot auktorisationstjänsten ska<br>tidsbegränsas, varefter en ny identifiering av användaren/tjänsten ska ske i enlighet<br>med D.1. Beskriv hur länge<br>autentiseringen mot intygsutfärdaren är giltig innan ny<br>autentisering krävs.</td>
+    <td style="text-align: center;">Identifierade användares/tjänsters anslutningar mot auktorisationstjänsten ska tidsbegränsas, varefter en ny identifiering av användaren/tjänsten ska ske i enlighet med D.1. Beskriv hur länge autentiseringen mot intygsutfärdaren är giltig innan ny autentisering krävs.</td>
     <td style="text-align: center;">Medel</td>
     <td style="text-align: center;">Tekniskt</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.6</td>
-    <td style="text-align: center;">auktorisationstjänsten ska ha en typdligt utpekad ägare och förvaltning som ansvarar för<br>dokumenterade rutiner som säkerställer att erforderlig skyddsnivå i IT-miljön<br>kan upprätthållas över tid och i samband med förändringar,<br>innefattande regelbundna sårbarhetsundersökningar samt ändamålsenlig beredskap för att möta<br>förändrade risknivåer och inträffade incidenter.</td>
+    <td style="text-align: center;">Auktorisationstjänsten ska ha en tydligt utpekad ägare och förvaltning som ansvarar för dokumenterade rutiner som säkerställer att erforderlig skyddsnivå i IT-miljön kan upprätthållas över tid och i samband med förändringar, innefattande regelbundna sårbarhetsundersökningar samt ändamålsenlig beredskap för att möta förändrade risknivåer och inträffade incidenter.</td>
     <td style="text-align: center;">Medel</td>
-    <td style="text-align: center;">Organisatoriskt</td>
+    <td style="text-align: center;">Organisatoriska</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.7</td>
-    <td style="text-align: center;">Tjänsten ska ha omfattande loggning av autentiseringshändelser, åtkomstförsök och administrativa ändringar.<br>Loggarna ska vara skyddade, sökbara och kunna användas för att snabbt identifiera och utreda säkerhetsincidenter.
+    <td style="text-align: center;">Tjänsten ska ha omfattande loggning av autentiseringshändelser, åtkomstförsök och administrativa ändringar. Loggarna ska vara skyddade, sökbara och kunna användas för att snabbt identifiera och utreda säkerhetsincidenter.
 </td>
     <td style="text-align: center;">Medel</td>
-    <td style="text-align: center;">Tekniskt</td>
+    <td style="text-align: center;">Tekniska</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.8</td>
     <td style="text-align: center;">Det ska finnas processer för att skapa och uppdatera auktorisationsregler på ett kontrollerat sätt.
 </td>
-    <td style="text-align: center;">Teknisktr</td>
+    <td style="text-align: center;">Tekniskta</td>
     <td style="text-align: center;">Medel</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.9</td>
     <td style="text-align: center;">Placeholder</td>
-    <td style="text-align: center;">Placeholder</td>
-    <td style="text-align: center;">Placeholder</td>
+    <td style="text-align: center;">Låg/Medel/Hög</td>
+    <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
   </tr>
 
 </table>
@@ -122,39 +122,43 @@ Exempel på krav för tillit för en E-tjänst i federationen:
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.1</td>
-    <td style="text-align: center;"></td>
-    <td style="text-align: center;">Hög</td>
-    <td style="text-align: center;">Tekniskt</td>
+    <td style="text-align: center;">Medlem i Ena-federationen ska drivas som registrerad juridisk person samt teckna och  vidmakthålla för verksamheten erforderliga försäkringar.</td>
+    <td style="text-align: center;">Låg/Medel/Hög</td>
+    <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.2</td>
-    <td style="text-align: center;"></td>
-    <td style="text-align: center;">Hög</td>
-    <td style="text-align: center;">Tekniskt</td>
+    <td style="text-align: center;">Medlem i Ena-federationen ska ha en etablerad verksamhet, vara fullt operationell och vara väl insatt i de juridiska krav och informations-säkerhetskrav som ställs  på denne som medlem i federationen.
+</td>
+    <td style="text-align: center;">Låg/Medel/Hög</td>
+    <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.3</td>
-    <td style="text-align: center;"></td>
-    <td style="text-align: center;">Hög</td>
-    <td style="text-align: center;">Tekniskt</td>
+    <td style="text-align: center;">Medlem ska förfoga över tillräckliga ekonomiska medel för att kunna bedriva verksamheten i minst 1 år och bära risken för skadeståndsskyldighet.
+</td>
+    <td style="text-align: center;">Låg/Medel/Hög</td>
+    <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.4</td>
-    <td style="text-align: center;"></td>
-    <td style="text-align: center;">Hög</td>
-    <td style="text-align: center;">Tekniskt</td>
+    <td style="text-align: center;">Medlem ska för de delar av verksamheten som berörs av tillitsramverket ha ett ledningssystem för informationssäkerhet (LIS)  som i tillämpliga delar baseras på SS ISO/IEC 27001 eller motsvarande  erkända och vedertagna standarder, omfattande bl.a. organisation, resurstilldelning  samt tekniska respektive administrativa säkerhetsåtgärder,  och utgöra en kvalitetsprocess som kontinuerligt utvärderar och anpassar verksamheten  till aktuella omvärldskrav.
+</td>
+    <td style="text-align: center;">Låg/Medel/Hög</td>
+    <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.5</td>
-    <td style="text-align: center;"></td>
-    <td style="text-align: center;">Hög</td>
-    <td style="text-align: center;">Tekniskt</td>
+    <td style="text-align: center;">Medlem i federationen ska ha dokumenterad rutin för hantering av risker för alla användare och komponenter  som ingår i federationen. Riskanalys ska genomföras minst en gång per år  och en åtgärdsplan ska upprättas. Åtgärdsplanen ska genomföras och åtgärder dokumenteras.
+</td>
+    <td style="text-align: center;">Låg/Medel/Hög</td>
+    <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.6</td>
     <td style="text-align: center;"></td>
-    <td style="text-align: center;">Hög</td>
-    <td style="text-align: center;">Tekniskt</td>
+    <td style="text-align: center;">Låg/Medel/Hög</td>
+    <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
   </tr>
 
 </table>
