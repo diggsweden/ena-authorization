@@ -2,9 +2,9 @@
 **Tillitsramverket** är en paketering, det formella dokumentet, som kan skapas utifrån innehåll i en kravkatalog. 
 Det utgör den ”torra” delen med krav, skyldigheter och förpliktelser.
 
-Den paketering vi siktar på nu är *Utställande och förmedling av åtkomstingtyg mellan organisationer*. 
+Den paketering vi siktar på nu är *Utställande och förmedling av [åtkomstingtyg](../../introduktion/ordlista.md#atkomstintyg) mellan organisationer*. 
 
-Ett åtkomstintyg är ett signerat text som kan förmedla både identitets- och behörighetsinformation.
+Ett åtkomstintyg kan förmedla både identitets- och behörighetsinformation.
 
 **Rekommendationer och vägledning** kan finnas i olika upplagor och för olika målgrupper, t ex *Rekommendationer och vägledning till kommuner*. 
 Ett sådant dokument avser att förklara *hur* man i praktiken kan:
