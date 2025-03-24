@@ -31,6 +31,7 @@ Beskriv huvudsakliga uppgifter, ansvarsfördelning och samverkansformer.
 ### 5.1 Systematiskt informationssäkerhetsarbete
 ### 5.2 Riskhantering
 ### 5.3 Incidenthantering
+NIS2 artikel 21, m.m.
 ### 5.4 Internrevision och uppföljning
 Krav på ISO/IEC 27001 (eller motsvarande), riskanalyser, kontinuerlig förbättring.
 
