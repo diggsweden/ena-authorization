@@ -28,7 +28,7 @@ Beskriv huvudsakliga uppgifter, ansvarsfördelning och samverkansformer.
 - Beskrivning av juridiska och regulatoriska krav som gäller alla parter.
 
 ## 5. Informationssäkerhet och ledningssystem
-### 5.1 Strukturerat säkerhetsarbete
+### 5.1 Systematiskt informationssäkerhetsarbete
 ### 5.2 Riskhantering
 ### 5.3 Incidenthantering
 ### 5.4 Internrevision och uppföljning
