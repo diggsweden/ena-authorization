@@ -81,7 +81,7 @@ Förklarar syftet med rekommendationer och vägledningen, hur den ska användas 
 -	När tillämpas borttagning, pseudonymisering respektive anonymisering?
 -	Etc.
 
-## 11. Loggning, spårbarhet och riskhantering
+## 11. Loggning, spårbarhet och uppföljning
 - Vilka händelser loggas? Var loggas de? Hur skyddas loggarna?
 -	Hur kan man följa upp vem som gjort vad och när, och kunna rapportera avvikelser eller misstänkt beteende?
 -	Hur ofta göra riskanalyser? Hur följs de upp?
