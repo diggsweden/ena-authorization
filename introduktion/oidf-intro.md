@@ -20,7 +20,7 @@ Den centraliserade modellen för federationer som varit styrande i flera decenni
 
     2.1. [Delegering](#delegering)
 
-    2.2. [Metadata och kvalitetsmärken](#metadata-tm)
+    2.2. [Metadata och tillitsmärken](#metadata-tm)
 
     2.3. [Hämtning och validering av data](#validering)
 
@@ -28,7 +28,7 @@ Den centraliserade modellen för federationer som varit styrande i flera decenni
 
     3.1. [Metadatapolicy](#metadatapolicy)
 
-    3.2. [Utfärdande av kvalitetsmärken](#utfardatm)
+    3.2. [Utfärdande av tillitsmärken](#utfardatm)
 
 4. [**Registrering**](#registrering)
 
@@ -67,63 +67,63 @@ Genom en decentraliserad modell som fördelar ansvaret för registrering, kontro
 ### Delegering
 Till skillnad från en traditionell federation där registrering av alla tjänster administreras av en federationsoperatör, enligt en centraliserad modell, organiserar OIDF en delegerad modell som fördelar registreringsansvaret till olika aktörer, vilka bildar en kedja av betrodda förbindelsepunkter för etablering av tillit. Denna modell erbjuder hierarkier av betrodda förbindelsepunkter som i standarden kallas för <mark>*tillitsankare*</mark> och <mark>*intermediära entiteter*</mark>.
 
-I stället för separata federationer med vattentäta skott, erbjuder OIDF samexistens av olika federativa kontext inom ramen för en samlad förvaltningsövergripande digital infrastruktur. En federativ kontext kan liknas som en traditionell federation, men skiljer sig i sin distributiva natur och nätverksstruktur. Varje federativ kontext definieras av ett *tillitsankare* som utgör toppen på en tillitskedja i federationen. Den används för att validera uppgifter om en specifik digital tjänst i nätverket av tjänster via en eller flera betrodda intermediära förbindelsepunkter. *Tillitsankaret* bestämmer reglerna för valideringen. Dessa regler avgör i sin tur vilka <mark>*metadata*</mark> och <mark>*kvalitetsmärken*</mark> som accepteras för en specifik digital tjänst.
+I stället för separata federationer med vattentäta skott, erbjuder OIDF samexistens av olika federativa kontext inom ramen för en samlad förvaltningsövergripande digital infrastruktur. En federativ kontext kan liknas som en traditionell federation, men skiljer sig i sin distributiva natur och nätverksstruktur. Varje federativ kontext definieras av ett *tillitsankare* som utgör toppen på en tillitskedja i federationen. Den används för att validera uppgifter om en specifik digital tjänst i nätverket av tjänster via en eller flera betrodda intermediära förbindelsepunkter. *Tillitsankaret* bestämmer reglerna för valideringen. Dessa regler avgör i sin tur vilka <mark>*metadata*</mark> och <mark>*tillitsmärken*</mark> som accepteras för en specifik digital tjänst.
 
 En federativ kontext kan representera ett specifikt behovsområde eller verksamhetsdomän som samlar en grupp av aktörer kring förmedling av strukturerade data om identiteter och behörighetsgrundande information. Kontexten definieras genom gemensamma syften, behov, datasemantik, tillitsramverk, regler och policyer. 
 
 <a name="metadata-tm"/>
 
-### Metadata och kvalitetsmärken
-Data om de ingående digitala tjänsterna i federationen utgörs av <mark>*metadata*</mark> och <mark>*kvalitetsmärken*</mark> enligt nedan:
+### Metadata och tillitsmärken
+Data om de ingående digitala tjänsterna i federationen utgörs av <mark>*metadata*</mark> och <mark>*tillitsmärken*</mark> enligt nedan:
 
 <dl>
   <dt>Metadata</dt>
   <dd>Konfigurationsdata för en digital tjänst (<i>entitet</i>) inom ramen för det som är tillåtet, givet de standarder 
-    och profiler som tillämpas och de <i>kvalitetsmärken</i> som utfärdats för tjänsten. <br /><br />Exempel på
+    och profiler som tillämpas och de <i>tillitsmärken</i> som utfärdats för tjänsten. <br /><br />Exempel på
     <i>metadata</i> är information om vilka algoritmer som stöds samt hur klienter måste identifiera sig för att hämta 
     ut ett ID-token. <br /><br /><i>Metadata</i> följer de metadatastandarder som upprättats för respektive tjänst, 
     vilket för OpenID Connect typiskt är <i>metadata</i> för en leverantör av *identitetsintygstjänst*, även kallad 
     <i>OpenID Provider (OP)</i>, eller en förlitande part (exempelvis en e-tjänst som begär identitetskontroll).</dd>
-  <dt>Kvalitetsmärke</dt>
-  <dd>Ett signerat intyg från en betrodd utfärdare av respektive <i>kvalitetsmärke</i>. Varje <i>kvalitetsmärke</i> 
+  <dt>Tillitsmärke</dt>
+  <dd>Ett signerat intyg från en betrodd utfärdare av respektive <i>tillitsmärke</i>. Varje <i>tillitsmärke</i> 
     intygar att en federationsansluten tjänst (<i>entitet</i>) uppfyller en definierad kravmassa, eller är 
-    auktoriserad att utföra/begära vissa tjänster. <br /><br />Exempel på <i>kvalitetsmärke</i> är certifiering 
+    auktoriserad att utföra/begära vissa tjänster. <br /><br />Exempel på <i>tillitsmärke</i> är certifiering 
     att tillhandahålla identitetsintygstjänst på tillitsnivå 3 enligt <i>tillitsramverk för Svensk e-legitimation</i>. 
-    <br /><br />OIDF erbjuder även en specialvariant av <i>kvalitetsmärken</i> som kännetecknas av att vara
-    självutfärdade. Det innebär att en digital tjänst kan utfärda ett sådant <i>kvalitetsmärke</i> åt sig själv 
-    genom självdeklaration och därmed undantas från de valideringsregler som vanligtvis gäller för <i>kvalitetsmärken</i>
-    utfärdade av en betrodd utfärdare. Ett självutfärdat <i>kvalitetsmärke</i> behöver exempelvis inte valideras mot 
+    <br /><br />OIDF erbjuder även en specialvariant av <i>tillitsmärken</i> som kännetecknas av att vara
+    självutfärdade. Det innebär att en digital tjänst kan utfärda ett sådant <i>tillitsmärke</i> åt sig själv 
+    genom självdeklaration och därmed undantas från de valideringsregler som vanligtvis gäller för <i>tillitsmärken</i>
+    utfärdade av en betrodd utfärdare. Ett självutfärdat <i>tillitsmärke</i> behöver exempelvis inte valideras mot 
     ett <i>tillitsankare</i>.</dd>
 </dl>
 
 ----------------------
 
-Uppdelningen mellan <mark>*kvalitetsmärke*</mark> och <mark>*metadata*</mark> är en av nycklarna som möjliggör delegerad registrering av tjänster. Den aktör som är betrodd att hantera registrering av *metadata* är inte nödvändigtvis betrodd att intyga *kvalitetsmärken*. Likaså, behöver den aktör som är betrodd att intyga *kvalitetsmärken*, inte nödvändigtvis ha förmågan att ombesörja adekvat registrering av *metadata*. Mycket kan därför vinnas genom att dela upp registrering och administration av *metadata* respektive *kvalitetsmärken*.
+Uppdelningen mellan <mark>*tillitsmärke*</mark> och <mark>*metadata*</mark> är en av nycklarna som möjliggör delegerad registrering av tjänster. Den aktör som är betrodd att hantera registrering av *metadata* är inte nödvändigtvis betrodd att intyga *tillitsmärken*. Likaså, behöver den aktör som är betrodd att intyga *tillitsmärken*, inte nödvändigtvis ha förmågan att ombesörja adekvat registrering av *metadata*. Mycket kan därför vinnas genom att dela upp registrering och administration av *metadata* respektive *tillitsmärken*.
 
-Vinsterna är betydande då denna uppdelning erbjuder en möjlighet att bygga stora federationer där ingen enskild aktör måste bära hela det administrativa ansvaret för federationen. Federationsoperatörens roll kan utvecklas i ett distribuerat nätverk som delegerar registrering av digitala tjänster till lämpliga *intermediära entiteter* och ansluter *utfärdare av kvalitetsmärken* till sitt *tillitsankare*. Därigenom utformas en dynamik som är mer skalbart och framtidssäkrat än den traditionella federationsoperatörsrollen, som förväntas att upprätta rutiner för administration och auktorisation av samtliga registrerade tjänster i federationen.
+Vinsterna är betydande då denna uppdelning erbjuder en möjlighet att bygga stora federationer där ingen enskild aktör måste bära hela det administrativa ansvaret för federationen. Federationsoperatörens roll kan utvecklas i ett distribuerat nätverk som delegerar registrering av digitala tjänster till lämpliga *intermediära entiteter* och ansluter *utfärdare av tillitsmärken* till sitt *tillitsankare*. Därigenom utformas en dynamik som är mer skalbart och framtidssäkrat än den traditionella federationsoperatörsrollen, som förväntas att upprätta rutiner för administration och auktorisation av samtliga registrerade tjänster i federationen.
 
 <a name="validering"/>
 
 ### Hämtning och validering av data
-OIDF specificerar konkreta regler för hur *metadata* och *kvalitetsmärken* hämtas och valideras i infrastrukturen mot ett *tillitsankare*.
+OIDF specificerar konkreta regler för hur *metadata* och *tillitsmärken* hämtas och valideras i infrastrukturen mot ett *tillitsankare*.
 
 Detta är process som i grova drag innefattar följande steg:
 1.	Lokalisera *metadata* för motpartens digitala tjänst (*entitet*).
 2.	Hitta en tillitskedja från motpartens tjänst via mellanliggande förbindelsepunkter (*intermediära entiteter*) till valt *tillitsankare*.
-3.	Validera *metadata* och *kvalitetsmärken* för motpartens tjänst enligt de regler som sätts av gällande *federationskontext*.
+3.	Validera *metadata* och *tillitsmärken* för motpartens tjänst enligt de regler som sätts av gällande *federationskontext*.
 
 Detta är i praktiken en ganska komplicerad och resurskrävande operation, eftersom data från en rad olika källor behöver inhämtas och valideras.
 
 Av detta skäl har OIDF introducerat en valideringstjänst, som benämns <mark>*resolver*</mark> eller *resolve endpoint*, vars uppgift är att hantera processen att inhämta och validera data åt en federationsansluten tjänst. I stället för att göra en komplett valideringsprocess enligt ovan, så kan tjänsten skicka en enkel begäran till valideringstjänsten, som returnerar filtrerade och validerade data för begärd tjänst i kontexten av valt *tillitsankare*. Detta innebär:
 -	*Metadata* valideras och filtreras genom federationskontextens metadatapolicy.
--	Validering av *kvalitetsmärken*.
+-	Validering av *tillitsmärken*.
 
 <a name="federationskontext"/>
 
 ## Federationskontext
 Federationskontext är de regler som gäller när en federationsansluten tjänst (*entitet*) valideras genom ett specifikt *tillitsankare*. Dessa regler specificeras för varje koppling mellan ett *tillitsankare* och varje underställd förbindelsepunkt (*intermediär entitet*). Reglerna uttrycks i ett aktörsintyg (*entity statement*) för varje förbindelsepunkt. Ett *tillitsankare* specificerar i varje utfärdat aktörsintyg de begränsningar som gäller för en förbindelsepunkt. Sådana begränsningar kan gälla vilka typer av digitala tjänster som får registreras samt vilka krav som måste ställas på registrerade tjänsters *metadata*. Två viktiga begränsningar som kan specificeras är:
 1. Metadatapolicy
-2. Utfärdande av *kvalitetsmärken*
+2. Utfärdande av *tillitsmärken*
 
 <a name="metadatapolicy"/>
 
@@ -159,12 +159,12 @@ Genom att olika *tillitsankare* kan tillämpa olika metadatapolicyer för samma 
 
 <a name="utfardatm"/>
 
-### Utfärdande av kvalitetsmärken
-Godkända utfärdare av *kvalitetsmärken* inkluderas i tillitsankarets aktörsintyg (*entity statement*). Dessa redogörs i en lista över godkända utfärdare med specifikation om vilka *kvalitetsmärken* dessa är auktoriserade för att utfärda inom ramen för en federationskontext. På detta sätt kan ett *tillitsankare* styra vilka *kvalitetsmärken* som är godtagbara och vem som får utfärda dem.
+### Utfärdande av tillitsmärken
+Godkända utfärdare av *tillitsmärken* inkluderas i tillitsankarets aktörsintyg (*entity statement*). Dessa redogörs i en lista över godkända utfärdare med specifikation om vilka *tillitsmärken* dessa är auktoriserade för att utfärda inom ramen för en federationskontext. På detta sätt kan ett *tillitsankare* styra vilka *tillitsmärken* som är godtagbara och vem som får utfärda dem.
 
-OIDF skiljer mellan <mark>*ägare av kvalitetsmärke*</mark> och <mark>*utfärdare av kvalitetsmärke*</mark>. En ägare är den aktör som har rätten att bestämma reglerna för att part ska få erhålla ett *kvalitetsmärke* samt fastställer vem som har rätt att utfärda dessa. *Ägare av kvalitetsmärke* kan själv agera utfärdare, men kan även också delegera utfärdandet till en annan aktör. 
+OIDF skiljer mellan <mark>*ägare av tillitsmärke*</mark> och <mark>*utfärdare av tillitsmärke*</mark>. En ägare är den aktör som har rätten att bestämma reglerna för att part ska få erhålla ett *tillitsmärke* samt fastställer vem som har rätt att utfärda dessa. *Ägare av tillitsmärke* kan själv agera utfärdare, men kan även också delegera utfärdandet till en annan aktör. 
 
-Vid validering av kvalitetsmärken kontrolleras även att utfärdaren är auktoriserad att utfärda *kvalitetsmärket* samt att *kvalitetsmärket* inte har blivit spärrat av dess ägare.
+Vid validering av tillitsmärken kontrolleras även att utfärdaren är auktoriserad att utfärda *tillitsmärket* samt att *tillitsmärket* inte har blivit spärrat av dess ägare.
 
 <a name="registrering"/>
 
@@ -177,7 +177,7 @@ Idén med en distribuerad registreringsmodell möjliggör att ansvaret för regi
 En intermediär förbindelsepunkt ansvarar främst för att säkerställa identiteten för en federationsansluten tjänst (*entitet*). Registreringsprocessen inkluderar även att verifiera vilken organisation som tillhandahåller tjänsten, vem som är ansvarig för den och att all data som publiceras om tjänsten har godkänts av den ansvariga organisationen.
 
 En intermediär förbindelsepunkts uppgift handlar i mindre grad om att på enskild basis kontrollera eller godkänna vilka data som en registrerad tjänst (entitet) publicerar om sig själva. Skälet till detta är framför allt att:
-1. En intermediär förbindelsepunkt behöver inte reglera eller kontrollera information om uppfyllnad av regelverk eller kravmassa, då dessa hanteras separat av *kvalitetsmärken*.
+1. En intermediär förbindelsepunkt behöver inte reglera eller kontrollera information om uppfyllnad av regelverk eller kravmassa, då dessa hanteras separat av *tillitsmärken*.
 2. Istället för att kontrollera *metadata* på enskild basis kan en intermediär förbindelsepunkt upprätta en generell policy som reglerar publicerade data för alla registrerade tjänster (*entiteter*).
 
 Detta gör det betydligt lättare för ett *tillitsankare* som då mycket enklare kan ansluta grupper av tjänster (*entiteter*) i stället för att hantera varje tjänst separat.
@@ -223,8 +223,8 @@ Att hantera registrering av SAML-metadata via OIDF skapar förutsättningar för
 
 För att möjliggöra registrering och distribution av SAML-metadata via OIDF behöver följande göras:
 - Definiera en profil för hur man kan uttrycka SAML-metadata i ett dataformat som kan hanteras av OIDF.
-- Definiera metoder för att på bästa sätt uttrycka *kvalitetsmärken* genom SAML-metadata och metadataströmmar.
-- Registrera federationsanslutna tjänster (entiteter) enligt denna nya datamodell (*metadata* och *kvalitetsmärke*)
+- Definiera metoder för att på bästa sätt uttrycka *tillitsmärken* genom SAML-metadata och metadataströmmar.
+- Registrera federationsanslutna tjänster (entiteter) enligt denna nya datamodell (*metadata* och *tillitsmärke*)
 - Skapa en metadatatjänst som kan publicera efterfrågade SAML-metadataströmmar baserat på registreringar inom ramen för OIDF.
 
 <a name="usecase"/>
@@ -250,11 +250,11 @@ Det finns idag standarder för automatisk registrering av *metadata*, men dessa 
 #### Registrering med OIDF
 En *OP* är en kritisk tjänst i federationen och därför är det rimligt att begränsa registrering av sådana tjänster till någon eller några betrodda operatörer särskilt lämpade för uppgiften. Det som framförallt behöver säkerställas är att organisationen som tillhandhåller *legitimeringstjänsten* och dess ansvariga företrädare autentiseras tillsammans med de nycklar som används för att tillhandahålla data och nycklar för *legitimeringstjänsten*.
 
-*Federationsoperatören* behöver däremot inte hantera specifika frågor om *legitimeringstjänstens* uppfyllnad om diverse krav, såsom tekniska-, administrativa-, juridiska- eller krav om certifiering. Dessa hanteras av *kvalitetsmärken*.
+*Federationsoperatören* behöver däremot inte hantera specifika frågor om *legitimeringstjänstens* uppfyllnad om diverse krav, såsom tekniska-, administrativa-, juridiska- eller krav om certifiering. Dessa hanteras av *tillitsmärken*.
 
 En *OP* som ska anslutas till federationen behöver således utföra följande steg:
 1.	Registrering hos *federationsoperatör* eller underliggande intermediär förbindelsepunkt, kopplade till relevanta *tillitsankare*.
-2.	Genomgång kontroller och granskning utifrån krav för att erhålla nödvändiga *kvalitetsmärken* från lämpliga *utfärdare av kvalitetsmärken*.
+2.	Genomgång kontroller och granskning utifrån krav för att erhålla nödvändiga *tillitsmärken* från lämpliga *utfärdare av tillitsmärken*.
 3.	Publicering av *metadata*.
 
 Här kan en *OP* välja olika metoder för att publicera sitt *metadata*, men ett rimligt antagande är att varje *OP* kommer att  publicera sitt eget *metadata*.
@@ -262,13 +262,13 @@ Här kan en *OP* välja olika metoder för att publicera sitt *metadata*, men et
 #### Tjänsteflöde med OIDF
 En *OP* kan kommunicera och tillhandahålla e-legitimering till alla förlitande parter som har federationsanslutna tjänster (*entiteter*) i OIDF, utan behov av ytterligare manuella processer. Hanteringen av en förlitande parts begäran om e-legitimering med stöd av OIDF sker enligt följande steg:
 1. *OP* tar emot en begäran om e-legitimering (*request*) från en förlitande part.
-2. *OP* kontaktar en *valideringstjänst* och begär ut validerade *metadata* och *kvalitetsmärken* för den förlitande partens tjänst (*entitet*) och gällande federationskontext.
-3. *OP* verifierar att förlitande part innehar nödvändiga *kvalitetsmärken* för att vara behörig att begära e-legitimering.
+2. *OP* kontaktar en *valideringstjänst* och begär ut validerade *metadata* och *tillitsmärken* för den förlitande partens tjänst (*entitet*) och gällande federationskontext.
+3. *OP* verifierar att förlitande part innehar nödvändiga *tillitsmärken* för att vara behörig att begära e-legitimering.
 4. *OP* använder de validerade *metadata* för att tillhandahålla *identitetsintyg* till förlitande part.
 
-Det är *OP* som bestämmer federationskontext samt vilka *kvalitetsmärken* som krävs för att begära e-legitimeringen. Ett sådant *kvalitetsmärke* kan mycket väl vara utfärdat av *OP* själv till de aktörer som *legitimeringstjänsten* har avtal med.
+Det är *OP* som bestämmer federationskontext samt vilka *tillitsmärken* som krävs för att begära e-legitimeringen. Ett sådant *tillitsmärke* kan mycket väl vara utfärdat av *OP* själv till de aktörer som *legitimeringstjänsten* har avtal med.
 
-Om validerade *kvalitetsmärken* och *metadata* inte är kompatibla med den begärda tjänsten, avvisas begäran med en lämplig felkod.
+Om validerade *tillitsmärken* och *metadata* inte är kompatibla med den begärda tjänsten, avvisas begäran med en lämplig felkod.
 
 <a name="rp"/>
 
@@ -291,11 +291,11 @@ Den viktiga skillnaden mellan egen och delegerad publicering av *metadata* är a
 Beroende på vilken typ av användare som loggar in väljs *OP* och lämplig federationskontext. Vald federationskontext bestämmer vilket *tillitsankare* och vilken *valideringstjänst* som används för att hämta och verifiera data om vald *OP*.
 
 När användaren har valt legitimeringstjänst sker e-legitimering med stöd av OIDF enligt följande:
-1.	Förlitande part hämtar validerade *metadata* och *kvalitetsmärken* för vald OP via lämplig valideringstjänst.
-2.	Förlitande part verifierar att *OP* innehar nödvändiga *kvalitetsmärken*.
+1.	Förlitande part hämtar validerade *metadata* och *tillitsmärken* för vald OP via lämplig valideringstjänst.
+2.	Förlitande part verifierar att *OP* innehar nödvändiga *tillitsmärken*.
 3.	Förlitande part använder validerad *metadata* om *OP* för att skicka en begäran om identitetskontroll.
 
-*Kvalitetsmärken* som lämpligen bör kontrolleras av en förlitande part är sådana *kvalitetsmärken* som intygar att *OP* är auktoriserad att ge ut identitetsintyg på den tillitsnivå som efterfrågas i enlighet med lämplig teknisk profil.
+*Tillitsmärken* som lämpligen bör kontrolleras av en förlitande part är sådana *tillitsmärken* som intygar att *OP* är auktoriserad att ge ut identitetsintyg på den tillitsnivå som efterfrågas i enlighet med lämplig teknisk profil.
 
 <a name="samlservice"/>
 
@@ -303,16 +303,16 @@ När användaren har valt legitimeringstjänst sker e-legitimering med stöd av 
 Idag saknas kompletta specifikationer för att registrera SAML-tjänster i OIDF. Detta användningsfall redogör för vad som skulle vara möjligt om stöd för SAML skapas i enlighet med diskussionen i avsnitt [SAML-metadata via OIDF](#saml-oidf).
 
 #### Nuvarande situation
-I dag behöver varje organisation leverera SAML-metadata för varje federationsansluten tjänst (entitet) till federationsoperatören. Detta inkluderar både konfigurationsdata och sådana uppgifter som i OIDF regleras med *kvalitetsmärken*. Registrering av data för SAML-tjänster innebär därför också insamling av data som granskning av tjänstens rättigheter och uppfyllnad av väsentliga krav.
+I dag behöver varje organisation leverera SAML-metadata för varje federationsansluten tjänst (entitet) till federationsoperatören. Detta inkluderar både konfigurationsdata och sådana uppgifter som i OIDF regleras med *tillitsmärken*. Registrering av data för SAML-tjänster innebär därför också insamling av data som granskning av tjänstens rättigheter och uppfyllnad av väsentliga krav.
 
 Kontroll av teknisk uppfyllnad är i allt väsentligt statisk och utförs i regel innan *metadata* accepteras för publicering. Ändring av regler för hur *metadata* utformas innebär ofta ändringar i de tjänster som används för att kontrollera och verifiera *metadata*.
 
 Samtliga parter hämtar *metadata* från federationsoperatörens metadatatjänst och ansvarar själva för att tolka och validera inhämtade *metadata* i relation till den tjänst/de tjänster som man önskar kommunicera med.
 
 #### Registrering med OIDF
-Om SAML-metadata skulle registreras i OIDF krävs en uppdelning mellan deklaration av kravuppfyllnad som hanteras av *kvalitetsmärken* och rena konfigurationsdata, vilka hanteras som *metadata*.
+Om SAML-metadata skulle registreras i OIDF krävs en uppdelning mellan deklaration av kravuppfyllnad som hanteras av *tillitsmärken* och rena konfigurationsdata, vilka hanteras som *metadata*.
 
-Detta innebär att man kan delegera såväl registrering av *metadata* och utfärdande av *kvalitetsmärke* på samma sätt som om tjänsten använde *OpenID Connect*. Detta skulle kunna innebära stora administrativa förbättringar. Särskilt om man skapar en miljö där det finns ett val mellan SAML och *OpenID Connect*. En möjlighet som federationsoperatörer kan erbjuda är tjänster för anpassade metadataströmmar som konfigureras utifrån *kvalitetsmärken*.
+Detta innebär att man kan delegera såväl registrering av *metadata* och utfärdande av *tillitsmärke* på samma sätt som om tjänsten använde *OpenID Connect*. Detta skulle kunna innebära stora administrativa förbättringar. Särskilt om man skapar en miljö där det finns ett val mellan SAML och *OpenID Connect*. En möjlighet som federationsoperatörer kan erbjuda är tjänster för anpassade metadataströmmar som konfigureras utifrån *tillitsmärken*.
 
 #### Tjänsteflöde med OIDF
 Vid införande av stöd för SAML i OIDF krävs upprättande av en traditionell SAML-metadatatjänst, som kan användas av SAML-tjänster för att konsumera *metadata* utan krav på modifiering av SAML-mjukvara. Detta innebär att integrationer ska fungera som vanligt för inblandade tjänster även efter övergången till OIDF.
