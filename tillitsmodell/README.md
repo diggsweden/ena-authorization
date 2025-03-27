@@ -100,9 +100,10 @@ Exempel på krav för tillit för en E-tjänst i federationen:
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.9</td>
-    <td style="text-align: center;">Placeholder</td>
-    <td style="text-align: center;">Låg/Medel/Hög</td>
-    <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
+    <td style="text-align: center;">Samtliga säkerhetskritiska administrativa och tekniska processer ska dokumenteras och vila på en formell grund, där roller, ansvar och befogenheter finns tydligt definierade.
+</td>
+    <td style="text-align: center;">Hög</td>
+    <td style="text-align: center;">Organisatoriska</td>
   </tr>
 
 </table>
@@ -122,7 +123,7 @@ Exempel på krav för tillit för en E-tjänst i federationen:
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.1</td>
-    <td style="text-align: center;">Medlem i Ena-federationen ska drivas som registrerad juridisk person samt teckna och  vidmakthålla för verksamheten erforderliga försäkringar.</td>
+    <td style="text-align: center;">Medlem i Ena-federationen ska drivas som registrerad juridisk person samt teckna och vidmakthålla för verksamheten erforderliga försäkringar.</td>
     <td style="text-align: center;">Låg/Medel/Hög</td>
     <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
   </tr>
@@ -148,17 +149,51 @@ Exempel på krav för tillit för en E-tjänst i federationen:
     <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
   </tr>
   <tr>
-    <td style="text-align: center;">Krav A.5</td>
+    <td style="text-align: center;">Krav A.5.1</td>
     <td style="text-align: center;">Medlem i federationen ska ha dokumenterad rutin för hantering av risker för alla användare och komponenter  som ingår i federationen. Riskanalys ska genomföras minst en gång per år  och en åtgärdsplan ska upprättas. Åtgärdsplanen ska genomföras och åtgärder dokumenteras.
+</td>
+    <td style="text-align: center;">Hög</td>
+    <td style="text-align: center;">Organisatoriska</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav A.5.2</td>
+    <td style="text-align: center;">Medlem i federationen ska ha dokumenterad rutin för hantering av risker för alla användare och komponenter som ingår i federationen
+    </td>
+    <td style="text-align: center;">Medel</td>
+    <td style="text-align: center;">Organisatoriska</td>
+  </tr>
+  <tr>
+    <td style="text-align: center;">Krav A.5.3</td>
+    <td style="text-align: center;">Inget krav på riskanalyser
+   </td>
+    <td style="text-align: center;">Låg</td>
+    <td style="text-align: center;">Organisatoriska</td>
+  </tr>
+    <tr>
+    <td style="text-align: center;">Krav A.6</td>
+    <td style="text-align: center;">Medlem ska säkerställa att denne vid var tid har tillräckliga personella resurser till förfogande för att uppfylla sina åtaganden.
 </td>
     <td style="text-align: center;">Låg/Medel/Hög</td>
     <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
   </tr>
-  <tr>
-    <td style="text-align: center;">Krav A.6</td>
+      <tr>
+    <td style="text-align: center;">Krav A.7</td>
+    <td style="text-align: center;">Medlem ha dokumenterade processer för incidenthantering som systematiskt säkerställer kvaliteten i tjänsten, former för vidarerapportering och att lämpliga reaktiva och preventiva åtgärder vidtas för att lindra eller förhindra skada vid händelser som lett till eller kunnat leda till en incident.
+</td>
+    <td style="text-align: center;">Låg/Medel/Hög</td>
+    <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
+  </tr>
+      <tr>
+    <td style="text-align: center;">Krav A.8</td>
+    <td style="text-align: center;">Medlem ha upprättad och testad kontinuitetsplan som tillgodoser verksamhetens tillgänglighetskrav genom en förmåga att återställa kritiska processer vid händelse av katastrof eller allvarliga incidenter.
+</td>
+    <td style="text-align: center;">Låg/Medel/Hög</td>
+    <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
+  </tr>
+      <tr>
+    <td style="text-align: center;">Krav A.9</td>
     <td style="text-align: center;"></td>
     <td style="text-align: center;">Låg/Medel/Hög</td>
     <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
   </tr>
-
 </table>
