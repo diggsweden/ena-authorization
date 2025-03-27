@@ -26,7 +26,7 @@
 
 4. [**Målarkitektur**](#malarkitektur)
 
-    4.1 [Tillitsskapande kvalitetsmärken](#tillitsskapande-kvalitetsmarken)
+    4.1 [Tillitsmärken](#tillitsmarken)
 
     4.2 [Infrastruktur](#infrastruktur)
 
@@ -518,10 +518,10 @@ tillit-.förmedlas via.->fed
 
 ```
 
-<a name="tillitsskapande-kvalitetsmarken"></a>
-### 4.1 Tillitsskapande kvalitetsmärken
+<a name="tillitsmarken"></a>
+### 4.1 Tillitsmärken
 
-Målet med de tillitsskapande kvalitetsmärkena är att ge aktörer inom svensk offentlig förvaltning ett sätt att bevisa sin mognad inom informationssäkerhetsområdet och sin förmåga att agera ansvarsfull i samverkan med andra aktörer. Dessutom kan de behöva visa på en specifik mognadsgrad eller att de besitter en viss grad av teknisk mognad, eller specifika tekniska förmågor, för att delta i vissa samverkansområden där informationsklassning eller skyddskraven är högre.
+Målet med tillitsmärkena är att ge aktörer inom svensk offentlig förvaltning ett sätt att bevisa sin mognad inom informationssäkerhetsområdet och sin förmåga att agera ansvarsfull i samverkan med andra aktörer. Dessutom kan de behöva visa på en specifik mognadsgrad eller att de besitter en viss grad av teknisk mognad, eller specifika tekniska förmågor, för att delta i vissa samverkansområden där informationsklassning eller skyddskraven är högre.
 
 Federationsinfrastrukturen innehåller ett koncept med en kravkatalog där man samlar och jämkar befintliga krav från existerande tillitsfederationer (Sambi, HSA, Skolfederation, Sweden Connect, med flera) och utifrån dessa skapar tillitsmärken som ger en "mognadstrappa" för samverkande parter. Digitala tjänster som erbjuds inom Enas federationsinfrastruktur kan då ställa krav på samverkande parter att inneha ett vissa tillitsmärken utöver att de ur legalt och avtalsmässigt perspektiv har förutsättningar att delta i samverkan
 
@@ -539,9 +539,9 @@ Federationsinfrastrukturen behöver möjliggöra federativ hantering av tillitsg
 Den svenska federationsinfrastrukturen innehåller fyra roller:
 
 1. Ena infrastrukturansvarig - en roll som innebär att man har ett koordineringsansvar för att tillse att en svensk digital infrastruktur skapas och förvaltas. Digg innehar rollen idag.
-1. Sweden Trust federationsansvarig - en roll som ansvarar för att hålla metadata om federationsinfrastrukturens anslutningsoperatörer och kvalitetsmärkesutfärdare. Man ska som federationsansvarig även tillhandahålla en tillitsuppslagstjänst.
-1. Sweden Trust kvalitetsmärkesutfärdare - en roll inom infrastrukturen för de aktörer som tillser att aktörers uppfyllnad av krav uppfylls med en för kvalitetsmärkets adekvat tillförlitlighet. Exempel på tillförlitlighetsnivåer i dessa granskningar kan vara självdeklaration, intern revision, eller extern revision. Kvalitetsmärkesutfärdaren registrerar utfärdade kvalitetsmärken i en federationsmetadatatjänst som är åtkomlig för federationsansvariges tillitsuppslagstjänst.
-1. Sweden Trust anslutningsoperatör - en roll för de parter som tillser att aktörer som vill samverka via digitala tjänster inom Ena uppfyller SKALL-krav gällande kvalitetsmärken och därefter registrerar aktörens metadata i sin federationsmetadatatjänst.
+1. Federationsansvarig - en roll som ansvarar för att hålla metadata om federationsinfrastrukturens anslutningsoperatörer och tillitsmärkesutfärdare. Man ska som federationsansvarig även tillhandahålla en tillitsuppslagstjänst.
+1. Tillitsmärkesutfärdare - en roll inom infrastrukturen för de aktörer som tillser att aktörers uppfyllnad av krav uppfylls med en för tillitsmärkets adekvat tillförlitlighet. Exempel på tillförlitlighetsnivåer i dessa granskningar kan vara självdeklaration, intern revision, eller extern revision. Tillitsmärkesutfärdaren registrerar utfärdade tillitsmärken i en federationsmetadatatjänst som är åtkomlig för federationsansvariges tillitsuppslagstjänst.
+1. Anslutningsoperatör - en roll för de parter som tillser att aktörer som vill samverka via digitala tjänster inom Ena uppfyller SKALL-krav gällande tillitsmärken och därefter registrerar aktörens metadata i sin federationsmetadatatjänst.
 
 <a name="samverkan-via-digitala-tjanster"></a>
 ### 4.4 Samverkan via digitala tjänster
@@ -564,7 +564,7 @@ Samverkan via digitala tjänster kan ske antingen via direkt avtal med en tjäns
 <a name="strategisk-plan-for-inforande"></a>
 ## 5. Strategisk plan för införande
 
-Det finns behov av att formulera en strategisk plan för etablering av hanteringen av de tillitsskapande kvalitetsmärkena vad gäller uppdrag och finansiering, styrning, etablering av organisation och processer, samt standardisering. Inom tillitsområdet behöver det också tas höjd för hur samverkan och samverkande aktörer kan förflytta sig från nuvarande tillitshantering till en ny hantering, över tid.
+Det finns behov av att formulera en strategisk plan för etablering av hanteringen av de tillitsmärkena vad gäller uppdrag och finansiering, styrning, etablering av organisation och processer, samt standardisering. Inom tillitsområdet behöver det också tas höjd för hur samverkan och samverkande aktörer kan förflytta sig från nuvarande tillitshantering till en ny hantering, över tid.
 
 Det finns behov av en strategisk plan för etablering av en nationell digital federationsinfrastruktur och en distribuerad hantering av metadata. Hur skalas den organisation som behövs efter de behov som ställs, över tid. Det kan också behövas en plan för hur man över tid skärper kraven gällande informationssäkerhetsmognad för att få till stånd en inbyggd kontinuerlig förbättrad förmåga att möta utmaningar och skapa en mer resilient svensk offentlig förvaltning överlag.
 
