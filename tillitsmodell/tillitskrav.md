@@ -2,52 +2,59 @@
 
 <table>
   <tr>
-    <th colspan="4" style="text-align: center; background-color: #f2f2f2;">Tillitskrav Auktorisationstjänst</th>
+    <th colspan="5" style="text-align: center; background-color: #f2f2f2;">Tillitskrav Auktorisationstjänst</th>
   </tr>
   <tr>
-    <th colspan="4" style="text-align: center; background-color: #e2e2e2;"></th>
+    <th colspan="5" style="text-align: center; background-color: #e2e2e2;"></th>
   </tr>
   <tr>
     <th style="text-align: center;">Krav-kod</th>
     <th style="text-align: center;">Beskrivning</th>
     <th style="text-align: center;">Kravnivå</th>
     <th style="text-align: center;">Kravtyp</th>
+    <th style="text-align: center;">Kravuppfyllnad</th>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.1</td>
     <td style="text-align: center;">Organisation som tillhandahåller tjänst för utgivning av intyg för auktorisation ska se till att denna tjänst har god tillgänglighet och att utlämnande av intyg föregås av en tillförlitlig kontroll av att den anslutande användarens/tjänstens elektroniska identitet och attribut är giltiga och korrekta.</td>
     <td style="text-align: center;">Hög</td>
     <td style="text-align: center;">Organisatoriska</td>
+    <td style="text-align: center;">Granskas</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.2</td>
     <td style="text-align: center;">Ange ett tillgänglighetsmått för auktorisationstjänsten. Beskriv vilka autentiseringsmetoder som används för att ansluta till intygsutfärdaren för att utfärda intyg. Beskriv hur kontroll av identitetens och attributens giltighet görs, inklusive vilka attributskällor som används.</td>
     <td style="text-align: center;">Hög</td>
     <td style="text-align: center;">Tekniska</td>
+    <td style="text-align: center;">Granskas</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.3</td>
     <td style="text-align: center;">Lämnade intyg ska vara giltiga endast så länge som det krävs för att användaren/tjänsten ska få tillgång till den efterfrågade E-tjänsten/resursen. Giltighetstid för intyg ska anges.</td>
     <td style="text-align: center;">Hög</td>
     <td style="text-align: center;">Tekniska</td>
+    <td style="text-align: center;">Intygas</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.4</td>
     <td style="text-align: center;">Intyg ska skyddas så att informationen endast är läsbar för den mottagande E-tjänsten och att den kan kontrollera att mottagna intyg är äkta. Krypterings- och signeringsförfarande ska beskrivas.</td>
     <td style="text-align: center;">Hög</td>
     <td style="text-align: center;">Tekniska</td>
+    <td style="text-align: center;">Intygas</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.5</td>
     <td style="text-align: center;">Identifierade användares/tjänsters anslutningar mot auktorisationstjänsten ska tidsbegränsas, varefter en ny identifiering av användaren/tjänsten ska ske i enlighet med D.1. Beskriv hur länge autentiseringen mot intygsutfärdaren är giltig innan ny autentisering krävs.</td>
     <td style="text-align: center;">Medel</td>
     <td style="text-align: center;">Tekniskt</td>
+    <td style="text-align: center;">Intygas</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.6</td>
     <td style="text-align: center;">Auktorisationstjänsten ska ha en tydligt utpekad ägare och förvaltning som ansvarar för dokumenterade rutiner som säkerställer att erforderlig skyddsnivå i IT-miljön kan upprätthållas över tid och i samband med förändringar, innefattande regelbundna sårbarhetsundersökningar samt ändamålsenlig beredskap för att möta förändrade risknivåer och inträffade incidenter.</td>
     <td style="text-align: center;">Medel</td>
     <td style="text-align: center;">Organisatoriska</td>
+    <td style="text-align: center;">Intygas</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.7</td>
@@ -55,6 +62,7 @@
 </td>
     <td style="text-align: center;">Medel</td>
     <td style="text-align: center;">Tekniska</td>
+    <td style="text-align: center;">Granskas</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav F.8</td>
@@ -62,35 +70,39 @@
 </td>
     <td style="text-align: center;">Tekniskta</td>
     <td style="text-align: center;">Medel</td>
-  </tr>
+     <td style="text-align: center;">Intygas</td>
+ </tr>
   <tr>
     <td style="text-align: center;">Krav F.9</td>
     <td style="text-align: center;">Samtliga säkerhetskritiska administrativa och tekniska processer ska dokumenteras och vila på en formell grund, där roller, ansvar och befogenheter finns tydligt definierade.
 </td>
     <td style="text-align: center;">Hög</td>
     <td style="text-align: center;">Organisatoriska</td>
+    <td style="text-align: center;">Granskas</td>
   </tr>
 
 </table>
 
 <table>
   <tr>
-    <th colspan="4" style="text-align: center; background-color: #f2f2f2;">Tillitskrav Federationsmedlem</th>
+    <th colspan="5" style="text-align: center; background-color: #f2f2f2;">Tillitskrav Federationsmedlem</th>
   </tr>
   <tr>
-    <th colspan="4" style="text-align: center; background-color: #e2e2e2;"></th>
+    <th colspan="5" style="text-align: center; background-color: #e2e2e2;"></th>
   </tr>
   <tr>
     <th style="text-align: center;">Krav-kod</th>
     <th style="text-align: center;">Beskrivning</th>
     <th style="text-align: center;">Kravnivå</th>
     <th style="text-align: center;">Kravtyp</th>
+    <th style="text-align: center;">Kravuppfyllnad</th>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.1</td>
     <td style="text-align: center;">Medlem i Ena-federationen ska drivas som registrerad juridisk person samt teckna och vidmakthålla för verksamheten erforderliga försäkringar.</td>
     <td style="text-align: center;">Låg/Medel/Hög</td>
     <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
+    <td style="text-align: center;">Granskas</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.2</td>
@@ -98,6 +110,7 @@
 </td>
     <td style="text-align: center;">Låg/Medel/Hög</td>
     <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
+    <td style="text-align: center;">Intygas</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.3</td>
@@ -105,6 +118,7 @@
 </td>
     <td style="text-align: center;">Låg/Medel/Hög</td>
     <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
+    <td style="text-align: center;">Intygas</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.4</td>
@@ -112,6 +126,7 @@
 </td>
     <td style="text-align: center;">Låg/Medel/Hög</td>
     <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
+    <td style="text-align: center;">Granskas</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.5.1</td>
@@ -119,6 +134,7 @@
 </td>
     <td style="text-align: center;">Hög</td>
     <td style="text-align: center;">Organisatoriska</td>
+    <td style="text-align: center;">Granskas</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.5.2</td>
@@ -126,6 +142,7 @@
     </td>
     <td style="text-align: center;">Medel</td>
     <td style="text-align: center;">Organisatoriska</td>
+    <td style="text-align: center;">Intygas</td>
   </tr>
   <tr>
     <td style="text-align: center;">Krav A.5.3</td>
@@ -133,6 +150,7 @@
    </td>
     <td style="text-align: center;">Låg</td>
     <td style="text-align: center;">Organisatoriska</td>
+    <td style="text-align: center;">Intygas</td>
   </tr>
     <tr>
     <td style="text-align: center;">Krav A.6</td>
@@ -140,6 +158,7 @@
 </td>
     <td style="text-align: center;">Låg/Medel/Hög</td>
     <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
+    <td style="text-align: center;">Intygas</td>
   </tr>
       <tr>
     <td style="text-align: center;">Krav A.7</td>
@@ -147,6 +166,7 @@
 </td>
     <td style="text-align: center;">Låg/Medel/Hög</td>
     <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
+    <td style="text-align: center;">Intygas</td>
   </tr>
       <tr>
     <td style="text-align: center;">Krav A.8</td>
@@ -154,12 +174,14 @@
 </td>
     <td style="text-align: center;">Låg/Medel/Hög</td>
     <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
+    <td style="text-align: center;">Intygas</td>
   </tr>
       <tr>
     <td style="text-align: center;">Krav A.9</td>
     <td style="text-align: center;"></td>
     <td style="text-align: center;">Låg/Medel/Hög</td>
     <td style="text-align: center;">Tekniska/Organisatoriska/Fysiska</td>
-  </tr>
+    <td style="text-align: center;">Intygas/Granskas</td>
+    </tr>
 </table>
 
