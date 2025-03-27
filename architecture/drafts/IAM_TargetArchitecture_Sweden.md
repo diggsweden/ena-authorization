@@ -22,12 +22,8 @@
 
     2.5 [System anropar system, på uppdrag av medarbetare](#system-anropar-system-pa-uppdrag-av-medarbetare)
 
-3. [**Exempel på scenarion**](#scenarion)
+3. [**Scenario - Nationella läkemedelslistan**](#scenario-nll)
 
-    3.1 [Nationella läkemedelslistan](#nationella-lakemedelslistan)
-
-    3.2 [Finansiell status](#finansiell-status)
-    
 4. [**Målarkitektur**](#malarkitektur)
 
     4.1 [Tillitsskapande kvalitetsmärken](#tillitsskapande-kvalitetsmarken)
@@ -86,11 +82,11 @@ Inom alla dessa områden finns det redan idag olika grad av standardisering. Det
 
 <a name="syfte"></a>
 ### 1.1 Syfte
-Detta dokument syftar till att ge en bild över hur en svensk federationsinfratruktur för hantering av IAM-området (Identity and Access Management) kan och bör utformas för att möjliggöra en tids- och kostnadseffektiv digitalisering av samhället. 
+Detta dokument syftar till att ge en bild över hur en svensk federationsinfratruktur för hantering av IAM-området (Identity and Access Management) kan och bör utformas för att stödja behov av identitets- och åtkomsthantering över organisationsgränser, samt möjliggöra en tids- och kostnadseffektiv digitalisering av samhället. 
 
 Dokumentet bör kunna ligga som grund för en framtida strategisk plan för infrastrukturella förflyttningar som behöver genomföras, samt beroenden dem emellan. En strategisk plan behöver förhålla sig till existerande arkitektur och infrastruktur, samt redan gjorda investeringar i digitaliseringstillämpningar. Planen bör även innehålla vägledning för om, när och hur existerande digitala tjänster ska migrera över till Enas nya samverkansmönster och nyttja ny federationsinfrastruktur.
 
-Beskrivningen av federationsinfrastrukturen är även tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och leda till samsyn kring hur framtida interoperabla digitala tjänster kan och bör utformas. En nationell federationsinfrastruktur för IAM-området behöver omfatta följande områden:
+Beskrivningen av federationsinfrastrukturen är även tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och leda till samsyn kring hur framtida interoperabla digitala tjänster kan och bör utformas. En nationell federationsinfrastruktur för IAM över organisationsgränser behöver omfatta följande områden:
 - Hantering av tillit till organisationer, system och användare
 - Hantering av digitala identiteter för alla typer av användare, såväl individer, medarbetare och system
 - Förmedling av behörighetsstyrande information - för individer, medarbetare och system
@@ -111,22 +107,21 @@ När parter etablerar samverkan via en digital tjänst finns det ett antal olika
 Det övergripande mönstret beskrivs logiskt i nedanstående bild.
 
 ```mermaid
-%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-flowchart LR
 
+flowchart LR
+%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
 classDef org fill:#F8E5A0
 classDef comp fill:#CCE1FF
 classDef box fill:#ffffff,stroke:#000000
 
 subgraph is[Digital samverkan]
-direction TB
-    po(Tjänsteproducent)
+    direction TB
+    co(Organisation A<br>&lt;&lt;Tjänstekonsument>>)
+    co:::org
+    po(Organisation B<br>&lt;&lt;Tjänsteproducent>>)
     po:::org
 
-    co(Tjänstekonsument)
-    co:::org
-
-    co==Samverka==>po
+    co==Samverkan==>po
 end
 is:::box
 
@@ -138,6 +133,8 @@ is--Parter ansluter tekniska komponenter till federation-->ss
 is--Parter ansluter som organisation till federation-->ss
 ```
 Genom anslutning till federationsinfrastrukturen bevisar tjänstekonsument och tjänsteproducent att de lever upp till de krav som ställs på dels dem som organisationer, dels att de tekniska komponenter de ansluter uppfyller överenskomna krav.
+
+Mönster och specifikationer för hur förmedling av IAM-relaterad information (såsom uppgift om identitet och behörighet) ger en förutsägbarhet i hur digital samverkan mellan organisationer går till. Detta förenklar anpassning av tjänster och möjliggör exempelvis tydlig kravställning vid upphandling och standardiserade komponenter.
 
 Exakta krav kvarstår att utforma, men nedan listas några exempel på krav som kan ställas på en organisation:
 
@@ -340,17 +337,13 @@ co--Anropa tjänst-->po
 2. Medarbetare ges åtkomst till klienten via sin uppdragsgivares åtkomstintygstjänst, vilken inhämtar åtkomststyrande attribut från en attributkälla - detta gäller de attribut som inte följde med från legitimeringen.
 3. Klienten begär delegerad åtkomst till ett externt API å medarbetarens vägnar. Åtkomstbegäran görs mot tjänsteproducentens åtkomstintygstjänst och medarbetarens åtkomststyrande attribut behöver på något sätt bifogas. (**Not: denna åtkomstbegäran kan tekniskt komma att realiseras genom integration mellan tjänstekonsuments och tjänsteproducents åtkomstintygstjänster för att underlätta för API-klienters realisering**)
 
-<a name="scenarion"></a>
-## 3. Exempel på scenarion
+<a name="scenario-nll"></a>
+## 3. Scenario - Nationella läkemedelslistan
 
-<a name="nationella-lakemedelslistan"></a>
-### 3.1 Nationella läkemedelslistan
-
-
-#### 3.1.1 Via regionalt journalsystem
+### 3.1 Via regionalt journalsystem
 För de flesta förskrivningar vill läkare kunna använda sitt eget journalsystem även för förskrivningar som hanteras i NLL. Journalsystemen behöver därför integreras direkt med NLL.
 
-##### Förutsättningar
+#### Förutsättningar
 1. Vårdgivarens legitimeringstjänst är tillitsgranskad enligt Svensk e-legitimation 
 1. Vårdgivarens legitimeringstjänst är tillitsgranskad och registrerad som attributkälla i Federationsinfrastrukturen **OM** den tillför attribut som inte omfattas av IdP-granskningen
 1. Vårdgivarens åtkomstintygstjänst behöver vara tillitsgranskad och registrerad som attributkälla i Federationsinfrastrukturen **OM** den tillför attribut som andra åtkomstintygstjänster använder i senare åtkomstbeslut.
@@ -391,10 +384,10 @@ sequenceDiagram
     c-->>u: visa resultat av förskrivning
 ```
 
-#### 3.1.2 Via Pascal
+### 3.2 Via Pascal
 Pascal används av all vårdpersonal främst för att skriva ut och beställa läkemedel och handelsvaror för patienter som får sina mediciner fördelade i påsar, så kallade dospatienter. Tjänsten riktar sig till regioner, kommuner och privata vårdgivare.
 
-##### Förutsättningar
+#### Förutsättningar
 När man nyttjar Pascal för förskrivning istället för det egna journalsystemet flyttas även vissa krav på tillitsgranskning av komponenter.
 
 1. Ineras legitimeringstjänst är tillitsgranskad enligt Svensk e-legitimation 
@@ -438,139 +431,28 @@ sequenceDiagram
     c-->>u: visa resultat av förskrivning
 ```
 
-<a name="finansiell-status"></a>
-### 3.2 Finansiell status
-
-#### Nuläge
-
-```mermaid
-%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-flowchart TB
-
-classDef org fill:#F8E5A0
-classDef comp fill:#CCE1FF
-classDef box fill:#ffffff,stroke:#000000
-
-A(Handläggare<br>Kommun<br>&lt&ltAnvändare&gt&gt)
-B(Finansiell status<br>Försäkringskassan<br>&lt&ltE-tjänst&gt&gt):::comp
-C(Administratör<br>Kommun<br>&lt&ltAnvändare&gt&gt)
-
-subgraph t[Typfall Finansiell status]
-A -->|Loggar in i extern e-tjänst<br> med e-legitimation | B
-C -->|Administrerar kommunens användare | B
-end
-t:::org
-```
-
-##### Förutsättningar
-1. Kommunadministratör kontaktar FK om att få administratörsrättigheter i e-tjänst
-2. Kommun fyller i blankett(er)
-3. Kommun kompletterar med kopior av beslut
-4. Kommun kompletterar med andra uppgifter
-5. FK skickar brev till kommun
-6. Kommun svarar via fax/brev, med administratörens uppgifter
-7. Kommun väntar på lång handläggningstid
-8. FK kontaktar kommun om kompletteringar
-9. Administratör godkänns, läggs upp i e-tjänst
-10. Administratör ansöker om e-tjänstekort (EFOS)
-11. Administratör får e-tjänstekort och kan börja administrera kommunens handläggare i e-tjänst
-12. Upprepas vid varje extern tjänst eller vid byte av administratör
-13. (<i>I flera fall finns ingen kommunadministratör, ersätt då ovanstånde att gälla för alla enskilda användare.</i>)
-
-
-#### Börläge
-*Lite förenklad bild med komponenter per aktör, utan varje interaktion* - Pelle väljer!
-
-```mermaid
-%%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
-flowchart TB
-
-classDef org fill:#F8E5A0
-classDef comp fill:#CCE1FF
-classDef box fill:#ffffff,stroke:#000000
-
-subgraph xo[Kommun X]
-    xu(Handläggare kommun X<br>&lt&ltAnvändare&gt&gt)
-    xidp(IdP kommun X<br>&lt&ltLegitimeringstjänst IdP&gt&gt):::comp
-    xuv(<p>&lt&ltUppdragsväljare&gt&gt):::comp
-    xak[(Personalsystem<br>&lt&ltAttributkälla&gt&gt)]:::comp
-end
-xo:::org
-
-subgraph k[Kronofogden]
-    kd[(Informationskälla<br>&lt&ltAttributkälla&gt&gt)]:::comp
-end
-k:::org
-
-subgraph b[Bolagsverket]
-    bd[(Informationskälla<br>&lt&ltAttributkälla&gt&gt)]:::comp
-end
-b:::org
-
-subgraph fk[Försäkringskassan]
-    fkt(Finansiell status<br>&lt&ltE-tjänst&gt&gt):::comp
-    fka(<p>&lt&ltAnvisningstjänst&gt&gt):::comp
-end
-fk:::org
-
-subgraph id[Identitetsutfärdare]
-    ida(Autentiseringstjänst):::comp
-end
-id:::org
-
-subgraph fed[Federationsinfrastruktur]
-    fedt[tillitsmetadata]:::comp
-    fedmk(federationsmedlemskatalog):::comp
-    fedprof(tjänstemetadata<br>per teknik):::comp
-end
-fed:::org
-
-id & fk & xo & k -.-> fed
-id--ger ut identiteter-->xo
-fk--ber om legitimering<br>av användare-->xo
-fk--hämtar behörighetsgrundande<br>information-->k & b
-xo--anropar tjänst--> fk
-
-```
-
-##### Förutsättningar
-Obligatoriska förutsättningar
-- Kommun: Medlem i federationen som organisation
-- Kommun: Intygsutfärdartjänst och attributskälla måste vara granskad och godkänd på tillräcklig tillitsnivå av federationen
-- Kommun: Användare måste ha en av federationen godkänd e-legitimation, på tillräcklig tillitsnivå
-- Kommunens intygsutfärdartjänst: Metadata registreradhos federationsoperatören; nyckelcertifikat, tillitsnivå, et
-- Kommunanvändaren: Upplagd i kommunens lokala attributskälla
-- Kommunanvändaren: Metadata skickas med i anrop till e-tjänst – pekare till adress till kommunens intygsutfärdartjänst (alternativt används en anvisningstjänst kopplat till e-tjänsten)
-- E-tjänst: Dess organisation medlem i federation
-- E-tjänst: Medlem i federation som e-tjänst på viss tillitsnivå
-- E-tjänst: Metadata registrerad; nyckelcertifikat, krav på tillitsnivå, krav på attribut, etc
-- E-tjänst: Uppfyller kraven på server-2-server-kommunikation som federationen anvisar, som konsument av information
-- Kronofogden: Medlem i federation
-- Kronofogden: Metadata för e-tjänst registrerad hos federationsoperatören, som producent av information
-- Kronofogden: Uppfyller kraven på server-2-server-kommunikation som federationen anvisar
-
-Möjliga förutsättningar
-- Bolagsverket: Medlem i federation (ej krav pga offentlig tillgänglig information i tjänst)
-- Agent/ombud: Granskad och godkänd av federationen att stötta andra organisationer med deras federationsansökan, e-tjänster, intygsutfärdartjänst, attributskälla, e-legitimationer
 
 <a name="malarkitektur"></a>
 ## 4. Målarkitektur
 
 <table bgcolor="lightyellow" border=1><tr><td>
-Målarkitekturen använder termer från <a href="https://inera.atlassian.net/wiki/spaces/OITIFV/pages/3020324865/T2+-+v+lf+rden">T2 - referensarkitektur för interoperabilitet inom svensk välfärd</a>. En ny ordlista är under framtagande inom Enas byggblock Auktorisation och rekommendationen är att revidera nedanstående beskrivningar innan fastställande av denna målarkitektur.
+Målarkitekturen använder termer från <a href="https://inera.atlassian.net/wiki/spaces/OITIFV/pages/3020324865/T2+-+v+lf+rden">T2 - referensarkitektur för interoperabilitet inom svensk välfärd</a>. En ny ordlista är under framtagande inom Enas byggblock Auktorisation och rekommendationen är att revidera nedanstående beskrivningar som del av fortsatt arbete.
 </td></tr></table>
 
 Målet med det arbete som idag pågår inom Ena - Sveriges digitala infrastruktur är en överenskommen nationell arkitektur,  en digital infrastruktur, samt grundläggande digitala tjänster som nyttjas av aktörer med offentliga uppdrag för att lyckas med en effektiv digitalisering inom olika offentliga verksamhetsområden. Tanken är vidare att alla digitala tjänster inom det offentliga uppdraget ska kunna nyttja framtagen arkitektur och infrastruktur och att man så sätt kan få till stånd en snabbare digitalisering av det svenska samhället i stort.
 
 Denna målarkitektur är uppdelad i tre huvudområden. 
 
-Det första området är tillitsskapande kvalitetsmärken och det beskriver behovet av en nationellt överenskommen hantering av tillitsskapande krav på aktörer som deltar i, eller möjliggör, digital samverkan. Dessa krav benämns kvalitetsmärken. Olika kvalitetsmärken kan innehålla olika uppsättningar krav och ge tillgång till olika utbud av digitala tjänster eller federationer för informationsutbyte. Exakt utformning av kvalitetsmärken behandlas inte här, men då den digitala federationsinfrastrukturen behöver kunna lagra och överföra information om dessa kvalitetsmärken så beskriver vi grundtanken bakom dessa här.
+Det första området är tillitshantering som beskriver behovet av en nationellt överenskommen hantering av tillitsskapande för att möjliggöra digital samverkan mellan organisationer och system. Denna hantering utgår ifrån en modellen att olika uppsättningar krav bygger upp så kallade tillitsmärken och att samverkan inom ett visst område ställer krav på att olika typer av komponenter uppfyller kraven som ingår i specificerade tillitsmärken.
+ Exakt utformning av tillitsmärken behandlas inte här, men då den digitala federationsinfrastrukturen behöver kunna lagra och överföra information om dessa tillitsmärken så beskriver vi grundtanken bakom dessa här.
 
-Det andra området är den digital infrastruktur som behövs för att möjliggöra och underlätta säker samverkan mellan välfärdens aktörer. Detta genom kvalificering gentemot kvalitetsmärken, stöd med anslutning till infrastrukturen, och faktisk teknisk integrationen mot digitala tjänster med hjälp av diverse stödtjänster.
+Det andra området är den federationsinfrastruktur som behövs för att möjliggöra och underlätta säker samverkan mellan organisationer och system. Här beskrivs exempelvis tjänster och organisationer ett federerat metadata tillsammans med den tillit som är etablerad. Detta genom användande av Tillitsmärken som fästs på exempelvis tjänster i metadata. Infrastrukturtjänster (exempelvis resolvertjänst) gör det enkelt att läsa och tolka innehållet i det federerade metadatat. Federationsinfrastrukturen gör det även möjligt och förutsägbart att ansluta nya tjänster och system till metadata genom att tillhandahålla processer och it-stöd för anslutningsoperatörer.
 
-Det tredje området syftar till att beskriva hur den digitala infrastrukturen och underliggande arkitektur och nationellt profilerade standarder faktiskt nyttjas för att etablera samverkan via digitala tjänster.
 
-Översiktsbilden nedan visar en översikt över det tre områdena tillitsskapande kvalitetsmärken, digital infrastruktur, och samverkan via digitala tjänster. Bilden visar roller i gult, digitala förmågor i blått. Bilden utelämnar avsiktligt många detaljer för att kunna ge vara konceptuellt lättförståelig. De standarder som behöver tas fram och ingå i federationens ramverk visas i rosa.
+
+Det tredje området syftar till att beskriva hur digital samverkan mellan exempelvis två tjänster går till. Detta genom att dels beskriva det tekniska utbytet mellan exempelvis en tjänstekonsument och en tjänsteproducent, genom nationell profilerade standarder. Dels genom att beskriva hur uppslag i federationens metadata går till för att slå upp system och eventuella Tillitsmärken.
+
+Översiktsbilden nedan visar en översikt över det tre områdena tillitshantering, digital infrastruktur, och digital samverkan. Bilden visar roller i gult, digitala förmågor i blått. Bilden utelämnar avsiktligt många detaljer för att kunna ge vara konceptuellt lättförståelig. De standarder som behöver tas fram och ingå i federationens ramverk visas i rosa.
 
 ```mermaid
 %%{init: {"flowchart": {"defaultRenderer": "elk"}} }%%
