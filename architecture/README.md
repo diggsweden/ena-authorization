@@ -1,6 +1,6 @@
 # Arkitektur - tänkta leverabler
 
-## [Samverksans-/interoperabilitetsarkitektur](cooperation-architecture.md)
+## [Samverkans-/interoperabilitetsarkitektur](cooperation-architecture.md)
 - Övergripande mål och principer: 
 Detta inkluderar de övergripande målen för systemet eller organisationen och de arkitektoniska principer som ska styra utvecklingen och användningen av arkitekturen.
 
@@ -42,6 +42,9 @@ Trots att den erbjuder en standardiserad modell är en referensarkitektur oftast
 
 - Best practice-riktlinjer: 
 Den innefattar rekommendationer och bästa praxis för att lösa vanliga problem inom en given domän. Det kan inkludera rekommendationer om säkerhet, skalbarhet, prestanda, och liknande.
+
+  - [Mönster för autentisering och auktorisation](patterns/authn-authz-patterns.md)
+  - [API-anrop över organisationsgränser](patterns/inter-domain-calls.md)
 
 - Dokumentation och exempel: 
 En referensarkitektur levereras ofta med dokumentation och exempel på implementationer för att underlätta förståelsen och tillämpningen av dess principer.

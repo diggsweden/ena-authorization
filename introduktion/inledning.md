@@ -25,7 +25,7 @@ Vid gränsöverskridande samverkan mellan aktörer står organisationer ofta inf
 
 En användare eller systemanvändare kan erhålla behörighet att agera för sin huvudmans räkning genom författning, delegation, fullmakt eller liknande. I vissa fall kan en användare också ha en yrkesroll som innefattar aktuell behörighet. Det är emellertid inte alltid enkelt för förlitande part att skaffa det underlag som behövs för att kontrollera om behörighet finns i det enskilda fallet. 
 
-Kommunikation om beställning av behörighetsinformation och utlämning av behörighetsintyg sker direkt mellan de aktörer som samverkar. Infrastrukturen är således inte en bärare för informationsutbyte eller nyttjande av digital tjänst, snarare syftar den till att hjälpa aktörer att hitta till varandra, kunna på ett automatiserat och tillförlitligt sätt verifiera varandras anslutningspunkter samt utbyta tekniskt verifierbara referenser om förmågor och kravuppfyllnad, så kallad *[kvalitetsmärken](ordlista.md#kvalitetsmarke)*.  
+Kommunikation om beställning av behörighetsinformation och utlämning av behörighetsintyg sker direkt mellan de aktörer som samverkar. Infrastrukturen är således inte en bärare för informationsutbyte eller nyttjande av digital tjänst, snarare syftar den till att hjälpa aktörer att hitta till varandra, kunna på ett automatiserat och tillförlitligt sätt verifiera varandras anslutningspunkter samt utbyta tekniskt verifierbara referenser om förmågor och kravuppfyllnad, så kallad *[tillitsmärken](ordlista.md#tillitsmarke)*.  
 
 Denna tilltänkta infrastrukturen bygger på idéer om federationsteknik för att stötta digital samverkan och samordning av komplexa välfärdstjänster inom välfärdens digitala samverkansnätverk. Komplexiteten kan bero på att tjänsterna tillhandahålls av olika former av juridiska aktörer (offentliga-, privata- och civilsamhällsaktörer) inom välfärdssystemet, vilka även kräver samordning mellan relevanta sektorer. Den kan också inkludera komplexitet i informationsflöden när den ökande digitaliseringen ofta kräver interoperabilitet i flera led. De urspunktliga behoven kring användarinloggning, vilka har varit tongivande i utformning av dagens federationer, har nu vidgats till också allt större behov av inloggning av systemanvändare i gränsöverskridande integrationer mellan digitala tjänster, maskiner, api:er och IoT-enheter.
 
@@ -80,7 +80,7 @@ Den som ska fatta beslut om åtkomst till skyddsvärd information måste på så
 A)	Vem som i rollen användare eller systemanvändare agerar åt sin huvudmans vägnar,<br />
 B)	Vem som är huvudmannen (användarorganisationen) i det aktuella fallet,<br />
 C)	Om huvudmannen anser att användaren har behörighet att utföra uppgiften (rätt att agera),<br />
-D)	Riktigheten i de påstådda kvalifikationerna och kravuppfyllnad genom tekniskt verifierbara kvalitetsmärken. 
+D)	Riktigheten i de påstådda kvalifikationerna och kravuppfyllnad genom tekniskt verifierbara tillitsmärken. 
 
 <a name="ordlista"></a>
 
