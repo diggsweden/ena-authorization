@@ -1,10 +1,11 @@
 ## Hypoteser
-1. Krav kan beskriva enn viss förmågas beskaffenhet hos en organisation, hos en verksamhet inom en organisation, alternativt hos en teknisk komponent som ligger under en organisations eller verksamhets ansvar.
-1. Ett tillitsmärke beskriver att en teknisk komponent, alternativt den verksamhet och/eller organisation uppfyller en uppsättning krav med en viss grad av tillförlitlighet
-1. Vilken kontrollmekanism som krävs för att påvisa en viss grad av tillförlitlighet kan skilja mellan krav och ansvarig organisation eller organisationstyp. 
-1. Varje ägare av ett tillitsmärke måste öppet publicera sitt regelverk för vilken kontrollmekanism som krävs, per krav, för vilka aktörer eller typer av aktörer.
-1. Tillitsmärken bör utformas på olika nivåer - låg, väsentlig och hög
-1. Livscykelhanteringen av tillitsmärken bör sträva efter att kontinuerligt höja kraven i syfte att driva på en kontinuerligt ökande resiliens i det svenska samhället inom informationssäkerhet och cybersäkerhet.
+1.	Krav beskriver en viss förmåga hos en organisation, hos en verksamhet inom en organisation, alternativt hos en teknisk komponent (som ligger under en utpekad organisations eller verksamhets ansvar).
+2.	Ett tillitsmärke beskriver att en teknisk komponent, alternativt den verksamhet och/eller organisation uppfyller en uppsättning krav med en viss grad av tillförlitlighet
+3.	Vilken kontrollmekanism som krävs för att påvisa en viss grad av tillförlitlighet kan skilja mellan olika krav, eller inom ett krav för olika ansvariga aktör eller vilken typ av aktör det är.
+4.	Varje ägare av ett tillitsmärke måste öppet publicera sitt regelverk för vilken kontrollmekanism som krävs, per krav, för vilka aktörer eller typ av aktörer.
+5.	Tillitsmärken bör utformas på olika nivåer -förslag:  låg, väsentlig och hög
+6.	Livscykelhanteringen av tillitsmärken bör sträva efter att kontinuerligt höja kraven i syfte att driva på en kontinuerligt ökande motståndskraft i det svenska samhället inom områdena informationssäkerhet och cybersäkerhet.
+
 ```mermaid
 graph LR
 
@@ -32,9 +33,23 @@ p(Privata aktörer<br>P)
 m & r & k & p --är en-->a
 
 %% ---- TILLITSMÄRKEN ---- %%
-et(Ena tillitsmärken)--delas in i-->etid(Ena tillitsmärken identitet) & etb(Ena tillitsmärken behörighet) & etc(Ena tillitsmärken klienter) & etas(Ena tillitsmärke åtkomstintygsutfärdare) & etsr(Ena tillitsmärken skyddade resurser)
-tid-hög(Tillitsmärke Identitet HÖG) --Omfattar-->kid-hög(Kravlista:<br>Aktör: krav/kontroll, ...<br><br>M: O1/I, O2/I, O3/S, O4/S, O5/S<br>T1/E, T2/E, T3/E, T4/S<br>F1/I, F2/S<br><br>R, K: O1/E, O2/I, O3/I, O4/S, O5/S<br>T1/C, T2/E, T3/E, T4/S<br>F1/E, F2/S<br><br>P: O1/E, O2/E, O3/I, O4/S, O5/S<br>T1/C, T2/E, T3/E, T4/S<br>F1/E, F2/S<br>)
-tid-väs(Tillitsmärke Identitet VÄSENTLIG) --Omfattar-->kid-väs(Kravlista:<br>Aktör: krav/kontroll, ...<br><br>...)
+et(Ena tillitsmärken)
+etid(Ena tillitsmärken identitet)
+etb(Ena tillitsmärken behörighet)
+etc(Ena tillitsmärken klienter)
+etas(Ena tillitsmärke åtkomstintygsutfärdare)
+etsr(Ena tillitsmärken skyddade resurser)
+
+tid-hög(Tillitsmärke Identitet HÖG)
+tid-väs(Tillitsmärke Identitet VÄSENTLIG)
+
 etid-->tid-hög & tid-väs
+
+et--delas in i-->etid & etb & etc & etas & etsr
+
+tid-hög --Omfattar-->kid-hög(Kravlista:<br>Aktör: krav/kontroll, ...<br><br>M: O1/I, O2/I, O3/S, O4/S, O5/S<br>T1/E, T2/E, T3/E, T4/S<br>F1/I, F2/S<br><br>R, K: O1/E, O2/I, O3/I, O4/S, O5/S<br>T1/C, T2/E, T3/E, T4/S<br>F1/E, F2/S<br><br>P: O1/E, O2/E, O3/I, O4/S, O5/S<br>T1/C, T2/E, T3/E, T4/S<br>F1/E, F2/S<br>)
+
+tid-väs --Omfattar-->kid-väs(Kravlista:<br>Aktör: krav/kontroll, ...<br><br>...)
+elk~~~~et
 ```
 
