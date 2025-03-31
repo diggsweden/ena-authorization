@@ -97,7 +97,11 @@ Redan idag finns arkitektur för hantering av invånares e-legitimationer och me
 <a name="avgransningar"></a>
 ### 1.2 Avgränsningar
 
+Dokumentet har tonvikt på behov av IAM mellan organisationer och är därmed inte en heltäckande referensarkitektur för samtliga behov av IAM som finns, exempelvis inom en organisation. Det är dock ofta så att dessa ligger nära varandra och även behov inom som enbart finns inom en organisation kan få stöd i detta dokument. Det är även så att arkitektur-val och tillämpning av mönster som sker inom en organisation kan påverka möjligheten att möjliggöra interaktioner över organisationsgränser, ett exempel på detta är val av legitimeringslösning.
+
 Federationsinfrastrukturen för IAM som beskrivs syftar till att fungera normerande för digital samverkan i Sverige. För hantering av IAM i specifika tillämpningar kan de nationella standarderna behöva kompletteras eller profileras.
+
+Kravställningen på federationsinfrastrukturen har i denna initiala fas endast drivits utifrån behov inom sektor hälsa, vård och omsorg. 
 
 <a name="behovsanalysmonster"></a>
 ## 2. Behovsanalys/mönster
