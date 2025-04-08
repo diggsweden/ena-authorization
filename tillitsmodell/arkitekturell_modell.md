@@ -32,24 +32,39 @@ k(Kommun<br>K)
 p(Privata aktörer<br>P)
 m & r & k & p --är en-->a
 
+%% ---- FUNKTIONSOBJEKT ---- %%
+etoa(Organisationsanslutning)
+etai(Användaridentifiering)
+etam(Autentiseringsmetod)
+etah(Attributshantering)
+etak(Attributkälla)
+etiu(Intygsutfärdare)
+etåk(Åtkomstkontroll)
+etfa(Federationsanslutning)
+etso(Specialobjekt)
+
+et --delas in i-->etai & etam & etah & etak & etiu & etåk & etfa & etoa & etso
+%% ---- %%
+
 %% ---- TILLITSMÄRKEN ---- %%
 et(Ena tillitsmärken)
-etid(Ena tillitsmärken identitet)
-etb(Ena tillitsmärken behörighet)
-etc(Ena tillitsmärken klienter)
-etas(Ena tillitsmärke åtkomstintygsutfärdare)
-etsr(Ena tillitsmärken skyddade resurser)
+%%etid(Ena tillitsmärken identitet)
+%%etb(Ena tillitsmärken behörighet)
+%%etc(Ena tillitsmärken klienter)
+%%etas(Ena tillitsmärke åtkomstintygsutfärdare)
+%%etsr(Ena tillitsmärken skyddade resurser)
+%%tid-hög(Tillitsmärke Identitet HÖG)
+%%tid-väs(Tillitsmärke Identitet VÄSENTLIG)
 
-tid-hög(Tillitsmärke Identitet HÖG)
-tid-väs(Tillitsmärke Identitet VÄSENTLIG)
+etoa-->tid-bas(Bas) & tid-väs(Väsentlig) & tid-hög(Hög) 
+%%et--delas in i-->etid & etb & etc & etas & etsr
 
-etid-->tid-hög & tid-väs
+tid-bas --Omfattar-->kid-bas(Kravlista:<br>Aktör: krav/kontroll, ...<br><br>M: O1/I, O2/I, O3/S, O4/S, O5/S<br>T1/E, T2/E, T3/E, T4/S<br>F1/I, F2/S<br><br>R, K: O1/E, O2/I, O3/I, O4/S, O5/S<br>T1/C, T2/E, T3/E, T4/S<br>F1/E, F2/S<br><br>P: O1/E, O2/E, O3/I, O4/S, O5/S<br>T1/C, T2/E, T3/E, T4/S<br>F1/E, F2/S<br>)
 
-et--delas in i-->etid & etb & etc & etas & etsr
+tid-väs --Omfattar-->kid-väs(Bas<br><br>+<br><br>Kravlista:<br>Aktör: krav/kontroll, ...<br><br>...)
 
-tid-hög --Omfattar-->kid-hög(Kravlista:<br>Aktör: krav/kontroll, ...<br><br>M: O1/I, O2/I, O3/S, O4/S, O5/S<br>T1/E, T2/E, T3/E, T4/S<br>F1/I, F2/S<br><br>R, K: O1/E, O2/I, O3/I, O4/S, O5/S<br>T1/C, T2/E, T3/E, T4/S<br>F1/E, F2/S<br><br>P: O1/E, O2/E, O3/I, O4/S, O5/S<br>T1/C, T2/E, T3/E, T4/S<br>F1/E, F2/S<br>)
+tid-hög --Omfattar-->kid-hög(Väsentlig<br><br>+<br><br>Kravlista:<br>Aktör: krav/kontroll, ...<br><br>...)
 
-tid-väs --Omfattar-->kid-väs(Kravlista:<br>Aktör: krav/kontroll, ...<br><br>...)
 elk~~~~et
 ```
 
