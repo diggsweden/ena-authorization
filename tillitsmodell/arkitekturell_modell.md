@@ -1,3 +1,27 @@
+### Datamodell
+```mermaid
+graph LR
+km(<b>Kontrollmekanism</b><br><i>självdeklatation, intern remiss, extern remiss, certifiering</i>)
+tmtyp(<b>Tillitsmärkestyp</b><br><i>identitet, attribut, intyg, klient, skyddad resurs)
+tm(<b>Tillitsmärke</b>)
+tmnivå(<b>Tillitsnivå</b><br><i>låg, väsentlig, hög</i>)
+kk(<b>Kravkatalog</b><br><i>organisatoriska, tekniska, administrativa, fysiska</i>)
+kr(<b>Kontrollregelverk</b><br><br><i>definierar vilken kontrollmekanism som avkrävs en medlemsorganisation inom en viss organisationskategori för att påvisa efterlevnad av respektive krav)
+m(<b>Medlemsorganisation<b>)
+mk(<b>Organisationskategori</b><br><i>myndighet, region, kommun, privat aktör</i>)
+d(<b>Samverkanskontext</b><br><i>t.ex. journalutbyte, remisser, deklaration, orosanmälan</i>)
+m--ansöker om-->tm
+m--tillhör-->mk
+m--vill delta i-->d--kräver ett eller flera-->tm
+
+tm--är av en viss-->tmtyp
+tm--regleras av-->kr-.->mk & km
+tm-- omfattar ett urval av krav i-->kk
+tm--är förknippad med-->tmnivå
+
+
+```
+
 ## Hypoteser
 1.	Krav beskriver en viss förmåga hos en organisation, hos en verksamhet inom en organisation, alternativt hos en teknisk komponent (som ligger under en utpekad organisations eller verksamhets ansvar).
 2.	Ett tillitsmärke beskriver att en teknisk komponent, alternativt den verksamhet och/eller organisation uppfyller en uppsättning krav med en viss grad av tillförlitlighet
@@ -12,9 +36,10 @@ graph LR
 %% ---- KRAV ---- %%
 ok(Organisatoriskt krav<br>O1, ..., ON)
 tk(Tekniskt krav<br>T1, ..., TN)
+ak(Administrativt krav<br>A1, ..., AN)
 fk(Fysiskt krav<br>F1, ..., FN)
 kk[(Kravkatalog)]
-ok & tk & fk --finns registrerade i -->kk
+ok & tk & ak & fk --finns registrerade i -->kk
 
 %% ---- EFTERLEVNADSKONTROLL ---- %%
 elk(Kontrollmekanism)
@@ -32,32 +57,19 @@ k(Kommun<br>K)
 p(Privata aktörer<br>P)
 m & r & k & p --är en-->a
 
-%% ---- FUNKTIONSOBJEKT ---- %%
-etoa(Organisationsanslutning)
-etai(Användaridentifiering)
-etam(Autentiseringsmetod)
-etah(Attributshantering)
-etak(Attributkälla)
-etiu(Intygsutfärdare)
-etåk(Åtkomstkontroll)
-etfa(Federationsanslutning)
-etso(Specialobjekt)
-
-et --delas in i-->etai & etam & etah & etak & etiu & etåk & etfa & etoa & etso
-%% ---- %%
-
 %% ---- TILLITSMÄRKEN ---- %%
 et(Ena tillitsmärken)
-%%etid(Ena tillitsmärken identitet)
-%%etb(Ena tillitsmärken behörighet)
-%%etc(Ena tillitsmärken klienter)
-%%etas(Ena tillitsmärke åtkomstintygsutfärdare)
-%%etsr(Ena tillitsmärken skyddade resurser)
-%%tid-hög(Tillitsmärke Identitet HÖG)
-%%tid-väs(Tillitsmärke Identitet VÄSENTLIG)
+eta(Ena Anslutning)
+etid(Ena Identitet)
+etattr(Ena Attribut)
+eti(Ena Intyg)
+etc(Ena Klient)
+etsr(Ena Skyddad resurs)
+tid-hög(Tillitsmärke Identitet HÖG)
+tid-väs(Tillitsmärke Identitet VÄSENTLIG)
 
-etoa-->tid-bas(Bas) & tid-väs(Väsentlig) & tid-hög(Hög) 
-%%et--delas in i-->etid & etb & etc & etas & etsr
+etid-->tid-bas(Bas) & tid-väs(Väsentlig) & tid-hög(Hög) 
+et--delas in i-->eta & etid & etattr & eti & etc &  etsr
 
 tid-bas --Omfattar-->kid-bas(Kravlista:<br>Aktör: krav/kontroll, ...<br><br>M: O1/I, O2/I, O3/S, O4/S, O5/S<br>T1/E, T2/E, T3/E, T4/S<br>F1/I, F2/S<br><br>R, K: O1/E, O2/I, O3/I, O4/S, O5/S<br>T1/C, T2/E, T3/E, T4/S<br>F1/E, F2/S<br><br>P: O1/E, O2/E, O3/I, O4/S, O5/S<br>T1/C, T2/E, T3/E, T4/S<br>F1/E, F2/S<br>)
 
