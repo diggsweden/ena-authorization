@@ -1,6 +1,6 @@
 ![Logo](https://raw.githubusercontent.com/diggsweden/ena-authorization/refs/heads/main/images/ena-logo-small.png)
 
-# Federationsinfrastruktur för identitets- och åtkomsthantering inom Sverige
+# Ena identitets- och åtkomsthantering inom Sverige
 
 ## Innehållsförteckning
 
@@ -28,11 +28,9 @@
 
     4.1 [Tillitsmärken](#tillitsmarken)
 
-    4.2 [Infrastruktur](#infrastruktur)
+    4.2 [Federationsinfrastruktur](#infrastruktur)
 
-    4.3 [Roller](#roller)
-
-    4.4 [Samverkan via digitala tjänster](#samverkan-via-digitala-tjanster)
+    4.3 [Digitala samverkan](#samverkan-via-digitala-tjanster)
 
 5. [**Strategisk plan för införande**](#strategisk-plan-for-inforande)
 
@@ -44,7 +42,7 @@
 ## 1. Inledning 
 För en tillitsfull och kostnadseffektiv samverkan över organisationsgränser inom offentlig förvaltning behöver vi ta fram nationell arkitektur, infrastruktur och tillämpningsanvisningar för identitets- och åtkomsthantering. 
 
-Det som tas fram får dock inte begränsas till att kunna användas inom offentlig förvaltning utan ska kunna tillämpas även i annan digitalisering.
+Det som tas fram får dock inte vara begränsat till att endast kunna användas inom offentlig förvaltning utan det ska kunna tillämpas även i annan digitalisering.
 
 ```mermaid
 flowchart TD
@@ -65,7 +63,7 @@ direction LR
 end
 actors:::box
 
-subgraph iam[Federationsinfrastruktur]
+subgraph iam[Ena IAM]
  Å(Åtkomsthantering):::area
  I(Identitetshantering):::area
  B(Behörighetshantering):::area
@@ -78,7 +76,7 @@ actors--har behov av-->iam
 ```
 *Logisk bild över hur områdena tillitshantering, identitetshantering och behörighetshantering ger förutsättningar för åtkomsthantering i digitala tjänster*
 
-Inom alla dessa områden finns det redan idag olika grad av standardisering. Det används dock olika standarder inom olika verksamhetsområden och detta leder till att parter som behöver samverka inom flera av dessa verksamhetsområden behöver investera i att stödja många standarder parallellt. Med ett gemensamt system för att hantera digitala identiteter och åtkomstbeslut kan samverkan mellan aktörer verksamma underlättas avsevärt. 
+Inom flera verksamhetsområden finns det redan idag olika grad av standardisering. Det används dock olika standarder inom olika verksamhetsområden och detta leder till att parter som behöver samverka inom flera av dessa verksamhetsområden behöver investera i att stödja många standarder parallellt. Med ett gemensamt system för att hantera digitala identiteter och åtkomstbeslut kan samverkan mellan aktörer verksamma underlättas avsevärt. 
 
 <a name="syfte"></a>
 ### 1.1 Syfte
@@ -86,7 +84,7 @@ Detta dokument syftar till att ge en bild över hur en svensk federationsinfratr
 
 Dokumentet bör kunna ligga som grund för en framtida strategisk plan för infrastrukturella förflyttningar som behöver genomföras, samt beroenden dem emellan. En strategisk plan behöver förhålla sig till existerande arkitektur och infrastruktur, samt redan gjorda investeringar i digitaliseringstillämpningar. Planen bör även innehålla vägledning för om, när och hur existerande digitala tjänster ska migrera över till Enas nya samverkansmönster och nyttja ny federationsinfrastruktur.
 
-Beskrivningen av federationsinfrastrukturen är även tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och leda till samsyn kring hur framtida interoperabla digitala tjänster kan och bör utformas. En nationell federationsinfrastruktur för IAM över organisationsgränser behöver omfatta följande områden:
+Beskrivningen av Ena IAM är även tänkt att fungera som underlag för diskussioner inom svensk offentlig förvaltning och leda till samsyn kring hur framtida interoperabla digitala tjänster kan och bör utformas. En nationell lösning för IAM över organisationsgränser behöver omfatta följande områden:
 - Hantering av tillit till organisationer, system och användare
 - Hantering av digitala identiteter för alla typer av användare, såväl individer, medarbetare och system
 - Förmedling av behörighetsstyrande information - för individer, medarbetare och system
@@ -99,9 +97,9 @@ Redan idag finns arkitektur för hantering av invånares e-legitimationer och me
 
 Dokumentet har tonvikt på behov av IAM mellan organisationer och är därmed inte en heltäckande referensarkitektur för samtliga behov av IAM som finns, exempelvis inom en organisation. Det är dock ofta så att dessa ligger nära varandra och även behov inom som enbart finns inom en organisation kan få stöd i detta dokument. Det är även så att arkitektur-val och tillämpning av mönster som sker inom en organisation kan påverka möjligheten att möjliggöra interaktioner över organisationsgränser, ett exempel på detta är val av legitimeringslösning.
 
-Federationsinfrastrukturen för IAM som beskrivs syftar till att fungera normerande för digital samverkan i Sverige. För hantering av IAM i specifika tillämpningar kan de nationella standarderna behöva kompletteras eller profileras.
+Ena IAM syftar till att fungera normerande för digital samverkan i Sverige. För hantering av IAM i specifika tillämpningar kan de nationella standarderna behöva kompletteras eller profileras.
 
-Kravställningen på federationsinfrastrukturen har i denna initiala fas endast drivits utifrån behov inom sektor hälsa, vård och omsorg. 
+Kravställningen på federationsinfrastrukturen har i denna initiala fas främst drivits utifrån behov inom sektor hälsa, vård och omsorg. 
 
 <a name="behovsanalysmonster"></a>
 ## 2. Behovsanalys/mönster
@@ -367,7 +365,7 @@ sequenceDiagram
         participant aas as Åtkomstintygstjänst<br><<AS>>
     end
 
-    box Org E-hälsomyndigheten 
+    box E-hälsomyndigheten 
         participant bas as Auktorisationstjänst<br><<AS>>
         participant api as NLL API<br><<RS>>
     end
@@ -414,7 +412,7 @@ sequenceDiagram
         participant aas as Åtkomstintygstjänst<br><<AS>>
     end
 
-    box Org E-hälsomyndigheten 
+    box E-hälsomyndigheten 
         participant bas as Auktorisationstjänst<br><<AS>>
         participant api as NLL API<br><<RS>>
     end
@@ -496,7 +494,7 @@ subgraph fed[Federationsinfrastruktur]
     direction TB
     r(Resolvertjänst):::comp
     op(Anslutningsoperatör):::org
-    tmop(Tillitsmärkesutfärdare):::org
+    tmop(Tillitsoperatör):::org
     m(Federerat Metadata):::comp
     oidf(Nationell OpenID Federation-profil):::spec
     beh(Nationell katalog med behörighetsgrundande attribut):::spec
@@ -532,23 +530,23 @@ Federationsinfrastrukturen innehåller ett koncept med en kravkatalog där man s
 Exakt utformning av tillitsmärken ska utredas vidare.
 
 <a name="infrastruktur"></a>
-### 4.2 Infrastruktur
+### 4.2 Federationsinfrastruktur
 
 Federationsinfrastrukturen behöver möjliggöra federativ hantering av tillitsgrundande information, digitala identiter och annan metadata. Sveriges <i>Single Digital Gateway</i>-realisering är i färd att ta fram en första version av denna federationsinfrastruktur, som vi förhoppningsvis kan bygga vidare på.
 
 <b>Not:</b> Sveriges digitala infrastruktur omfattar även identitetshantering för invånare (Svensk e-legitimation) och Sveriges eIDAS-nod (Sweden Connect) för hantering av EU-medborgares identifiering. Arkitektur och tekniska komponenter för detta ändamål finns redan etablerade och har därför exkluderats från översikten ovan i syfte att minska komplexiteten.
 
 <a name="roller"></a>
-### 4.3 Roller
+#### 4.2.1 Roller
 Den svenska federationsinfrastrukturen innehåller fyra roller:
 
-1. Ena infrastrukturansvarig - en roll som innebär att man har ett koordineringsansvar för att tillse att en svensk digital infrastruktur skapas och förvaltas. Digg innehar rollen idag.
-1. Federationsansvarig - en roll som ansvarar för att hålla metadata om federationsinfrastrukturens anslutningsoperatörer och tillitsmärkesutfärdare. Man ska som federationsansvarig även tillhandahålla en tillitsuppslagstjänst.
-1. Tillitsmärkesutfärdare - en roll inom infrastrukturen för de aktörer som tillser att aktörers uppfyllnad av krav uppfylls med en för tillitsmärkets adekvat tillförlitlighet. Exempel på tillförlitlighetsnivåer i dessa granskningar kan vara självdeklaration, intern revision, eller extern revision. Tillitsmärkesutfärdaren registrerar utfärdade tillitsmärken i en federationsmetadatatjänst som är åtkomlig för federationsansvariges tillitsuppslagstjänst.
+1. Ena ledningsaktör - en roll som innebär att man har ett koordineringsansvar för att tillse att en svensk digital infrastruktur skapas och förvaltas. Digg innehar rollen idag.
+1. Federationsoperatör - en roll som ansvarar för att hålla metadata om federationsinfrastrukturens anslutningsoperatörer och tillitsoperatör. Man ska som federationsoperatör även tillhandahålla en uppslags- och verifieringstjänst.
+1. Tillitsoperatör - en roll inom infrastrukturen för de aktörer som tillser att aktörers uppfyllnad av krav uppfylls med en för tillitsmärkets adekvat tillförlitlighet. Exempel på tillförlitlighetsnivåer i dessa granskningar kan vara självdeklaration, intern revision, eller extern revision. Tillitsoperatörn registrerar utfärdade tillitsmärken i en federationsmetadatatjänst som är åtkomlig för federationsoperatörens uppslags- och verifieringstjänst.
 1. Anslutningsoperatör - en roll för de parter som tillser att aktörer som vill samverka via digitala tjänster inom Ena uppfyller SKALL-krav gällande tillitsmärken och därefter registrerar aktörens metadata i sin federationsmetadatatjänst.
 
 <a name="samverkan-via-digitala-tjanster"></a>
-### 4.4 Samverkan via digitala tjänster
+### 4.3 Samverkan via digitala tjänster
 
 Samverkan via digitala tjänster kan ske antingen via direkt avtal med en tjänsteproducent i de fall det endast finns **en** tjänsteproducent för aktuell samverkan. Alternativt, om det finns multipla tjänstekonsumenter och tjänsteproducenter är det motiverat att forma en federation för informationsutbyte (benämns även informationsfederation). Detta görs främst för att underlätta tecknande av avtal och GDPR personuppgiftsbiträdesavtal (PUB-avtal), men en informationsfederation kan också ge en effektiv struktur för styrning, kontroll och förvaltning av överenskommelser kring informationsutbytet. 
 
