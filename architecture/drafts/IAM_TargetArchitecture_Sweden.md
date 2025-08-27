@@ -498,7 +498,7 @@ subgraph fed[Federationsinfrastruktur]
     tmop(Tillitsoperatör):::org
     m(Federerat Metadata):::comp
     oidf(Nationell OpenID Federation-profil):::spec
-    beh(Nationell katalog med behörighetsgrundande attribut):::spec
+    beh(Attributdefinitioner):::spec
 
     tmop--registrera tillitsmärken-->m
     op--registrera tekniska komponenter-->m
