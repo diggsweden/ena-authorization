@@ -484,14 +484,15 @@ subgraph ds[Digital samverkan]
     oauth(Nationell profileringar av OAuth 2.0-flöden):::spec  
     saml(Nationell profileringar av SAML-flöden):::spec  
 
-    tk--<p>4. anropar-->tp
-    tk--<p>3. begär åtkomst-->tp
+    tk--<p>3. anropar-->tp
+    tk--<p>2. begär åtkomst-->tp
     tp ~~~ oauth & saml
 end
 ds:::box
 
 subgraph fed[Federationsinfrastruktur]
     direction TB
+    fa(Federationsoperatör):::org~~~r & op & tmop
     r(Resolvertjänst):::comp
     op(Anslutningsoperatör):::org
     tmop(Tillitsoperatör):::org
