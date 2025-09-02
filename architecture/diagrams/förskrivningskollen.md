@@ -1,11 +1,11 @@
 ```mermaid 
 sequenceDiagram
 autonumber
-    box rgb(230,255,255) Region A
+    box Region A
     participant A as Användar-<br>browser
     participant B as IdP
     end
-    box rgb(230,255,230) EHM
+    box EHM
     participant C as SP Förskrivningskollen
     participant D as Förskrivningskollen
     end
