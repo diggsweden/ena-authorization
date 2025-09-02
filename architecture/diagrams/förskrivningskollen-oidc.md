@@ -1,16 +1,16 @@
 ```mermaid 
 sequenceDiagram
 autonumber
-    box rgb(230,255,255) Region
+    box Region
         participant User
     end
-    box rgb(230,255,230) EHM
+    box EHM
         participant Client as Förskrivningskollen Client Server
     end
-    box rgb(230,255,255) Region/Ombud
+    box Region/Ombud
         participant OP as OpenID Provider (Autentication Server)
     end
-    box rgb(230,255,255) Region/Ombud
+    box Region/Ombud
         participant RS as Resource Server (Authorisation Server)
     end
 
