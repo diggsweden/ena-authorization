@@ -469,30 +469,27 @@ subgraph ds[Digital samverkan]
     direction TB
 
     u(Användare)
-    subgraph tk[Tjänstekonsument]
-        k(App/Webbgränssnitt):::comp
-    end
-    tk:::org
-    u --<p>1. loggar in via-->tk
+    k(App/e-tjänst):::comp
+    u --<p>1. loggar in via-->k
 
-    subgraph tp[Tjänsteproducent]
-        t(Digital tjänst)-.litar på.->as(Åtkomstintygstjänst)
-        t:::comp
-        as:::comp
-    end
-    tp:::org
-    oauth(Nationell profileringar av OAuth 2.0-flöden):::spec  
-    saml(Nationell profileringar av SAML-flöden):::spec  
+    t(Skyddad resurs):::comp
+    as(Åtkomstintygstjänst):::comp
+    t-.litar på.-as
 
-    tk--<p>3. anropar-->tp
-    tk--<p>2. begär åtkomst-->tp
-    tp ~~~ oauth & saml
+    oauth(Nationell profilering av OAuth2):::spec  
+    saml(Mönster för autentisering med OIDC och SAML):::spec  
+
+    k--<p>2. begär åtkomst-->as
+    k--<p>3. anropar-->t
+    as ~~~ oauth & saml
 end
 ds:::box
 
 subgraph fed[Federationsinfrastruktur]
     direction TB
     fa(Federationsoperatör):::org~~~r & op & tmop
+    fa --erbjuder-->r
+    fa--ansluter-->op & tmop
     r(Resolvertjänst):::comp
     op(Anslutningsoperatör):::org
     tmop(Tillitsoperatör):::org
