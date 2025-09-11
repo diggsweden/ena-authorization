@@ -1,6 +1,6 @@
 ![Logo](https://raw.githubusercontent.com/diggsweden/ena-authorization/refs/heads/main/images/ena-logo-small.png)
 
-# Ena identitets- och åtkomsthantering inom Sverige
+# Ena IAM - sammanhållen identitets- och behörighetshantering 
 
 ## Innehållsförteckning
 
@@ -40,7 +40,7 @@
 
 <a name="inledning"></a>
 ## 1. Inledning 
-För en tillitsfull och kostnadseffektiv samverkan över organisationsgränser inom offentlig förvaltning behöver vi ta fram nationell arkitektur, infrastruktur och tillämpningsanvisningar för identitets- och åtkomsthantering. 
+För en tillitsfull och kostnadseffektiv samverkan över organisationsgränser inom offentlig förvaltning behöver vi ta fram nationell arkitektur, infrastruktur och tillämpningsanvisningar för identitets- och behörighetshantering. 
 
 Det som tas fram får dock inte vara begränsat till att endast kunna användas inom offentlig förvaltning utan det ska kunna tillämpas även i annan digitalisering.
 
@@ -90,12 +90,12 @@ Beskrivningen av Ena IAM är även tänkt att fungera som underlag för diskussi
 - Förmedling av behörighetsstyrande information - för individer, medarbetare och system
 - Standardisering av digital legitimering och åtkomstbeslut - för fysiska användare och system
 
-Redan idag finns arkitektur för hantering av invånares e-legitimationer och medarbetares e-tjänstelegitimationer. Det som saknas är framförallt ett övergripande stöd för hantering av systemanvändare identiteter, samt tillitsgrundande information för organisationer och medarbetare. Arkitekturella mönster, standarder och infrastruktur för dessa ändamål är presenteras i detta dokument.
+Redan idag finns arkitektur för hantering av invånares e-legitimationer och medarbetares e-tjänstelegitimationer. Det som saknas är framförallt ett övergripande stöd för hantering av systemanvändares identiteter, behörighetsgrundande information, samt tillitsgrundande information. Arkitekturella mönster, standarder och infrastruktur för dessa ändamål presenteras i detta dokument.
 
 <a name="avgransningar"></a>
 ### 1.2 Avgränsningar
 
-Dokumentet har tonvikt på behov av IAM mellan organisationer och är därmed inte en heltäckande referensarkitektur för samtliga behov av IAM som finns, exempelvis inom en organisation. Det är dock ofta så att dessa ligger nära varandra och även behov inom som enbart finns inom en organisation kan få stöd i detta dokument. Det är även så att arkitektur-val och tillämpning av mönster som sker inom en organisation kan påverka möjligheten att möjliggöra interaktioner över organisationsgränser, ett exempel på detta är val av legitimeringslösning.
+Dokumentet har tonvikt på behov av IAM mellan organisationer och är därmed inte en heltäckande referensarkitektur för samtliga behov av IAM som finns, exempelvis inom en organisation. Det är dock ofta så att dessa ligger nära varandra och även behov inom som enbart finns inom en organisation kan få stöd i detta dokument. Det är även så att arkitekturval och tillämpning av mönster som sker inom en organisation kan påverka möjligheten att möjliggöra interaktioner över organisationsgränser, ett exempel på detta är val av legitimeringslösning.
 
 Ena IAM syftar till att fungera normerande för digital samverkan i Sverige. För hantering av IAM i specifika tillämpningar kan de nationella standarderna behöva kompletteras eller profileras.
 
